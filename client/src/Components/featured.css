@@ -1,0 +1,22 @@
+.froot{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 4rem;
+}
+
+.vmbuttton{
+    width: 20%;
+    height: 5%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid orange;
+    border-radius: 1rem;
+    margin: 2rem 0rem;
+    background-color: orange;
+    color: white;
+    position: relative;
+    left: 40%;
+}
