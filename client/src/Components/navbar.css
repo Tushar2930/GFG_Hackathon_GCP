@@ -30,6 +30,7 @@ img{
 ul{
     width: 50%;
     height:100%;
+    list-style-type: none;
 }
 
 .lhj{
