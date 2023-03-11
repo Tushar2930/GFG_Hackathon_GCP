@@ -1,0 +1,38 @@
+.droot{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imroot{
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+}
+
+.imgside{
+    height: 100%;
+    width: 45%;
+}
+
+.ftext{
+    width: 45%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cbtn{
+    border: 2px solid orange;
+    height: 10%;
+    width: 40%;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: orange;
+    color: white;
+    border-radius: 1rem;
+}

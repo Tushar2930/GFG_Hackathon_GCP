@@ -1,4 +1,4 @@
-import { Routes, Route, json, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Content/Home/Home.js";
 import Navbar from "./Components/Navbar/Navbar.js";
 import "./App.css";
@@ -6,6 +6,7 @@ import About from "./Components/Content/About/AboutUs.js";
 import Contact from "./Components/Content/Contact/Contact.js";
 import Blog from "./Components/Content/Blog/Blog.js";
 import Shop from "./Components/Content/Shop/Shop.js";
+import Footer from "./Components/Footer/footer.js";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/blog" element={<Blog />} />
         <Route exact path="/shop" element={<Shop />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
