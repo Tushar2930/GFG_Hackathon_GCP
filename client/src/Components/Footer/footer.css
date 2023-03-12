@@ -1,47 +1,171 @@
-.f3{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-    /* height: 100%; */
-    height: 90%;
-}
-
-.f2{
-    width: 30%;
-    /* height: 100%; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 90%;
-    justify-content: space-evenly;
-}
-
-
-.f1{
-    width: 30%;
-    /* height: 100%; */
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.foooter{
-    
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-    padding: 1rem;
-    background-color: #363636;
+.footer {
+    background-color: #414141;
     color: white;
-    height: 25rem;
 }
 
-.ful{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    list-style-type: none;
+.footer-horizontal-line {
+    border: 0.5px solid #666;
+}
+
+.footer-h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24spx;
+    font-weight: bold;
+    margin-bottom: 4%;
+    margin-top: 3%;
+}
+
+.footer-text-font {
+    font-family: Sans-Serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #999;
+}
+
+.footer-div1-font {
+    font-family: Sans-Serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.footer-social-media-icons {
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 1.7rem;
+}
+
+
+
+/* Head of footer */
+.footer-head {
+    margin-left: 6%;
+    margin-right: 6%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+}
+
+.footer-head-col {
+    padding: 0;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.footer-head-div-1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-head-div-2 {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+
+
+/* Base of footer */
+.footer-base {
+    margin-left: 7%;
+    margin-right: 7%;
+    padding-top: 1.2%;
+    padding-bottom: 1.2%;
+}
+
+.footer-lower-right {
+    text-align: right;
+}
+
+
+.cs-links {
+    text-decoration: none;
+    color: #999;
+}
+
+.cs-links:hover {
+    color: #666;
+    text-decoration: underline;
+  }
+
+.sm-icons-links {
+    text-decoration: none;
+    color: white;
+}
+
+.sm-icons-links:hover {
+    color: #dee3de
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
+/* Media Queries */
+
+/* For small Size */
+.accordion-footer {
+    background-color: #414141;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 4%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.footer-div1-font-sm {
+    font-family: Sans-Serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.footer-text-font-sm {
+    color: #999;
+}
+
+.footer-social-media-icons-sm {
+    color: white;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 1.7rem;
+}
+
+.footer-lower-sm {
+    margin-top: 5px;
+}
+
+
+.accordion-body {
+    background-color: #414141;
+}
+
+.accordion-item {
+    border-width: 0;
+}
+
+.accordion-button {
+    color: white;
+    font-size: 20px;
+}
+
+.accordion-button.collapsed {
+    background: #414141;
+}
+  
+
+/* # changes the color of accordion icon on right side */
+.accordion-button.collapsed::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+
+/* Added the grey bg-color to open accordion h2, then removed the default blue border color when accordion item is open, then removed the default blue font color when accordion item is open */
+.accordion-button:not(.collapsed) {
+    background-color: #414141;
+    box-shadow: none;
+    color: white;
+}
+
+/* remove the default blue button icon color when accordion item is open */
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }

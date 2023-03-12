@@ -6,7 +6,7 @@ import About from "./Components/Content/About/AboutUs.js";
 import Contact from "./Components/Content/Contact/Contact.js";
 import Blog from "./Components/Content/Blog/Blog.js";
 import Shop from "./Components/Content/Shop/Shop.js";
-import Footer from "./Components/Footer/footer.js";
+import Footer from "./Components/Footer/Footer.js";
 
 function App() {
   return (
