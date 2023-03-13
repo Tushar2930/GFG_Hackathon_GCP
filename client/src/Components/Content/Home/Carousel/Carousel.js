@@ -4,15 +4,40 @@ import "./carousel.css";
 function Carousel() {
   return (
     <div className="carousel">
-      <form>
-        <input type="radio" name="fancy" autoFocus value="clubs" id="1" />
-        <input type="radio" name="fancy" value="hearts" id="2" />
-        <input type="radio" name="fancy" value="spades" id="3" />
-        <input type="radio" name="fancy" value="diamonds" id="4" />
-        <label htmlFor="1"></label>
-        <label htmlFor="2"></label>
-        <label htmlFor="3"></label>
-        <label htmlFor="4"></label>
+      <form className="carouselForm">
+        <input
+          className="carouselInput"
+          type="radio"
+          name="fancy"
+          autoFocus
+          value="clubs"
+          id="_1"
+        />
+        <input
+          className="carouselInput"
+          type="radio"
+          name="fancy"
+          value="hearts"
+          id="_2"
+        />
+        <input
+          className="carouselInput"
+          type="radio"
+          name="fancy"
+          value="spades"
+          id="_3"
+        />
+        <input
+          className="carouselInput"
+          type="radio"
+          name="fancy"
+          value="diamonds"
+          id="_4"
+        />
+        <label htmlFor="_1" className="carouselLabel"></label>
+        <label htmlFor="_2" className="carouselLabel"></label>
+        <label htmlFor="_3" className="carouselLabel"></label>
+        <label htmlFor="_4" className="carouselLabel"></label>
 
         <div className="keys">Use left and right keys to navigate</div>
       </form>
