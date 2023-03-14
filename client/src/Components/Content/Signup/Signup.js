@@ -1,24 +1,33 @@
-import React, { useState, useEffect } from "react";
-import { createUser } from "../../api/createUser.js";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthorizationContext.js";
 import "./Signup.css";
 
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [userName, setName] = useState("");
   const [accountNo, setAccountNo] = useState("");
   const [aadharNo, setAadharNo] = useState("");
   const [profession, setProfession] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    userName.length &&
-      createUser(email, password, userName, accountNo, aadharNo);
-  }, [isLoggedIn]);
+  const useAuth = useContext(AuthContext);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    setIsLoggedIn(true);
+  const handelSignUp = async (e) => {
+    try {
+      setIsLoading(true);
+      e.preventDefault();
+      await useAuth.Signup(email, password).then((result) => {
+        console.log(result);
+      });
+
+      setIsLoading(false);
+      setIsLoggedIn(true);
+    } catch (err) {
+      console.log(err.message);
+    }
   };
 
   const handleLogout = (e) => {
@@ -53,14 +62,13 @@ function Signup() {
             value="  Big Company"
             onClick={(e) => {
               setProfession(e.target.value);
-              console.log(e.target.value);
             }}>
             Big Company
           </button>
         </>
       )}
       {profession.length !== 0 && (
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handelSignUp}>
           <label>
             Email:
             <input
@@ -77,6 +85,15 @@ function Signup() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <label>
+            Confirm Password:
+            <input
+              required
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </label>
           <label>
@@ -109,7 +126,7 @@ function Signup() {
               onChange={(e) => setAadharNo(e.target.value)}
             />
           </label>
-          <button type="submit">Login</button>
+          {!isLoading && <button type="submit">Login</button>}
         </form>
       )}
     </div>
