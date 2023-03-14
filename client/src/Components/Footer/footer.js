@@ -1,6 +1,6 @@
 import React  from "react";
 import "./footer.css";
-import make_in_india_img from "./images/make_in_india.png"
+import make_in_india_img from "./images/make_in_india.png" 
 import { Link } from "react-router-dom";
 import { FiMail } from 'react-icons/fi';
 import { FaPhoneAlt } from "react-icons/fa"

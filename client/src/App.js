@@ -6,8 +6,9 @@ import About from "./Components/Content/About/AboutUs.js";
 import Contact from "./Components/Content/Contact/Contact.js";
 import Signup from "./Components/Content/Signup/Signup.js";
 import Shop from "./Components/Content/Shop/Shop.js";
-import Footer from "./Components/Footer/Footer.js";
-
+import Footer from "./Components/Footer/footer";
+// import Veg_sell from "./Components/Content/Sell_form/veg_sell_from.js";
+ 
 function App() {
   return (
     <div className="App">
