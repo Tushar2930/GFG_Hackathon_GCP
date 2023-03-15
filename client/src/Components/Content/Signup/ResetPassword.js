@@ -49,7 +49,7 @@ export default function ResetPassword() {
           />
         </label>
       </form>
-      <button onClick={() => handleResetPassword()}>
+      <button disabled={isLoading} onClick={() => handleResetPassword()}>
         {!isLoading ? "Reset Pasword" : <CircularProgress />}
       </button>
       <div>
