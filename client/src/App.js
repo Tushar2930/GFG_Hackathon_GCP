@@ -7,6 +7,7 @@ import "./App.css";
 import About from "./Components/Content/About/AboutUs.js";
 import Contact from "./Components/Content/Contact/Contact.js";
 import Signup from "./Components/Content/Signup/Signup.js";
+import SignIn from "./Components/Content/Signup/SignIn.js";
 import Shop from "./Components/Content/Shop/Shop.js";
 import Footer from "./Components/Footer/Footer.js";
 
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/about-us" element={<About />} />
           <Route exact path="/contact-us" element={<Contact />} />
           <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/signin" element={<SignIn />} />
           <Route exact path="/shop" element={<Shop />} />
         </Routes>
         <Footer />

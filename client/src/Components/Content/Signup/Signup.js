@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthorizationContext.js";
+import { Link } from "react-router-dom";
 import "./Signup.css";
 
 function Signup() {
@@ -19,20 +20,13 @@ function Signup() {
     try {
       setIsLoading(true);
       e.preventDefault();
-      await useAuth.Signup(email, password).then((result) => {
-        console.log(result);
-      });
+      await useAuth.Signup(email, password).then((result) => {});
 
       setIsLoading(false);
       setIsLoggedIn(true);
     } catch (err) {
       console.log(err.message);
     }
-  };
-
-  const handleLogout = (e) => {
-    e.preventDefault();
-    setIsLoggedIn(false);
   };
 
   if (isLoggedIn) {
@@ -129,6 +123,9 @@ function Signup() {
           {!isLoading && <button type="submit">Login</button>}
         </form>
       )}
+      <div>
+        Already a user<Link to="/signin">SignIn</Link>
+      </div>
     </div>
   );
 }
