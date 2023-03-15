@@ -8,6 +8,7 @@ import Signup from "./Components/Content/Signup/Signup.js";
 import Shop from "./Components/Content/Shop/Shop.js";
 import Footer from "./Components/Footer/footer";
 // import Veg_sell from "./Components/Content/Sell_form/veg_sell_from.js";
+// import User_profile from "./Components/User_profile/User_profile.js";
  
 function App() {
   return (
