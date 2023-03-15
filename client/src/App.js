@@ -11,7 +11,6 @@ import SignIn from "./Components/Content/Signup/SignIn.js";
 import ResetPassword from "./Components/Content/Signup/ResetPassword";
 import Shop from "./Components/Content/Shop/Shop.js";
 import Footer from "./Components/Footer/footer";
-// import Veg_sell from "./Components/Content/Sell_form/veg_sell_from.js";
 
 function App() {
   return (
