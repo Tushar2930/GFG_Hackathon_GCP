@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { CircularProgress } from "@mui/material";
 import { AuthContext } from "../context/AuthorizationContext.js";
 import { Link } from "react-router-dom";
 import "./Signup.css";
@@ -11,7 +12,6 @@ function Signup() {
   const [accountNo, setAccountNo] = useState("");
   const [aadharNo, setAadharNo] = useState("");
   const [profession, setProfession] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const useAuth = useContext(AuthContext);
@@ -20,16 +20,16 @@ function Signup() {
     try {
       setIsLoading(true);
       e.preventDefault();
-      await useAuth.Signup(email, password).then((result) => {});
-
-      setIsLoading(false);
-      setIsLoggedIn(true);
+      await useAuth.Signup(email, password).then((result) => {
+        setIsLoading(false);
+      });
     } catch (err) {
       console.log(err.message);
+      setIsLoading(false);
     }
   };
 
-  if (isLoggedIn) {
+  if (useAuth.currentUser) {
     return (
       <div className="container">
         <h1> You Are Loggedin!</h1>
@@ -120,11 +120,13 @@ function Signup() {
               onChange={(e) => setAadharNo(e.target.value)}
             />
           </label>
-          {!isLoading && <button type="submit">Login</button>}
+          <button disabled={!isLoading} type="submit">
+            {!isLoading ? "Login" : <CircularProgress />}
+          </button>
         </form>
       )}
       <div>
-        Already a user<Link to="/signin">SignIn</Link>
+        Already a user - <Link to="/signin">SignIn</Link>
       </div>
     </div>
   );

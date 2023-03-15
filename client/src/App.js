@@ -8,8 +8,10 @@ import About from "./Components/Content/About/AboutUs.js";
 import Contact from "./Components/Content/Contact/Contact.js";
 import Signup from "./Components/Content/Signup/Signup.js";
 import SignIn from "./Components/Content/Signup/SignIn.js";
+import ResetPassword from "./Components/Content/Signup/ResetPassword";
 import Shop from "./Components/Content/Shop/Shop.js";
-import Footer from "./Components/Footer/Footer.js";
+import Footer from "./Components/Footer/footer";
+// import Veg_sell from "./Components/Content/Sell_form/veg_sell_from.js";
 
 function App() {
   return (
@@ -22,6 +24,11 @@ function App() {
           <Route exact path="/contact-us" element={<Contact />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/signin" element={<SignIn />} />
+          <Route
+            exact
+            path="/signin/resetpassword"
+            element={<ResetPassword />}
+          />
           <Route exact path="/shop" element={<Shop />} />
         </Routes>
         <Footer />
