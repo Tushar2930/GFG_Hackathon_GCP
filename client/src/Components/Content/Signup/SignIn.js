@@ -22,17 +22,7 @@ export default function SignIn() {
       console.log(error.message);
     }
   };
-  const handleSignOut = async () => {
-    try {
-      setIsLoading(true);
-      await useAuth.SignOut().then((result) => {
-        setIsLoading(false);
-      });
-    } catch (error) {
-      console.log(error.message);
-      setIsLoading(false);
-    }
-  };
+
   const handleSignInWithGooglePopUp = async () => {
     try {
       setIsLoading(true);
@@ -44,6 +34,17 @@ export default function SignIn() {
       setIsLoading(false);
     }
   };
+
+  if (useAuth.currentUser) {
+    return (
+      <div className="container">
+        <h1> You Are Loggedin!</h1>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="container">
@@ -68,15 +69,17 @@ export default function SignIn() {
         </label>
       </form>
       <a href="/signin/resetpassword">Forgot Password ?</a>
-      <button onClick={() => handleSignIn()}>
+      <button disabled={isLoading} onClick={() => handleSignIn()}>
         {!isLoading ? "Login" : <CircularProgress />}
       </button>
       <div>--------------------------------------------------------</div>
       <div>Or</div>
-      <button onClick={() => handleSignInWithGooglePopUp()}>
-        signin with google
+      <button
+        disabled={isLoading}
+        onClick={() => handleSignInWithGooglePopUp()}>
+        {!isLoading ? "signin with google" : <CircularProgress />}
       </button>
-      <button onClick={() => handleSignOut()}>signOut</button>
+
       <div>
         New user<Link to="/signup"> Sign Up </Link>
       </div>
