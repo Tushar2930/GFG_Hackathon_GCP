@@ -14,15 +14,13 @@
 //   const db=firebase.firestore();
 //   module.exports=db;
 
-
-
 var admin = require("firebase-admin");
 
 var serviceAccount = require("./sevice-key.json");
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(serviceAccount),
 });
 
-const db=admin.firestore();
-module.exports=db;
+const db = admin.firestore();
+module.exports = db;
