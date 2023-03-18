@@ -3,13 +3,17 @@ import Carousel from "./Carousel/Carousel";
 import Featured from "./Features/Featured";
 import DealsWeek from "./DealsOfTheWeek/DealsWeek";
 import Poster from "./Poster/Poster";
+import BuyingCardList from "./BuyingSection/BuyingCardList";
+import RentingCardList from "./RentingSection/RentingCardList";
+
 
 function Home() {
   return (
     <>
       <Carousel />
-      <Featured />
+      <BuyingCardList />
       <DealsWeek />
+      <RentingCardList />
       <Poster />
     </>
   );

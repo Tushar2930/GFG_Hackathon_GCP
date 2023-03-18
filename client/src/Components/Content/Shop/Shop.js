@@ -1,11 +1,12 @@
 import React from "react";
+import ProductSection from "./ShopPages/ProductSection/ProductSection";
 
 
 function Shop(){
 
     return <>
-        SHOP
+        <ProductSection />
     </>
 }
 
-export default Shop
+export default Shop;

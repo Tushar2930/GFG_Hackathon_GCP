@@ -18,8 +18,8 @@ function Signup() {
 
   const handelSignUp = async (e) => {
     try {
-      setIsLoading(true);
       e.preventDefault();
+      setIsLoading(true);
       await useAuth.Signup(email, password).then((result) => {
         setIsLoading(false);
       });
@@ -120,7 +120,7 @@ function Signup() {
               onChange={(e) => setAadharNo(e.target.value)}
             />
           </label>
-          <button disabled={!isLoading} type="submit">
+          <button disabled={!isLoading} onClick={e=>handelSignUp(e)}>
             {!isLoading ? "Login" : <CircularProgress />}
           </button>
         </form>
