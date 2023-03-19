@@ -1,9 +1,9 @@
 import React from "react";
-import Products from "./LocalMarket/products";
+import Products from "./ServicesListing/products";
 import Filters from "./Filters/filters";
 
 
-function LocalFarmerMarket(){
+function ServicesRequiredListing(){
     var verticalLineStyle = {
         borderLeft: "0.5px solid #E0E1E4"
     }
@@ -22,4 +22,4 @@ function LocalFarmerMarket(){
     )
 }
 
-export default LocalFarmerMarket;
+export default ServicesRequiredListing;

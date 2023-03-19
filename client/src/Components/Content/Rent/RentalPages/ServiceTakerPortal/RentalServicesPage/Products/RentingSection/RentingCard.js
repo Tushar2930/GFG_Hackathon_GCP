@@ -1,6 +1,8 @@
 import React from "react";
 import "./RentingCard.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 
 function Card({ name, content }) {
 
@@ -17,7 +19,9 @@ function Card({ name, content }) {
                         <p class="card-hr"></p>
                         <div className="row">
                             <div className="col-6">$20/month</div>
-                            <div className="col-6"><button type="button" class="btn btn-info float-right">Rent Now</button></div>
+                            <div className="col-6"><button type="button" class="btn btn-info float-right">
+                                <Link to='/rent/service'>Rent Now</Link>
+                            </button></div>
                         </div>
                     </div>
                 </div>

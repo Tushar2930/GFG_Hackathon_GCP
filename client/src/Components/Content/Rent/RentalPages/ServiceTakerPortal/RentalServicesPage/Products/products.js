@@ -1,5 +1,5 @@
 import React from "react";
-import BuyingCardList from "./BuyingSection/BuyingCardList"
+import BuyingCardList from "./RentingSection/RentingCardList"
 
 
 function Products(){
