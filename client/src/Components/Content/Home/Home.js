@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect}from "react";
 import Carousel from "./Carousel/Carousel";
 import Featured from "./Features/Featured";
 import DealsWeek from "./DealsOfTheWeek/DealsWeek";
@@ -8,10 +8,12 @@ import RentingCardList from "./RentingSection/RentingCardList";
 
 
 function Home() {
+
+ 
   return (
-    <>
+    <> 
       <Carousel />
-      <BuyingCardList />
+      <BuyingCardList/>
       <DealsWeek />
       <RentingCardList />
       <Poster />

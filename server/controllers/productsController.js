@@ -24,10 +24,11 @@ module.exports.getAllProducts = async function (req, res) {
       name: doc.data().name,
       price: doc.data().price,
       quantity: doc.data().quantity });
-      console.log(list)
+      // console.log(list)
     });
     return res.json({
-      message:"success"
+      message:"success",
+      data:list
     })
   } catch (error) {
     console.log(error.message);

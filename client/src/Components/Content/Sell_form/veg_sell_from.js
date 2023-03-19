@@ -26,6 +26,11 @@ function Veg_sell(){
         descricption
       })
     })
+    const data= await resp.json();
+    if(data.message==='data added successfully'){
+      alert('Product added Successfully');
+      window.location.href='/';
+    }
   }
 
     return <div className="form_root">
