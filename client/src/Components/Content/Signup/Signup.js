@@ -1,32 +1,43 @@
 import React, { useState, useContext } from "react";
+import { createUser } from "../../api/createUser";
 import { CircularProgress } from "@mui/material";
 import { AuthContext } from "../context/AuthorizationContext.js";
 import { Link } from "react-router-dom";
 import "./Signup.css";
 
 function Signup() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [userName, setName] = useState("");
-  const [accountNo, setAccountNo] = useState("");
-  const [aadharNo, setAadharNo] = useState("");
   const [profession, setProfession] = useState("");
+  const [confirmPassword, setconfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+  const [form, setForm] = useState({
+    userName: "",
+    email: "",
+    password: "",
+    accountNo: "",
+    aadharNo: "",
+  });
   const useAuth = useContext(AuthContext);
+
+  const handleEntryChanges = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
 
   const handelSignUp = async (e) => {
     try {
       e.preventDefault();
       setIsLoading(true);
-      await useAuth.Signup(email, password).then((result) => {
-        setIsLoading(false);
-      });
+      form.password === confirmPassword
+        ? await useAuth.Signup(form.email, form.password).then((result) => {
+            createUser(form);
+            setIsLoading(false);
+          })
+        : alert("Password and confirm password does not matched");
     } catch (err) {
       console.log(err.message);
       setIsLoading(false);
     }
+    setIsLoading(false);
   };
 
   const handleSignOut = async () => {
@@ -81,58 +92,64 @@ function Signup() {
           <label>
             Email:
             <input
+              name="email"
               required
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={form.email}
+              onChange={(e) => handleEntryChanges(e)}
             />
           </label>
           <label>
             Password:
             <input
+              name="password"
               required
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={form.password}
+              onChange={(e) => handleEntryChanges(e)}
             />
           </label>
           <label>
             Confirm Password:
             <input
+              name="confirmPassword"
               required
               type="password"
               value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              onChange={(e) => setconfirmPassword(e.target.value)}
             />
           </label>
           <label>
             Name:
             <input
+              name="userName"
               required
               type="text"
-              value={userName}
-              onChange={(e) => setName(e.target.value)}
+              value={form.userName}
+              onChange={(e) => handleEntryChanges(e)}
             />
           </label>
           <label>
             Account No:
             <input
+              name="accountNo"
               type="number"
               required
-              value={accountNo}
+              value={form.accountNo}
               minLength={12}
               maxLength={12}
-              onChange={(e) => setAccountNo(e.target.value)}
+              onChange={(e) => handleEntryChanges(e)}
             />
           </label>
           <label>
             Aadhar No:
             <input
+              name="aadharNo"
               required
               type="number"
-              value={aadharNo}
+              value={form.aadharNo}
               minLength="12"
-              onChange={(e) => setAadharNo(e.target.value)}
+              onChange={(e) => handleEntryChanges(e)}
             />
           </label>
           <button disabled={isLoading} type="submit">
