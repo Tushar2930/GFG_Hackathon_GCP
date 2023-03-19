@@ -12,6 +12,7 @@ import Shop from "./Components/Content/Shop/Shop.js";
 import Footer from "./Components/Footer/footer";
 import Renting from "./Components/Content/Rent/Renting.js";
 import Contact from "./Components/Content/Contact/Contact.js";
+import Veg_Sell from "./Components/Content/Sell_form/veg_sell_from";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/shop" element={<Shop />} />
           <Route exact path="/rent" element={<Renting />} />
           <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/sell" element={<Veg_Sell />} />
         </Routes>
         <Footer />
       </div>
