@@ -135,7 +135,7 @@ function Signup() {
               onChange={(e) => setAadharNo(e.target.value)}
             />
           </label>
-          <button disabled={!isLoading} type="submit">
+          <button disabled={isLoading} type="submit">
             {!isLoading ? "Login" : <CircularProgress />}
           </button>
         </form>
