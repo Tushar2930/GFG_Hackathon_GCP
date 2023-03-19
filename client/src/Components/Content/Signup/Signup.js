@@ -29,13 +29,28 @@ function Signup() {
     }
   };
 
+  const handleSignOut = async () => {
+    try {
+      setIsLoading(true);
+      await useAuth.SignOut().then((result) => {
+        setIsLoading(false);
+      });
+    } catch (error) {
+      console.log(error.message);
+      setIsLoading(false);
+    }
+  };
+
   if (useAuth.currentUser) {
     return (
       <div className="container">
         <h1> You Are Loggedin!</h1>
-        <a href="/">
+        <Link to="/">
           <button>Home</button>
-        </a>
+        </Link>
+        <button disabled={isLoading} onClick={() => handleSignOut()}>
+          {!isLoading ? "signOut" : <CircularProgress />}
+        </button>
       </div>
     );
   }
@@ -120,7 +135,7 @@ function Signup() {
               onChange={(e) => setAadharNo(e.target.value)}
             />
           </label>
-          <button disabled={!isLoading} onClick={e=>handelSignUp(e)}>
+          <button disabled={!isLoading} type="submit">
             {!isLoading ? "Login" : <CircularProgress />}
           </button>
         </form>

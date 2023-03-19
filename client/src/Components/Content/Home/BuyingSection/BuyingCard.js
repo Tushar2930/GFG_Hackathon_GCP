@@ -25,7 +25,7 @@ function Card({ img_url, name, description, price }) {
                     </div>
 
                     <div class="row px-3">
-                        <div class="footer-btn col btn btn-outline-dark left-btn">
+                        <div class="footer-btn col btn btn-outline-dark buy-left-btn">
                             <div class="input-group">
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]" onClick={() => {setinputValue(inputValue-1)}}>
@@ -40,7 +40,7 @@ function Card({ img_url, name, description, price }) {
                                 </span>
                             </div>
                         </div>
-                        <div class="footer-btn col btn btn-outline-success right-btn">Add to Cart</div>
+                        <div class="footer-btn col btn btn-outline-success buy-right-btn">Add to Cart</div>
                     </div>       
                 </div>
             </div>

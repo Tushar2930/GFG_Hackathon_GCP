@@ -7,14 +7,10 @@
 	background: white;
 }
 .card-title {
-	font-size: 26px;
-	font-weight: 700;
     transition: all .5s ease-in-out;
 }
 
-.price {
-	font-size: 18px; 
-	font-weight: 900;    
+.price {   
     transition: .6s;
 }
 /* .card:hover .price{
@@ -65,8 +61,10 @@
     width: 100%;
 }
 .product-card:hover {
+    transition: all .4s ease;
+    -webkit-transition: all .6s ease;
     transform: scale(1.1);
-    border: 4px solid #90EE90;
+    box-shadow:0px 0px 10px  #90EE90;
 }
 
 .card-title-div {
@@ -74,7 +72,7 @@
 }
 
 .card-content-div {
-    margin-bottom: 26px;
+    margin-bottom: 16px;
 }
 
 .footer-btn {
@@ -84,14 +82,15 @@
     margin-bottom: 2px;
 }
 
-.buy-left-btn {
+.left-btn {
     margin-right: 8px;
 }
 
-.buy-right-btn {
+.right-btn {
     padding-top: 3px;;
-    font-size: 18px;
     margin-left: 8px;
+    border-bottom: 0;
+    border-top: 0;
 }
 
 .input-group-btn {
@@ -101,4 +100,12 @@
 
 .input-number {
     border-width: 0;
+}
+
+.quantity-input {
+    border-width: 0;
+}
+
+.quantity-div {
+    border: 1px solid green;
 }
