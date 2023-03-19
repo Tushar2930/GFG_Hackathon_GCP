@@ -15,6 +15,7 @@ function Home() {
       <DealsWeek />
       <RentingCardList />
       <Poster />
+      <a href="/sell">SELL</a>
     </>
   );
 }
