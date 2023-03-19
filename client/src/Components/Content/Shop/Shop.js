@@ -1,8 +1,13 @@
 import React from "react";
-import SingleProductPage from "./SingleProductPage";
+import ProductSection from "./ShopPages/ProductSection/ProductSection";
+import SingleProductPage from "./ShopPages/SingleProduct/SingleProduct";
 
-function Shop() {
-  return <SingleProductPage />;
+function Shop(){
+
+    return <>
+        <ProductSection />
+        </>
 }
 
 export default Shop;
+

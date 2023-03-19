@@ -18,8 +18,8 @@ function Signup() {
 
   const handelSignUp = async (e) => {
     try {
-      setIsLoading(true);
       e.preventDefault();
+      setIsLoading(true);
       await useAuth.Signup(email, password).then((result) => {
         setIsLoading(false);
       });

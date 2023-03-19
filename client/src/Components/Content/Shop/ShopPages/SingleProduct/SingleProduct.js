@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import "./SingleProductPage.css";
+import "./SingleProduct.css";
 
 const ProductPage = (props) => {
   const [selectedImage, setSelectedImage] = useState(0);

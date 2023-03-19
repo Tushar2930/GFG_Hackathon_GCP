@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDi1B0aqKufCk6kLuBC52S3_JKa6y8VtP8",
-  authDomain: "the-tendril-380603.firebaseapp.com",
-  projectId: "the-tendril-380603",
-  storageBucket: "the-tendril-380603.appspot.com",
-  messagingSenderId: "726281295118",
-  appId: "1:726281295118:web:a5205cdddd271f90d8b35f",
-  measurementId: "G-L47YSV4Z9H",
+  apiKey: "AIzaSyCeQ_f3zOpkptFTCmXXgt2ve4-efXGZkYA",
+  authDomain: "gfg-hackathon-42b93.firebaseapp.com",
+  projectId: "gfg-hackathon-42b93",
+  storageBucket: "gfg-hackathon-42b93.appspot.com",
+  messagingSenderId: "133107254504",
+  appId: "1:133107254504:web:3a8ec32076471da619b55d",
+  measurementId: "G-N6HNY7FCM9",
 };
 
 // Initialize Firebase
