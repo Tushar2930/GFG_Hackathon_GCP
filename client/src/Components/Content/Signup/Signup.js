@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
+import { Navigate, Link } from "react-router-dom";
 import { createUser } from "../../api/createUser";
 import { CircularProgress } from "@mui/material";
 import { AuthContext } from "../context/AuthorizationContext.js";
-import { Link } from "react-router-dom";
 import "./Signup.css";
 
 function Signup() {
@@ -40,28 +40,10 @@ function Signup() {
     setIsLoading(false);
   };
 
-  const handleSignOut = async () => {
-    try {
-      setIsLoading(true);
-      await useAuth.SignOut().then((result) => {
-        setIsLoading(false);
-      });
-    } catch (error) {
-      console.log(error.message);
-      setIsLoading(false);
-    }
-  };
-
   if (useAuth.currentUser) {
     return (
       <div className="container">
-        <h1> You Are Loggedin!</h1>
-        <Link to="/">
-          <button>Home</button>
-        </Link>
-        <button disabled={isLoading} onClick={() => handleSignOut()}>
-          {!isLoading ? "signOut" : <CircularProgress />}
-        </button>
+        <Navigate to={"/userProfile"} />
       </div>
     );
   }
