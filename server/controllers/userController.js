@@ -15,8 +15,8 @@ module.exports.create = async function (req, res) {
 
 module.exports.getUser = async function (req, res) {
   try {
-    const data = req.body;
-    console.log("hello");
+    const data = req.body.postData;
+    console.log(data);
     const snapsh = db.collection("users");
     var ref = await snapsh.where("email", "==", `${data.email}`).get();
     var list = [];
