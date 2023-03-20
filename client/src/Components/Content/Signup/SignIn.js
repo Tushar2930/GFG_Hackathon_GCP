@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { CircularProgress } from "@mui/material";
 import { AuthContext } from "../context/AuthorizationContext.js";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./SignIn.css";
 
 export default function SignIn() {
@@ -36,14 +36,7 @@ export default function SignIn() {
   };
 
   if (useAuth.currentUser) {
-    return (
-      <div className="container">
-        <h1> You Are Loggedin!</h1>
-        <Link to="/">
-          <button>Home</button>
-        </Link>
-      </div>
-    );
+    return <Navigate to={"/userProfile"} />;
   }
 
   return (
