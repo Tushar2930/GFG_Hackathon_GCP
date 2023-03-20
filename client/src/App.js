@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./Components/Content/context/AuthorizationContext.js";
 
+import Cart from "./Components/Cart/Cart.js";
 import Home from "./Components/Content/Home/Home.js";
 import Navbar from "./Components/Navbar/Navbar.js";
 import "./App.css";
@@ -31,6 +32,7 @@ function App() {
             element={<ResetPassword />}
           />
           <Route exact path="/shop" element={<Shop />} />
+          <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/rent" element={<Renting />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/sell" element={<Veg_Sell />} />

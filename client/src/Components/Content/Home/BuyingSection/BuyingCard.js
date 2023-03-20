@@ -1,10 +1,35 @@
 import React from "react";
 import "./BuyingCard.css";
-import { useState } from "react";
+import { useState ,useContext} from "react";
+import { AuthContext } from "../../context/AuthorizationContext";
 
-function Card({ img_url, name, description, price }) {
+function Card({ img_url, name, description, price ,id}) {
     // This is specifying the quantity for the product
     const [inputValue, setinputValue] = useState(0)
+    const useAuth = useContext(AuthContext);
+    const email=useAuth.currentUser.email
+
+const handleCart=async function(){
+    const resp=await fetch("http://localhost:8000/cart/add-product",{
+        method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({
+        id,
+        email
+      }) 
+    })
+
+    const data=await resp.json();
+    console.log(data.message);
+    if(data.message==="success"){
+        alert('Product Added to cart Succesfully');
+    }
+    else{
+        alert('Error');
+    }
+}
 
     return (
         <div class="product-card m-3">
@@ -40,7 +65,7 @@ function Card({ img_url, name, description, price }) {
                                 </span>
                             </div>
                         </div>
-                        <div class="footer-btn col btn btn-outline-success buy-right-btn">Add to Cart</div>
+                        <div class="footer-btn col btn btn-outline-success buy-right-btn" onClick={handleCart}>Add to Cart</div>
                     </div>       
                 </div>
             </div>
