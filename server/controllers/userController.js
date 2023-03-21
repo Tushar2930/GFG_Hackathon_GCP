@@ -13,15 +13,16 @@ module.exports.create = async function (req, res) {
   }
 };
 
-module.exports.getAllUser = async function (req, res) {
+module.exports.getUser = async function (req, res) {
   try {
+    const data = req.body.postData;
+    console.log(data);
     const snapsh = db.collection("users");
-    var ref = await snapsh.get();
+    var ref = await snapsh.where("email", "==", `${data.email}`).get();
     var list = [];
     ref.forEach((doc) => {
-      list.push({ _id: doc.id, email: doc.data().email });
+      list.push(doc);
     });
-    console.log(list);
 
     res.json({
       message: "success",

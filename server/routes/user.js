@@ -4,7 +4,7 @@ const userController = require("../controllers/userController");
 
 router
   .post("/create", userController.create)
-  .get("/getAllUser", userController.getAllUser)
+  .post("/getUser", userController.getUser)
   .patch("/updateUser", userController.updateUser);
 
 module.exports = router;

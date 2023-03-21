@@ -1,15 +1,18 @@
-import React ,{useEffect}from "react";
+import React ,{useEffect,useContext}from "react";
 import Carousel from "./Carousel/Carousel";
 import Featured from "./Features/Featured";
 import DealsWeek from "./DealsOfTheWeek/DealsWeek";
 import Poster from "./Poster/Poster";
 import BuyingCardList from "./BuyingSection/BuyingCardList";
 import RentingCardList from "./RentingSection/RentingCardList";
+import { AuthContext } from "../context/AuthorizationContext";
 
 
 function Home() {
-
+  const useAuth = useContext(AuthContext);
+  // console.log(useAuth.currentUser);
  
+  
   return (
     <> 
       <Carousel />
@@ -23,3 +26,4 @@ function Home() {
 }
 
 export default Home;
+ 

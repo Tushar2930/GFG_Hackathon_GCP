@@ -12,7 +12,7 @@ export const updateUser = async (postData) => {
       "http://localhost:8000/user/updateUser",
       requestOptions
     ).then((res) => res.json());
-    return data.data;
+    return data;
   } catch (err) {
     console.log(err.message);
   }
