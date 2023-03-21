@@ -1,15 +1,14 @@
-export const createUser = async (postData) => {
+export const getAllUser = async (postData) => {
   try {
     const requestOptions = {
-      method: "POST",
+      method: "GET",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         status: "new user",
-        postData,
       }),
     };
     const data = await fetch(
-      "http://localhost:8000/user/create",
+      "http://localhost:8000/user/getAllUser",
       requestOptions
     ).then((res) => res.json());
     return data.data;

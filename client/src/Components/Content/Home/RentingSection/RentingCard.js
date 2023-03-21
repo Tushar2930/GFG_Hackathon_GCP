@@ -1,5 +1,4 @@
 import React from "react";
-import "./RentingCard.css";
 
 
 function Card({name, content, price}) {
@@ -13,7 +12,7 @@ function Card({name, content, price}) {
                     <div class="card-body ">
                         <h5 class="card-title">{name}</h5>
                         <p class="card-text">{content}</p>
-                        <p class="card-hr"></p>
+                        <p class="card-hr" style={{border:"1px solid black"}}></p>
                         <div className="row">
                             <div className="col-6">$20/month</div>
                             <div className="col-6"><button type="button" class="btn btn-info float-right">Rent Now</button></div>

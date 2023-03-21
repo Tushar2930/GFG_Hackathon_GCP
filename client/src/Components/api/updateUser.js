@@ -1,7 +1,7 @@
-export const createUser = async (postData) => {
+export const updateUser = async (postData) => {
   try {
     const requestOptions = {
-      method: "POST",
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         status: "new user",
@@ -9,7 +9,7 @@ export const createUser = async (postData) => {
       }),
     };
     const data = await fetch(
-      "http://localhost:8000/user/create",
+      "http://localhost:8000/user/updateUser",
       requestOptions
     ).then((res) => res.json());
     return data.data;
