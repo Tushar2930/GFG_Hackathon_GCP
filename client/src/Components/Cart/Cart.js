@@ -61,6 +61,7 @@ function handleRazorPay(data){
       })
       const resp=await data.json();
       if(resp.message==='Sign Valid'){
+        
         alert('Order Placed Successfully');
         window.location.href='/'
       }
