@@ -31,37 +31,35 @@ function Cart() {
     }
     if (useAuth.currentUser?.email) {
       feth();
-    }
-  }, []);
-  console.log(data.cart);
-  var total = 0;
-  var cardComponentArray = data?.cart?.map((card) => {
-    total = total + parseInt(card?.quantity) * parseInt(card?.price);
-    return (
-      <Card
-        img_url={card?.ip}
-        name={card?.name}
-        description={card?.description}
-        quantity={card?.quantity}
-        price={card?.price}
-        id={card?._id}
-      />
-    );
-  });
+      }
+      })
+      console.log(data.cart)
+        var total=0;
+    var cardComponentArray = data?.cart?.map(
+        (card) => {
+          total=total+parseInt(card?.quantity)*parseInt(card?.price);
+          return  (
+            
+              <Card img_url={card?.ip} name={card?.name} description={card?.description} quantity={card?.quantity}price={card?.price} id={card?._id}/>
+          )
+        }
+      )
 
-  // console.log(data);
-  return (
-    <>
-      <div class="cart">
-        <h2>Shopping Cart</h2>
-        <ul>
-          <li>{cardComponentArray}</li>
-        </ul>
-        <div class="total">
-          <p>Total: ${total}</p>
-          <button>Checkout</button>
-        </div>
-      </div>
+    // console.log(data);
+    return <>
+    <div class="cart">
+  <h2>Shopping Cart</h2>
+  <ul>
+    <li>
+   {cardComponentArray}
+    </li>
+  </ul>
+  <div class="total">
+    <p>Total: ${total}</p>
+    <button>Checkout</button>
+  </div>
+</div>
+
     </>
   );
 }
