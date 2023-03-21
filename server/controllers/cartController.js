@@ -35,13 +35,15 @@ module.exports.add=async function(req,res){
 
 module.exports.get=async function(req,res){
     try {
-       const email=req.body.email;
+       const email=await req.body.email;
+    //    console.log(req.body); 
+    // console.log(email);
        const snapsh = db.collection("users");
         var ref = await snapsh.where("email", "==", `${email}`).get();
         
         var temp=ref.docs[0];
+        // console.log(ref);
         var array=await temp.data().cartArray; 
-        // console.log(array);
         const collectio = db.collection("products");
         const data = await collectio.get();
         var list=[];
@@ -54,6 +56,8 @@ module.exports.get=async function(req,res){
         });
         var cart=[];
         var k=0;
+        list.sort();
+        array.sort();
         if(array[0]!==undefined){
             list.find((e)=>{
                 if(e._id===array[k]){
@@ -68,10 +72,10 @@ module.exports.get=async function(req,res){
                 }
             })
         }
-       return res.json({
-        message:"success",
-        cart:cart
-       })
+        return res.json({
+            message:"success",
+            cart:cart
+        })
     } catch (error) {
         console.log(error);
     }

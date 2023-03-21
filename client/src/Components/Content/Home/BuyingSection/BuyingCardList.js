@@ -24,7 +24,7 @@ function BuyingCardList() {
     .then((data) => setData(data.data));
   },[]);
 
-
+// console.log(data);
   var cardComponentArray = data.map(
     (card) => {
       return  (

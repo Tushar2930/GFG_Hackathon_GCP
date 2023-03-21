@@ -7,7 +7,10 @@ function Card({ img_url, name, description, price ,id}) {
     // This is specifying the quantity for the product
     const [inputValue, setinputValue] = useState(0)
     const useAuth = useContext(AuthContext);
-    const email=useAuth.currentUser.email
+    var email="";
+    if(useAuth.currentUser!==null){
+     email=useAuth.currentUser.email
+    }
 
 const handleCart=async function(){
     const resp=await fetch("http://localhost:8000/cart/add-product",{

@@ -1,4 +1,4 @@
-import React ,{useContext}from "react";
+import React ,{useContext, useEffect}from "react";
 import { AuthContext } from "../Content/context/AuthorizationContext";
 import "./cart.css";
 import Card from "./Card_card";
@@ -6,20 +6,32 @@ import Card from "./Card_card";
 function Cart(){
     const [data,setData]=React.useState([]);
     const useAuth = useContext(AuthContext);
-    console.log(useAuth.currentUser.email)
-    fetch("http://localhost:8000/cart/get-products",{
-        method:'POST',
-      headers:{
-        'Content-Type':'application/json'
-      },
-      body:JSON.stringify({
-        email:useAuth.currentUser.email
-      }) 
-    }).then(resp=>resp.json())
-    .then(data=>setData(data));
+    var email=useAuth.currentUser.email;
+ 
+    
+      useEffect(()=>{
+        async function feth(){
+          const resp=await fetch("http://localhost:8000/cart/get-products",{
+          method:'POST',
+          headers:{
+            'Content-Type':'application/json'
+          },
+          body:JSON.stringify({
+            email
+          }) 
+        })
 
-    var cardComponentArray = data.cart.map(
+      const temp=await resp.json();
+      setData(temp);
+      }
+      if(email!==undefined){
+      feth();
+      }
+      })
+        var total=0;
+    var cardComponentArray = data?.cart?.map(
         (card) => {
+          total=total+parseInt(card?.price);
           return  (
             
               <Card img_url={card?.ip} name={card?.name} description={card?.description} price={card?.price} id={card?._id}/>
@@ -37,7 +49,7 @@ function Cart(){
     </li>
   </ul>
   <div class="total">
-    <p>Total: $25.00</p>
+    <p>Total: ${total}</p>
     <button>Checkout</button>
   </div>
 </div>
