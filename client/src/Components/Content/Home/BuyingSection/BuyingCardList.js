@@ -18,29 +18,13 @@ import { Link } from "react-router-dom";
 function BuyingCardList() {
 
   const [data,setData]=React.useState([]);
-<<<<<<< HEAD
-  useEffect(async ()=>{
-    try {
-      await fetch("http://localhost:8000/product/get-products")
-=======
   useEffect(()=>{
     fetch("http://localhost:8000/product/get-products")
->>>>>>> a775e9df11c43f7afe8278fdc96c18e377f0f7e2
     .then((response) => response.json())
     .then((data) => setData(data.data));
-    } catch (error) {
-     console.log(error.message) 
-    }
-    
   },[]);
-
-<<<<<<< HEAD
-
-  var cardComponentArray = data?.map(
-=======
-// console.log(data);
   var cardComponentArray = data.map(
->>>>>>> a775e9df11c43f7afe8278fdc96c18e377f0f7e2
+
     (card) => {
       return  (
         <div className="col-3 px-4 pb-4">
