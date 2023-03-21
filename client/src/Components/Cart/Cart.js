@@ -28,7 +28,7 @@ function Cart(){
       feth();
       }
       })
-      console.log(data.cart)
+      // console.log(data.cart)
         var total=0;
     var cardComponentArray = data?.cart?.map(
         (card) => {
@@ -40,6 +40,50 @@ function Cart(){
         }
       )
 
+function handleRazorPay(data){
+  const options={
+    "key":'rzp_test_Ao3jBTNOJ6GS1R',
+    "amount":Number(data.amount),
+    "currency":data.currency,
+    "name":"AGROKART",
+    "description":'test',
+    "order_id":data.id,
+    handler:async function(response){
+      console.log(response);
+      const data=await fetch("http://localhost:8000/order/verify",{
+        method:'POST',
+    headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({
+        response:response
+      })
+      })
+      const resp=await data.json();
+      if(resp.message==='Sign Valid'){
+        alert('Order Placed Successfully');
+        window.location.href='/'
+      }
+    }
+  }
+  const rzp= window.Razorpay(options);
+  rzp.open();
+}
+
+
+const handlePay=async function(){
+const resp=await fetch("http://localhost:8000/order/checkout",{
+       method:'POST',
+    headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({
+        amount:total
+      })
+        })
+        const data=await resp.json();
+        handleRazorPay(data.order);
+      }
     // console.log(data);
     return <>
     <div class="cart">
@@ -51,7 +95,7 @@ function Cart(){
   </ul>
   <div class="total">
     <p>Total: ${total}</p>
-    <button>Checkout</button>
+    <button onClick={handlePay}>Checkout</button>
   </div>
 </div>
 
