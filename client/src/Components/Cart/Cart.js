@@ -1,34 +1,37 @@
-import React ,{useContext, useEffect}from "react";
+import React, { useContext, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import { AuthContext } from "../Content/context/AuthorizationContext";
 import "./cart.css";
 import Card from "./Card_card";
 
-function Cart(){
-    const [data,setData]=React.useState([]);
-    const useAuth = useContext(AuthContext);
-    var email=useAuth.currentUser.email;
- 
-    
-      useEffect(()=>{
-        async function feth(){
-          const resp=await fetch("http://localhost:8000/cart/get-products",{
-          method:'POST',
-          headers:{
-            'Content-Type':'application/json'
-          },
-          body:JSON.stringify({
-            email 
-          }) 
-        })
+function Cart() {
+  const [data, setData] = React.useState([]);
+  const useAuth = useContext(AuthContext);
+  // if (!useAuth.currentUser) {
+  //   window.location.href = "/signin";
+  // }
+  console.log();
 
-      const temp=await resp.json();
+  useEffect(() => {
+    async function feth() {
+      const resp = await fetch("http://localhost:8000/cart/get-products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: useAuth.currentUser.email,
+        }),
+      });
+
+      const temp = await resp.json();
       setData(temp);
-      }
-      if(email!==undefined){
+    }
+    if (useAuth.currentUser?.email) {
       feth();
       }
       })
-      // console.log(data.cart)
+      console.log(data.cart)
         var total=0;
     var cardComponentArray = data?.cart?.map(
         (card) => {
@@ -39,7 +42,6 @@ function Cart(){
           )
         }
       )
-
 function handleRazorPay(data){
   const options={
     "key":'rzp_test_Ao3jBTNOJ6GS1R',
@@ -96,11 +98,12 @@ const resp=await fetch("http://localhost:8000/order/checkout",{
   </ul>
   <div class="total">
     <p>Total: ${total}</p>
-    <button onClick={handlePay}>Checkout</button>
+    <button>Checkout</button>
   </div>
 </div>
 
     </>
+  ;
 }
 
 export default Cart;
