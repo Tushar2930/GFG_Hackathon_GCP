@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthorizationContext";
 
 function Card({ img_url, name, description, price ,id}) {
     // This is specifying the quantity for the product
-    const [inputValue, setinputValue] = useState(0)
+    const [inputValue, setinputValue] = useState(1)
     const useAuth = useContext(AuthContext);
     var email="";
     if(useAuth.currentUser!==null){
@@ -20,7 +20,8 @@ const handleCart=async function(){
       },
       body:JSON.stringify({
         id,
-        email
+        email,
+        inputValue
       }) 
     })
 
