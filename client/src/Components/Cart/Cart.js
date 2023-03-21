@@ -17,7 +17,7 @@ function Cart(){
             'Content-Type':'application/json'
           },
           body:JSON.stringify({
-            email
+            email 
           }) 
         })
 
@@ -28,13 +28,14 @@ function Cart(){
       feth();
       }
       })
+      console.log(data.cart)
         var total=0;
     var cardComponentArray = data?.cart?.map(
         (card) => {
-          total=total+parseInt(card?.price);
+          total=total+parseInt(card?.quantity)*parseInt(card?.price);
           return  (
             
-              <Card img_url={card?.ip} name={card?.name} description={card?.description} price={card?.price} id={card?._id}/>
+              <Card img_url={card?.ip} name={card?.name} description={card?.description} quantity={card?.quantity}price={card?.price} id={card?._id}/>
           )
         }
       )

@@ -4,7 +4,9 @@ module.exports.add=async function(req,res){
     try {
         const id=req.body.id;
         const email=req.body.email;
+        const quantity=req.body.inputValue;
         // console.log(req.body);
+        if(quantity>0){
         const snapsh = db.collection("users");
         var ref = await snapsh.where("email", "==", `${email}`).get();
         var fid;
@@ -18,7 +20,7 @@ module.exports.add=async function(req,res){
         }
         if(cartArray.find((uid)=>{return uid===id})===undefined){
             // console.log(cartArray.find((uid)=>{return uid===id}));
-        cartArray.push(id);
+        cartArray.push({id,quantity});
     }
     // console.log(cartArray);
  
@@ -28,6 +30,7 @@ module.exports.add=async function(req,res){
          return res.json({
             message:'success'
          })
+        }
     } catch (error) {
         console.log(error);
     }
@@ -55,23 +58,26 @@ module.exports.get=async function(req,res){
           quantity: doc.data().quantity });
         });
         var cart=[];
-        var k=0;
+        var kt=0;
         list.sort();
         array.sort();
+        var n=array.length;
         if(array[0]!==undefined){
             list.find((e)=>{
-                if(e._id===array[k]){
+                if(kt< n &&e._id===array[kt].id){
                     cart.push({
                         id:e._id,
                         descricption:e.descricption,
                         ip:e.ip,
                         name:e.name,
-                        price:e.price
+                        price:e.price,
+                        quantity:array[kt].quantity
                     })
-                    k++;
+                    kt++; 
                 }
             })
         }
+        // console.log(cart);
         return res.json({
             message:"success",
             cart:cart
