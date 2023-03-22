@@ -1,13 +1,12 @@
 import React from "react";
 import "./ContactComponent.css";
-import ContactForm from "../../Contact/ContactForm.js";
+
 
 function ContactComponent() {
   return (
     <div class="row">
       <div class="col-7" style={{ paddingRight: "1.7%", paddingLeft: "1.7%" }}>
         <h3>Contact Form</h3>
-        <ContactForm />
         <form>
           <input
             name="name"
