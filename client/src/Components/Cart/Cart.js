@@ -6,12 +6,14 @@ import Card from "./Card_card";
 
 function Cart() {
   const [data, setData] = React.useState([]);
-  const useAuth = useContext(AuthContext);
-  // if (!useAuth.currentUser) {
-  //   window.location.href = "/signin";
-  // }
-  console.log();
 
+    const useAuth = useContext(AuthContext);
+
+  // temp();
+  if (useAuth.currentUser) {
+    <Navigate to='signin'/>
+  }
+  console.log();
   useEffect(() => {
     async function feth() {
       const resp = await fetch("http://localhost:8000/cart/get-products", {
@@ -31,7 +33,10 @@ function Cart() {
       feth();
       }
       })
-      console.log(data.cart)
+      // console.log(data.cart)
+
+
+
         var total=0;
     var cardComponentArray = data?.cart?.map(
         (card) => {
@@ -98,7 +103,7 @@ const resp=await fetch("http://localhost:8000/order/checkout",{
   </ul>
   <div class="total">
     <p>Total: ${total}</p>
-    <button>Checkout</button>
+    <button onClick={handlePay}>Checkout</button>
   </div>
 </div>
 
