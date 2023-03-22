@@ -41,9 +41,11 @@ export function AuthProvider({ children }) {
   });
   useEffect(() => {
     const fetch = async () => {
-      await getUser(currentUser.email).then((data) => {
-        setCurrentUserDetails(data);
-      });
+      if (currentUser) {
+        await getUser(currentUser.email).then((data) => {
+          setCurrentUserDetails(data);
+        });
+      }
     };
     fetch();
   }, [currentUser]);

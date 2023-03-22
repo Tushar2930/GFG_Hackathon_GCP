@@ -26,12 +26,11 @@ function Cart() {
         tempcart.push(e);
       }
     });
-    // setData({ message: "success", cart: tempcart });
 
     try {
       setIsLoading(true);
       await updateUserCartItem({
-        email: useAuth.currentUser.email,
+        id: useAuth.currentUserDetails.id,
         cartArray: tempcart,
       }).then((res) => {
         !isfetch ? setIsfetch(true) : setIsfetch(false);
