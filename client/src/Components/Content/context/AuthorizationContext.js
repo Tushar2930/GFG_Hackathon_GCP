@@ -8,12 +8,14 @@ import {
   signOut,
   sendPasswordResetEmail,
 } from "firebase/auth";
+import { getUser } from "../../api/getUser.js";
 
 export const AuthContext = createContext();
 const provider = new GoogleAuthProvider();
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState("");
+  const [currentUserDetails, setCurrentUserDetails] = useState({});
 
   function Signup(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -34,13 +36,21 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      console.log(user);
       return unsubscribe;
     }, []);
   });
+  useEffect(() => {
+    const fetch = async () => {
+      await getUser(currentUser.email).then((data) => {
+        setCurrentUserDetails(data);
+      });
+    };
+    fetch();
+  }, [currentUser]);
 
   const value = {
     currentUser,
+    currentUserDetails,
     setCurrentUser,
     Signup,
     SignInWithGooglePopUp,
