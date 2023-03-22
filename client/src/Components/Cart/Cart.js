@@ -1,51 +1,64 @@
-import React, { useContext, useEffect } from "react";
+import React, { startTransition, useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../Content/context/AuthorizationContext";
 import "./cart.css";
 import Card from "./Card_card";
 
 function Cart() {
-  const [data, setData] = React.useState([]);
-
   const useAuth = useContext(AuthContext);
-
-  // temp();
-  if (useAuth.currentUser) {
-    <Navigate to="signin" />;
+  if (useAuth.currentUser === null) {
+    window.location.href = "/signin";
   }
-  console.log();
-  useEffect(() => {
-    async function feth() {
-      const resp = await fetch("http://localhost:8000/cart/get-products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: useAuth.currentUser.email,
-        }),
-      });
+  const [data, setData] = React.useState({});
 
-      const temp = await resp.json();
-      setData(temp);
+  const updateFields = (id, quantity = 0) => {
+    data.cart.map((e, i) => {
+      if (e.id == id) {
+        e = { id: id, quantity: quantity };
+      }
+    });
+  };
+
+  async function feth() {
+    if (useAuth.currentUser) {
+      try {
+        const resp = await fetch("http://localhost:8000/cart/get-products", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: useAuth.currentUser.email,
+          }),
+        });
+
+        const temp = await resp.json();
+        setData(temp);
+      } catch (error) {
+        console.log(error.message);
+      }
     }
-    if (useAuth.currentUser?.email) {
-      feth();
-    }
-  });
-  // console.log(data.cart)
+  }
+
+  useEffect(() => {
+    feth();
+  }, [useAuth.currentUser]);
+  useEffect(() => {
+    feth();
+  }, []);
 
   var total = 0;
   var cardComponentArray = data?.cart?.map((card) => {
     total = total + parseInt(card?.quantity) * parseInt(card?.price);
     return (
       <Card
+        updateFeilds={updateFields}
         img_url={card?.ip}
         name={card?.name}
         description={card?.description}
         quantity={card?.quantity}
         price={card?.price}
-        id={card?._id}
+        id={card?.id}
       />
     );
   });
