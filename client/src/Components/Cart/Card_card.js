@@ -28,7 +28,7 @@ function Card({
         <div onClick={() => updateFeilds(id, quantity + 1)}>
           <AddIcon className="add-item" />
         </div>
-        <div onClick={() => updateFeilds(id)}>
+        <div onClick={() => updateFeilds(id, 0)}>
           <DeleteIcon className="delete" />
         </div>
       </div>

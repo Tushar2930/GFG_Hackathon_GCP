@@ -1,8 +1,12 @@
 import React, { startTransition, useContext, useEffect } from "react";
+import { CircularProgress } from "@mui/material";
 import { Navigate } from "react-router-dom";
+import { updateUserCartItem } from "../api/updateCartProduct";
+
 import { AuthContext } from "../Content/context/AuthorizationContext";
 import "./cart.css";
 import Card from "./Card_card";
+import { async } from "@firebase/util";
 
 function Cart() {
   const useAuth = useContext(AuthContext);
@@ -10,18 +14,40 @@ function Cart() {
     window.location.href = "/signin";
   }
   const [data, setData] = React.useState({});
+  const [isfetch, setIsfetch] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
-  const updateFields = (id, quantity = 0) => {
-    data.cart.map((e, i) => {
+  const updateFields = async (id, quantity) => {
+    var tempcart = [];
+    data.cart.map((e) => {
       if (e.id == id) {
-        e = { id: id, quantity: quantity };
+        quantity && tempcart.push({ id, quantity });
+      } else {
+        tempcart.push(e);
       }
     });
+    // setData({ message: "success", cart: tempcart });
+
+    try {
+      setIsLoading(true);
+      await updateUserCartItem({
+        email: useAuth.currentUser.email,
+        cartArray: tempcart,
+      }).then((res) => {
+        !isfetch ? setIsfetch(true) : setIsfetch(false);
+        setIsLoading(false);
+        console.log(res);
+      });
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error.message);
+    }
   };
 
   async function feth() {
     if (useAuth.currentUser) {
       try {
+        setIsLoading(true);
         const resp = await fetch("http://localhost:8000/cart/get-products", {
           method: "POST",
           headers: {
@@ -33,8 +59,11 @@ function Cart() {
         });
 
         const temp = await resp.json();
+        console.log(temp);
         setData(temp);
+        setIsLoading(false);
       } catch (error) {
+        setIsLoading(false);
         console.log(error.message);
       }
     }
@@ -42,7 +71,7 @@ function Cart() {
 
   useEffect(() => {
     feth();
-  }, [useAuth.currentUser]);
+  }, [useAuth.currentUser, isfetch]);
   useEffect(() => {
     feth();
   }, []);
@@ -50,8 +79,18 @@ function Cart() {
   var total = 0;
   var cardComponentArray = data?.cart?.map((card) => {
     total = total + parseInt(card?.quantity) * parseInt(card?.price);
+
+    if (isLoading) {
+      return (
+        <div className="loading">
+          <CircularProgress />
+        </div>
+      );
+    }
+
     return (
       <Card
+        key={card?.id}
         updateFeilds={updateFields}
         img_url={card?.ip}
         name={card?.name}
