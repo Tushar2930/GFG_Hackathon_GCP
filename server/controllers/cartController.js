@@ -93,18 +93,9 @@ module.exports.getCart = async function (req, res) {
 module.exports.updateUserCartItem = async function (req, res) {
   try {
     const data = req.body.postData;
-    const docref = await db
-      .collection("users")
-      .where("email", "==", `${data.email}`)
-      .get();
-    let list = [];
-    docref.forEach((doc) => {
-      list.push(doc.id);
-    });
-
     await db
       .collection("users")
-      .doc(list[0])
+      .doc(data.id)
       .update({ cartArray: data.cartArray });
 
     res.json({
