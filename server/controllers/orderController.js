@@ -1,5 +1,6 @@
 const RazorPay=require('razorpay');
 const crypto=require('crypto');
+const db=require('../config/firebase');
 
 module.exports.checkout=async function(req,res){
 var instance = new RazorPay({
@@ -38,4 +39,33 @@ module.exports.verify=async function(req,res){
 
         res.send({ code: 500, message: 'Sign Invalid' });
     }
+}
+
+module.exports.placeOrder=async function(req,res){
+try {
+  const resp=await db.collection('users').where('email','==',req.body.email).get();
+ const user=await resp.docs[0].data();
+ var orderArray=user.orderArray;
+ if(orderArray==undefined){
+     orderArray=[];
+ }
+ const data=await req.body.data;
+ await data.map((item)=>{
+      orderArray.push({id:item.id,quantity:item.quantity});
+  });
+  //delete cart array from user
+  const resp1=await db.collection('users').doc(resp.docs[0].id).update({
+      orderArray:orderArray,
+      cartArray:[]
+  });
+  if(resp1){
+      return res.status(200).json({
+          message:'Order Placed'
+      })
+  }
+  
+} catch (error) {
+  console.log(error);
+}
+
 }
