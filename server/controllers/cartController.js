@@ -23,10 +23,8 @@ module.exports.add = async function (req, res) {
           return uid === id;
         }) === undefined
       ) {
-        // console.log(cartArray.find((uid)=>{return uid===id}));
         cartArray.push({ id, quantity });
       }
-      // console.log(cartArray);
 
       const docref = db.collection("users").doc(fid);
       await docref.update({ cartArray });
@@ -40,16 +38,14 @@ module.exports.add = async function (req, res) {
   }
 };
 
-module.exports.get = async function (req, res) {
+module.exports.getCart = async function (req, res) {
   try {
     const email = await req.body.email;
-    //    console.log(req.body);
-    // console.log(email);
+    console.log(req.body);
     const snapsh = db.collection("users");
     var ref = await snapsh.where("email", "==", `${email}`).get();
 
     var temp = ref.docs[0];
-    // console.log(ref);
     var array = await temp.data().cartArray;
     const collectio = db.collection("products");
     const data = await collectio.get();
@@ -66,11 +62,11 @@ module.exports.get = async function (req, res) {
     });
     var cart = [];
     var kt = 0;
-    list.sort();
-    var n = array.length;
+    list?.sort();
+    var n = array?.length;
     if (array[0] !== undefined) {
-      array.sort();
-      list.find((e) => {
+      array?.sort();
+      list?.find((e) => {
         if (kt < n && e._id === array[kt].id) {
           cart.push({
             id: e._id,
@@ -88,6 +84,22 @@ module.exports.get = async function (req, res) {
     return res.json({
       message: "success",
       cart: cart,
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+module.exports.updateUserCartItem = async function (req, res) {
+  try {
+    const data = req.body.postData;
+    await db
+      .collection("users")
+      .doc(data.id)
+      .update({ cartArray: data.cartArray });
+
+    res.json({
+      message: "cart updated successfully",
     });
   } catch (error) {
     console.log(error);

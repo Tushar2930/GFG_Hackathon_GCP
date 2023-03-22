@@ -18,18 +18,19 @@ export default function User_profile() {
 
   useEffect(() => {
     async function fetchData() {
-      try {
-        setIsLoading(true);
-        const result = await getUser(useAuth.currentUser.email).then(
-          (result) => {
-            setData({ ...result });
-            setIsLoading(false);
-          }
-        );
-        console.log(result);
-      } catch (error) {
-        setIsLoading(false);
-        console.log(error.message);
+      if (useAuth.currentUser) {
+        try {
+          setIsLoading(true);
+          const result = await getUser(useAuth.currentUser.email).then(
+            (result) => {
+              setData({ ...result.data });
+              setIsLoading(false);
+            }
+          );
+        } catch (error) {
+          setIsLoading(false);
+          console.log(error.message);
+        }
       }
     }
     fetchData();
@@ -68,9 +69,9 @@ export default function User_profile() {
             <img src={url} alt="User photo" />
           </div>
           <div className="infor">
-            <p>Name:{data?.userName?.stringValue}</p>
+            <p>Name:{data?.userName}</p>
             <p>Gender : Male</p>
-            <p>Email:{data?.email?.stringValue}</p>
+            <p>Email:{data?.email}</p>
             <p>Mobile Number : 9986612616</p>
             <p>Address: 123 Main St, Anytown USA</p>
           </div>
