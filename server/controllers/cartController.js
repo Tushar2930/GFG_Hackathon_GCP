@@ -41,7 +41,7 @@ module.exports.add = async function (req, res) {
 module.exports.getCart = async function (req, res) {
   try {
     const email = await req.body.email;
-    console.log(req.body);
+    // console.log(req.body);
     const snapsh = db.collection("users");
     var ref = await snapsh.where("email", "==", `${email}`).get();
 
@@ -86,7 +86,7 @@ module.exports.getCart = async function (req, res) {
       cart: cart,
     });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 };
 

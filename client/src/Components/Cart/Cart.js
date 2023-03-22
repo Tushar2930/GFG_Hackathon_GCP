@@ -100,17 +100,22 @@ function Cart() {
       />
     );
   });
-  function handleRazorPay(data) {
-    const options = {
+
+
+
+
+  function handleRazorPay(dataInfo) {
+
+      const options = {
       key: "rzp_test_Ao3jBTNOJ6GS1R",
-      amount: Number(data.amount),
-      currency: data.currency,
+      amount: Number(dataInfo.amount),
+      currency: dataInfo.currency,
       name: "AGROKART",
       description: "test",
-      order_id: data.id,
+      order_id: dataInfo.id,
       handler: async function (response) {
-        console.log(response);
-        const data = await fetch("http://localhost:8000/order/verify", {
+        // console.log(response);
+        const data2 = await fetch("http://localhost:8000/order/verify", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -119,10 +124,25 @@ function Cart() {
             response: response,
           }),
         });
-        const resp = await data.json();
+        const resp = await data2.json();
         if (resp.message === "Sign Valid") {
-          alert("Order Placed Successfully");
-          window.location.href = "/";
+          const data1=await fetch("http://localhost:8000/order/place", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: useAuth.currentUser.email,
+                data:data.cart,
+              })
+            });
+            const resp=await data1.json();
+            if(resp.message==="Order Placed"){
+              alert("Order Placed Successfully");
+              window.location.href="/";
+            }
+          // alert("Order Placed Successfully");
+          // window.location.href = "/";
         }
       },
     };
