@@ -20,7 +20,8 @@ function Home() {
       <DealsWeek />
       <RentingCardList />
       <Poster />
-      <a href="/sell">SELL</a>
+      <a href="/sell">SELL</a><br/>
+      <a href="/get-rent-service">RENT</a>
     </>
   );
 }
