@@ -6,51 +6,93 @@ import Card from "./Card_card";
 
 function Cart() {
   const [data, setData] = React.useState([]);
+
   const useAuth = useContext(AuthContext);
 
+  // temp();
+  if (useAuth.currentUser) {
+    <Navigate to="signin" />;
+  }
+  console.log();
   useEffect(() => {
     async function feth() {
-      try {
-        if (useAuth.currentUser) {
-          await fetch("http://localhost:8000/cart/get-products", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: useAuth.currentUser.email,
-            }),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              setData(data);
-              console.log(data);
-            });
-        }
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-    feth();
-  }, []);
+      const resp = await fetch("http://localhost:8000/cart/get-products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: useAuth.currentUser.email,
+        }),
+      });
 
-  console.log(data);
+      const temp = await resp.json();
+      setData(temp);
+    }
+    if (useAuth.currentUser?.email) {
+      feth();
+    }
+  });
+  // console.log(data.cart)
+
   var total = 0;
-  var cardComponentArray = data?.cart?.map((card, i) => {
+  var cardComponentArray = data?.cart?.map((card) => {
     total = total + parseInt(card?.quantity) * parseInt(card?.price);
     return (
       <Card
-        key={i}
         img_url={card?.ip}
         name={card?.name}
         description={card?.description}
         quantity={card?.quantity}
         price={card?.price}
-        id={card?.id}
+        id={card?._id}
       />
     );
   });
+  function handleRazorPay(data) {
+    const options = {
+      key: "rzp_test_Ao3jBTNOJ6GS1R",
+      amount: Number(data.amount),
+      currency: data.currency,
+      name: "AGROKART",
+      description: "test",
+      order_id: data.id,
+      handler: async function (response) {
+        console.log(response);
+        const data = await fetch("http://localhost:8000/order/verify", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            response: response,
+          }),
+        });
+        const resp = await data.json();
+        if (resp.message === "Sign Valid") {
+          alert("Order Placed Successfully");
+          window.location.href = "/";
+        }
+      },
+    };
+    const rzp = window.Razorpay(options);
+    rzp.open();
+  }
 
+  const handlePay = async function () {
+    const resp = await fetch("http://localhost:8000/order/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        amount: total,
+      }),
+    });
+    const data = await resp.json();
+    handleRazorPay(data.order);
+  };
+  // console.log(data);
   return (
     <>
       <div class="cart">
@@ -60,7 +102,7 @@ function Cart() {
         </ul>
         <div class="total">
           <p>Total: ${total}</p>
-          <button>Checkout</button>
+          <button onClick={handlePay}>Checkout</button>
         </div>
       </div>
     </>
