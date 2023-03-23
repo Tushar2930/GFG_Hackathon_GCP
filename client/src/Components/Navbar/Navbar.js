@@ -38,7 +38,7 @@ function Navbar() {
               <PhoneEnabledRoundedIcon />
             </li>
           </a>
-          <a href="/shop" className="fd jcc aic">
+          <a href="/cart" className="fd jcc aic">
             <li>
               <ShoppingCartRoundedIcon />
             </li>

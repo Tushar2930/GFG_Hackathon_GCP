@@ -16,7 +16,7 @@
   outline:0;
 }
 
-.feedback-input:focus { border:2px solid blue; }
+.feedback-input:focus { border:3px solid blue; }
 
 textarea {
   height: 150px;
@@ -34,4 +34,15 @@ textarea {
   font-size:24px;
   transition: all 0.3s;
   font-weight:700;
+}
+#Ci{
+  margin-top:2%;
+}
+@media(max-width:1000px) {
+  #Ci{
+  margin-bottom:10%;
+  }
+}
+#Cj{
+  margin-top:3%;
 }
