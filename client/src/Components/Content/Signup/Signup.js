@@ -1,4 +1,6 @@
 import React, { useState, useContext } from "react";
+import FileBase from "react-file-base64";
+
 import { Navigate, Link } from "react-router-dom";
 import { createUser } from "../../api/createUser";
 import { CircularProgress } from "@mui/material";
@@ -9,13 +11,8 @@ function Signup() {
   const [profession, setProfession] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [form, setForm] = useState({
-    userName: "",
-    email: "",
-    password: "",
-    accountNo: "",
-    aadharNo: "",
-  });
+
+  const [form, setForm] = useState({});
   const useAuth = useContext(AuthContext);
 
   const handleEntryChanges = (e) => {
@@ -124,16 +121,60 @@ function Signup() {
             />
           </label>
           <label>
-            Aadhar No:
+            Mobile No*:
             <input
-              name="aadharNo"
+              name="Mnumber"
               required
               type="number"
-              value={form.aadharNo}
+              value={form.Mnumber}
               minLength="12"
               onChange={(e) => handleEntryChanges(e)}
             />
           </label>
+
+          <label>
+            Address :
+            <input
+              name="address"
+              required
+              type="text"
+              value={form.address}
+              minLength="12"
+              onChange={(e) => handleEntryChanges(e)}
+            />
+          </label>
+          <fieldset>
+            <legend>Select a Gender:</legend>
+            <label>
+              {" "}
+              Male:{" "}
+              <input
+                type="radio"
+                onFocus={(e) => {
+                  setForm({ ...form, gender: e.target.value });
+                }}
+                name="gender"
+                value="Male"
+              />
+            </label>
+
+            <label>
+              Female:{" "}
+              <input
+                onFocus={(e) => {
+                  setForm({ ...form, gender: e.target.value });
+                }}
+                type="radio"
+                name="gender"
+                value="Female"
+              />
+            </label>
+          </fieldset>
+          <FileBase
+            type="image"
+            multiple={false}
+            onDone={({ base64 }) => setForm({ ...form, ip: base64 })}
+          />
           <button disabled={isLoading} type="submit">
             {!isLoading ? "Login" : <CircularProgress />}
           </button>

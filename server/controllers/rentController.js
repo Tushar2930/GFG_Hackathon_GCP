@@ -58,7 +58,7 @@ module.exports.addProvider=async function(req,res){
         resp1.forEach((doc)=>{
             id=doc.id;
         });
-        console.log(req.body.id);
+        // console.log(req.body.id);
         var arr=user.services_provided;
         if(arr==undefined){
             arr=[];
