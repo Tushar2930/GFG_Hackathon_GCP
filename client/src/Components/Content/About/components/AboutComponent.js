@@ -12,7 +12,7 @@ var aboutDataArray = [
 function AboutComponent(){
     var aboutCardArray = aboutDataArray.map(
         (item) => {
-            return <div class="col-3"><AboutCard name={item.name} contact_num={item.contact_num} description={item.description} img_url={item.img_url}/></div>;
+            return <div class="col-lg-3 col-md-6 col-sm-12"><AboutCard name={item.name} contact_num={item.contact_num} description={item.description} img_url={item.img_url}/></div>;
         }
     )
 
