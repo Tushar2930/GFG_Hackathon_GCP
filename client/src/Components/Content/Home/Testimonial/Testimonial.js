@@ -1,6 +1,6 @@
 import React from "react";
-import "./Carousel.css"
-import TestCarousel from "./Carousel";
+import "./Carousel1.css"
+import TestCarousel from "./Carousel1";
 function Testimonial() {
   return (
     <div className="testimonial">
