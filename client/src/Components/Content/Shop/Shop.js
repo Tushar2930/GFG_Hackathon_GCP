@@ -1,13 +1,14 @@
 import React from "react";
 import ProductSection from "./ShopPages/ProductSection/ProductSection";
-import SingleProductPage from "./ShopPages/SingleProduct/SingleProduct";
+import BuyerForm from "../Buyer_Form/BuyerForm";
 
-function Shop(){
-
-    return <>
-        <ProductSection />
-        </>
+function Shop() {
+  return (
+    <>
+      <BuyerForm />
+      <ProductSection />
+    </>
+  );
 }
 
 export default Shop;
-

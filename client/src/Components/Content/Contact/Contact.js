@@ -5,7 +5,7 @@ function Contact() {
   return (
     <>
       Contact-us
-      <ContactForm></ContactForm>
+      <ContactForm />
     </>
   );
 }

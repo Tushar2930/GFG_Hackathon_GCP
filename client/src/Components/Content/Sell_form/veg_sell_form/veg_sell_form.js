@@ -89,11 +89,25 @@ function Veg_sell() {
           </div>
 
           <div className="flexb">
-            <label htmlFor="item-quantity">Item Quantity*(in kg):</label>
+            <label htmlFor="item-quantity">
+              Max Quantity You Have*(in kg):
+            </label>
+            <input
+              type="number"
+              id="max-item-quantity"
+              name="quantity"
+              required
+              onChange={(e) => handleValueChange(e)}
+            />
+          </div>
+          <div className="flexb">
+            <label htmlFor="item-quantity">
+              Minimum Quantity You Want to sell *(in kg):
+            </label>
             <input
               type="number"
               id="item-quantity"
-              name="quantity"
+              name="min-item-quantity"
               required
               onChange={(e) => handleValueChange(e)}
             />
