@@ -5,16 +5,17 @@ import Poster from "./Poster/Poster";
 import BuyingCardList from "./BuyingSection/BuyingCardList";
 import RentingCardList from "./RentingSection/RentingCardList";
 import { AuthContext } from "../context/AuthorizationContext";
+import Testimonial from "./Testimonial/Testimonial";
 
 function Home() {
   return (
     <>
-      <Menu></Menu>
       <Carousel />
       <BuyingCardList />
       <DealsWeek />
       <RentingCardList />
       <Poster />
+      <Testimonial />
       <a href="/sell">SELL</a>
       <br />
       <a href="/get-rent-service">RENT</a>

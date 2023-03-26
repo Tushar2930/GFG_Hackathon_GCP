@@ -6,7 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 function DemoCarousel() {
         return (
-            <Carousel infiniteLoop={true} autoPlay="true" width="60%" height="50%" showIndicators={false} showArrows={false}>
+            <Carousel infiniteLoop={true} width="60%" height="50%" showIndicators={false} showArrows={false}>
                 
                 <div className="carBack"><div class="item">
               <div class="shadow-effect">
