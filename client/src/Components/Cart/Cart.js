@@ -12,31 +12,31 @@ function Cart() {
     window.location.href = "/signin";
   }
   const [data, setData] = React.useState({});
-  const [isfetch, setIsfetch] = React.useState(false);
-  const [isLoading, setIsLoading] = React.useState(false);
 
   const updateFields = async (id, quantity) => {
     var tempcart = [];
+    var tempcartupdate = [];
+
     data.cart.map((e) => {
       if (e.id == id) {
-        quantity && tempcart.push({ id, quantity });
+        quantity && tempcart.push({ ...e, id, quantity });
+        quantity && tempcartupdate.push({ id, quantity });
       } else {
         tempcart.push(e);
+        tempcartupdate.push({ id: e.id, quantity: e.quantity });
       }
+      console.log("tempcart", tempcart, "tempcartupdate", tempcartupdate);
+      setData({ ...data, cart: tempcart });
     });
 
     try {
-      setIsLoading(true);
       await updateUserCartItem({
         id: useAuth.currentUserDetails.id,
-        cartArray: tempcart,
+        cartArray: tempcartupdate,
       }).then((res) => {
-        !isfetch ? setIsfetch(true) : setIsfetch(false);
-        setIsLoading(false);
         console.log(res);
       });
     } catch (error) {
-      setIsLoading(false);
       console.log(error.message);
     }
   };
@@ -44,7 +44,6 @@ function Cart() {
   async function feth() {
     if (useAuth.currentUser) {
       try {
-        setIsLoading(true);
         const resp = await fetch("http://localhost:8000/cart/get-products", {
           method: "POST",
           headers: {
@@ -58,9 +57,7 @@ function Cart() {
         const temp = await resp.json();
         console.log(temp);
         setData(temp);
-        setIsLoading(false);
       } catch (error) {
-        setIsLoading(false);
         console.log(error.message);
       }
     }
@@ -68,7 +65,7 @@ function Cart() {
 
   useEffect(() => {
     feth();
-  }, [useAuth.currentUser, isfetch]);
+  }, [useAuth.currentUser]);
   useEffect(() => {
     feth();
   }, []);
@@ -84,13 +81,6 @@ function Cart() {
         </div>
       );
     }
-    if (isLoading) {
-      return (
-        <div className="loading">
-          <CircularProgress />
-        </div>
-      );
-    }
 
     return (
       <Card
@@ -99,6 +89,7 @@ function Cart() {
         img_url={card?.ip}
         name={card?.name}
         description={card?.description}
+        maxQuantity={card?.maxQuantity}
         minQuantity={card?.minQuantity}
         quantity={card?.quantity}
         price={card?.price}

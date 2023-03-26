@@ -55,7 +55,10 @@ module.exports.getCart = async function (req, res) {
         _id: doc.id,
         descricption: doc.data().descricption,
         ip: doc.data().ip,
-        name: doc.data().name,
+        name: `${doc.data().category}  ${doc.data().product}  ${
+          doc.data().species
+        }`,
+        minQuantity: doc.data().minQuantity,
         price: doc.data().price,
         quantity: doc.data().quantity,
       });
@@ -76,12 +79,13 @@ module.exports.getCart = async function (req, res) {
             price: e.price,
             minQuantity: e.minQuantity,
             quantity: array[kt].quantity,
+            maxQuantity: e.quantity,
           });
           kt++;
         }
       });
     }
-    // console.log(cart);
+    console.log(cart);
     return res.json({
       message: "success",
       cart: cart,
