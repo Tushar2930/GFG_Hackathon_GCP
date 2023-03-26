@@ -22,6 +22,8 @@ function BuyingCardList() {
     }
   )
 
+
+
   return (
     <div class="fluid-container main-fluid-container">  
       <div className="row div-container">
