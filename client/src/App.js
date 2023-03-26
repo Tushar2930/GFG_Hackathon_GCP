@@ -17,7 +17,7 @@ import Veg_Sell from "./Components/Content/Sell_form/veg_sell_form/veg_sell_form
 import RentingSection from "./Components/Content/Rent/RentalPages/ServiceTakerPortal/RentalServicesPage/RentalSection.js";
 import ServicesRequiredListing from "./Components/Content/Rent/RentalPages/ServiceProviderPortal/ServicesRequiredListing/ServicesRequiredListing.js";
 import UserProfile from "./Components/User_profile/User_profile";
-
+import IndividualListingPage from "./Components/Content/Rent/RentalPages/ServiceProviderPortal/IndividualListingPage/IndividualListingPage.js";
 
 function App() {
   return (
@@ -38,6 +38,7 @@ function App() {
           <Route exact path="/sell" element={<Veg_Sell />} />
           <Route exact path="/about-us" element={<About />} />
           <Route exact path="/shop" element={<Shop />} />
+          <Route exact path="/thassa" element={<IndividualListingPage />} />
         </Routes>
         <Footer />
       </div>

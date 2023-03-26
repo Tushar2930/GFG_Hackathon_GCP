@@ -58,7 +58,7 @@ function Veg_sell(){
 
     return (
     <div className="form_root">
-      <h1 className="mx-auto">Sell Items</h1>
+      {/* <h1 className="mx-auto">Sell Items</h1> */}
       <form className="my-2">
         <h6 className="float-start">Category :</h6>
         <SearchDropdown options={sellOptions} onOptionClicked={onCategoryOptionClicked}/>
