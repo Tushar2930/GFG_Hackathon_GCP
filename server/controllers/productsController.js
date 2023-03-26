@@ -26,6 +26,7 @@ module.exports.getAllProducts = async function (req, res) {
         name: `${doc.data().category} ${doc.data().product} ${
           doc.data().species
         }`,
+        minQuantity: doc.data().minQuantity,
         price: doc.data().price,
         quantity: doc.data().quantity,
       });

@@ -46,7 +46,7 @@ module.exports.getCart = async function (req, res) {
     var ref = await snapsh.where("email", "==", `${email}`).get();
 
     var temp = ref.docs[0];
-    var array = await temp.data().cartArray;
+    var array = await temp?.data()?.cartArray;
     const collectio = db.collection("products");
     const data = await collectio.get();
     var list = [];
@@ -74,6 +74,7 @@ module.exports.getCart = async function (req, res) {
             ip: e.ip,
             name: e.name,
             price: e.price,
+            minQuantity: e.minQuantity,
             quantity: array[kt].quantity,
           });
           kt++;
