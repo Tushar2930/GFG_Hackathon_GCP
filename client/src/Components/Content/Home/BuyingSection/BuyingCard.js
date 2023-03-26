@@ -36,7 +36,10 @@ function Card({
     console.log(data.message);
     if (data.message === "success") {
       alert("Product Added to cart Succesfully");
-    } else {
+    } else if(data.message === "already added") {
+      alert("Product Already Added to cart");
+    }
+    else {
       alert("Error");
     }
   };

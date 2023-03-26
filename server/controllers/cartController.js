@@ -18,12 +18,13 @@ module.exports.add = async function (req, res) {
       if (cartArray === undefined) {
         cartArray = [];
       }
-      if (
-        cartArray.find((uid) => {
-          return uid === id;
-        }) === undefined
-      ) {
-        cartArray.push({ id, quantity });
+      var f=0;
+    if (cartArray.find((uid) => {
+      return uid.id === id;})) {
+            // console.log("already added")
+            return res.json({
+              message: "already added",
+            });
       }
 
       const docref = db.collection("users").doc(fid);
@@ -85,7 +86,7 @@ module.exports.getCart = async function (req, res) {
         }
       });
     }
-    console.log(cart);
+    // console.log(cart);
     return res.json({
       message: "success",
       cart: cart,
