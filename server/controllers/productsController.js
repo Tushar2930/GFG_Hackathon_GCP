@@ -4,7 +4,7 @@ module.exports.create = async function (req, res) {
   try {
     const data = req.body.postData;
     const collection = db.collection("products");
-    var resp = await collection.add(data);
+    await collection.add(data);
     return res.json({
       message: "data added successfully",
     });
