@@ -1,16 +1,27 @@
 const db = require("../config/firebase");
 
 module.exports.create = async function (req, res) {
-  try {
-    const data = req.body.postData;
-    const collection = db.collection("users");
-    var resp = await collection.add(data);
-    res.json({
-      message: "success",
+  var data = req.body.postData;
+  var latlng = [];
+  await fetch(
+    `https://api.mapbox.com/geocoding/v5/mapbox.places/${data.address}.json?access_token=pk.eyJ1IjoibWFwLWJvaTY5IiwiYSI6ImNsYzF5OWhiNTNxZzEzcGtlZ2g4OTAxM3MifQ.CqZQLqoP6bO5UkLZoTzQhQ`,
+    {
+      method: "GET",
+    }
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      data = { ...data, latlng: res.features[0].center };
+
+      db.collection("users").add(data);
+      res.json({
+        message: "success",
+      });
+    })
+
+    .catch((error) => {
+      console.log(error.message);
     });
-  } catch (error) {
-    console.log(error);
-  }
 };
 
 module.exports.getUser = async function (req, res) {
