@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import Card from "./RentingCard";
 import "./RentingCardList.css"
 import { Link } from "react-router-dom";
+import SearchDropdown from "../../../../../../Sell_form/veg_sell_form/form_comp";
+import rentOptions from "./rentOptions";
 
 function BuyingCardList() {
-  const [data, setData] = React.useState([]);
+  const [data, setData] = useState([]);
+  const [allData, setAllData] = useState([]);
   useEffect(() => {
     async function fetchData() {
     const data=await fetch("http://localhost:8000/rent/getAllFarmers",{
@@ -14,28 +17,51 @@ function BuyingCardList() {
       }
     });
     const res=await data.json();
+    setAllData(res.data);
     setData(res.data);
-    console.log(res.data);
   }
   fetchData();
     }, []);
 
+    const [service,setService] = useState(null);
+
+async function handleFilter(){
+  var res=[];
+  allData.map((e)=>{
+    if(e.service.toLowerCase()===service.value.toLowerCase())
+      res.push(e);
+  })
+  setData(res);
+}
+useEffect(()=>{
+  handleFilter();
+},[service])
+ 
+    const onCategoryOptionClicked = (option) => {
+      if(option.value!=="None")
+      setService(option);
+      else
+      setData(allData);
+    };
+
   var cardComponentArray = data.map(
     (card) => {
-    
       return  (
         <div class="col-4 px-4 pb-4">
           <Card service_asked={card.service} id={card._id} name={card.name} area={card.area} price={card.price} loc={card.Address
-} date={card.date} dur_ar={card.duration} email={card.email}/>
-        </div>
+} date={card.date} dur_ar={card.duration} img_url={card.ip} email={card.email}/>
+        </div> 
       )
     }
-  )
+  )  
 
   return (
     <div class="fluid-container main-fluid-container">  
       <div className="row div-container">
-
+      <SearchDropdown
+          options={rentOptions}
+          onOptionClicked={onCategoryOptionClicked}
+        />
         <div class="text-center head-text-div"> 
           <b>Rental Services Required for Farmers</b>
         </div>

@@ -9,11 +9,15 @@ import SearchDropdown from "../../../../Sell_form/veg_sell_form/form_comp";
 function Products(){
 
     const [data,setData]=React.useState([]);
+    const [allData,setAllData]=React.useState([]);
   useEffect(()=>{
     fetch("http://localhost:8000/product/get-products")
     .then((response) => response.json())
-    .then((data) => setData(data.data));
+    .then((data) => {
+        setAllData(data.data)
+    setData(data.data)})
   },[]);
+console.log(data);
 
   const [category, setCategory] = useState(null);
   const [product, setProduct] = useState(null);
@@ -32,8 +36,8 @@ function Products(){
   async function findProduct(){
     const findN=category?.value+" "+product?.value+" "+species?.value;
     var res=[];
-    data.map((e)=>{
-       if(e.name.toLowerCase()==findN.toLowerCase())
+    allData.map((e)=>{
+       if(e.name.toLowerCase()===findN.toLowerCase())
         res.push(e);
     })
     setData(res);
@@ -44,10 +48,14 @@ function Products(){
 
   const onCategoryOptionClicked = (option) => {
     setCategory(option);
+    setProduct(null);
+    setSpecies(null);
   };
 
   const onProductOptionClicked = (option) => {
     setProduct(option);
+    setSpecies(null);
+
   };
 
   const onSpeciesOptionClicked = (option) => {

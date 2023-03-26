@@ -1,21 +1,33 @@
-import React from "react";
+import React, { useEffect ,useState} from "react";
 import Card from "./RentingCard";
 import "./RentingCardList.css";
 import { Link } from "react-router-dom";
 
-var cardData = [
-  {name:"Tool 1", content:"Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt. Proin eget tortor risus."},
-  {name:"Tool 2", content:"Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt. Proin eget tortor risus."},
-  {name:"Tool 3", content:"Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt. Proin eget tortor risus."},
-  {name:"Tool 4", content:"Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt. Proin eget tortor risus."},
-]
-
+// 
+ 
 function RentingCardList() {
-  var cardComponentArray = cardData.map(
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const data=await fetch("http://localhost:8000/rent/getAllFarmers",{
+        method:"GET",
+        headers:{
+          "Content-Type":"application/json"
+        }
+      });
+      const res=await data.json();
+      setData(res.data);
+      setData(res.data);
+    }
+    fetchData();
+  }, []);
+ 
+  var cardComponentArray = data.map(
     (card) => {
       return  (
         <div class="col-6 px-4 mb-4">
-          <Card name={card.name} content={card.content} />
+          <Card name={card.name} content={card.service} address={card.Address} area={card.area} date={card.date} duration={card.duration} price={card.price}/>
         </div>
       )
     }
