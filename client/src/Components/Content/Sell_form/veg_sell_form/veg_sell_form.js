@@ -37,7 +37,10 @@ function Veg_sell() {
   };
 
   const handelSubmit = async (e) => {
-    await createProduct(productObj).then((res) => {
+    await createProduct({
+      ...productObj,
+      minQuantity: Math.floor(productObj.quantity / 5),
+    }).then((res) => {
       console.log(res);
     });
   };
@@ -96,18 +99,6 @@ function Veg_sell() {
               type="number"
               id="max-item-quantity"
               name="quantity"
-              required
-              onChange={(e) => handleValueChange(e)}
-            />
-          </div>
-          <div className="flexb">
-            <label htmlFor="item-quantity">
-              Minimum Quantity You Want to sell *(in kg):
-            </label>
-            <input
-              type="number"
-              id="item-quantity"
-              name="min-item-quantity"
               required
               onChange={(e) => handleValueChange(e)}
             />

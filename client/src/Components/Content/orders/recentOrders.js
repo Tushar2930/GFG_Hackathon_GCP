@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { getUser } from "../../api/getUser";
 import "./recentOrders.css";
+import { AuthContext } from "../context/AuthorizationContext";
 
 function RecentOrdersPage() {
   const orders = [
@@ -17,6 +19,20 @@ function RecentOrdersPage() {
     },
     { id: 3, time: "2023-03-22 9:15 AM", items: ["Item F"], total: 10.0 },
   ];
+
+  const useAuth = useContext(AuthContext);
+
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        await getUser(useAuth.currentUserDetails._id);
+      } catch (error) {
+        console.log(error.message);
+      }
+
+      fetch();
+    };
+  }, []);
 
   return (
     <div className="orders-container">

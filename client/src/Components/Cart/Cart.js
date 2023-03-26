@@ -99,6 +99,7 @@ function Cart() {
         img_url={card?.ip}
         name={card?.name}
         description={card?.description}
+        minQuantity={card?.minQuantity}
         quantity={card?.quantity}
         price={card?.price}
         id={card?.id}

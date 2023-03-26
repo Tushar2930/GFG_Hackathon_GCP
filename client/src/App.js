@@ -18,6 +18,7 @@ import RentingSection from "./Components/Content/Rent/RentalPages/ServiceTakerPo
 import ServicesRequiredListing from "./Components/Content/Rent/RentalPages/ServiceProviderPortal/ServicesRequiredListing/ServicesRequiredListing.js";
 import UserProfile from "./Components/User_profile/User_profile";
 import BuyerForm from "./Components/Content/Buyer_Form/BuyerForm";
+import Orders from "./Components/Content/orders/recentOrders";
 import Rent_sell from "./Components/Content/Sell_form/rent_sell_form";
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
           <Route exact path="/shop" element={<Shop />} />
           <Route exact path="/get-rent-service" element={<Rent_sell />} />
           <Route exact path="/buyer-form" element={<BuyerForm />} />
+          <Route exact path="/recent-orders" element={<Orders />} />
         </Routes>
         <Footer />
       </div>
