@@ -7,7 +7,7 @@ function Card({
   img_url,
   quantity,
   minQuantity,
-  name,
+  name, 
   description,
   price,
   id,
@@ -27,16 +27,22 @@ function Card({
       },
       body: JSON.stringify({
         id,
+        name,
+        price,
         email: useAuth.currentUser.email,
+        minQuantity,
+        maxQuantity: quantity,
         inputValue,
       }),
     });
-
     const data = await resp.json();
     console.log(data.message);
     if (data.message === "success") {
       alert("Product Added to cart Succesfully");
-    } else {
+    } else if(data.message === "already added") {
+      alert("Product Already Added to cart");
+    }
+    else {
       alert("Error");
     }
   };

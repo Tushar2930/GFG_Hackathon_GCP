@@ -12,31 +12,31 @@ function Cart() {
     window.location.href = "/signin";
   }
   const [data, setData] = React.useState({});
-  const [isfetch, setIsfetch] = React.useState(false);
-  const [isLoading, setIsLoading] = React.useState(false);
 
   const updateFields = async (id, quantity) => {
     var tempcart = [];
+    var tempcartupdate = [];
+
     data.cart.map((e) => {
       if (e.id == id) {
-        quantity && tempcart.push({ id, quantity });
+        quantity && tempcart.push({ ...e, id, quantity });
+        quantity && tempcartupdate.push({ id, quantity });
       } else {
         tempcart.push(e);
+        tempcartupdate.push({ id: e.id, quantity: e.quantity });
       }
+      console.log("tempcart", tempcart, "tempcartupdate", tempcartupdate);
+      setData({ ...data, cart: tempcart });
     });
 
     try {
-      setIsLoading(true);
       await updateUserCartItem({
         id: useAuth.currentUserDetails.id,
-        cartArray: tempcart,
+        cartArray: tempcartupdate,
       }).then((res) => {
-        !isfetch ? setIsfetch(true) : setIsfetch(false);
-        setIsLoading(false);
         console.log(res);
       });
     } catch (error) {
-      setIsLoading(false);
       console.log(error.message);
     }
   };
@@ -44,7 +44,6 @@ function Cart() {
   async function feth() {
     if (useAuth.currentUser) {
       try {
-        setIsLoading(true);
         const resp = await fetch("http://localhost:8000/cart/get-products", {
           method: "POST",
           headers: {
@@ -56,11 +55,8 @@ function Cart() {
         });
 
         const temp = await resp.json();
-        console.log(temp);
         setData(temp);
-        setIsLoading(false);
       } catch (error) {
-        setIsLoading(false);
         console.log(error.message);
       }
     }
@@ -68,44 +64,10 @@ function Cart() {
 
   useEffect(() => {
     feth();
-  }, [useAuth.currentUser, isfetch]);
+  }, [useAuth.currentUser]);
   useEffect(() => {
     feth();
   }, []);
-
-  var total = 0;
-  var cardComponentArray = data?.cart?.map((card) => {
-    total = total + parseInt(card?.quantity) * parseInt(card?.price);
-
-    if (data.cart.length === 0) {
-      return (
-        <div>
-          Add Items to Cart <a href="/">Go to Home</a>
-        </div>
-      );
-    }
-    if (isLoading) {
-      return (
-        <div className="loading">
-          <CircularProgress />
-        </div>
-      );
-    }
-
-    return (
-      <Card
-        key={card?.id}
-        updateFeilds={updateFields}
-        img_url={card?.ip}
-        name={card?.name}
-        description={card?.description}
-        minQuantity={card?.minQuantity}
-        quantity={card?.quantity}
-        price={card?.price}
-        id={card?.id}
-      />
-    );
-  });
   function handleRazorPay(data) {
     const options = {
       key: "rzp_test_Ao3jBTNOJ6GS1R",
@@ -149,7 +111,29 @@ function Cart() {
     const data = await resp.json();
     handleRazorPay(data.order);
   };
-  // console.log(data);
+
+
+
+  var total = 0;
+  var cardComponentArray = data?.cart?.map((card) => {
+    total = total + parseInt(card?.quantity) * parseInt(card?.price);
+    // console.log(card);
+    return (
+      <Card
+        img_url={card?.img_url}
+        name={card?.name}
+        maxQuantity={card?.maxQuantity}
+        minQuantity={card?.minQuantity}
+        quantity={card?.inputValue}
+        price={card?.price}
+        id={card?.id}
+        updateFeilds={updateFields}
+      />
+    );
+  });
+
+
+ 
   return (
     <>
       <div class="cart">

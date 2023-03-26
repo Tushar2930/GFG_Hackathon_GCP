@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -7,12 +7,15 @@ import "./cart.css";
 function Card({
   img_url,
   name,
-  description,
+  maxQuantity,
+  minQuantity,
   quantity,
   price,
   id,
   updateFeilds,
 }) {
+
+  console.log(img_url, name, maxQuantity, minQuantity,quantity,price,id);
   return (
     <>
       <div class="item">
@@ -21,11 +24,16 @@ function Card({
         <p>${price}</p>
         <div
           className="minus-item"
-          onClick={() => updateFeilds(id, quantity - 1)}>
+          onClick={() => {
+            quantity > minQuantity && updateFeilds(id, quantity - 1);
+          }}>
           <RemoveIcon />
         </div>
         <p>Quantity: {quantity}</p>
-        <div onClick={() => updateFeilds(id, quantity + 1)}>
+        <div
+          onClick={() => {
+            quantity < maxQuantity && updateFeilds(id, quantity + 1);
+          }}>
           <AddIcon className="add-item" />
         </div>
         <div onClick={() => updateFeilds(id, 0)}>

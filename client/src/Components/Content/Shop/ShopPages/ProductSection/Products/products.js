@@ -6,7 +6,7 @@ import sellOptions from "../../../../Sell_form/veg_sell_form/veg_sell_data";
 import SearchDropdown from "../../../../Sell_form/veg_sell_form/form_comp";
 
 
-function Products(){
+function Products(props){
 
     const [data,setData]=React.useState([]);
     const [allData,setAllData]=React.useState([]);
@@ -17,7 +17,29 @@ function Products(){
         setAllData(data.data)
     setData(data.data)})
   },[]);
-console.log(data);
+// console.log(data);
+useEffect(()=>{
+    if(props.checklth===true){
+      var temp=data;
+      let sortedData=temp.sort(
+        (p1, p2) => (p1.price > p2.price) ? 1 : (p1.price < p2.price) ? -1 : 0);
+        console.log(sortedData,"lth");
+        // console.log(data);
+      setData(temp);
+    }
+    else if(props.checkhtl===true){
+        var temp1=data;
+        let sortedData=temp1.sort(
+          (p1, p2) => (p1.price < p2.price) ? 1 : (p1.price > p2.price) ? -1 : 0);
+          console.log(sortedData,'htl');
+          // console.log(data);
+        setData(temp1);
+    }
+    else{
+      setData(allData);
+    }
+    console.log(props.checklth,props.checkhtl);
+},[props.checklth,props.checkhtl])
 
   const [category, setCategory] = useState(null);
   const [product, setProduct] = useState(null);
@@ -40,8 +62,10 @@ console.log(data);
        if(e.name.toLowerCase()===findN.toLowerCase())
         res.push(e);
     })
+    console.log(res)
     setData(res);
   }
+
   useEffect(()=>{
     findProduct();
     },[species])
