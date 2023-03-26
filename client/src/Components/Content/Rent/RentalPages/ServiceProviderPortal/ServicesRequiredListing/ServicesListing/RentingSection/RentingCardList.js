@@ -1,36 +1,67 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import Card from "./RentingCard";
 import "./RentingCardList.css"
 import { Link } from "react-router-dom";
-
-
-var cardData = [
-  {service_asked:"service", loc:"Chaand", date:"12/12/12", dur_ar:"infinity", img_url:"https://images-eu.ssl-images-amazon.com/images/S/influencer-profile-image-prod/logo/indianfarmer_1616522104637_original._CR3,3,1315,1315_._FMjpg_.jpeg",},
-  {service_asked:"service", loc:"Chaand", date:"12/12/12", dur_ar:"infinity", img_url:"https://images-eu.ssl-images-amazon.com/images/S/influencer-profile-image-prod/logo/indianfarmer_1616522104637_original._CR3,3,1315,1315_._FMjpg_.jpeg",},
-  {service_asked:"service", loc:"Chaand", date:"12/12/12", dur_ar:"infinity", img_url:"https://images-eu.ssl-images-amazon.com/images/S/influencer-profile-image-prod/logo/indianfarmer_1616522104637_original._CR3,3,1315,1315_._FMjpg_.jpeg",},
-  {service_asked:"service", loc:"Chaand", date:"12/12/12", dur_ar:"infinity", img_url:"https://images-eu.ssl-images-amazon.com/images/S/influencer-profile-image-prod/logo/indianfarmer_1616522104637_original._CR3,3,1315,1315_._FMjpg_.jpeg",},
-  {service_asked:"service", loc:"Chaand", date:"12/12/12", dur_ar:"infinity", img_url:"https://images-eu.ssl-images-amazon.com/images/S/influencer-profile-image-prod/logo/indianfarmer_1616522104637_original._CR3,3,1315,1315_._FMjpg_.jpeg",},
-  {service_asked:"service", loc:"Chaand", date:"12/12/12", dur_ar:"infinity", img_url:"https://images-eu.ssl-images-amazon.com/images/S/influencer-profile-image-prod/logo/indianfarmer_1616522104637_original._CR3,3,1315,1315_._FMjpg_.jpeg",},
-  {service_asked:"service", loc:"Chaand", date:"12/12/12", dur_ar:"infinity", img_url:"https://images-eu.ssl-images-amazon.com/images/S/influencer-profile-image-prod/logo/indianfarmer_1616522104637_original._CR3,3,1315,1315_._FMjpg_.jpeg",},
-  {service_asked:"service", loc:"Chaand", date:"12/12/12", dur_ar:"infinity", img_url:"https://images-eu.ssl-images-amazon.com/images/S/influencer-profile-image-prod/logo/indianfarmer_1616522104637_original._CR3,3,1315,1315_._FMjpg_.jpeg",},
-]
-
+import SearchDropdown from "../../../../../../Sell_form/veg_sell_form/form_comp";
+import rentOptions from "./rentOptions";
 
 function BuyingCardList() {
-  var cardComponentArray = cardData.map(
+  const [data, setData] = useState([]);
+  const [allData, setAllData] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+    const data=await fetch("http://localhost:8000/rent/getAllFarmers",{
+      method:"GET",
+      headers:{
+        "Content-Type":"application/json"
+      }
+    });
+    const res=await data.json();
+    setAllData(res.data);
+    setData(res.data);
+  }
+  fetchData();
+    }, []);
+
+    const [service,setService] = useState(null);
+
+async function handleFilter(){
+  var res=[];
+  allData.map((e)=>{
+    if(e.service.toLowerCase()===service.value.toLowerCase())
+      res.push(e);
+  })
+  setData(res);
+}
+useEffect(()=>{
+  handleFilter();
+},[service])
+ 
+    const onCategoryOptionClicked = (option) => {
+      if(option.value!=="None")
+      setService(option);
+      else
+      setData(allData);
+    };
+
+  var cardComponentArray = data.map(
     (card) => {
       return  (
         <div class="col-4 px-4 pb-4">
-          <Card service_asked={card.service_asked} img_url={card.img_url} loc={card.loc} date={card.date} dur_ar={card.dur_ar} />
-        </div>
+          <Card service_asked={card.service} id={card._id} name={card.name} area={card.area} price={card.price} loc={card.Address
+} date={card.date} dur_ar={card.duration} img_url={card.ip} email={card.email}/>
+        </div> 
       )
     }
-  )
+  )  
 
   return (
     <div class="fluid-container main-fluid-container">  
       <div className="row div-container">
-
+      <SearchDropdown
+          options={rentOptions}
+          onOptionClicked={onCategoryOptionClicked}
+        />
         <div class="text-center head-text-div"> 
           <b>Rental Services Required for Farmers</b>
         </div>

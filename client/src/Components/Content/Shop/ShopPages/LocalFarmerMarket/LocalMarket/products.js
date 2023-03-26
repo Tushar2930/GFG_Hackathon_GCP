@@ -1,9 +1,12 @@
 import React from "react";
-import BuyingCardList from "./BuyingSection/BuyingCardList"
+import BuyingCardList from "./BuyingSection/BuyingCardList";
 
-
-function Products(){
-    return <BuyingCardList />;
+function Products() {
+  return (
+    <>
+      <BuyingCardList />;
+    </>
+  );
 }
 
 export default Products;

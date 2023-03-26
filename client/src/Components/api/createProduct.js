@@ -1,20 +1,18 @@
-export const getUser = async (email) => {
+export const createProduct = async (postData) => {
   try {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        status: "new user",
-        postData: {
-          email: email,
-        },
+        status: "new product",
+        postData,
       }),
     };
     const data = await fetch(
-      "http://localhost:8000/user/getUser",
+      "http://localhost:8000/product/sell-add",
       requestOptions
     ).then((res) => res.json());
-    return data.list[0];
+    return data;
   } catch (err) {
     console.log(err.message);
   }

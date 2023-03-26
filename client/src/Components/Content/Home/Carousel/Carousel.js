@@ -3,7 +3,7 @@ import "./carousel.css";
  
 function Carousel() {
   return (
-    <div className="carousel">
+    <div className="carousel" style={{height:"100vh"}}>
       <form className="carouselForm">
         <input
           className="carouselInput"
