@@ -39,3 +39,16 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
+
+#output {
+  padding: 20px;
+  background: #dadada;
+}
+
+form {
+  margin-top: 20px;
+}
+
+select {
+  width: 300px;
+}

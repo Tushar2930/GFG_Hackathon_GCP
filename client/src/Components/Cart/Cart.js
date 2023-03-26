@@ -1,12 +1,10 @@
-import React, { startTransition, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
-import { Navigate } from "react-router-dom";
 import { updateUserCartItem } from "../api/updateCartProduct";
 
 import { AuthContext } from "../Content/context/AuthorizationContext";
 import "./cart.css";
 import Card from "./Card_card";
-import { async } from "@firebase/util";
 
 function Cart() {
   const useAuth = useContext(AuthContext);
@@ -79,6 +77,13 @@ function Cart() {
   var cardComponentArray = data?.cart?.map((card) => {
     total = total + parseInt(card?.quantity) * parseInt(card?.price);
 
+    if (data.cart.length === 0) {
+      return (
+        <div>
+          Add Items to Cart <a href="/">Go to Home</a>
+        </div>
+      );
+    }
     if (isLoading) {
       return (
         <div className="loading">
@@ -94,28 +99,24 @@ function Cart() {
         img_url={card?.ip}
         name={card?.name}
         description={card?.description}
+        minQuantity={card?.minQuantity}
         quantity={card?.quantity}
         price={card?.price}
         id={card?.id}
       />
     );
   });
-
-
-
-
-  function handleRazorPay(dataInfo) {
-
-      const options = {
+  function handleRazorPay(data) {
+    const options = {
       key: "rzp_test_Ao3jBTNOJ6GS1R",
-      amount: Number(dataInfo.amount),
-      currency: dataInfo.currency,
+      amount: Number(data.amount),
+      currency: data.currency,
       name: "AGROKART",
       description: "test",
-      order_id: dataInfo.id,
+      order_id: data.id,
       handler: async function (response) {
-        // console.log(response);
-        const data2 = await fetch("http://localhost:8000/order/verify", {
+        console.log(response);
+        const data = await fetch("http://localhost:8000/order/verify", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -124,25 +125,10 @@ function Cart() {
             response: response,
           }),
         });
-        const resp = await data2.json();
+        const resp = await data.json();
         if (resp.message === "Sign Valid") {
-          const data1=await fetch("http://localhost:8000/order/place", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email: useAuth.currentUser.email,
-                data:data.cart,
-              })
-            });
-            const resp=await data1.json();
-            if(resp.message==="Order Placed"){
-              alert("Order Placed Successfully");
-              window.location.href="/";
-            }
-          // alert("Order Placed Successfully");
-          // window.location.href = "/";
+          alert("Order Placed Successfully");
+          window.location.href = "/";
         }
       },
     };

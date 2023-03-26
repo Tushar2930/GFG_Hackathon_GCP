@@ -17,8 +17,9 @@ import Veg_Sell from "./Components/Content/Sell_form/veg_sell_form/veg_sell_form
 import RentingSection from "./Components/Content/Rent/RentalPages/ServiceTakerPortal/RentalServicesPage/RentalSection.js";
 import ServicesRequiredListing from "./Components/Content/Rent/RentalPages/ServiceProviderPortal/ServicesRequiredListing/ServicesRequiredListing.js";
 import UserProfile from "./Components/User_profile/User_profile";
+import BuyerForm from "./Components/Content/Buyer_Form/BuyerForm";
+import Orders from "./Components/Content/orders/recentOrders";
 import Rent_sell from "./Components/Content/Sell_form/rent_sell_form";
-
 
 function App() {
   return (
@@ -29,10 +30,22 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/signin" element={<SignIn />} />
-          <Route exact path="/signin/resetpassword" element={<ResetPassword />} />
+          <Route
+            exact
+            path="/signin/resetpassword"
+            element={<ResetPassword />}
+          />
           <Route exact path="/rent" element={<Renting />} />
-          <Route exact path="/rent/service-taker-portal" element={<RentingSection />} />
-          <Route exact path="/rent/service-provider-portal" element={<ServicesRequiredListing />} />
+          <Route
+            exact
+            path="/rent/service-taker-portal"
+            element={<RentingSection />}
+          />
+          <Route
+            exact
+            path="/rent/service-provider-portal"
+            element={<ServicesRequiredListing />}
+          />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/userProfile" element={<UserProfile />} />
           <Route exact path="/contact" element={<Contact />} />
@@ -40,6 +53,8 @@ function App() {
           <Route exact path="/about-us" element={<About />} />
           <Route exact path="/shop" element={<Shop />} />
           <Route exact path="/get-rent-service" element={<Rent_sell />} />
+          <Route exact path="/buyer-form" element={<BuyerForm />} />
+          <Route exact path="/recent-orders" element={<Orders />} />
         </Routes>
         <Footer />
       </div>
