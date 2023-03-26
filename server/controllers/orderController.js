@@ -49,14 +49,14 @@ try {
  if(orderArray==undefined){
      orderArray=[];
  }
- const data=await req.body.data;
+  // console.log(req.body.data,"data");
+ const data=await req.body.data.cart;
  await data.map((item)=>{
-      orderArray.push({id:item.id,quantity:item.quantity});
+      orderArray.push(item);
   });
+  // console.log(orderArray);
   //delete cart array from user
-  const resp1=await db.collection('users').doc(resp.docs[0].id).update({
-      orderArray:orderArray,
-      cartArray:[]
+  const resp1=await db.collection('users').doc(resp.docs[0].id).update({orderArray:orderArray,cartArray:[]
   });
   if(resp1){
       return res.status(200).json({
@@ -68,4 +68,24 @@ try {
   console.log(error);
 }
 
+}
+
+module.exports.getOrders=async function(req,res){
+    try {
+        const resp=await db.collection('users').where('email','==',req.body.email).get();
+        const user=await resp.docs[0].data();
+        const orderArray=user.orderArray;
+        if(orderArray==undefined){
+            return res.status(200).json({
+                message:'No Orders'
+            })
+        }
+        console.log(orderArray);
+        return res.status(200).json({
+            message:'Orders',
+            data:orderArray
+        })
+    } catch (error) {
+        console.log(error);
+    }
 }

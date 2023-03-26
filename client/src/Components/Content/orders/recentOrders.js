@@ -19,8 +19,25 @@ function RecentOrdersPage() {
     },
     { id: 3, time: "2023-03-22 9:15 AM", items: ["Item F"], total: 10.0 },
   ];
-
   const useAuth = useContext(AuthContext);
+
+  useEffect(() => {
+    async function fet() {
+      const resp=await fetch("http://localhost:8000/order/getOrders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email:useAuth.currentUserDetails.email
+        }),
+      });
+      const data=await resp.json();
+      console.log(data);
+    }
+    fet();
+  }, []);
+
 
   useEffect(() => {
     const fetch = async () => {

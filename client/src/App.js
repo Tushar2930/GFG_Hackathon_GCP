@@ -23,7 +23,6 @@ import Rent_sell from "./Components/Content/Sell_form/rent_sell_form";
 import IndividualListingPage from "./Components/Content/Rent/RentalPages/ServiceProviderPortal/IndividualListingPage/IndividualListingPage.js";
 
 
-
 function App() {
   return (
     <AuthProvider>

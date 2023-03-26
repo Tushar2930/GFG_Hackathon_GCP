@@ -68,17 +68,17 @@ function Cart() {
   useEffect(() => {
     feth();
   }, []);
-  function handleRazorPay(data) {
+  function handleRazorPay(orderData) {
     const options = {
       key: "rzp_test_Ao3jBTNOJ6GS1R",
-      amount: Number(data.amount),
-      currency: data.currency,
+      amount: Number(orderData.amount),
+      currency: orderData.currency,
       name: "AGROKART",
       description: "test",
-      order_id: data.id,
+      order_id: orderData.id,
       handler: async function (response) {
         console.log(response);
-        const data = await fetch("http://localhost:8000/order/verify", {
+        const data1 = await fetch("http://localhost:8000/order/verify", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -87,9 +87,20 @@ function Cart() {
             response: response,
           }),
         });
-        const resp = await data.json();
+        const resp = await data1.json();
         if (resp.message === "Sign Valid") {
-          alert("Order Placed Successfully");
+          const data2 = await fetch("http://localhost:8000/order/place", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: useAuth.currentUser.email,
+              data,
+            }),
+          });
+          const resp2 = await data2.json();
+          alert("Order Placed Successfully"); 
           window.location.href = "/";
         }
       },
@@ -108,15 +119,16 @@ function Cart() {
         amount: total,
       }),
     });
-    const data = await resp.json();
-    handleRazorPay(data.order);
+    const data2 = await resp.json();
+    console.log(data2);
+    handleRazorPay(data2.order);
   };
 
 
 
   var total = 0;
   var cardComponentArray = data?.cart?.map((card) => {
-    total = total + parseInt(card?.quantity) * parseInt(card?.price);
+    total = total + parseInt(card?.inputValue) * parseInt(card?.price);
     // console.log(card);
     return (
       <Card
