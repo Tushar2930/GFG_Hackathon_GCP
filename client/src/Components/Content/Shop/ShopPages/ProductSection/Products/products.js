@@ -39,7 +39,7 @@ useEffect(()=>{
       setData(allData);
     }
     console.log(props.checklth,props.checkhtl);
-},[props.checklth,props.checkhtl,data])
+},[props.checklth,props.checkhtl])
 
   const [category, setCategory] = useState(null);
   const [product, setProduct] = useState(null);
@@ -62,6 +62,7 @@ useEffect(()=>{
        if(e.name.toLowerCase()===findN.toLowerCase())
         res.push(e);
     })
+    console.log(res)
     setData(res);
   }
 

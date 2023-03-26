@@ -18,7 +18,6 @@ module.exports.add = async function (req, res) {
       if (cartArray === undefined) {
         cartArray = [];
       }
-      var f=0;
     if (cartArray.find((uid) => {
       return uid.id === id;})) {
             // console.log("already added")
@@ -26,7 +25,8 @@ module.exports.add = async function (req, res) {
               message: "already added",
             });
       }
-
+      cartArray.push({id, quantity});
+// console.log(cartArray)
       const docref = db.collection("users").doc(fid);
       await docref.update({ cartArray });
 

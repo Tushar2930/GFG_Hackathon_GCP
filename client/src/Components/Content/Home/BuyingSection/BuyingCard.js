@@ -31,7 +31,6 @@ function Card({
         inputValue,
       }),
     });
-
     const data = await resp.json();
     console.log(data.message);
     if (data.message === "success") {
