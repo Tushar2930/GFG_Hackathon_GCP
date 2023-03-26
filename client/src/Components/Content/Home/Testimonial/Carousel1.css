@@ -71,6 +71,8 @@ display: inline-block;
 
 .carousel-root{
     height: 50vh;
+    width: 100vw;
+
 }
 
 .carousel{
