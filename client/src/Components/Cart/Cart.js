@@ -55,7 +55,6 @@ function Cart() {
         });
 
         const temp = await resp.json();
-        console.log(temp);
         setData(temp);
       } catch (error) {
         console.log(error.message);
@@ -69,34 +68,6 @@ function Cart() {
   useEffect(() => {
     feth();
   }, []);
-
-  var total = 0;
-  var cardComponentArray = data?.cart?.map((card) => {
-    total = total + parseInt(card?.quantity) * parseInt(card?.price);
-
-    if (data.cart.length === 0) {
-      return (
-        <div>
-          Add Items to Cart <a href="/">Go to Home</a>
-        </div>
-      );
-    }
-
-    return (
-      <Card
-        key={card?.id}
-        updateFeilds={updateFields}
-        img_url={card?.ip}
-        name={card?.name}
-        description={card?.description}
-        maxQuantity={card?.maxQuantity}
-        minQuantity={card?.minQuantity}
-        quantity={card?.quantity}
-        price={card?.price}
-        id={card?.id}
-      />
-    );
-  });
   function handleRazorPay(data) {
     const options = {
       key: "rzp_test_Ao3jBTNOJ6GS1R",
@@ -140,7 +111,29 @@ function Cart() {
     const data = await resp.json();
     handleRazorPay(data.order);
   };
-  // console.log(data);
+
+
+
+  var total = 0;
+  var cardComponentArray = data?.cart?.map((card) => {
+    total = total + parseInt(card?.quantity) * parseInt(card?.price);
+    // console.log(card);
+    return (
+      <Card
+        img_url={card?.img_url}
+        name={card?.name}
+        maxQuantity={card?.maxQuantity}
+        minQuantity={card?.minQuantity}
+        quantity={card?.inputValue}
+        price={card?.price}
+        id={card?.id}
+        updateFeilds={updateFields}
+      />
+    );
+  });
+
+
+ 
   return (
     <>
       <div class="cart">

@@ -7,7 +7,7 @@ function Card({
   img_url,
   quantity,
   minQuantity,
-  name,
+  name, 
   description,
   price,
   id,
@@ -27,7 +27,11 @@ function Card({
       },
       body: JSON.stringify({
         id,
+        name,
+        price,
         email: useAuth.currentUser.email,
+        minQuantity,
+        maxQuantity: quantity,
         inputValue,
       }),
     });
