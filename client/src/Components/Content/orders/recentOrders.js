@@ -55,26 +55,22 @@ useEffect(() => {
     fetch();
   }, []);
 
-  console.log(data);
+  // console.log(data);
   if(data.length>0){
   return (
-    <div className="orders-container">
-      {orders.map((order) => (
-        <div key={order.id} className="order-card">
-          <div className="order-header">
-            <div className="order-id">Order #{order.id}</div>
-            <div className="order-time">{order.time}</div>
+    <div className="orders-container temp-cont" >
+      <h1>Recent Orders</h1>
+      <div className="orders ">
+        {data.map((order) => (
+          <div className="order" key={order.id}>
+            <h3>{order.name}</h3>
+            <h5>Order id: #{order.id}</h5>
+            <h4>Order Date : {order.orderDate}</h4>
+            <h4>Quantity : {order.quantity}</h4>
+            <h4>Total : {order.quantity * order.price}</h4>
           </div>
-          <div className="order-items">
-            {order.items.map((item) => (
-              <div key={item} className="order-item">
-                {item}
-              </div>
-            ))}
-          </div>
-          <div className="order-total">Total: ${order.total.toFixed(2)}</div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

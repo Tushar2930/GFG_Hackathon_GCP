@@ -52,10 +52,8 @@ try {
   // console.log(req.body.data,"data");
  const data=await req.body.data.cart;
  await data.map((item)=>{
-      orderArray.push(item);
+      orderArray.push({...item,orderDate:new Date().toLocaleDateString()});
   });
-  // console.log(orderArray);
-  //delete cart array from user
   const resp1=await db.collection('users').doc(resp.docs[0].id).update({orderArray:orderArray,cartArray:[]
   });
   if(resp1){
