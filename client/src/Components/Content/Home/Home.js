@@ -4,7 +4,6 @@ import DealsWeek from "./DealsOfTheWeek/DealsWeek";
 import Poster from "./Poster/Poster";
 import BuyingCardList from "./BuyingSection/BuyingCardList";
 import RentingCardList from "./RentingSection/RentingCardList";
-import { AuthContext } from "../context/AuthorizationContext";
 import Testimonial from "./Testimonial/Testimonial";
 
 function Home() {

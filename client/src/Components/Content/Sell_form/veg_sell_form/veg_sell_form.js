@@ -39,7 +39,7 @@ function Veg_sell() {
   const handelSubmit = async (e) => {
     await createProduct({
       ...productObj,
-      minQuantity: Math.floor(productObj.quantity / 5),
+      minQuantity: Math.floor(productObj.maxQuantity / 5),
     }).then((res) => {
       console.log(res);
     });
@@ -98,7 +98,7 @@ function Veg_sell() {
             <input
               type="number"
               id="max-item-quantity"
-              name="quantity"
+              name="maxQuantity"
               required
               onChange={(e) => handleValueChange(e)}
             />

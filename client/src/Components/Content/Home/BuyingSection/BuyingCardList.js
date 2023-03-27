@@ -3,8 +3,6 @@ import Card from "./BuyingCard";
 import "./BuyingCardList.css";
 import { Link } from "react-router-dom";
 
-
-
 function BuyingCardList() {
   const [data, setData] = React.useState([]);
   useEffect(() => {
@@ -21,7 +19,7 @@ function BuyingCardList() {
       <div className="col-3 px-4 pb-4">
         <Card
           img_url={card?.ip}
-          quantity={card?.quantity}
+          maxQuantity={card?.maxQuantity}
           minQuantity={card?.minQuantity}
           name={card?.name}
           description={card?.description}
