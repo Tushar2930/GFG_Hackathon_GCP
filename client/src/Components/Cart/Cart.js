@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import { CircularProgress } from "@mui/material";
 import { updateUserCartItem } from "../api/updateCartProduct";
 
 import { AuthContext } from "../Content/context/AuthorizationContext";
@@ -14,19 +13,19 @@ function Cart() {
   const [data, setData] = React.useState({});
 
   const updateFields = async (id, quantity) => {
+    console.log(id, quantity);
     var tempcart = [];
     var tempcartupdate = [];
 
     data.cart.map((e) => {
       if (e.id == id) {
-        quantity && tempcart.push({ ...e, id, quantity });
-        quantity && tempcartupdate.push({ id, quantity });
+        quantity && tempcartupdate.push({ ...e, id, quantity });
       } else {
-        tempcart.push(e);
-        tempcartupdate.push({ id: e.id, quantity: e.quantity });
+        // tempcart.push(e);
+        tempcartupdate.push(e);
       }
       console.log("tempcart", tempcart, "tempcartupdate", tempcartupdate);
-      setData({ ...data, cart: tempcart });
+      setData({ ...data, cart: tempcartupdate });
     });
 
     try {
@@ -100,7 +99,7 @@ function Cart() {
             }),
           });
           const resp2 = await data2.json();
-          alert("Order Placed Successfully"); 
+          alert("Order Placed Successfully");
           window.location.href = "/";
         }
       },
@@ -124,11 +123,9 @@ function Cart() {
     handleRazorPay(data2.order);
   };
 
-
-
   var total = 0;
   var cardComponentArray = data?.cart?.map((card) => {
-    total = total + parseInt(card?.inputValue) * parseInt(card?.price);
+    total = total + parseInt(card?.quantity) * parseInt(card?.price);
     // console.log(card);
     return (
       <Card
@@ -136,7 +133,7 @@ function Cart() {
         name={card?.name}
         maxQuantity={card?.maxQuantity}
         minQuantity={card?.minQuantity}
-        quantity={card?.inputValue}
+        quantity={card?.quantity}
         price={card?.price}
         id={card?.id}
         updateFeilds={updateFields}
@@ -144,8 +141,6 @@ function Cart() {
     );
   });
 
-
- 
   return (
     <>
       <div class="cart">
