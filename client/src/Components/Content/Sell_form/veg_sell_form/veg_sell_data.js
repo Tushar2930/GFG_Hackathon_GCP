@@ -84,6 +84,7 @@ const vegetables = [
     {id:"14", value: "chilli", label: "chilli", species:chilliVeg },
     {id:"15", value: "cucumber", label: "cucumber", species:cucumberVeg},
     {id:"16", value: "mushroom", label: "mushroom", species:mushroomVeg },
+    {id:"17", valu:"Peas", label:"Peas", species:peasVeg},
 ]
 
 
@@ -126,7 +127,7 @@ const lycheeFruit = [
                 {id:"1", value: "Pear", label: "Pear"},
                 ]
  const pineappleFruit = [
-                    {id:"1", value: "", label: "Pineapple"},
+                    {id:"1", value: "Pineapple", label: "Pineapple"},
                     ]
  const watermelonFruit = [
                         {id:"1", value: "Watermelon", label: "Watermelon"},
@@ -161,39 +162,34 @@ const fruits = [
 
 // 3) Pulses
 const moongPulses = [
-    {id:"1", value: "m1", label: "m1"},
+    {id:"1", value: "moong", label: "moong"},
 ]
 const chanePulses = [
-    {id:"1", value: "c1", label: "c1"},
-    {id:"1", value: "c2", label: "c2"},
+    {id:"1", value: "chane", label: "chane"},
 ]
 const kidneybeanPulses = [
-    {id:"1", value: "m1", label: "m1"},
+    {id:"1", value: "kidneybean", label: "kidneybean"},
 ]
 const bengalgramPulses = [
-    {id:"1", value: "c1", label: "c1"},
-    {id:"1", value: "c2", label: "c2"},
+    {id:"1", value: "bengalgram", label: "bengalgram"},
 ]
 const blackgramPulses = [
-    {id:"1", value: "m1", label: "m1"},
+    {id:"1", value: "blackgram", label: "blackgram"},
 ]
 const cowpeabeanPulses = [
-    {id:"1", value: "c1", label: "c1"},
-    {id:"1", value: "c2", label: "c2"},
+    {id:"1", value: "cowpeabean", label: "cowpeabean"},
 ]
 const horsegramPulses = [
-    {id:"1", value: "m1", label: "m1"},
+    {id:"1", value: "horsegram", label: "horsegram"},
 ]
 const greenpeasPulses = [
-    {id:"1", value: "c1", label: "c1"},
-    {id:"1", value: "c2", label: "c2"},
+    {id:"1", value: "greenpeas", label: "greenpeas"},
 ]
 const soyabeanPulses = [
-    {id:"1", value: "m1", label: "m1"},
+    {id:"1", value: "soyabean", label: "soyabean"},
 ]
 const redgramPulses = [
-    {id:"1", value: "c1", label: "c1"},
-    {id:"1", value: "c2", label: "c2"},
+    {id:"1", value: "redgram", label: "redgram"},
 ]
 
 const pulses = [
@@ -213,54 +209,34 @@ const pulses = [
 
 // 4) Pulses
 const wheatGrains = [
-    {id:"1", value: "w1", label: "w1"},
-    {id:"2", value: "w2", label: "w2"},
-    {id:"3", value: "w3", label: "w3"},
+    {id:"1", value: "wheat", label: "wheat"},
 ]
 const cornGrains = [
-    {id:"1", value: "w1", label: "w1"},
-    {id:"2", value: "w2", label: "w2"},
-    {id:"3", value: "w3", label: "w3"},
+    {id:"1", value: "corn", label: "corn"},
 ]
 const barleyGrains = [
-    {id:"1", value: "w1", label: "w1"},
-    {id:"2", value: "w2", label: "w2"},
-    {id:"3", value: "w3", label: "w3"},
+    {id:"1", value: "barley", label: "barley"},
 ]
 const ryeGrains = [
-    {id:"1", value: "w1", label: "w1"},
-    {id:"2", value: "w2", label: "w2"},
-    {id:"3", value: "w3", label: "w3"},
+    {id:"1", value: "rye", label: "rye"},
 ]
 const oatGrains = [
-    {id:"1", value: "w1", label: "w1"},
-    {id:"2", value: "w2", label: "w2"},
-    {id:"3", value: "w3", label: "w3"},
+    {id:"1", value: "oat", label: "oat"},
 ]
 const milletGrains = [
-    {id:"1", value: "w1", label: "w1"},
-    {id:"2", value: "w2", label: "w2"},
-    {id:"3", value: "w3", label: "w3"},
+    {id:"1", value: "millet", label: "millet"},
 ]
 const riceGrains = [
-    {id:"1", value: "w1", label: "w1"},
-    {id:"2", value: "w2", label: "w2"},
-    {id:"3", value: "w3", label: "w3"},
+    {id:"1", value: "rice", label: "rice"},
 ]
 const bulgurGrains = [
-    {id:"1", value: "w1", label: "w1"},
-    {id:"2", value: "w2", label: "w2"},
-    {id:"3", value: "w3", label: "w3"},
+    {id:"1", value: "bulgur", label: "bulgur"},
 ]
 const buckwheatGrains = [
-    {id:"1", value: "w1", label: "w1"},
-    {id:"2", value: "w2", label: "w2"},
-    {id:"3", value: "w3", label: "w3"},
+    {id:"1", value: "buckwheat", label: "buckwheat"},
 ]
 const kamutGrains = [
-    {id:"1", value: "w1", label: "w1"},
-    {id:"2", value: "w2", label: "w2"},
-    {id:"3", value: "w3", label: "w3"},
+    {id:"1", value: "kamut", label: "kamut"},
 ]
 
 
@@ -282,13 +258,13 @@ const grains = [
 
 // 5) Dry fruits
 const kishmishDf = [
-    {id:"1", value: "kis1", label: "kis1"},
+    {id:"1", value: "kishmish", label: "kishmish"},
 ]
 const kaajuDf = [
-    {id:"1", value: "kj1", label: "kj1"},
+    {id:"1", value: "kaaju", label: "kaaju"},
 ]
 const almondsDf = [
-    {id:"1", value: "am1", label: "am1"},
+    {id:"1", value: "almond", label: "almond"},
 ]
 const apricotDf = [
     {id:"1", value: "agricot", label: "agricot"},
