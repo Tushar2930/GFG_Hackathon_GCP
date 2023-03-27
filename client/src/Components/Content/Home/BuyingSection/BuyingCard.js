@@ -34,7 +34,7 @@ function Card({
         maxQuantity,
         quantity,
       }),
-    });
+    }); 
     const data = await resp.json();
     console.log(data.message);
     if (data.message === "success") {
@@ -50,9 +50,9 @@ function Card({
     <div className="home-product-card">
       <div class="product-card m-3">
         <div class="card card-div">
-          <img src={img_url} class="card-img-top" alt="Product Image" />
+          <a href={`/product/${id}`} style={{width:"100%"}}><img src={img_url} class="card-img-top" alt="Product Image" /></a>
           <div class="card-body">
-            <div class="row px-3 pb-3">
+          <a href={`/product/${id}`} style={{color:"black"}}><div class="row px-3 pb-3">
               <div class="col-8 card-title-div">
                 <h5 class="card-title float-start">
                   <b>{name}</b>
@@ -63,7 +63,7 @@ function Card({
                   <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> {price}
                 </h6>
               </div>
-            </div>
+            </div></a>
 
             <div class="row px-3 card-content-div">{description}</div>
 

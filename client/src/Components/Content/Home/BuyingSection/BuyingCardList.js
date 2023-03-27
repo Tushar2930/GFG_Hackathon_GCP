@@ -17,7 +17,7 @@ function BuyingCardList() {
   var cardComponentArray = data.map((card) => {
     return (
       <div className="col-3 px-4 pb-4">
-        <a href={`/product/${card._id}`}><Card
+        <Card
           img_url={card?.ip}
           maxQuantity={card?.maxQuantity}
           minQuantity={card?.minQuantity}
@@ -25,7 +25,7 @@ function BuyingCardList() {
           description={card?.description}
           price={card?.price}
           id={card?._id}
-        /></a>
+        />
       </div>
     );
   });
