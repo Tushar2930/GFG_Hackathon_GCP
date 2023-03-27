@@ -72,7 +72,9 @@ try {
 
 module.exports.getOrders=async function(req,res){
     try {
-        const resp=await db.collection('users').where('email','==',req.body.email).get();
+        const email=await req.body.email;
+        // console.log(email);
+        const resp=await db.collection('users').where('email','==',email).get();
         const user=await resp.docs[0].data();
         const orderArray=user.orderArray;
         if(orderArray==undefined){
@@ -80,7 +82,7 @@ module.exports.getOrders=async function(req,res){
                 message:'No Orders'
             })
         }
-        console.log(orderArray);
+        // console.log(orderArray);
         return res.status(200).json({
             message:'Orders',
             data:orderArray
@@ -88,4 +90,4 @@ module.exports.getOrders=async function(req,res){
     } catch (error) {
         console.log(error);
     }
-}
+} 

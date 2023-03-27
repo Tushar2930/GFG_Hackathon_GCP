@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect ,useState} from "react";
 import { getUser } from "../../api/getUser";
 import "./recentOrders.css";
 import { AuthContext } from "../context/AuthorizationContext";
@@ -19,26 +19,30 @@ function RecentOrdersPage() {
     },
     { id: 3, time: "2023-03-22 9:15 AM", items: ["Item F"], total: 10.0 },
   ];
-  const useAuth = useContext(AuthContext);
 
-  useEffect(() => {
-    async function fet() {
+  const useAuth = useContext(AuthContext);
+const [data,setData]=useState([]);
+useEffect(() => {
+  async function fet() {
+    
       const resp=await fetch("http://localhost:8000/order/getOrders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email:useAuth.currentUserDetails.email
+          email:useAuth.currentUser.email
         }),
       });
-      const data=await resp.json();
-      console.log(data);
+      // console.log(email);  
+      const data1=await resp.json();
+      setData(data1.data)
+      // console.log(data1);
     }
-    fet();
-  }, []);
-
-
+    if(useAuth.currentUser.email)
+    {fet();}
+  }, [useAuth.currentUser.email]);
+// console.log(useAuth.currentUser.email)
   useEffect(() => {
     const fetch = async () => {
       try {
@@ -47,10 +51,12 @@ function RecentOrdersPage() {
         console.log(error.message);
       }
 
-      fetch();
     };
+    fetch();
   }, []);
 
+  console.log(data);
+  if(data.length>0){
   return (
     <div className="orders-container">
       {orders.map((order) => (
@@ -71,6 +77,14 @@ function RecentOrdersPage() {
       ))}
     </div>
   );
+}
+else{
+  return(
+    <div className="orders-container">
+      <h1>No Orders Placed</h1>
+    </div>
+  )
+}
 }
 
 export default RecentOrdersPage;
