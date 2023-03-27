@@ -5,5 +5,6 @@ const orderController=require('../controllers/orderController');
 router.post('/checkout',orderController.checkout);
 router.post('/verify',orderController.verify);
 router.post('/place',orderController.placeOrder);
+router.post('/getOrders',orderController.getOrders);
 
 module.exports=router;

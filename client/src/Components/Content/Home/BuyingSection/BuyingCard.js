@@ -5,14 +5,14 @@ import { AuthContext } from "../../context/AuthorizationContext";
 
 function Card({
   img_url,
-  quantity,
+  maxQuantity,
   minQuantity,
-  name, 
+  name,
   description,
   price,
   id,
 }) {
-  const [inputValue, setinputValue] = useState(minQuantity);
+  const [quantity, setinputValue] = useState(minQuantity);
   const useAuth = useContext(AuthContext);
 
   const handleCart = async function () {
@@ -31,18 +31,17 @@ function Card({
         price,
         email: useAuth.currentUser.email,
         minQuantity,
-        maxQuantity: quantity,
-        inputValue,
+        maxQuantity,
+        quantity,
       }),
-    });
+    }); 
     const data = await resp.json();
     console.log(data.message);
     if (data.message === "success") {
       alert("Product Added to cart Succesfully");
-    } else if(data.message === "already added") {
+    } else if (data.message === "already added") {
       alert("Product Already Added to cart");
-    }
-    else {
+    } else {
       alert("Error");
     }
   };
@@ -51,9 +50,9 @@ function Card({
     <div className="home-product-card">
       <div class="product-card m-3">
         <div class="card card-div">
-          <img src={img_url} class="card-img-top" alt="Product Image" />
+          <a href={`/product/${id}`} style={{width:"100%"}}><img src={img_url} class="card-img-top" alt="Product Image" /></a>
           <div class="card-body">
-            <div class="row px-3 pb-3">
+          <a href={`/product/${id}`} style={{color:"black"}}><div class="row px-3 pb-3">
               <div class="col-8 card-title-div">
                 <h5 class="card-title float-start">
                   <b>{name}</b>
@@ -64,7 +63,7 @@ function Card({
                   <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> {price}
                 </h6>
               </div>
-            </div>
+            </div></a>
 
             <div class="row px-3 card-content-div">{description}</div>
 
@@ -79,7 +78,7 @@ function Card({
                       data-field="quant[2]"
                       onClick={() => {
                         setinputValue(
-                          inputValue > minQuantity ? inputValue - 1 : inputValue
+                          quantity > minQuantity ? quantity - 1 : quantity
                         );
                       }}>
                       <i class="fa-solid fa-minus"></i>
@@ -91,7 +90,7 @@ function Card({
                     class="form-control input-number input-quantity"
                     min="1"
                     max="100"
-                    value={inputValue}
+                    value={quantity}
                   />
                   <span class="input-group-btn">
                     <button
@@ -101,7 +100,7 @@ function Card({
                       data-field="quant[2]"
                       onClick={() => {
                         setinputValue(
-                          inputValue < quantity ? inputValue + 1 : inputValue
+                          quantity < maxQuantity ? quantity + 1 : quantity
                         );
                       }}>
                       <i class="fa-solid fa-plus"></i>

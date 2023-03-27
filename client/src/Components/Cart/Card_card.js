@@ -14,8 +14,7 @@ function Card({
   id,
   updateFeilds,
 }) {
-
-  console.log(img_url, name, maxQuantity, minQuantity,quantity,price,id);
+  // console.log(img_url, name, maxQuantity, minQuantity,quantity,price,id);
   return (
     <>
       <div class="item">

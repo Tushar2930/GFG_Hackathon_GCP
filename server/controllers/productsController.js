@@ -26,6 +26,7 @@ module.exports.getAllProducts = async function (req, res) {
         name: `${doc.data().category} ${doc.data().product} ${
           doc.data().species
         }`,
+        maxQuantity: doc.data().maxQuantity,
         minQuantity: doc.data().minQuantity,
         price: doc.data().price,
         quantity: doc.data().quantity,
@@ -35,6 +36,20 @@ module.exports.getAllProducts = async function (req, res) {
     return res.json({
       message: "success",
       data: list,
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+module.exports.getProduct = async function (req, res) {
+  try {
+    const id = req.params.id;
+    const collection = db.collection("products");
+    const data = await collection.doc(id).get();
+    return res.json({
+      message: "success",
+      product: {...data.data(),id},
     });
   } catch (error) {
     console.log(error.message);

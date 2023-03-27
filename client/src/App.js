@@ -21,8 +21,7 @@ import BuyerForm from "./Components/Content/Buyer_Form/BuyerForm";
 import Orders from "./Components/Content/orders/recentOrders";
 import Rent_sell from "./Components/Content/Sell_form/rent_sell_form";
 import IndividualListingPage from "./Components/Content/Rent/RentalPages/ServiceProviderPortal/IndividualListingPage/IndividualListingPage.js";
-
-
+import SingleProduct from "./Components/Content/Product_desc/Single_product.js";
 
 function App() {
   return (
@@ -59,6 +58,7 @@ function App() {
           <Route exact path="/get-rent-service" element={<Rent_sell />} />
           <Route exact path="/buyer-form" element={<BuyerForm />} />
           <Route exact path="/recent-orders" element={<Orders />} />
+          <Route exact path="/product/:id" element={<SingleProduct />} />
         </Routes>
         <Footer />
       </div>

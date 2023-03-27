@@ -4,6 +4,13 @@
   justify-content: center;
 }
 
+.order{
+  padding: 2rem;
+  background-color: #ebebeb;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
 .order-card {
   margin: 10px;
   padding: 10px;
@@ -40,4 +47,10 @@
 .order-total {
   font-size: 18px;
   font-weight: bold;
+}
+
+
+.temp-cont{
+  align-items: center;
+  flex-direction: column;
 }

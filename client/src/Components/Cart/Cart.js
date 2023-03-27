@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import { CircularProgress } from "@mui/material";
 import { updateUserCartItem } from "../api/updateCartProduct";
 
 import { AuthContext } from "../Content/context/AuthorizationContext";
@@ -14,19 +13,19 @@ function Cart() {
   const [data, setData] = React.useState({});
 
   const updateFields = async (id, quantity) => {
+    console.log(id, quantity);
     var tempcart = [];
     var tempcartupdate = [];
 
     data.cart.map((e) => {
       if (e.id == id) {
-        quantity && tempcart.push({ ...e, id, quantity });
-        quantity && tempcartupdate.push({ id, quantity });
+        quantity && tempcartupdate.push({ ...e, id, quantity });
       } else {
-        tempcart.push(e);
-        tempcartupdate.push({ id: e.id, quantity: e.quantity });
+        // tempcart.push(e);
+        tempcartupdate.push(e);
       }
       console.log("tempcart", tempcart, "tempcartupdate", tempcartupdate);
-      setData({ ...data, cart: tempcart });
+      setData({ ...data, cart: tempcartupdate });
     });
 
     try {
@@ -68,17 +67,17 @@ function Cart() {
   useEffect(() => {
     feth();
   }, []);
-  function handleRazorPay(data) {
+  function handleRazorPay(orderData) {
     const options = {
       key: "rzp_test_Ao3jBTNOJ6GS1R",
-      amount: Number(data.amount),
-      currency: data.currency,
+      amount: Number(orderData.amount),
+      currency: orderData.currency,
       name: "AGROKART",
       description: "test",
-      order_id: data.id,
+      order_id: orderData.id,
       handler: async function (response) {
         console.log(response);
-        const data = await fetch("http://localhost:8000/order/verify", {
+        const data1 = await fetch("http://localhost:8000/order/verify", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -87,8 +86,19 @@ function Cart() {
             response: response,
           }),
         });
-        const resp = await data.json();
+        const resp = await data1.json();
         if (resp.message === "Sign Valid") {
+          const data2 = await fetch("http://localhost:8000/order/place", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: useAuth.currentUser.email,
+              data,
+            }),
+          });
+          const resp2 = await data2.json();
           alert("Order Placed Successfully");
           window.location.href = "/";
         }
@@ -108,11 +118,10 @@ function Cart() {
         amount: total,
       }),
     });
-    const data = await resp.json();
-    handleRazorPay(data.order);
+    const data2 = await resp.json();
+    console.log(data2);
+    handleRazorPay(data2.order);
   };
-
-
 
   var total = 0;
   var cardComponentArray = data?.cart?.map((card) => {
@@ -124,7 +133,7 @@ function Cart() {
         name={card?.name}
         maxQuantity={card?.maxQuantity}
         minQuantity={card?.minQuantity}
-        quantity={card?.inputValue}
+        quantity={card?.quantity}
         price={card?.price}
         id={card?.id}
         updateFeilds={updateFields}
@@ -132,8 +141,6 @@ function Cart() {
     );
   });
 
-
- 
   return (
     <>
       <div class="cart">
