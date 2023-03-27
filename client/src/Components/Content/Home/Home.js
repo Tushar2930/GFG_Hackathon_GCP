@@ -15,10 +15,12 @@ function Home() {
       <RentingCardList />
       <Poster />
       <Testimonial />
-      <a href="/sell">SELL</a>
+      <a href="/sell">SELL</a> <a href="/get-rent-service">RENT</a>
       <br />
-      <a href="/get-rent-service">RENT</a>
+      <br/>
+      
       <br />
+      <br/>
     </>
   );
 }

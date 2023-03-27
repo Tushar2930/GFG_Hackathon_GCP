@@ -13,10 +13,10 @@ export default function AnimatedMulti({ handleProfileChanges }) {
     { value: "seller", label: "Khad Seller" },
   ];
   return (
-    <label style={{ width: "300px", height: "40px" }}>
+    <label style={{ width: "300px", height: "40px" ,marginBottom:'4rem'}}>
       Choose User Profile*:
       <Select
-        closeMenuOnSelect={false}
+        closeMenuOnSelect={true}
         components={animatedComponents}
         defaultValue={[options[0]]}
         isMulti
