@@ -4,19 +4,19 @@ module.exports.addFarmer=async function(req,res){
         const data=req.body;
         // find user from email
         const user=await db.collection('users').where('email','==',data.email).get();
-        console.log(user);
+        // console.log(user); 
         // get ip from user
         var ip=user.docs[0].data().ip;
         // console.log(ip);
         // add ip to data
         data.ip=ip;
+        // console.log(data);
         const resp=await db.collection('rent').add(data);
-        // console.log(resp);
         return res.status(200).json({
             message:"Data added successfully"
         });
 
-    }
+    } 
     catch(err){
         console.log('Error',err);
         return res.status(500).json({

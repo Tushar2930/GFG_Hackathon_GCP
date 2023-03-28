@@ -2,7 +2,7 @@ const express=require('express');
 const bodyParser=require("body-parser");
 const cors=require("cors");
 const firebase_admin=require("firebase-admin");
-export const app=express();
+const app=express();
 
 app.use(bodyParser.json({limit:"30mb",extended:true}));
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}));
