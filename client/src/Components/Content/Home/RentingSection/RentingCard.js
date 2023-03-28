@@ -1,6 +1,6 @@
 import React from "react";
 
-
+ 
 function Card({name, content,address,area,date,duration, price}) {
     return (
         <div class="card my-2">

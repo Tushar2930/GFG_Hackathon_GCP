@@ -10,6 +10,7 @@ function Products(props){
 
     const [data,setData]=React.useState([]);
     const [allData,setAllData]=React.useState([]);
+    const [index,setIndex]=React.useState(8);
   useEffect(()=>{
     fetch("http://localhost:8000/product/get-products")
     .then((response) => response.json())
@@ -46,12 +47,14 @@ useEffect(()=>{
   const [species, setSpecies] = useState(null);
 
   var cardComponentArray = data.map(
-    (card) => {
+    (card,k) => {
+      if(k<index){
       return  (
         <div class="col-3 px-4 pb-4">
-          <Card img_url={card?.ip} name={card?.name} description={card?.description} price={card?.price} />
+          <Card img_url={card?.ip} name={card?.name} description={card?.description} price={card?.price} id={card._id}/>
         </div>
       )
+      }
     }
   )
 
@@ -59,6 +62,7 @@ useEffect(()=>{
     const findN=category?.value+" "+product?.value+" "+species?.value;
     var res=[];
     allData.map((e)=>{
+
        if(e.name.toLowerCase()===findN.toLowerCase())
         res.push(e);
     })
@@ -127,8 +131,8 @@ useEffect(()=>{
         {cardComponentArray}
 
         <div class="text-center bottommost-div">
-          <button type="button" class="btn btn-dark more-btn rounded-5">
-            <Link className="view-more-link" to="">VIEW MORE</Link>
+          <button type="button" class="btn btn-dark more-btn rounded-5" onClick={(e)=>setIndex(index+8)}>
+            VIEW MORE
           </button>
         </div>
 
