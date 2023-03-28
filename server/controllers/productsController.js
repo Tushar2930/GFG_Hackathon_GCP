@@ -4,7 +4,12 @@ module.exports.create = async function (req, res) {
   try {
     const data = req.body.postData;
     const collection = db.collection("products");
-    await collection.add(data);
+    //add id with data
+    const temp=await collection.add(data);
+    // console.log(temp.id);
+    await collection.doc(temp.id).update({
+      id:temp.id
+    })
     return res.json({
       message: "data added successfully",
     });

@@ -69,3 +69,27 @@ module.exports.updateUserCartItem = async function (req, res) {
     console.log(error);
   }
 };
+
+
+module.exports.getImage = async function (req, res) {
+  try {
+   //get image from product doc.id
+    const cart = req.body.cart;
+    var temp = [];
+    for (let i = 0; i < cart.length; i++) {
+      const snapsh = db.collection("products");
+      var ref = await snapsh.where("id", "==", `${cart[i].id}`).get();
+      var temp1 = ref.docs[0];
+      var array = await temp1?.data()?.ip;
+      temp.push(array);
+    }
+    res.status(200).json({
+      message: "success",
+      image: temp,
+    });
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+

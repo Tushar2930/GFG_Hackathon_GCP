@@ -11,6 +11,8 @@ function Cart() {
     window.location.href = "/signin";
   }
   const [data, setData] = React.useState({});
+  const [image, setImage] = React.useState([]);
+
 
   const updateFields = async (id, quantity) => {
     console.log(id, quantity);
@@ -55,6 +57,19 @@ function Cart() {
 
         const temp = await resp.json();
         setData(temp);
+
+        const data1 = await fetch("http://localhost:8000/cart/get-image", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            cart:temp.cart
+          })
+        });
+        const resp1=await data1.json();
+        setImage(resp1.image);
+
       } catch (error) {
         console.log(error.message);
       }
@@ -124,12 +139,12 @@ function Cart() {
   };
 
   var total = 0;
-  var cardComponentArray = data?.cart?.map((card) => {
+  var cardComponentArray = data?.cart?.map((card,k) => {
     total = total + parseInt(card?.quantity) * parseInt(card?.price);
     // console.log(card);
     return (
       <Card
-        img_url={card?.img_url}
+        img_url={image[k]}
         name={card?.name}
         maxQuantity={card?.maxQuantity}
         minQuantity={card?.minQuantity}
