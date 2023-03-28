@@ -23,6 +23,8 @@ import Rent_sell from "./Components/Content/Sell_form/rent_sell_form";
 import IndividualListingPage from "./Components/Content/Rent/RentalPages/ServiceProviderPortal/IndividualListingPage/IndividualListingPage.js";
 import SingleProduct from "./Components/Content/Product_desc/Single_product.js";
 
+import ModelForm from "./Components/Ml_models/modelForm.js";
+
 function App() {
   return (
     <AuthProvider>
@@ -59,6 +61,7 @@ function App() {
           <Route exact path="/buyer-form" element={<BuyerForm />} />
           <Route exact path="/recent-orders" element={<Orders />} />
           <Route exact path="/product/:id" element={<SingleProduct />} />
+          <Route exact path="/model-form" element={<ModelForm />} />
         </Routes>
         <Footer />
       </div>
