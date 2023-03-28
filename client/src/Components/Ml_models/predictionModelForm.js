@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./modelForm.css"; // CSS file for styling
 
-const ModelForm = () => {
+function PredictionForm() {
     const [nitrogen, setNitrogen] = useState("");
     const [phosphorus, setPhosphorus] = useState("");
     const [potassium, setPotassium] = useState("");
@@ -99,4 +99,4 @@ const ModelForm = () => {
     );
 };
 
-export default ModelForm;
+export default PredictionForm;
