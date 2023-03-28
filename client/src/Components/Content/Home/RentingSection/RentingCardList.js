@@ -24,12 +24,14 @@ function RentingCardList() {
   }, []);
  
   var cardComponentArray = data.map(
-    (card) => {
+    (card,k) => {
+      if(k<4){
       return  (
         <div class="col-6 px-4 mb-4">
           <Card name={card.name} content={card.service} address={card.Address} area={card.area} date={card.date} duration={card.duration} price={card.price}/>
         </div>
       )
+      }
     }
   )
 

@@ -45,7 +45,7 @@ function Card({
       alert("Error");
     }
   };
-
+ 
   return (
     <div className="home-product-card">
       <div class="product-card m-3">

@@ -10,11 +10,11 @@ function BuyingCardList() {
       .then((response) => response.json())
       .then((data) => {
         setData(data.data);
-        console.log(data);
+        // console.log(data);
       });
   }, []);
-
-  var cardComponentArray = data.map((card) => {
+  var cardComponentArray = data.map((card,k) => {
+    if(k<4){
     return (
       <div className="col-3 px-4 pb-4">
         <Card
@@ -28,6 +28,7 @@ function BuyingCardList() {
         />
       </div>
     );
+    }
   });
   return (
     <div className="fluid-container main-fluid-container">
