@@ -13,7 +13,7 @@ function PredictionForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const values=[nitrogen,phosphorus,potassium,rainfall,ph,city]
+        const values=[nitrogen,phosphorus,potassium,ph,rainfall,city]
         // console.log(values)
             const response = await fetch("http://tushar7.pythonanywhere.com/predict", {
                 method: "POST",
