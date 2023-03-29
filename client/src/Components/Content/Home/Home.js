@@ -9,7 +9,7 @@ import Testimonial from "./Testimonial/Testimonial";
 function Home() {
   return (
     <>
-      <Carousel />
+      {/* <Carousel /> */}
       <BuyingCardList />
       <DealsWeek />
       <RentingCardList />
