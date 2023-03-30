@@ -5,12 +5,14 @@ import Poster from "./Poster/Poster";
 import BuyingCardList from "./BuyingSection/BuyingCardList";
 import RentingCardList from "./RentingSection/RentingCardList";
 import Testimonial from "./Testimonial/Testimonial";
+import WhatWeOffer from "./WhatWeOffer/WhatWeOffer";
 
 function Home() {
   return (
     <>
       {/* <Carousel /> */}
       <BuyingCardList />
+      <WhatWeOffer/>
       <DealsWeek />
       <RentingCardList />
       <Poster />

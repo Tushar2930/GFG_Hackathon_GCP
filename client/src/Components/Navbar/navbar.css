@@ -2,12 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+    /* background-color: #fff; */
     padding: 20px;
-    position: absolute;
+    position: relative;
     z-index: 1;
     width: 98vw;
     height: 15vh;
+    -webkit-transition: all 0.4s ease-in-out 0s;
   }
   
   .navbar-logo {
@@ -70,8 +71,10 @@
 
   .navbar-scroll {
     background-color: #fff;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: fixed;
     width: 100vw;
     height: 10vh;
+    align-items: flex-start;
+    -webkit-transition: all 0.4s ease-in-out 0s;
   }
