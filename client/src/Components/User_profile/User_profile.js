@@ -16,8 +16,9 @@ export default function User_profile() {
       if (useAuth.currentUser) {
         try {
           setIsLoading(true);
-          await getUser(useAuth.currentUser.email).then((result) => {
+          await getUser(useAuth?.currentUser?.email).then((result) => {
             setData({ ...result.data });
+            console.log(result)
             setIsLoading(false);
           });
         } catch (error) {
