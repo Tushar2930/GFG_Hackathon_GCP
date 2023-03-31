@@ -24,11 +24,13 @@ import IndividualListingPage from "./Components/Content/Rent/RentalPages/Service
 import SingleProduct from "./Components/Content/Product_desc/Single_product.js";
 import FertilizerForm from "./Components/Ml_models/fertilizerModelForm";
 import PredictionForm from "./Components/Ml_models/predictionModelForm.js";
+import Menu from "./Components/menu/menu";
 
 function App() {
   return (
     <AuthProvider>
       <div className="App">
+        <Menu />
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -61,8 +63,16 @@ function App() {
           <Route exact path="/buyer-form" element={<BuyerForm />} />
           <Route exact path="/recent-orders" element={<Orders />} />
           <Route exact path="/product/:id" element={<SingleProduct />} />
-          <Route exact path="/model-form/fertilizer" element={<FertilizerForm />} />
-          <Route exact path="/model-form/prediction-crop" element={<PredictionForm />} />
+          <Route
+            exact
+            path="/model-form/fertilizer"
+            element={<FertilizerForm />}
+          />
+          <Route
+            exact
+            path="/model-form/prediction-crop"
+            element={<PredictionForm />}
+          />
         </Routes>
         <Footer />
       </div>
