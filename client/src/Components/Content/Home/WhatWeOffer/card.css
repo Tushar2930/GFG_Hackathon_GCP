@@ -1,48 +1,46 @@
-.card-left{
-    
-    height: 90%;
-    width: 60%;
-    
+.card-left {
+  height: 90%;
+  width: 60%;
 }
 
-.card-left img{
-    height: 100%;
-    width: 100%;
+.card-left img {
+  height: 100%;
+  width: 100%;
 }
 
-.card-right{
-    background-color: white;
-    width: 55%;
-    height: 45%;
-    margin: -7rem 8rem;
-    position: relative;
-    /* position: relative; */
-    padding: 0.5rem;
-    border-radius: 1rem;
+.card-right {
+  background-color: #baddc5;
+  width: 55%;
+  height: 60%;
+  margin: -7rem 7rem;
+  position: relative;
+  /* position: relative; */
+  padding: 0.5rem;
+  border-radius: 1rem;
 }
 
-.right-head{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: baseline;
+.right-head {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
 }
 
-h6{
-    font-weight: 700;
-    font-size: larger;
-    color: green;
+h6 {
+  font-weight: 700;
+  font-size: larger;
+  color: green;
 }
 
-.arrow-icon{
-    background-color: orange;
-    border-radius: 2rem;
-    height: 2.5rem;
-    width: 2.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0.5rem 0rem;
-    position: relative;
-    top: -2.8rem;
-    left: 1rem;
+.arrow-icon {
+  background-color: #0d4c92;
+  border-radius: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0rem;
+  position: relative;
+  top: -2.8rem;
+  left: 1rem;
 }
