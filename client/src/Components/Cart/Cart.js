@@ -69,6 +69,7 @@ function Cart() {
         });
         const resp1=await data1.json();
         setImage(resp1.image);
+        // console.log(resp1.image);
 
       } catch (error) {
         console.log(error.message);

@@ -82,7 +82,9 @@ module.exports.getImage = async function (req, res) {
       var temp1 = ref.docs[0];
       var array = await temp1?.data()?.ip;
       temp.push(array);
+      // console.log(cart[i].id);
     }
+    // console.log(temp);
     res.status(200).json({
       message: "success",
       image: temp,

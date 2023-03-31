@@ -6,11 +6,13 @@ import BuyingCardList from "./BuyingSection/BuyingCardList";
 import RentingCardList from "./RentingSection/RentingCardList";
 import Testimonial from "./Testimonial/Testimonial";
 import WhatWeOffer from "./WhatWeOffer/WhatWeOffer";
+import MainPage from "./MainPage/MainPage";
 
 function Home() {
   return (
     <>
       {/* <Carousel /> */}
+      <MainPage/>
       <WhatWeOffer/>
       <BuyingCardList />
       <DealsWeek />
