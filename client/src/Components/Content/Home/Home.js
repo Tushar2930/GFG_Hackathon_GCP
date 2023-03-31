@@ -5,11 +5,14 @@ import Poster from "./Poster/Poster";
 import BuyingCardList from "./BuyingSection/BuyingCardList";
 import RentingCardList from "./RentingSection/RentingCardList";
 import Testimonial from "./Testimonial/Testimonial";
+import WhatWeOffer from "./WhatWeOffer/WhatWeOffer";
+import LandingPage from "./landingPage/landingpage";
 
 function Home() {
   return (
     <>
-      <Carousel />
+      <LandingPage />
+      <WhatWeOffer />
       <BuyingCardList />
       <DealsWeek />
       <RentingCardList />
@@ -17,10 +20,9 @@ function Home() {
       <Testimonial />
       <a href="/sell">SELL</a> <a href="/get-rent-service">RENT</a>
       <br />
-      <br/>
-      
       <br />
-      <br/>
+      <br />
+      <br />
     </>
   );
 }
