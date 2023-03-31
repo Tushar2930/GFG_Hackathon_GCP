@@ -1,5 +1,9 @@
 import React from "react";
 import "./BuyingCard.css";
+import "./BuyingCardList.css";
+import { Link, Navigate } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthorizationContext";
 
@@ -10,10 +14,15 @@ function Card({
   name,
   description,
   price,
-  id,
+  id, 
 }) {
   const [quantity, setinputValue] = useState(minQuantity);
   const useAuth = useContext(AuthContext);
+  const [hovered, setHovered] = useState(true);
+  const handleHover = () => {
+    setHovered(!hovered);
+    console.log(hovered);
+  };
 
   const handleCart = async function () {
     if (!useAuth.currentUser) {
@@ -45,79 +54,51 @@ function Card({
       alert("Error");
     }
   };
+
+  const handleClick = () => {
+    window.location.href = `/product/${id}`;
+  };
  
-  return (
-    <div className="home-product-card">
-      <div class="product-card m-3">
-        <div class="card card-div">
-          <a href={`/product/${id}`} style={{width:"100%"}}><img src={img_url} class="card-img-top" alt="Product Image" /></a>
-          <div class="card-body">
-          <a href={`/product/${id}`} style={{color:"black"}}><div class="row px-3 pb-3">
-              <div class="col-8 card-title-div">
-                <h5 class="card-title float-start">
-                  <b>{name}</b>
-                </h5>
-              </div>
-              <div class="col-4 card-title-div right">
-                <h6 class="card-title float-end">
-                  <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> {price}
-                </h6>
-              </div>
-            </div></a>
-
-            <div class="row px-3 card-content-div">{description}</div>
-
-            <div class="row px-3">
-              <div class="footer-btn col btn btn-outline-dark buy-left-btn">
-                <div class="input-group">
-                  <span class="input-group-btn">
-                    <button
-                      type="button"
-                      class="btn btn-danger btn-number"
-                      data-type="minus"
-                      data-field="quant[2]"
-                      onClick={() => {
-                        setinputValue(
-                          quantity > minQuantity ? quantity - 1 : quantity
-                        );
-                      }}>
-                      <i class="fa-solid fa-minus"></i>
-                    </button>
-                  </span>
-                  <input
-                    type="text"
-                    name="quant[2]"
-                    class="form-control input-number input-quantity"
-                    min="1"
-                    max="100"
-                    value={quantity}
-                  />
-                  <span class="input-group-btn">
-                    <button
-                      type="button"
-                      class="btn btn-success btn-number"
-                      data-type="plus"
-                      data-field="quant[2]"
-                      onClick={() => {
-                        setinputValue(
-                          quantity < maxQuantity ? quantity + 1 : quantity
-                        );
-                      }}>
-                      <i class="fa-solid fa-plus"></i>
-                    </button>
-                  </span>
-                </div>
-              </div>
-              <div
-                class="footer-btn col btn btn-outline-success buy-right-btn"
-                onClick={handleCart}>
-                Add to Cart
-              </div>
-            </div>
+  return (<>
+      <div
+        className="card-root"
+        onMouseEnter={handleHover}
+        onMouseLeave={handleHover}
+      >
+        <div style={{ height: "17.5rem" }} className="imgWrapper">
+          <img src={img_url} alt="" className={hovered?"zoom":"nozoom"} style={{height: "100%",
+    width: "100%",borderRadius: "1rem"}}/>
+          <div className={hovered ? "hover_icon" : "card_icon"}>
+            <ShoppingCartOutlinedIcon
+              style={{
+                width: "2rem",
+                height: "2rem",
+                padding: "0.5rem",
+                borderRadius: "2rem",
+                backgroundColor: "#dcdcdcba",
+                margin: "-0.5rem"
+              }}
+              onClick={handleCart}
+            />
+            <SearchIcon
+              style={{
+                width: "2rem",
+                height: "2rem",
+                padding: "0.5rem",
+                borderRadius: "2rem",
+                backgroundColor: "#dcdcdcba",
+                margin: "-0.5rem"
+              }}
+              onClick={() =>handleClick()}
+            />
           </div>
         </div>
+        <div className="card-info">
+          <div className="card-name">{name}</div>
+          <div className="card-price">₹ {price}</div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

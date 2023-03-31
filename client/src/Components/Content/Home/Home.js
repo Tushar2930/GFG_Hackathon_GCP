@@ -11,8 +11,8 @@ function Home() {
   return (
     <>
       {/* <Carousel /> */}
-      <BuyingCardList />
       <WhatWeOffer/>
+      <BuyingCardList />
       <DealsWeek />
       <RentingCardList />
       <Poster />

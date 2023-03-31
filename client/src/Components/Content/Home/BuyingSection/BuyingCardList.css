@@ -1,41 +1,112 @@
-.main-fluid-container {
-    margin-right: 10.5px;
-    margin-left: 10.5px;
-}
-
-.div-container {
-    margin-right: 6%;
-    margin-left: 6%;
-}
-
-
-/* For top heading */
-.head-text-div {
-    margin-top: 60px;
-    margin-bottom: 8px;
-    font-family: Helvetica, Arial, Sans-Serif;
-    font-size: 42px;
+.card-cont {
+    display: flex;
+    /* justify-content: space-evenly; */
+    /* align-items: center; */
+    padding: 0rem 8rem;
+    height: 60%;
+  }
+  
+  .card-name {
+    font-size: x-large;
     font-weight: 600;
-}
-
-/* For bottom like more button */
-.bottommost-div {
-    margin-bottom: 70px;
-}
-
-.more-btn {
-    width: 13%;
-    font-size: large;
-    padding: 12px 24px 12px 24px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-
-.view-more-link {
-    text-decoration: none;
+  }
+  
+  .card-price {
+    color: orange;
+    font-size: larger;
+    margin: 0.25rem 0rem;
+  }
+  
+  .hover_icon {
+    display: none;
+    /* position: relative; */
+    /* top: -3rem; */
+    /* width: 50%; */
+    /* display: flex; */
+    /* justify-content: space-evenly; */
+    /* align-items: center; */
+    /* left: 4.5rem; */
+  }
+  
+  .btn-2a {
+    border-radius: 0 0 5px 5px;
+  }
+  
+  .btn-2 {
+    background: #cb4e4e;
+    color: #fff;
+    box-shadow: 0 6px #ab3c3c;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+  }
+  
+  .btn {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
     color: white;
-}
-.view-more-link:hover {
-    color: white;
-}
-
+    /* background: none; */
+    cursor: pointer;
+    padding: 25px 80px;
+    display: inline-block;
+    /* margin: 15px 30px; */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+     margin: 39px 49px;
+  }
+  
+  .card_icon {
+    position: relative;
+    top: -3rem;
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    left: 4.5rem;
+    transition: all 0.3s ease;
+    justify-content: space-around;
+  }
+  
+  .card-info {
+    margin: 0rem 0rem;
+  }
+  
+  .card-root {
+    margin: 1rem;
+    background-color: #dbdbdb66;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    width: 25%;
+    height: 100%;
+  }
+  
+  .title_font {
+    color: orange;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: monospace;
+  }
+  
+  .title_text {
+    font-size: xxx-large;
+    color: black;
+    font-family: math;
+    margin: 1rem 0rem;
+  }
+  
+  .zoom {
+    transform: "scale(1.25)";
+  }
+  
+  .imgWrapper{
+    overflow:hidden;
+    height: 69%;
+  }
+  

@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from "react";
-import Card from "./BuyingCard";
+import Card from "../../../../Home/BuyingSection/BuyingCard";
 import "./BuyingCardList.css"
 import { Link } from "react-router-dom";
 import sellOptions from "../../../../Sell_form/veg_sell_form/veg_sell_data";
@@ -50,9 +50,7 @@ useEffect(()=>{
     (card,k) => {
       if(k<index){
       return  (
-        <div class="col-3 px-4 pb-4">
           <Card img_url={card?.ip} name={card?.name} description={card?.description} price={card?.price} id={card._id}/>
-        </div>
       )
       }
     }

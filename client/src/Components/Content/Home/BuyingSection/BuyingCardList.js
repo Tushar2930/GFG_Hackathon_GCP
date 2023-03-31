@@ -16,7 +16,6 @@ function BuyingCardList() {
   var cardComponentArray = data.map((card,k) => {
     if(k<4){
     return (
-      <div className="col-3 px-4 pb-4">
         <Card
           img_url={card?.ip}
           maxQuantity={card?.maxQuantity}
@@ -26,28 +25,43 @@ function BuyingCardList() {
           price={card?.price}
           id={card?._id}
         />
-      </div>
     );
     }
   });
   return (
-    <div className="fluid-container main-fluid-container">
-      <div className="row div-container">
-        <div className="text-center head-text-div">
-          <b>Buy Items</b>
-        </div>
+    // <div className="fluid-container main-fluid-container">
+    //   <div className="row div-container">
+    //     <div className="text-center head-text-div">
+    //       <b>Buy Items</b>
+    //     </div>
 
-        {cardComponentArray}
+    //     {cardComponentArray}
 
-        <div className="text-center bottommost-div">
-          <button type="button" class="btn btn-dark more-btn rounded-5">
-            <Link className="view-more-link" to="/shop">
-              VIEW MORE
-            </Link>
-          </button>
+    //     <div className="text-center bottommost-div">
+    //       <button type="button" class="btn btn-dark more-btn rounded-5">
+    //         <Link className="view-more-link" to="/shop">
+    //           VIEW MORE
+    //         </Link>
+    //       </button>
+    //     </div>
+    //   </div>
+    // </div>
+    <>
+      <div style={{ height: "88vh", width: "98vw" }}>
+        <div style={{ height: "89vh", width: "98vw", textAlign: "center" }}>
+          <div>
+            <p class="title_font" style={{marginTop: "1rem"}}>Fresh From our farm</p>
+          </div>
+          <div>
+            <h3 class="title_font title_text">Featured Products</h3>
+          </div>
+          <div className="card-cont">
+            {cardComponentArray}
+          </div>
+      <a href="/shop"><button class="btn btn-2 btn-2a">View More</button></a>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
