@@ -5,7 +5,7 @@ import image from "../image/image.png";
 export default function landingpage() {
   return (
     <div className="landing-container">
-      <div className="landing-wrapper"></div>
+      <div className="landing-wrapper" />
     </div>
   );
 }

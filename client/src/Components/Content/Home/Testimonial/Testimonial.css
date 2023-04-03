@@ -1,0 +1,77 @@
+/* Slideshow */
+
+.testimonials {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+  height: 400px;
+  width: 100%;
+  /* background-image: url(../image/tbg.jpg); */
+  background-color: aliceblue;
+  background-size: cover;
+}
+.testimonial_image {
+  align-self: center;
+  border-radius: 50%;
+  z-index: 1;
+  width: 300px;
+  height: 400px;
+}
+.testimonial_desc {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  width: 50vw;
+  white-space: pre-wrap;
+  height: 300px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #6a0dad;
+}
+
+.image_circle {
+  position: absolute;
+  overflow-x: hidden;
+  top: 130px;
+  left: 100px;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  background-color: rgb(43, 43, 43);
+}
+
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 15px 7px 0px;
+  background-color: #c4c4c4;
+}
+
+.slideshowDot.active {
+  background-color: #6a0dad;
+}
