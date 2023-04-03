@@ -1,0 +1,19 @@
+.checkout-btn {
+    margin-top: 16px, ;
+    background-color: white;
+    border: 3px solid lightgreen;
+    border-radius: 20px;
+    color: black;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+.checkout-btn:hover {
+    background-color: lightgreen;
+}
+
+.checkout-total-line {
+    border: 1px solid #ccc;
+    margin-left: 1.6%;
+    margin-right: 1.6%;
+}

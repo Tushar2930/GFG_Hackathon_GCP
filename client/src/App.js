@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./Components/Content/context/AuthorizationContext.js";
 
-import Cart from "./Components/Cart/Cart.js";
+import Cart from "./Components/Cart/my_cart.js";
+// import Cart from "./Components/Cart/Cart.js";
 import Home from "./Components/Content/Home/Home.js";
 import Navbar from "./Components/Navbar/Navbar.js";
 import "./App.css";
