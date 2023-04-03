@@ -6,10 +6,12 @@ function DealsWeek() {
     <>
       <div className="droot">
         <div>
-          <h5 style={{ marginBottom: "0px" }}>FRESH FROM OUR FARM</h5>
+          <h5 style={{ marginBottom: "0px",color: "orange",
+    marginTop: "1rem" }}>FRESH FROM OUR FARM</h5>
         </div>
         <div>
-          <h2>Deals of the Week</h2>
+          <h2 style={{fontSize: "xxx-large",
+    margin: "1rem 0rem"}}>Deals of the Week</h2>
         </div>
         <div className="imroot">
           <div className="imgside">
@@ -33,11 +35,7 @@ function DealsWeek() {
               ever since the 1500s, when an unknown printer took a galley of
               type and scrambled it to make a type specimen book. It has
               survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              electronic typesetting, remaining essentially unchanged. 
             </div>
             <div className="cbtn">Add to Cart</div>
           </div>

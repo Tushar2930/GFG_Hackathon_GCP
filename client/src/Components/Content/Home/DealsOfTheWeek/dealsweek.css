@@ -28,6 +28,28 @@
   height: 100%;
   width: 45%;
 }
+.imroot {
+  display: flex;
+  width: 80%;
+  height: 72vh;
+  justify-content: space-around;
+  padding: 3rem;
+  margin-top: -2rem;
+}
+
+.imgside {
+  height: 100%;
+  width: 45%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgside img {
+  height: 90%;
+  width: 90%;
+}
 
 .ftext {
   width: 45%;
