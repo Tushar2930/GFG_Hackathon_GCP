@@ -36,21 +36,69 @@ function RentingCardList() {
   // )
 
   return (
-    <div class="fluid-container main-fluid-container">
-      <div className="row div-container">
-        <div class="text-center head-text-div">
+    <div class=" main_fluid-container">
+      <div className="row div-container flex flex-coloum">
+        <div class="head-text-div flex">
           <b>Rental Services</b>
         </div>
-
+        <p className="w-1/2 text-white flex">
+          n publishing and graphic design, Lorem ipsum is a placeholder text
+          commonly used to demonstrate the visual form of a document or a
+          typeface without relying on meaningful content. Lorem ipsum may be
+          used as a placeholder before final copy is available
+        </p>
         {/* {cardComponentArray} */}
-
-        <button type="button" class="btn btn-dark more-btn rounded-5 flex">
+        <button type="button" class="w-36 h-10 flex">
           <Link className="view-more-link" to="/rent">
             Know More
             <ArrowForwardIosIcon />
           </Link>
         </button>
       </div>
+      {/* <section class="text-gray-600 body-font">
+        <div
+          class="container px-5 py-24 mx-auto "
+          style={{ width: "100vw", background: "none", boxShadow: "none" }}>
+          <div class="flex flex-wrap -m-4 ">
+            <div class="lg:w-1/4 md:w-3/4 p-4 w-full">
+              <a class="block relative h-48 rounded overflow-hidden">
+                <img
+                  alt="ecommerce"
+                  class="object-cover object-center w-full h-full block"
+                  src="https://dummyimage.com/420x260"
+                />
+              </a>
+              <div class="mt-4">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
+                  CATEGORY
+                </h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">
+                  The Catalyzer
+                </h2>
+                <p class="mt-1">$16.00</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-3/4 p-4 w-full">
+              <a class="block relative h-48 rounded overflow-hidden">
+                <img
+                  alt="ecommerce"
+                  class="object-cover object-center w-full h-full block"
+                  src="https://dummyimage.com/420x260"
+                />
+              </a>
+              <div class="mt-4">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
+                  CATEGORY
+                </h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">
+                  The Catalyzer
+                </h2>
+                <p class="mt-1">$16.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
     </div>
   );
 }
