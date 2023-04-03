@@ -14,7 +14,7 @@ function Card({
   name,
   description,
   price,
-  id, 
+  id,
 }) {
   const [quantity, setinputValue] = useState(minQuantity);
   const useAuth = useContext(AuthContext);
@@ -43,7 +43,7 @@ function Card({
         maxQuantity,
         quantity,
       }),
-    }); 
+    });
     const data = await resp.json();
     console.log(data.message);
     if (data.message === "success") {
@@ -58,16 +58,20 @@ function Card({
   const handleClick = () => {
     window.location.href = `/product/${id}`;
   };
- 
-  return (<>
+
+  return (
+    <>
       <div
         className="card-root"
         onMouseEnter={handleHover}
-        onMouseLeave={handleHover}
-      >
+        onMouseLeave={handleHover}>
         <div style={{ height: "17.5rem" }} className="imgWrapper">
-          <img src={img_url} alt="" className={hovered?"zoom":"nozoom"} style={{height: "100%",
-    width: "100%",borderRadius: "1rem"}}/>
+          <img
+            src={img_url}
+            alt=""
+            className={hovered ? "zoom" : "nozoom"}
+            style={{ height: "100%", width: "100%", borderRadius: "1rem" }}
+          />
           <div className={hovered ? "hover_icon" : "card_icon"}>
             <ShoppingCartOutlinedIcon
               style={{
@@ -76,7 +80,7 @@ function Card({
                 padding: "0.5rem",
                 borderRadius: "2rem",
                 backgroundColor: "#dcdcdcba",
-                margin: "-0.5rem"
+                margin: "-0.5rem",
               }}
               onClick={handleCart}
             />
@@ -87,9 +91,9 @@ function Card({
                 padding: "0.5rem",
                 borderRadius: "2rem",
                 backgroundColor: "#dcdcdcba",
-                margin: "-0.5rem"
+                margin: "-0.5rem",
               }}
-              onClick={() =>handleClick()}
+              onClick={() => handleClick()}
             />
           </div>
         </div>
