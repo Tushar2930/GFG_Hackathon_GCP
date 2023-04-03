@@ -18,21 +18,21 @@ function Navbar() {
       <div className="navbar-logo"><img style={{height: "3rem"}} src={logoImg}></img></div>
       <ul className="navbar-links">
         <li>
-          <a href="/">Home</a>
+          <a href="/" className={scroll?"hover-a":"navbar-links-a"}>Home</a>
         </li>
         <li>
-          <a href="/about-us">About Us</a>
+          <a href="/about-us" className={scroll?"hover-a":"navbar-links-a"}>About Us</a>
         </li>
         <li>
-          <a href="/shop">Shop</a>
+          <a href="/shop" className={scroll?"hover-a":"navbar-links-a"}>Shop</a>
         </li>
         <li>
-          <a href="/signup">Log In</a>
+          <a href="/signup" className={scroll?"hover-a":"navbar-links-a"}>Log In</a>
         </li>
         <li>
-          <a href="/cart"><ShoppingCartIcon/></a>
+          <a href="/cart" className={scroll?"hover-a":"navbar-links-a"}><ShoppingCartIcon/></a>
         </li>
-        <li><MenuIcon/></li>
+        <li className={scroll?"hover-a":"navbar-links-a"}><MenuIcon/></li>
       </ul>
       <div className="navbar-menu-icon">&#9776;</div>
     </nav>
