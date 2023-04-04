@@ -30,9 +30,9 @@ export default function ResetPassword() {
     return (
       <div className="container flex flex-col justify-center content-center" style={{width:"90vw",height:"42.8vh"}}>
         <h1 className="text-center text-3xl"> Password Reset Link Send in Mail </h1>
-        <a href="/signin" className="w-1/2 flex self-center justify-center px-8 py-8">
+        <Link to="/signin" className="w-1/2 flex self-center justify-center px-8 py-8">
           <button className="justify-center">Go to Sign In Page</button>
-        </a>
+        </Link>
       </div>
     );
   }
