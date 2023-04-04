@@ -2,7 +2,7 @@ import React, { useEffect,useState } from "react";
 import Card from "./RentingCard";
 import "./RentingCardList.css"
 import { Link } from "react-router-dom";
-import SearchDropdown from "../../../../../../Sell_form/veg_sell_form/form_comp";
+import SearchDropdown from "../Sell_form/veg_sell_form/form_comp";
 import rentOptions from "./rentOptions";
 
 function BuyingCardList() {
@@ -47,35 +47,40 @@ useEffect(()=>{
   var cardComponentArray = data.map(
     (card) => {
       return  (
-        <div class="col-4 px-4 pb-4">
           <Card service_asked={card.service} id={card._id} name={card.name} area={card.area} price={card.price} loc={card.Address
-} date={card.date} dur_ar={card.duration} img_url={card.ip} email={card.email}/>
-        </div> 
+} date={card.date} dur_ar={card.duration} img_url={card.ip} email={card.email}/> 
       )
     }
   )  
 
   return (
-    <div class="fluid-container main-fluid-container">  
-      <div className="row div-container">
-      <SearchDropdown
-          options={rentOptions}
-          onOptionClicked={onCategoryOptionClicked}
-        />
-        <div class="text-center head-text-div"> 
-          <b>Rental Services Required for Farmers</b>
-        </div>
+//     <div class="fluid-container main-fluid-container">  
+//       <div className="row div-container">
+//       <SearchDropdown
+//           options={rentOptions}
+//           onOptionClicked={onCategoryOptionClicked}
+//         />
+//         <div class="text-center head-text-div"> 
+//           <b>Rental Services Required for Farmers</b>
+//         </div>
+// W
+//         <div class="text-center bottommost-div">
+//           <button type="button" class="btn btn-dark more-btn rounded-5">
+//             <Link className="view-more-link" to="">VIEW MORE</Link>
+//           </button>
+//         </div>
 
-        {cardComponentArray}
-
-        <div class="text-center bottommost-div">
-          <button type="button" class="btn btn-dark more-btn rounded-5">
-            <Link className="view-more-link" to="">VIEW MORE</Link>
-          </button>
-        </div>
-
-      </div>
+//       </div>
+//     </div>
+<>
+<section class="text-gray-600 body-font overflow-hidden" style={{width: "83%"}}>
+  <div class="container px-5 py-24 mx-auto" style={{width:"100%"}}>
+    <div class="-my-8 divide-y-2 divide-gray-100">
+      {cardComponentArray}
     </div>
+  </div>
+</section>
+</>
   );
 }
 
