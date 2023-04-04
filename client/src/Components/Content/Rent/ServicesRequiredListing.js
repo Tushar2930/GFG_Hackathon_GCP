@@ -1,7 +1,13 @@
 import React from "react";
-import FilterComponent from "./FilterComponent/FilterComponent";
+import Products from "./RentingCardList";
+import FilterComponent from "./FilterComponent";
 
-function Filters(){
+
+function ServicesRequiredListing(){
+    var verticalLineStyle = {
+        borderLeft: "0.5px solid #E0E1E4"
+    }
+
     var categoryElementArray1 =[
         {type:"<= 10sqkm", total:"100"},
         {type:"(10-100)sqkm", total:"50"},
@@ -15,12 +21,19 @@ function Filters(){
     ]
 
     return (
-        <div class="container-fluid m-2">
+        <div class="fluid-container">  
+            <div className="row" style={{padding:"18px"}}>
+                <div class="col-2">
+                <div class="container-fluid m-2">
             <div className="text-center"><h1><b>Filters</b></h1></div>
             <FilterComponent filterCategory="Location" categoryElementArray={categoryElementArray1}/>
             <FilterComponent filterCategory="Type of Service" categoryElementArray={categoryElementArray2}/>
         </div>
+                </div>
+                    <Products />
+            </div>
+        </div>
     )
 }
 
-export default Filters;
+export default ServicesRequiredListing;
