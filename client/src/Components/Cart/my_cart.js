@@ -2,17 +2,22 @@ import React from "react";
 import HorizontalCard from "./Cart_card";
 import Checkout from "./checkout";
 import farm_img from "./images/farming.jpg"
+import "./my_cart.css"
+import { useContext } from 'react';
+
+
 
 function Cart() {
+
     return (
         <>
         <div class="m-0" style={{width:"100%", height:"350px", overflow:"hidden"}}>
             <img src={farm_img} alt="poster image" style={{width:"100%", height:"auto", display:"block"}}/>
         </div>
 
-        <div className="p-5" style={{ width: "100%" }}>
+        <div className="p-5" style={{ width: "100%", backgroundColor:"white" }}>
 
-            <h1 className="mb-5 mt-3" style={{ textAlign: "center" }}>Welcome to your cart</h1>      
+            <div className="mb-5 mt-3" style={{ textAlign: "center", fontSize:"2.4rem" }}>Welcome to your cart</div>      
             <div style={{ display: "flex" }}>
                 <div style={{ flex: 3 }}>
                     <div className="mx-4"><HorizontalCard /></div>
@@ -26,7 +31,7 @@ function Cart() {
                 </div>
             </div>
             <div className="mt-4 " style={{ display: "flex", justifyContent: "center"}}>
-                <button style={{ width: "12%", backgroundColor:"#50C878", fontSize:"1.2rem", borderRadius:"20px" }}>Continue Shopping</button>
+                <button className="continue-shopping-btn" style={{ width: "12%", backgroundColor:"#50C878", fontSize:"1.2rem", borderRadius:"20px" }}>Continue Shopping</button>
             </div>
         </div>
         </>

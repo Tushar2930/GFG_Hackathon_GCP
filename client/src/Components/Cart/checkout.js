@@ -1,6 +1,6 @@
 import React from 'react';
 import "./checkout.css"
-
+import { BsArrowRight } from 'react-icons/bs';
 
 const Checkout = () => {
   return (
@@ -21,16 +21,26 @@ const Checkout = () => {
 
       <div className='checkout-total-line'></div>
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-        <span className='ms-2 p-3'><h3>Total<span style={{fontSize:"1.4rem"}}> (tax exc.)</span></h3></span>
-        <span className='me-2 p-3'><h4>$100</h4></span>
+        <span className='ms-2 p-3'>
+          <span style={{fontSize:"1.8rem"}}><b>Total</b></span>
+          <span style={{fontSize:"1.4rem"}}> (tax inc.)</span>
+        </span>
+        <span className='me-2 p-3' style={{fontSize:"1.2rem", display:"flex", alignItems:"center"}}>$100</span>
       </div>
       <div className='checkout-total-line'></div>
 
-      <div className='mt-3' style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+      {/* <div className='mt-3' style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
         <button className='checkout-btn px-3' style={{width:"fit-content"}}>
             Checkout
         </button>
+      </div>  */}
+
+      <div className='mt-4' style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+      <div class="wrapper mb-3" style={{}}>
+          <a className='wrapper-a py-2 px-3' href="#"><span className='wrapper-span'><b>Checkout</b></span></a>
       </div>
+      </div>
+      
     </div>
   );
 };

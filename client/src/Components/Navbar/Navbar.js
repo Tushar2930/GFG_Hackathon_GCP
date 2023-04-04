@@ -4,8 +4,11 @@ import logoImg from "./images/agrokart.png";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu'
 
+
+
 function Navbar() {
   const [scroll, setScroll] = useState(false);
+  console.log("Scroll :", scroll)
  useEffect(() => {
    window.addEventListener("scroll", () => {
      setScroll(window.scrollY > 10);
