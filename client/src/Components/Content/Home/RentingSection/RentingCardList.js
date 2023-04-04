@@ -38,7 +38,7 @@ function RentingCardList() {
   return (
     <div class=" main_fluid-container">
       <div className="row div-container flex flex-coloum">
-        <div class="head-text-div flex">
+        <div class="font flex">
           <b>Rental Services</b>
         </div>
         <p className="w-1/2 text-white flex">

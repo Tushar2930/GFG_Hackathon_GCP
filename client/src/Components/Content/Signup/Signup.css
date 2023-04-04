@@ -25,6 +25,7 @@
 }
 
 .sign-container .input-con {
+  color: rgb(0, 0, 0);
   display: flex;
   width: 75%;
   height: 8%;
@@ -76,13 +77,13 @@
   width: 60%;
 }
 
-.rdbtn-temp{
+.rdbtn-temp {
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
-.pro-img-main{
+.pro-img-main {
   width: 29%;
   height: 33%;
   border-radius: 27rem;
@@ -90,10 +91,13 @@
   background-color: white;
 }
 
-.left-child{
+.left-child {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 90%;
   justify-content: space-evenly;
+}
+.sign-container .input-root label {
+  color: white;
 }

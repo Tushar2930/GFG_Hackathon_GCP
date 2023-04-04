@@ -38,3 +38,54 @@
   box-shadow: none;
   margin-left: 3rem;
 }
+.fresh_veges {
+  position: relative;
+  background-size: cover;
+  border-radius: 0px 20px 0px 40px;
+  overflow: hidden;
+}
+.rental_services {
+  position: relative;
+  background-size: cover;
+  border-radius: 0px 20px 0px 40px;
+  overflow: hidden;
+}
+.fresh_veges {
+  background-image: url(../image/fresh_vegetables.jpg);
+}
+
+.rental_services {
+  background-image: url(../image//tractorServices.jpg);
+}
+.know_more {
+  -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 1vw));
+  clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  left: 0;
+  bottom: -40px;
+  border-radius: 20px 20px 0 0;
+  background-color: rgb(219, 176, 2);
+  transition: height 0.4s;
+  border: 3px solid rgb(0, 0, 0);
+}
+.know_more:hover {
+  height: 70%;
+}
+
+.know_more > p {
+  font-size: 1rem;
+  display: none;
+}
+.know_more > h3 {
+  color: black;
+  margin-top: 40px;
+  font-size: 1.5rem;
+}
+.know_more:hover > p {
+  color: rgb(80, 80, 80);
+  font-size: 1rem;
+  transition: font-size 1s;
+  display: flex;
+}

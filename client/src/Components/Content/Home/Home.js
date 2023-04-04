@@ -18,7 +18,6 @@ function Home() {
       <BuyingCardList />
       <DealsWeek />
       <RentingCardList />
-      {/* <Poster /> */}
       <Testimonial />
       <a href="/sell">SELL</a> <a href="/get-rent-service">RENT</a>
       <br />

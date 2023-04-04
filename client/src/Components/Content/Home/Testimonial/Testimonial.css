@@ -1,9 +1,18 @@
 /* Slideshow */
 
 .testimonials {
+  padding: 100px;
+  background-color: aliceblue;
   width: 100vw;
-  display: flex;
+  height: 110vh;
   justify-content: center;
+  display: flex;
+  position: relative;
+  max-width: 100vw;
+  -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+  clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+  margin: 0px;
+  margin-top: -3rem;
 }
 
 .slideshow {
@@ -22,7 +31,6 @@
   display: inline-block;
   height: 400px;
   width: 100%;
-  /* background-image: url(../image/tbg.jpg); */
   background-color: aliceblue;
   background-size: cover;
 }
@@ -42,14 +50,14 @@
   height: 300px;
   font-size: 20px;
   font-weight: 500;
-  color: #6a0dad;
+  color: #353436;
 }
 
 .image_circle {
   position: absolute;
   overflow-x: hidden;
   top: 130px;
-  left: 100px;
+  left: 40px;
   width: 270px;
   height: 270px;
   border-radius: 50%;
@@ -73,5 +81,5 @@
 }
 
 .slideshowDot.active {
-  background-color: #6a0dad;
+  background-color: #000000;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./menu.css";
 
 export default function menu() {
@@ -15,16 +16,17 @@ export default function menu() {
       <nav class="nav">
         <ul class="pt-5">
           <li>
-            <a href="#">Work</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#">Studio</a>
+            <Link to="/shop">Shop</Link>
+          </li>
+
+          <li>
+            <Link to="/sell">Sell Products</Link>
           </li>
           <li>
-            <a href="#">News</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
+            <Link to="/login">Logout</Link>
           </li>
         </ul>
       </nav>

@@ -12,7 +12,6 @@ import ResetPassword from "./Components/Content/Signup/ResetPassword";
 import Shop from "./Components/Content/Shop/Shop.js";
 import Footer from "./Components/Footer/footer";
 import Renting from "./Components/Content/Rent/Renting.js";
-import Contact from "./Components/Content/Contact/Contact.js";
 import Veg_Sell from "./Components/Content/Sell_form/veg_sell_form/veg_sell_form";
 import RentingSection from "./Components/Content/Rent/RentalPages/ServiceTakerPortal/RentalServicesPage/RentalSection.js";
 import ServicesRequiredListing from "./Components/Content/Rent/RentalPages/ServiceProviderPortal/ServicesRequiredListing/ServicesRequiredListing.js";
@@ -54,7 +53,6 @@ function App() {
           />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/userProfile" element={<UserProfile />} />
-          <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/sell" element={<Veg_Sell />} />
           <Route exact path="/about-us" element={<About />} />
           <Route exact path="/shop" element={<Shop />} />
