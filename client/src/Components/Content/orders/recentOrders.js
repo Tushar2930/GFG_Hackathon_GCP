@@ -4,6 +4,9 @@ import "./recentOrders.css";
 import { AuthContext } from "../context/AuthorizationContext";
 
 function RecentOrdersPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const orders = [
     {
       id: 1,
