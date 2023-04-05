@@ -20,8 +20,10 @@ import BuyerForm from "./Components/Content/Buyer_Form/BuyerForm";
 import Orders from "./Components/Content/orders/recentOrders";
 import Rent_sell from "./Components/Content/Sell_form/rent_sell_form";
 import SingleProduct from "./Components/Content/Product_desc/Single_product.js";
+import MlPage from "./Components/Ml_models/ml_page.js";
 import FertilizerForm from "./Components/Ml_models/fertilizerModelForm";
 import PredictionForm from "./Components/Ml_models/predictionModelForm.js";
+import CropPredictionResult from "./Components/Ml_models/cropModelResult.js";
 import Menu from "./Components/menu/menu";
 
 function App() {
@@ -50,6 +52,7 @@ function App() {
           <Route exact path="/buyer-form" element={<BuyerForm />} />
           <Route exact path="/recent-orders" element={<Orders />} />
           <Route exact path="/product/:id" element={<SingleProduct />} />
+          <Route exact path="/ml-page" element={<MlPage />} />
           <Route
             exact
             path="/model-form/fertilizer"
@@ -60,6 +63,7 @@ function App() {
             path="/model-form/prediction-crop"
             element={<PredictionForm />}
           />
+          <Route exact path="/model-result/prediction-crop" element={<CropPredictionResult />} />
         </Routes>
         <Footer />
       </div>

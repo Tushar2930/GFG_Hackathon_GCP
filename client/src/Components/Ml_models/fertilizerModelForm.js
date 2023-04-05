@@ -34,8 +34,8 @@ function FertilizerForm() {
     };
  
     return (
-        <div class="form-style-2">
-            <div class="form-style-2-heading">Provide your information</div>
+        <div class="form-style-2" style={{backgroundColor:"white"}}>
+            <div class="form-style-2-heading pb-3">Provide your information</div>
             <form action="" method="post" onSubmit={handleSubmit} style={{width: '100%'}}>
 
                 <label for="field1"  style={{width: '100%'}}>
