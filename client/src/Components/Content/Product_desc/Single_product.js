@@ -14,6 +14,10 @@ function SingleProduct(){
     const useAuth = React.useContext(AuthContext);
 
     useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
+    useEffect(() => {
         async function fet(){
             const resp=await fetch(`http://localhost:8000/product/get-product/${id}`, {
                 method: "GET",
@@ -29,6 +33,7 @@ function SingleProduct(){
         fet();
     }, [id]);
    
+
     const addToCart=async()=>{
         const resp=await fetch("http://localhost:8000/cart/add-product", {
             method: "POST",

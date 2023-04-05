@@ -27,7 +27,9 @@ function Cart() {
     const handleShop = () => {
       navigate("/shop");
     };
-  
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
     const updateFields = async (id, quantity) => {
       console.log(id, quantity);
       var tempcart = [];

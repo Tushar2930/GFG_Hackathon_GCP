@@ -15,8 +15,7 @@ const WhatWeOffer = () => {
             style={{
               width: "100vw",
               boxShadow: "none",
-              backgroundImage: `url(${bg})`,
-              backgroundSize: "cover",
+              background:"none",
             }}>
             <div class="flex flex-col text-center w-full mb-20 -mt-6">
               <img

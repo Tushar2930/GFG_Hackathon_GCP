@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Products from "./RentingCardList";
 import FilterComponent from "./FilterComponent";
 
@@ -7,6 +7,9 @@ function ServicesRequiredListing(){
     var verticalLineStyle = {
         borderLeft: "0.5px solid #E0E1E4"
     }
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
     var categoryElementArray1 =[
         {type:"<= 10sqkm", total:"100"},
