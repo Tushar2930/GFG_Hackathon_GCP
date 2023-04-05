@@ -71,3 +71,19 @@
   color: white;
   border-radius: 1rem;
 }
+
+.btn-cart{
+  padding: 1rem;
+  height: 4rem;
+  width: 10rem;
+  background-color: orange;
+  color: white;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-fluid {
+ border-radius: 20rem;
+}
