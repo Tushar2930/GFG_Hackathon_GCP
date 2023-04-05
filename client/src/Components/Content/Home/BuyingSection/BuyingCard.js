@@ -1,7 +1,7 @@
 import React from "react";
 import "./BuyingCard.css";
 import "./BuyingCardList.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useState, useContext } from "react";
@@ -55,8 +55,9 @@ function Card({
     }
   };
 
+  const navigate = useNavigate();
   const handleClick = () => {
-    window.location.href = `/product/${id}`;
+     navigate(`/product/${id}`);
   };
 
   return (

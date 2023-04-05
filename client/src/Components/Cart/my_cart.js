@@ -2,20 +2,31 @@ import React,{useEffect,useContext} from "react";
 import Card from "./Cart_card";
 import "./checkout.css"
 import farm_img from "./images/farming.jpg"
+import { useNavigate,Redirect, Navigate } from "react-router-dom";
 import "./my_cart.css"
+import { useRoutes } from "react-router-dom";
 import { updateUserCartItem } from "../api/updateCartProduct";
 import { AuthContext } from "../Content/context/AuthorizationContext";
 
 
 
 function Cart() {
+   const navigate = useNavigate();
+
     const useAuth = useContext(AuthContext);
+    useEffect(() => {
     if (useAuth.currentUser === null) {
-      window.location.href = "/signin";
+      alert("Please login to continue");
+      navigate("/signin");
+
     }
+  }, []);
     const [data, setData] = React.useState({});
     const [image, setImage] = React.useState([]);
   
+    const handleShop = () => {
+      navigate("/shop");
+    };
   
     const updateFields = async (id, quantity) => {
       console.log(id, quantity);
@@ -119,7 +130,7 @@ function Cart() {
             });
             const resp2 = await data2.json();
             alert("Order Placed Successfully");
-            window.location.href = "/";
+            navigate("/");
           }
         },
       };
@@ -217,7 +228,7 @@ function Cart() {
                 </div>
             </div>
             <div className="mt-4 " style={{ display: "flex", justifyContent: "center"}}>
-                <button className="continue-shopping-btn" style={{ width: "12%", backgroundColor:"#50C878", fontSize:"1.2rem", borderRadius:"20px" }}>Continue Shopping</button>
+                <button className="continue-shopping-btn" style={{ width: "12%", backgroundColor:"#50C878", fontSize:"1.2rem", borderRadius:"20px" }} onClick={handleShop}>Continue Shopping</button>
             </div>
         </div>
         </>

@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import FileBase from "react-file-base64";
 
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { createUser } from "../../api/createUser";
 import { CircularProgress } from "@mui/material";
 import { AuthContext } from "../context/AuthorizationContext.js";
@@ -59,9 +59,12 @@ function Signup() {
     setIsLoading(false);
   };
 
+  const navigate = useNavigate();
+useEffect(() => {
   if (useAuth.currentUser) {
-    return (window.location.href = "/userProfile");
+    return (navigate("/userProfile"));
   }
+}, [useAuth.currentUser]);
 
   return (
     // <div className="container">
