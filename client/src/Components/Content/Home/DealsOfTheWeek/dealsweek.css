@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Source+Serif+Pro:wght@200&display=swap');
+
 .droot {
   display: flex;
   flex-direction: column;
@@ -84,6 +86,10 @@
   align-items: center;
 }
 
-.img-fluid {
- border-radius: 20rem;
+.img-flui{
+ border-radius: 1rem;
+}
+
+.heading-sec{
+  font-family:Manjari;
 }
