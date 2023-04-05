@@ -1,54 +1,103 @@
-.container {
-  background-color: #fff;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  border-radius: 5px;
-  width: 400px;
-  max-width: 100%;
+.sign-container .left-side {
+  height: 100%;
+  width: 50%;
+  background-color: #f4d336;
+}
+.sign-container .right-side {
+  height: 100%;
+  width: 50%;
+  background-color: #000000;
+  color: white;
+  opacity: 86%;
 }
 
-input {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.sign-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  /* margin-top:-7rem; */
 }
 
-button {
-  display: block;
-  margin-top: 2px;
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
+.sign-container .right-head {
+  text-align: center;
+  font-size: xx-large;
+  padding: 2rem 0rem;
 }
 
-button:hover {
-  background-color: #0062cc;
+.sign-container .input-con {
+  color: rgb(0, 0, 0);
+  display: flex;
+  width: 75%;
+  height: 8%;
+  justify-content: end;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 0;
+.sign-container .input-root {
+  margin: -0.5rem 6%;
+  width: 85%;
+  display: flex;
+  height: 80%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
-#output {
-  padding: 20px;
-  background: #dadada;
+.sign-container label {
+  /* padding: 1rem 0rem; */
+  font-size: large;
+  width: 47%;
 }
 
-form {
-  margin-top: 20px;
+.sign-container input {
+  padding: 0rem;
+  border-radius: 2rem;
+  height: 2.5rem;
+  padding: 0rem 1rem;
+  width: 60%;
 }
 
-select {
-  width: 300px;
+.sign-container .btn-temp {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sign-container .submit-btn {
+  width: 70%;
+  height: 10%;
+  border-radius: 2rem;
+  background-color: #f4d336;
+  color: black;
+  font-size: 1rem;
+}
+
+.sign-container .radio-btn {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.rdbtn-temp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pro-img-main {
+  width: 29%;
+  height: 33%;
+  border-radius: 27rem;
+  padding: 0rem;
+  background-color: white;
+}
+
+.left-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90%;
+  justify-content: space-evenly;
+}
+.sign-container .input-root label {
+  color: white;
 }

@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import Card from "./BuyingCard";
 import "./BuyingCardList.css";
+import MiddleOrange from "../middleOrange/middleOrange";
+
 import { Link } from "react-router-dom";
 
 function BuyingCardList() {
@@ -13,9 +15,9 @@ function BuyingCardList() {
         // console.log(data);
       });
   }, []);
-  var cardComponentArray = data.map((card,k) => {
-    if(k<4){
-    return (
+  var cardComponentArray = data.map((card, k) => {
+    if (k < 4) {
+      return (
         <Card
           img_url={card?.ip}
           maxQuantity={card?.maxQuantity}
@@ -25,41 +27,29 @@ function BuyingCardList() {
           price={card?.price}
           id={card?._id}
         />
-    );
+      );
     }
   });
   return (
-    // <div className="fluid-container main-fluid-container">
-    //   <div className="row div-container">
-    //     <div className="text-center head-text-div">
-    //       <b>Buy Items</b>
-    //     </div>
-
-    //     {cardComponentArray}
-
-    //     <div className="text-center bottommost-div">
-    //       <button type="button" class="btn btn-dark more-btn rounded-5">
-    //         <Link className="view-more-link" to="/shop">
-    //           VIEW MORE
-    //         </Link>
-    //       </button>
-    //     </div>
-    //   </div>
-    // </div>
     <>
-      <div style={{ height: "88vh", width: "98vw" }}>
-        <div style={{ height: "89vh", width: "98vw", textAlign: "center" }}>
-          <div>
-            <p class="title_font" style={{marginTop: "1rem"}}>Fresh From our farm</p>
-          </div>
-          <div>
-            <h3 class="title_font title_text">Featured Products</h3>
-          </div>
-          <div className="card-cont">
-            {cardComponentArray}
-          </div>
-      <a href="/shop"><button class="btn btn-2 btn-2a">View More</button></a>
+      <div className="froot">
+        <div className="placeImage" />
+        <p class="title_font" style={{ marginTop: "1rem" }}>
+          Fresh From our farm
+        </p>
+        <div>
+          <h3 class="title_font title_text">Featured Products</h3>
         </div>
+        <div className="filter_options">
+          <button>Vegetables</button>
+          <button>Fruits</button>
+          <button>Cereals</button>
+          <button>Dry Fruits</button>
+        </div>
+        <div className="card-cont">{cardComponentArray}</div>
+        <Link to="/shop">
+          <button class="btn btn-2 btn-2a">View More</button>
+        </Link>
       </div>
     </>
   );

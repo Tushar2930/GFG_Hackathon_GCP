@@ -1,39 +1,73 @@
-.droot{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #F9F9F9;
+.droot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  text-align: center;
+  width: 100vw;
+  height: auto;
+  left: 0;
+  position: relative;
+  max-width: 100vw;
+  padding: 2rem;
+  padding-bottom: 4.25rem;
+  padding-top: 3rem;
+  -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+  clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+  margin-top: -3rem;
 }
 
-.imroot{
-    display: flex;
-    width: 90%;
-    justify-content: space-around;
+.imroot {
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
 }
 
-.imgside{
-    height: 100%;
-    width: 45%;
+.imgside {
+  height: 100%;
+  width: 45%;
+}
+.imroot {
+  display: flex;
+  width: 80%;
+  height: 72vh;
+  justify-content: space-around;
+  padding: 3rem;
+  margin-top: -2rem;
 }
 
-.ftext{
-    width: 45%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.imgside {
+  height: 100%;
+  width: 45%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.cbtn{
-    border: 2px solid orange;
-    height: 10%;
-    width: 40%;
-    font-size: large;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: orange;
-    color: white;
-    border-radius: 1rem;
+.imgside img {
+  height: 90%;
+  width: 90%;
+}
+
+.ftext {
+  width: 45%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cbtn {
+  border: 2px solid orange;
+  height: 10%;
+  width: 40%;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  color: white;
+  border-radius: 1rem;
 }

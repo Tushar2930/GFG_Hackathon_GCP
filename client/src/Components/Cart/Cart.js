@@ -69,6 +69,7 @@ function Cart() {
         });
         const resp1=await data1.json();
         setImage(resp1.image);
+        // console.log(resp1.image);
 
       } catch (error) {
         console.log(error.message);
@@ -122,7 +123,7 @@ function Cart() {
     const rzp = window.Razorpay(options);
     rzp.open();
   }
-
+ 
   const handlePay = async function () {
     const resp = await fetch("http://localhost:8000/order/checkout", {
       method: "POST",
@@ -157,18 +158,35 @@ function Cart() {
   });
 
   return (
-    <>
-      <div class="cart">
-        <h2>Shopping Cart</h2>
-        <ul>
-          <li>{cardComponentArray}</li>
-        </ul>
-        <div class="total">
-          <p>Total: ${total}</p>
-          <button onClick={handlePay}>Checkout</button>
+    // <>
+    //   <div class="cart p-4 m-5">
+    //     <h2>Shopping Cart</h2>
+    //     <ul>
+    //       <li>{cardComponentArray}</li>
+    //       <button>Continue Shopping</button>
+    //     </ul>
+    //     <div class="total">
+    //       <p>Total: ${total}</p>
+    //       <button onClick={handlePay}>Checkout</button>
+    //     </div>
+    //   </div>
+    // </>
+
+<div class="m-4">
+    <div className="fluid-container">
+      <div class="row">
+        <div className="col-8">
+          {cardComponentArray}
+          <div className="row">
+            <button className="text-center">Continue shopping</button>
+          </div>
+        </div>
+        <div className="col-4">
+          checkout
         </div>
       </div>
-    </>
+    </div>
+</div> 
   );
 }
 

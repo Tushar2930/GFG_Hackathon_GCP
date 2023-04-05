@@ -1,4 +1,5 @@
 .App {
   overflow-x: hidden;
-  background-color: #faf5d8;
+  scroll-behavior: smooth;
+  /* background-color: #f4d336; */
 }

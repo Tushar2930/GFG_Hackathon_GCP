@@ -1,17 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
 
 .offer-root {
-  height: 89vh;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  /*background-image: url(https://demo.7iquid.com/agrisoil/wp-content/uploads/2022/10/home-zig-zag-bg.png);*/
-  background-color: #85d49e;
+  background-color: #f7f6f2;
+  font-size: 1.1em;
+  width: 100vw;
+  height: auto;
+  left: 0;
+  position: relative;
+  max-width: 100vw;
+  padding: 2rem;
+  padding-bottom: 4.25rem;
+  padding-top: 3rem;
+  -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+  clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+  margin-top: 6rem;
+  padding-bottom: 300px;
+  background-image: url(../image/bg.jpg);
 }
 
 .offer-heading {
+  margin-top: 100px;
+  color: #25271c;
   font-family: Noto Serif;
   font-weight: 400;
   font-size: 48px;
@@ -25,4 +39,84 @@
   background: none;
   box-shadow: none;
   margin-left: 3rem;
+}
+.fresh_veges,
+.rental_services,
+.farming_advicer {
+  position: relative;
+  background-size: cover;
+  border-radius: 0px 20px 0px 40px;
+  overflow: hidden;
+}
+
+.fresh_veges {
+  background-image: url(../image/fresh_vegetables.jpg);
+}
+
+.rental_services {
+  background-image: url(../image//tractorServices.jpg);
+}
+.farming_advicer {
+  background-image: url(../image//farming_advicer.jpg);
+}
+.know_more {
+  -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 1vw));
+  clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  left: 0;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  bottom: -40px;
+  border-radius: 20px 20px 0 0;
+  background-color: rgba(0, 0, 0, 0.592);
+  transition: height 0.4s;
+  border: 3px solid rgb(0, 0, 0);
+}
+.what_offer_container:hover .know_more {
+  height: 70%;
+}
+
+.know_more > p,
+.know_more > a {
+  font-size: 1rem;
+  display: none;
+}
+.know_more > p {
+  color: rgb(248, 248, 248);
+}
+.know_more > .heading {
+  text-decoration: underline rgb(193, 177, 5);
+  color: rgb(248, 248, 248);
+  margin-top: 40px;
+  font-size: 1.5rem;
+}
+.what_offer_container:hover p,
+.what_offer_container:hover a {
+  margin-top: 15px;
+
+  font-size: 1rem;
+  display: flex;
+}
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
 }
