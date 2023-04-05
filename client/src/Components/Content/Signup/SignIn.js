@@ -85,12 +85,12 @@ export default function SignIn() {
           <div className="input-root">
             <div className="input-cont">
               <label>Email address</label>
-              <input type="text" required value={email}
+              <input type="text" required value={email} style={{color:"black"}}
             onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email..."/>
             </div>
             <div className="input-cont">
               <label>Password</label>
-              <input type="password" required
+              <input type="password" required style={{color:"black"}}
             value={password}
             onChange={(e) => setPassword(e.target.value)}/>
             </div>
@@ -99,7 +99,7 @@ export default function SignIn() {
                 <input type="checkbox" />
                 Remember me
               </div>
-              <div><a href="/signin/resetpassword">Forgot Password ?</a></div>
+              <div><Link to="/signin/resetpassword">Forgot Password ?</Link></div>
             </div>
             <button className="submit-btn" disabled={isLoading} onClick={() => handleSignIn()}>{!isLoading ? "Login" : <CircularProgress />}</button>
             <button className="submit-btn" disabled={isLoading}

@@ -1,5 +1,5 @@
 import React from 'react';
-import "./checkout.css"
+
 import { BsArrowRight } from 'react-icons/bs';
 
 const Checkout = () => {

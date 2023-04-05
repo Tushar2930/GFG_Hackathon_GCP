@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import { AuthContext } from "../context/AuthorizationContext";
@@ -8,6 +8,7 @@ import "./single_product.css";
 function SingleProduct(){
 
     const {id}=useParams();
+    const navigate=useNavigate();
     const [data,setData]=React.useState({});
     const [temp,setTemp]=useState(1);
     const useAuth = React.useContext(AuthContext);
@@ -47,11 +48,11 @@ function SingleProduct(){
         const data2=await resp.json();
         if(data2.message==="success"){
             alert("Product added to cart");
-            window.location.href="/cart";
+            navigate("/cart");
         }
         else if(data2.message==="already added"){
             alert("Product already present in cart");
-            window.location.href="/cart";
+           navigate("/cart");
 
         }
     }

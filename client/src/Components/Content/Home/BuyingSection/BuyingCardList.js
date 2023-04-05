@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Card from "./BuyingCard";
 import "./BuyingCardList.css";
+import { Link } from "react-router-dom";
 
 function BuyingCardList() {
   const [data, setData] = React.useState([]);
@@ -43,9 +44,9 @@ function BuyingCardList() {
           <button>Dry Fruits</button>
         </div>
         <div className="card-cont">{cardComponentArray}</div>
-        <a href="/shop">
+        <Link to="/shop">
           <button class="btn btn-2 btn-2a">View More</button>
-        </a>
+        </Link>
       </div>
     </>
   );
