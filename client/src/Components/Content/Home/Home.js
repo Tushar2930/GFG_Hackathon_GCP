@@ -8,6 +8,7 @@ import Testimonial from "./Testimonial/Testimonial";
 import WhatWeOffer from "./WhatWeOffer/WhatWeOffer";
 import MainPage from "./MainPage/MainPage";
 import LandingPage from "./landingPage/landingpage";
+import MiddleOrange from "./middleOrange/middleOrange";
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       {/* <Carousel /> */}
       <MainPage />
       <WhatWeOffer />
+      <MiddleOrange />
       <BuyingCardList />
       <DealsWeek />
       <RentingCardList />

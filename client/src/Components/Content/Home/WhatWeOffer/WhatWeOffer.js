@@ -12,15 +12,12 @@ const WhatWeOffer = () => {
             style={{
               width: "100vw",
               boxShadow: "none",
-              backgroundColor: "#F7F6F2",
+              // backgroundColor: "#F7F6F2",
             }}>
             <div class="flex flex-col text-center w-full mb-20 mt-10">
-              <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">
-                Our Services
-              </h1>
               <img src={what_we_offer} className="w-96 flex self-center" />
               <div className="flex flex-wrap w-full justify-around m--3">
-                <div class="flex flex-wrap  w-80 ">
+                <div class="flex flex-wrap  w-80  rounded-2xl ">
                   <div class=" p-4 w-full">
                     <div class="fresh_veges flex rounded-lg h-80 p-8 flex-col">
                       <div className="know_more">
@@ -28,6 +25,22 @@ const WhatWeOffer = () => {
                         <p>
                           we offer fresh vegetables from farms all over india{" "}
                         </p>
+                        <a
+                          href="#"
+                          className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                          Learn More
+                          <svg
+                            class="w-4 h-4 ml-2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                          </svg>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -38,18 +51,51 @@ const WhatWeOffer = () => {
                       <div className="know_more">
                         <h3>Rental Service</h3>
                         <p>You can opt for various farm related services</p>
+                        <a
+                          href="#"
+                          className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                          Learn More
+                          <svg
+                            class="w-4 h-4 ml-2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                          </svg>
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-wrap w-80">
+                <div class="flex flex-wrap  w-80">
                   <div class=" p-4 w-full">
-                    <div class="lol flex rounded-lg h-80 p-8 flex-col">
+                    <div class="farming_advicer flex rounded-lg h-80 p-8 flex-col">
                       <div className="know_more">
-                        <h3>Fresh Vegetables</h3>
+                        <h3>Farming Adviser</h3>
                         <p>
-                          we offer fresh vegetables from farms all over india{" "}
+                          You can use our multiple ml modles to pridict farming
+                          realate stuff
                         </p>
+                        <a
+                          href="#"
+                          className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                          Learn More
+                          <svg
+                            class="w-4 h-4 ml-2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                          </svg>
+                        </a>
                       </div>
                     </div>
                   </div>

@@ -2,6 +2,7 @@ import React from "react";
 import "./BuyingCard.css";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../../../context/AuthorizationContext";
+import { Link } from "react-router-dom";
 
 function Card({
   img_url,
@@ -50,9 +51,9 @@ function Card({
     <div className="home-product-card">
       <div class="product-card m-3">
         <div class="card card-div">
-          <a href={`/product/${id}`} style={{width:"100%"}}><img src={img_url} class="card-img-top" alt="Product Image" /></a>
+          <Link to={`/product/${id}`} style={{width:"100%"}}><img src={img_url} class="card-img-top" alt="Product Image" /></Link>
           <div class="card-body">
-          <a href={`/product/${id}`} style={{color:"black"}}><div class="row px-3 pb-3">
+          <Link to={`/product/${id}`} style={{color:"black"}}><div class="row px-3 pb-3">
               <div class="col-8 card-title-div">
                 <h5 class="card-title float-start">
                   <b>{name}</b>
@@ -63,7 +64,7 @@ function Card({
                   <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> {price}
                 </h6>
               </div>
-            </div></a>
+            </div></Link>
 
             <div class="row px-3 card-content-div">{description}</div>
 

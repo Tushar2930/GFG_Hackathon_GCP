@@ -3,9 +3,13 @@ import "./navbar.css";
 import logoImg from "./images/agrokart.png";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu'
+import { Link } from "react-router-dom";
+
+
 
 function Navbar() {
   const [scroll, setScroll] = useState(false);
+  console.log("Scroll :", scroll)
  useEffect(() => {
    window.addEventListener("scroll", () => {
      setScroll(window.scrollY > 10);
@@ -18,19 +22,19 @@ function Navbar() {
       <div className="navbar-logo"><img style={{height: "3rem"}} src={logoImg}></img></div>
       <ul className="navbar-links">
         <li>
-          <a href="/" className={scroll?"hover-a":"navbar-links-a"}>Home</a>
+          <Link to="/" className={scroll?"hover-a":"navbar-links-a"}>Home</Link>
         </li>
         <li>
-          <a href="/about-us" className={scroll?"hover-a":"navbar-links-a"}>About Us</a>
+          <Link to="/about-us" className={scroll?"hover-a":"navbar-links-a"}>About Us</Link>
         </li>
         <li>
-          <a href="/shop" className={scroll?"hover-a":"navbar-links-a"}>Shop</a>
+          <Link to="/shop" className={scroll?"hover-a":"navbar-links-a"}>Shop</Link>
         </li>
         <li>
-          <a href="/signup" className={scroll?"hover-a":"navbar-links-a"}>Log In</a>
+          <Link to="/signup" className={scroll?"hover-a":"navbar-links-a"}>Log In</Link>
         </li>
         <li>
-          <a href="/cart" className={scroll?"hover-a":"navbar-links-a"}><ShoppingCartIcon/></a>
+          <Link to="/cart" className={scroll?"hover-a":"navbar-links-a"}><ShoppingCartIcon/></Link>
         </li>
         <li className={scroll?"hover-a":"navbar-links-a"}><MenuIcon/></li>
       </ul>
