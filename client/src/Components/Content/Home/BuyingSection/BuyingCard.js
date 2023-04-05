@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useState, useContext } from "react";
+import img_bg from "../image/shap-small.png";
 import { AuthContext } from "../../context/AuthorizationContext";
 
 function Card({
@@ -57,7 +58,7 @@ function Card({
 
   const navigate = useNavigate();
   const handleClick = () => {
-     navigate(`/product/${id}`);
+    navigate(`/product/${id}`);
   };
 
   return (
@@ -66,12 +67,23 @@ function Card({
         className="card-root"
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}>
-        <div style={{ height: "17.5rem" }} className="imgWrapper">
+        <div className="imgWrapper">
           <img
             src={img_url}
-            alt=""
+            alt="error"
             className={hovered ? "zoom" : "nozoom"}
-            style={{ height: "100%", width: "100%", borderRadius: "1rem" }}
+            style={{ height: "80%", width: "100%", borderRadius: "1rem" }}
+          />
+          <img
+            src={img_bg}
+            alt="error"
+            className={hovered ? "zoom" : "nozoom"}
+            style={{
+              position: "absolute",
+              bottom: 0,
+              height: "30%",
+              width: "100%",
+            }}
           />
           <div className={hovered ? "hover_icon" : "card_icon"}>
             <ShoppingCartOutlinedIcon

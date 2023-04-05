@@ -5,11 +5,11 @@ module.exports.create = async function (req, res) {
     const data = req.body.postData;
     const collection = db.collection("products");
     //add id with data
-    const temp=await collection.add(data);
+    const temp = await collection.add(data);
     // console.log(temp.id);
     await collection.doc(temp.id).update({
-      id:temp.id
-    })
+      id: temp.id,
+    });
     return res.json({
       message: "data added successfully",
     });
@@ -28,9 +28,7 @@ module.exports.getAllProducts = async function (req, res) {
         _id: doc.id,
         descricption: doc.data().descricption,
         ip: doc.data().ip,
-        name: `${doc.data().category} ${doc.data().product} ${
-          doc.data().species
-        }`,
+        name: ` ${doc.data().product} ${doc.data().species}`,
         maxQuantity: doc.data().maxQuantity,
         minQuantity: doc.data().minQuantity,
         price: doc.data().price,
@@ -54,7 +52,7 @@ module.exports.getProduct = async function (req, res) {
     const data = await collection.doc(id).get();
     return res.json({
       message: "success",
-      product: {...data.data(),id},
+      product: { ...data.data(), id },
     });
   } catch (error) {
     console.log(error.message);

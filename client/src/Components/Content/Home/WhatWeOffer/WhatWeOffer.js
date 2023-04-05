@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
 import "./WhatWeOffer.css";
 import what_we_offer from "../image/what_we_offer.png";
-import bg from "../image/bg.jpg";
+import bg from "../image/bg.png";
 
 const WhatWeOffer = () => {
   return (
@@ -16,6 +16,7 @@ const WhatWeOffer = () => {
               width: "100vw",
               boxShadow: "none",
               backgroundImage: `url(${bg})`,
+              backgroundSize: "cover",
             }}>
             <div class="flex flex-col text-center w-full mb-20 mt-10">
               <img

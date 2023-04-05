@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "./search";
 import Card from "../../../Home/BuyingSection/BuyingCard";
 import "./ProductSection.css";
@@ -16,6 +16,10 @@ function ProductSection() {
 
   var verticalLineStyle = {
     borderLeft: "0.5px solid grey",
+    backgroundColor: "#e8e8e8",
+    minHeight: "100vh",
+    borderRadius: "20px",
+    paddingTop: "3rem",
   };
 
   var horizontalLine = {
@@ -23,44 +27,50 @@ function ProductSection() {
     width: "86%",
   };
 
-  const [data,setData]=React.useState([]);
-    const [allData,setAllData]=React.useState([]);
-    const [index,setIndex]=React.useState(8);
-  useEffect(()=>{
+  const [data, setData] = React.useState([]);
+  const [allData, setAllData] = React.useState([]);
+  const [index, setIndex] = React.useState(8);
+  useEffect(() => {
     fetch("http://localhost:8000/product/get-products")
-    .then((response) => response.json())
-    .then((data) => {
-        setAllData(data.data)
-    setData(data.data)})
-  },[]);
-// console.log(data);
-useEffect(()=>{
-    if(lth===true){
-      var temp=data;
-      let sortedData=temp.sort(
-        (p1, p2) => (p1.price > p2.price) ? 1 : (p1.price < p2.price) ? -1 : 0);
-        console.log(sortedData,"lth");
-        // console.log(data);
+      .then((response) => response.json())
+      .then((data) => {
+        setAllData(data.data);
+        setData(data.data);
+      });
+  }, []);
+  // console.log(data);
+  useEffect(() => {
+    if (lth === true) {
+      var temp = data;
+      let sortedData = temp.sort((p1, p2) =>
+        p1.price > p2.price ? 1 : p1.price < p2.price ? -1 : 0
+      );
+      console.log(sortedData, "lth");
+      // console.log(data);
       setData(temp);
-    }
-    else if(htl===true){
-        var temp1=data;
-        let sortedData=temp1.sort(
-          (p1, p2) => (p1.price < p2.price) ? 1 : (p1.price > p2.price) ? -1 : 0);
-          console.log(sortedData,'htl');
-          // console.log(data);
-        setData(temp1);
-    }
-    else{
+    } else if (htl === true) {
+      var temp1 = data;
+      let sortedData = temp1.sort((p1, p2) =>
+        p1.price < p2.price ? 1 : p1.price > p2.price ? -1 : 0
+      );
+      console.log(sortedData, "htl");
+      // console.log(data);
+      setData(temp1);
+    } else {
       setData(allData);
     }
-    console.log(lth,htl);
-},[lth,htl])
-
+    console.log(lth, htl);
+  }, [lth, htl]);
 
   var cardComponentArray = data.map((card) => {
     return (
-      <Card img_url={card?.ip} name={card?.name} description={card?.description} price={card?.price} id={card._id}/>
+      <Card
+        img_url={card?.ip}
+        name={card?.name}
+        description={card?.description}
+        price={card?.price}
+        id={card._id}
+      />
     );
   });
 

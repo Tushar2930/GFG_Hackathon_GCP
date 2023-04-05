@@ -19,8 +19,8 @@
 .menu .menu-icon:checked + label,
 .menu .menu-icon:not(:checked) + label {
   position: fixed;
-  top: 45px;
-  right: 50px;
+  top: 35px;
+  right: 30px;
   display: block;
   width: 30px;
   height: 30px;
@@ -84,17 +84,17 @@
 
 .menu .nav {
   position: fixed;
-  top: 15px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   display: block;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   padding: 0;
   margin: 0;
   z-index: 9;
   overflow: hidden;
   box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.3);
-  background-color: #000000;
+  background-color: #152312;
   animation: border-transform 7s linear infinite;
   transition: top 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
     right 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
