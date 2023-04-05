@@ -123,7 +123,7 @@ function Cart() {
     const rzp = window.Razorpay(options);
     rzp.open();
   }
-
+ 
   const handlePay = async function () {
     const resp = await fetch("http://localhost:8000/order/checkout", {
       method: "POST",

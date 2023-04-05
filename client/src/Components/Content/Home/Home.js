@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Carousel from "./Carousel/Carousel";
 import DealsWeek from "./DealsOfTheWeek/DealsWeek";
 import Poster from "./Poster/Poster";
@@ -21,7 +22,7 @@ function Home() {
       <DealsWeek />
       <RentingCardList />
       <Testimonial />
-      <a href="/sell">SELL</a> <a href="/get-rent-service">RENT</a>
+      <Link to="/sell">SELL</Link> <Link to="/get-rent-service">RENT</Link>
       <br />
       <br />
       <br />

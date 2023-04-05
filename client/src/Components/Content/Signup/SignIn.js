@@ -85,12 +85,12 @@ export default function SignIn() {
           <div className="input-root">
             <div className="input-cont">
               <label>Email address</label>
-              <input type="text" required value={email}
+              <input type="text" required value={email} style={{color:"black"}}
             onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email..."/>
             </div>
             <div className="input-cont">
               <label>Password</label>
-              <input type="password" required
+              <input type="password" required style={{color:"black"}}
             value={password}
             onChange={(e) => setPassword(e.target.value)}/>
             </div>

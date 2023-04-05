@@ -1,0 +1,17 @@
+.ml-container {
+    display: flex;
+  }
+  
+.ml-section {
+    width: 50%;
+    padding: 20px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+.ml-img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+  }

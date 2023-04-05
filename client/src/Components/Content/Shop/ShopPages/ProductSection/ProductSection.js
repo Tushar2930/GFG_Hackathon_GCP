@@ -1,72 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import SearchBar from "./search";
 import Card from "../../../Home/BuyingSection/BuyingCard";
 import "./ProductSection.css";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
-
-const shopData = [
-  {
-    id: "1",
-    name: "Fuck You",
-    price: "Free",
-    description: "Middle Finger",
-    minQuantity: "1",
-    maxQuantity: "100",
-    img_url:
-      "https://media.istockphoto.com/id/1271707347/vector/middle-finger.jpg?s=612x612&w=0&k=20&c=DFjhX1TphcbPpG4z7Pi1TCy151Mf6uXiQjB9HKqGwjw=",
-  },
-  {
-    id: "1",
-    name: "Fuck You",
-    price: "Free",
-    description: "Middle Finger",
-    minQuantity: "1",
-    maxQuantity: "100",
-    img_url:
-      "https://media.istockphoto.com/id/1271707347/vector/middle-finger.jpg?s=612x612&w=0&k=20&c=DFjhX1TphcbPpG4z7Pi1TCy151Mf6uXiQjB9HKqGwjw=",
-  },
-  {
-    id: "1",
-    name: "Fuck You",
-    price: "Free",
-    description: "Middle Finger",
-    minQuantity: "1",
-    maxQuantity: "100",
-    img_url:
-      "https://media.istockphoto.com/id/1271707347/vector/middle-finger.jpg?s=612x612&w=0&k=20&c=DFjhX1TphcbPpG4z7Pi1TCy151Mf6uXiQjB9HKqGwjw=",
-  },
-  {
-    id: "1",
-    name: "Fuck You",
-    price: "Free",
-    description: "Middle Finger",
-    minQuantity: "1",
-    maxQuantity: "100",
-    img_url:
-      "https://media.istockphoto.com/id/1271707347/vector/middle-finger.jpg?s=612x612&w=0&k=20&c=DFjhX1TphcbPpG4z7Pi1TCy151Mf6uXiQjB9HKqGwjw=",
-  },
-  {
-    id: "1",
-    name: "Fuck You",
-    price: "Free",
-    description: "Middle Finger",
-    minQuantity: "1",
-    maxQuantity: "100",
-    img_url:
-      "https://media.istockphoto.com/id/1271707347/vector/middle-finger.jpg?s=612x612&w=0&k=20&c=DFjhX1TphcbPpG4z7Pi1TCy151Mf6uXiQjB9HKqGwjw=",
-  },
-  {
-    id: "1",
-    name: "Fuck You",
-    price: "Free",
-    description: "Middle Finger",
-    minQuantity: "1",
-    maxQuantity: "100",
-    img_url:
-      "https://media.istockphoto.com/id/1271707347/vector/middle-finger.jpg?s=612x612&w=0&k=20&c=DFjhX1TphcbPpG4z7Pi1TCy151Mf6uXiQjB9HKqGwjw=",
-  },
-];
 
 function ProductSection() {
   const [lth, setLth] = React.useState(false);
@@ -86,17 +23,44 @@ function ProductSection() {
     width: "86%",
   };
 
-  var cardComponentArray = shopData.map((card) => {
+  const [data,setData]=React.useState([]);
+    const [allData,setAllData]=React.useState([]);
+    const [index,setIndex]=React.useState(8);
+  useEffect(()=>{
+    fetch("http://localhost:8000/product/get-products")
+    .then((response) => response.json())
+    .then((data) => {
+        setAllData(data.data)
+    setData(data.data)})
+  },[]);
+// console.log(data);
+useEffect(()=>{
+    if(lth===true){
+      var temp=data;
+      let sortedData=temp.sort(
+        (p1, p2) => (p1.price > p2.price) ? 1 : (p1.price < p2.price) ? -1 : 0);
+        console.log(sortedData,"lth");
+        // console.log(data);
+      setData(temp);
+    }
+    else if(htl===true){
+        var temp1=data;
+        let sortedData=temp1.sort(
+          (p1, p2) => (p1.price < p2.price) ? 1 : (p1.price > p2.price) ? -1 : 0);
+          console.log(sortedData,'htl');
+          // console.log(data);
+        setData(temp1);
+    }
+    else{
+      setData(allData);
+    }
+    console.log(lth,htl);
+},[lth,htl])
+
+
+  var cardComponentArray = data.map((card) => {
     return (
-      <Card
-        img_url={card.img_url}
-        maxQuantity={card.maxQuantity}
-        minQuantity={card.minQuantity}
-        name={card.name}
-        description={card.description}
-        price={card.price}
-        id={card.date}
-      />
+      <Card img_url={card?.ip} name={card?.name} description={card?.description} price={card?.price} id={card._id}/>
     );
   });
 
@@ -233,9 +197,6 @@ function ProductSection() {
               <MdArrowForwardIos />
             </div>
           </div>
-          {/* <div className='row'>
-                        <button class="mx-auto mt-4" style={{width:"10%"}}>View More</button>
-                    </div> */}
         </div>
       </div>
     </div>

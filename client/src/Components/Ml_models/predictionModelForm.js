@@ -31,8 +31,8 @@ function PredictionForm() {
     };
 
     return (
-        <div class="form-style-2">
-            <div class="form-style-2-heading">Provide your information</div>
+        <div class="form-style-2"  style={{backgroundColor:"white"}}>
+            <div class="form-style-2-heading pb-3">Provide your information</div>
             <form action="" method="post" onSubmit={handleSubmit} style={{width: '100%'}}>
                 <label for="field1" style={{width: '100%'}}>
                     <span>Nitrogen<span class="required">*</span></span>
@@ -79,7 +79,7 @@ function PredictionForm() {
                     />
                 </label>
                 <label for="field5"  style={{width: '100%'}}>
-                    <span>PH<span class="required">*</span></span>
+                    <span>Ph<span class="required">*</span></span>
                     <input
                         type="number"
                         name="field5"
@@ -90,7 +90,7 @@ function PredictionForm() {
                     />
                 </label>
                 <label for="field6"  style={{width: '100%'}}>
-                    <span>city<span class="required">*</span></span>
+                    <span>City<span class="required">*</span></span>
                     <input
                         type="text"
                         name="field6"
