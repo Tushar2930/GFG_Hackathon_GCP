@@ -3,16 +3,13 @@ import Orange from "../image/orange.png";
 
 export default function middleOrange() {
   return (
-    <div
+    <img
+      src={Orange}
       style={{
-        marginTop: "-250px",
-        width: "400px",
-        height: "300px",
-        backgroundSize: "contain",
-        backgroundRepeat: "noRepeat",
-        zIndex: 100,
-      }}>
-      <img src={Orange} style={{ zIndex: 1000 }} />
-    </div>
+        width: "35rem",
+        position: "relative",
+        zIndex: 10,
+      }}
+    />
   );
 }

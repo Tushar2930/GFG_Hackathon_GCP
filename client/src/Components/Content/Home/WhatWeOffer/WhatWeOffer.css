@@ -18,7 +18,9 @@
   padding-top: 3rem;
   -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
   clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
-  margin-top: 4rem;
+  margin-top: 6rem;
+  padding-bottom: 300px;
+  background-image: url(../image/bg.jpg);
 }
 
 .offer-heading {
@@ -73,41 +75,48 @@
   transition: height 0.4s;
   border: 3px solid rgb(0, 0, 0);
 }
-.fresh_veges:hover .know_more {
+.what_offer_container:hover .know_more {
   height: 70%;
 }
 
 .know_more > p,
 .know_more > a {
-  margin-top: 20px;
   font-size: 1rem;
   display: none;
 }
-.know_more > h3 {
+.know_more > p {
+  color: rgb(248, 248, 248);
+}
+.know_more > .heading {
   text-decoration: underline rgb(193, 177, 5);
-  animation: opacity 1s ease-in-out;
   color: rgb(248, 248, 248);
   margin-top: 40px;
   font-size: 1.5rem;
 }
-.fersh_veges:hover p,
-.fersh_veges:hover a {
-  color: rgb(255, 255, 255);
+.what_offer_container:hover p,
+.what_offer_container:hover a {
+  margin-top: 15px;
+
   font-size: 1rem;
   display: flex;
 }
-.container {
-  background-image: url(../image/bg.jpg);
+.floating {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
 }
 
-@keyframes opacity {
+@keyframes floating {
   0% {
-    opacity: 0;
-    transform: translateY(-30px);
+    transform: translate(0, 0px);
   }
-
+  50% {
+    transform: translate(0, 15px);
+  }
   100% {
-    opacity: 1;
-    transform: translateY(0px);
+    transform: translate(0, -0px);
   }
 }

@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import Card from "./BuyingCard";
 import "./BuyingCardList.css";
+import MiddleOrange from "../middleOrange/middleOrange";
+
 import { Link } from "react-router-dom";
 
 function BuyingCardList() {

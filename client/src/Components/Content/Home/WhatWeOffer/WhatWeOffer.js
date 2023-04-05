@@ -1,6 +1,9 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { Fade } from "react-awesome-reveal";
 import "./WhatWeOffer.css";
 import what_we_offer from "../image/what_we_offer.png";
+import bg from "../image/bg.jpg";
 
 const WhatWeOffer = () => {
   return (
@@ -12,22 +15,29 @@ const WhatWeOffer = () => {
             style={{
               width: "100vw",
               boxShadow: "none",
-              // backgroundColor: "#F7F6F2",
+              backgroundImage: `url(${bg})`,
             }}>
             <div class="flex flex-col text-center w-full mb-20 mt-10">
-              <img src={what_we_offer} className="w-96 flex self-center" />
+              <img
+                src={what_we_offer}
+                className="floating w-96 flex self-center m--10px"
+              />
               <div className="flex flex-wrap w-full justify-around m--3">
                 <div class="flex flex-wrap  w-80  rounded-2xl ">
                   <div class=" p-4 w-full">
-                    <div class="fresh_veges flex rounded-lg h-80 p-8 flex-col">
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      class="what_offer_container fresh_veges flex rounded-lg h-80 p-8 flex-col">
                       <div className="know_more">
-                        <h3>Fresh Vegetables</h3>
+                        <Fade direction="down" className="heading">
+                          Fresh Vegetables
+                        </Fade>
                         <p>
                           we offer fresh vegetables from farms all over india{" "}
                         </p>
                         <a
                           href="#"
-                          className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                          className="text-green-600 inline-flex items-center md:mb-2 lg:mb-0">
                           Learn More
                           <svg
                             class="w-4 h-4 ml-2"
@@ -42,18 +52,22 @@ const WhatWeOffer = () => {
                           </svg>
                         </a>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
                 <div class="flex flex-wrap  w-80">
                   <div class=" p-4 w-full">
-                    <div class="rental_services flex rounded-lg h-80 p-8 flex-col">
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      class="what_offer_container rental_services flex rounded-lg h-80 p-8 flex-col">
                       <div className="know_more">
-                        <h3>Rental Service</h3>
+                        <Fade direction="down" className="heading">
+                          Rental Services
+                        </Fade>
                         <p>You can opt for various farm related services</p>
                         <a
                           href="#"
-                          className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                          className="text-green-600 inline-flex items-center md:mb-2 lg:mb-0">
                           Learn More
                           <svg
                             class="w-4 h-4 ml-2"
@@ -68,21 +82,25 @@ const WhatWeOffer = () => {
                           </svg>
                         </a>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
                 <div class="flex flex-wrap  w-80">
                   <div class=" p-4 w-full">
-                    <div class="farming_advicer flex rounded-lg h-80 p-8 flex-col">
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      class="what_offer_container farming_advicer flex rounded-lg h-80 p-8 flex-col">
                       <div className="know_more">
-                        <h3>Farming Adviser</h3>
+                        <Fade direction="down" className="heading">
+                          Farming Advisor
+                        </Fade>
                         <p>
                           You can use our multiple ml modles to pridict farming
                           realate stuff
                         </p>
                         <a
                           href="#"
-                          className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                          className="text-green-600 inline-flex items-center md:mb-2 lg:mb-0">
                           Learn More
                           <svg
                             class="w-4 h-4 ml-2"
@@ -97,7 +115,7 @@ const WhatWeOffer = () => {
                           </svg>
                         </a>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </div>

@@ -1,7 +1,6 @@
 .card-cont {
   display: flex;
-  /* justify-content: space-evenly; */
-  /* align-items: center; */
+  width: 100vw;
   padding: 0rem 8rem;
   height: 60%;
 }
@@ -127,7 +126,7 @@
   padding-top: 8rem;
   -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
   clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
-  margin-top: -3rem;
+  margin-top: -22rem;
 }
 .filter_options {
   display: flex;
