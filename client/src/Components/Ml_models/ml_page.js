@@ -1,41 +1,32 @@
 import React, { useState } from 'react';
 import './ml_page.css';
+import { motion } from "framer-motion";
+import crop_predict_img from "./images/crop.jpg"
+import { FaBeer } from 'react-icons/fa';
+import { BsArrowRightCircleFill } from 'react-icons/bs';
+import { Link } from "react-router-dom";
 
 const MlPage = () => {
-  const [isLeftSectionHovered, setIsLeftSectionHovered] = useState(false);
-
-  const handleLeftSectionHover = () => {
-    setIsLeftSectionHovered(true);
-  };
-
-  const handleRightSectionHover = () => {
-    setIsLeftSectionHovered(false);
-  };
-
-  const leftSectionStyle = {
-    backgroundColor: isLeftSectionHovered ? '#f4d336' : 'white',
-  };
-
-  const rightSectionStyle = {
-    backgroundColor: isLeftSectionHovered ? 'white' : '#f4d336',
-  };
 
   return (
-   <div className='bg-white' style={{padding:"6% 10% 6% 10%"}}>
+   <div className='' style={{padding:"1% 7% 2% 7%", }}>
+    <div className='mb-4 top-ml-content' style={{fontSize:"3rem"}}>Farming Advices</div>
     <div className="ml-container">
-      <div className="ml-section" style={leftSectionStyle} onMouseEnter={handleLeftSectionHover}>
-        <img className='ml-img' src="https://pbs.twimg.com/profile_images/583024902619316224/u0Xx7RxD_400x400.jpg" alt="placeholder" />
-        <div className='px-3 pt-3 pb-1 text-center' style={{fontSize:"1.4rem"}}>Crop Recommendation</div>
-        <div className='px-3 py-1 text-center' style={{fontSize:"1rem"}}>loda lassan</div>
-        <button className='mx-auto px-3 py-2'>Predict</button>
+      <div className="ml-section mx-3 left-ml-section left-ml">
+        <div style={{marginTop:"50%"}}></div>
+        <div className='px-3 pt-3 pb-1 text-center mt-5' style={{fontSize:"2.2rem", color:"white"}}>
+          Crop Recommendation<Link to="/model-form/prediction-crop" className='ml-btn-link' style={{fontSize:"3rem"}}><BsArrowRightCircleFill className='m-auto'/></Link>
+        </div>
       </div>
-      <div className="ml-section" style={rightSectionStyle} onMouseEnter={handleRightSectionHover}>
-        <img className='ml-img' src="https://pbs.twimg.com/profile_images/583024902619316224/u0Xx7RxD_400x400.jpg" alt="placeholder" />
-        <div className='px-3 pt-3 pb-1 text-center' style={{fontSize:"1.4rem"}}>Fertilizer Recommendation</div>
-        <div className='px-3 py-1 text-center' style={{fontSize:"1rem"}}>loda lassan</div>
-        <button className='mx-auto px-3 py-2'>Predict</button>
+
+      <div className="ml-section mx-3 right-ml-section right-ml">
+        <div style={{marginTop:"50%"}}></div>
+        <div className='px-3 pt-3 pb-1 text-center mt-5' style={{fontSize:"2.2rem", color:"white"}}>
+          Fertilizer Recommendation<Link to="/model-form/fertilizer" className='ml-btn-link' style={{fontSize:"3rem"}}><BsArrowRightCircleFill className='m-auto'/></Link>
+        </div>
       </div>
     </div>
+
   </div>
   );
 };
