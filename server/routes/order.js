@@ -6,5 +6,6 @@ router.post('/checkout',orderController.checkout);
 router.post('/verify',orderController.verify);
 router.post('/place',orderController.placeOrder);
 router.post('/getOrders',orderController.getOrders);
+router.post('/getImage',orderController.getImage);
 
 module.exports=router;

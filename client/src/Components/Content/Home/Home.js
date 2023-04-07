@@ -27,7 +27,7 @@ function Home() {
       <DealsWeek />
       <RentingCardList />
       <Testimonial />
-      <Link to="/sell">SELL</Link> <Link to="/get-rent-service">RENT</Link>
+      {/* <Link to="/sell">SELL</Link> <Link to="/get-rent-service">RENT</Link> */}
     </>
   );
 }

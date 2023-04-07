@@ -22,7 +22,7 @@ function Card({
   const [hovered, setHovered] = useState(true);
   const handleHover = () => {
     setHovered(!hovered);
-    console.log(hovered);
+    // console.log(hovered);
   };
 
   const handleCart = async function () {

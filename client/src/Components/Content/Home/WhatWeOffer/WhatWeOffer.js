@@ -33,7 +33,7 @@ const WhatWeOffer = () => {
                           Fresh Vegetables
                         </Fade>
                         <p>
-                          we offer fresh vegetables from farms all over india{" "}
+                          We offer fresh vegetables from farms all over india{" "}
                         </p>
                         <a
                           href="#"
@@ -95,8 +95,8 @@ const WhatWeOffer = () => {
                           Farming Advisor
                         </Fade>
                         <p>
-                          You can use our multiple ml modles to pridict farming
-                          realate stuff
+                          You can use our multiple ML models to predict farming
+                          related stuffs
                         </p>
                         <a
                           href="#"
