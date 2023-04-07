@@ -1,10 +1,11 @@
-import React from "react";
+import React,{useContext} from "react";
 import FileBase from "react-file-base64";
 import "./veg_sell.css";
 import { useState } from "react";
 import SearchDropdown from "./form_comp";
 import { createProduct } from "../../../api/createProduct";
 import sellOptions from "./veg_sell_data";
+import {AuthContext} from '../../context/AuthorizationContext';
 
 function Veg_sell() {
   const [productObj, setProductObj] = useState({});
@@ -23,7 +24,8 @@ function Veg_sell() {
       ip,
     });
   };
-
+  const useAuth = useContext(AuthContext);
+  
   const onCategoryOptionClicked = (option) => {
     setCategory(option);
   };
@@ -40,6 +42,7 @@ function Veg_sell() {
     await createProduct({
       ...productObj,
       minQuantity: Math.floor(productObj.maxQuantity / 5),
+      userEmail:useAuth.currentUser.email,
     }).then((res) => {
       console.log(res);
     });

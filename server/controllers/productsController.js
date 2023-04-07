@@ -3,12 +3,23 @@ const db = require("../config/firebase");
 module.exports.create = async function (req, res) {
   try {
     const data = req.body.postData;
+    const email=req.body.postData.userEmail;
+    // console.log(data);
+    //get id from email
+    const userCollection = db.collection("users");
+    const userData = await userCollection.where("email", "==", email).get();
+    var id;
+    userData.forEach((doc) => {
+      id = doc.id;
+    });
+    console.log(id);
     const collection = db.collection("products");
     //add id with data
     const temp = await collection.add(data);
     // console.log(temp.id);
     await collection.doc(temp.id).update({
       id: temp.id,
+      userId: id,
     });
     return res.json({
       message: "data added successfully",
