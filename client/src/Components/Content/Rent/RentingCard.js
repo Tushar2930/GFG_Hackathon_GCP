@@ -32,12 +32,13 @@ function Card({ service_asked, id, name, area, price, loc, date, dur_ar, img_url
       display: 'flex',
       flexDirection: 'row',
       width: '100%',
-      height:"20rem",
+      height:"28rem",
       backgroundColor: '#fff',
       boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
       borderRadius: '8px',
       overflow: 'hidden',
-      marginBottom:"5rem"
+      marginBottom:"3rem",
+      justifyContent: "space-between"
     },
     imageContainer: {
       width: '50%',
@@ -57,10 +58,11 @@ function Card({ service_asked, id, name, area, price, loc, date, dur_ar, img_url
       flexDirection: 'column',
     },
     name: {
-      fontSize: '24px',
+      fontSize: '3rem',
       fontWeight: 'bold',
       margin: '0 0 10px 0',
       textAlign: 'center',
+      alignSelf: "flex-start",
     },
     stars: {
       fontSize: '16px',
@@ -149,7 +151,7 @@ function Card({ service_asked, id, name, area, price, loc, date, dur_ar, img_url
           <span style={styles.star}>★</span>
         </div>
         <p style={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet mi lacus. Praesent suscipit nulla vel nunc faucibus, ac finibus dolor luctus.</p>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', alignSelf: "flex-end" }}>
           <span style={styles.price}>${price}</span>
           <button style={styles.button}>Book Service</button>
         </div>
