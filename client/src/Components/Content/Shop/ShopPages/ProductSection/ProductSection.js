@@ -11,9 +11,9 @@ function ProductSection() {
 
   var verticalLineStyle = {
     borderLeft: "0.5px solid grey",
-    backgroundColor: "#e8e8e8",
+    backgroundColor: "white",
     minHeight: "100vh",
-    borderRadius: "20px",
+    borderRadius: "0px",
     paddingTop: "3rem",
   };
 
@@ -93,16 +93,19 @@ function ProductSection() {
 
   return (
     <div class="fluid-container">
+    <div>
+      <img src="https://demo.7iquid.com/agrisoil/wp-content/uploads/2022/07/page-title-bg-1.jpg"></img><div className="absolute text-white" style={{fontFamily:"monospace",top:"30%",left:"5%",fontSize:"xxx-large"}}>SHOP</div>
+    </div>
       <div className="row" style={{ padding: "18px" }}>
         <div class="col-2">
-          <div className="row mb-5 mt-3">
+          <div className="row" style={{borderBottom:"1px solid #c7c8c9", marginTop:"1.58%"}}>
             <label className="mx-0 mb-5">
               <span className={{ fontSize: "18px" }}>Sort by:</span>
               <select
               onChange={e=>filterSort(e.target.options.selectedIndex)}
                 name="price-select"
                 className="ms-4"
-                style={{ width: "180px", height: "26px" }}>
+                style={{ width: "180px", height: "26px",border:"1px solid black" }}>
                 <option >Low to High</option>
                 <option >High to Low</option>
                 <option selected="selected">Recommended </option>
@@ -210,8 +213,8 @@ function ProductSection() {
         <div class="col-10">
           {/* <Products checklth={lth} checkhtl={htl} /> */}
           <SearchBar onSearch={handleSearch} />
-          <div style={{ margin: "60px 0 60px 0" }}></div>
-          <div className="row justify-content-around" style={verticalLineStyle}>
+          <div className="flex justify-center mb-0" style={{ margin: "60px 0 60px 0" }}><hr style={{marginLeft:"-2%",width:"100%"}}/></div>
+          <div className="row justify-content-around rounded-none" style={verticalLineStyle}>
             {cardComponentArray}
           </div>
 

@@ -83,6 +83,7 @@ module.exports.getUserProducts = async function (req, res) {
   } catch (error) {
     console.log(error);
   }
+<<<<<<< HEAD
 };
 
 module.exports.getUserServiceRequest = async function (req, res) {
@@ -96,10 +97,21 @@ module.exports.getUserServiceRequest = async function (req, res) {
     });
     const collection = db.collection("service_requests");
     const data = await collection.where("userId", "==", id).get();
+=======
+} 
+
+module.exports.getUserRent = async function (req, res) {
+  try {
+    const email = req.body.email;
+    //search in rent collection for user email equal to email and get the whole data
+    const collection = db.collection("rent");
+    const data = await collection.where("email", "==", email).get();
+>>>>>>> 1a738ecf13dd978be5d6347772fa44f1a61e586f
     var list = [];
     data.forEach((doc) => {
       list.push({
         _id: doc.id,
+<<<<<<< HEAD
         descricption: doc.data().descricption,
         ip: doc.data().ip,
         name: ` ${doc.data().product} ${doc.data().species}`,
@@ -109,6 +121,23 @@ module.exports.getUserServiceRequest = async function (req, res) {
         quantity: doc.data().quantity,
       });
     });
+=======
+        address: doc.data().Address,
+        area: doc.data().area,
+        date: doc.data().date,
+        duration: doc.data().duration,
+        email: doc.data().email,
+        ip:doc.data().ip,
+        name: doc.data().name,
+        price: doc.data().price,
+        service: doc.data().service,
+
+      });
+    });
+    // console.log(req.body);
+    
+
+>>>>>>> 1a738ecf13dd978be5d6347772fa44f1a61e586f
     return res.json({
       message: "success",
       data: list,
@@ -116,4 +145,8 @@ module.exports.getUserServiceRequest = async function (req, res) {
   } catch (error) {
     console.log(error);
   }
+<<<<<<< HEAD
 };
+=======
+}
+>>>>>>> 1a738ecf13dd978be5d6347772fa44f1a61e586f
