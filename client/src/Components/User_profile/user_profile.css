@@ -1,45 +1,63 @@
+.dashboard-container {
+  display: flex;
+  width: 100vw;
+  background-color: #f8f8f8;
+}
 
- header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .profile {
-    margin: 20px;
-    height: 72vh;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .profile img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-    height: 80%;
-    border: 3px solid lightsteelblue;
-    border-radius: 1rem;
-  }
-  
-  .profile p {
-    font-size: 1.7rem;
-  }
-  
-  .infor {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  @media screen and (min-width: 768px) {
-    .profile {
-      max-width: 1100px;
-      margin: 20px auto;
-    }
-  }
-  
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  background-color: #25271c94;
+  padding: 10px;
+  /* border-right: 1px solid rgba(195, 195, 195, 0.435); */
+}
+
+.user-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.nav-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  padding: 10px;
+  border-radius: 5px;
+  color: #aeaeae;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.nav-item.active {
+  color: #000000;
+}
+.user_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40%;
+  width: 100%;
+  padding: 15px;
+}
+.content-container {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+}
+.logout_button {
+  justify-self: flex-end;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #ddd;
+  cursor: pointer;
+}
