@@ -5,10 +5,11 @@ import { useState } from "react";
 import SearchDropdown from "./form_comp";
 import { createProduct } from "../../../api/createProduct";
 import sellOptions from "./veg_sell_data";
+import bg_img from "./images/agri_bg.png"
 
 function Veg_sell() {
   const [productObj, setProductObj] = useState({});
-  const [ip, setIp] = React.useState("");
+  const [ip, setIp] = useState("");
   const [category, setCategory] = useState(null);
   const [product, setProduct] = useState(null);
   const [species, setSpecies] = useState(null);
@@ -47,9 +48,12 @@ function Veg_sell() {
 
   return (
     <div className="form_root">
-      {/* <h1 className="mx-auto">Sell Items</h1> */}
+      <div className="animate-charcter mx-auto mb-4" style={{fontSize:"2.8rem"}}>
+        <b>Sell Items</b>
+      </div>
+
       <form className="my-2">
-        <h6 className="float-start">Category :</h6>
+        <div className="float-start mb-2 sell-field" style={{fontSize:"1.2rem"}}>Category :</div>
         <SearchDropdown
           options={sellOptions}
           onOptionClicked={onCategoryOptionClicked}
@@ -58,7 +62,7 @@ function Veg_sell() {
 
       {category ? (
         <form className="my-2">
-          <h6>Product :</h6>
+          <div className="mb-2 sell-field" style={{fontSize:"1.2rem"}}>Product :</div>
           <SearchDropdown
             options={category.product}
             onOptionClicked={onProductOptionClicked}
@@ -68,7 +72,7 @@ function Veg_sell() {
 
       {product ? (
         <form className="my-2">
-          <h6>Species :</h6>
+          <div className="mb-2 sell-field" style={{fontSize:"1.2rem"}}>Species :</div>
           <SearchDropdown
             options={product.species}
             onOptionClicked={onSpeciesOptionClicked}
@@ -78,52 +82,60 @@ function Veg_sell() {
 
       {species ? (
         <form className="mx-auto my-5">
-          <h2 className="text-center">Item Details</h2>
+          <div className="text-center pb-3" style={{fontSize:"1.6rem", fontFamily: "'Helvetica Neue', Arial, sans-serif"}}>Item Details</div>
+
           <div className="flexb">
-            <label htmlFor="item-price">Item Price:</label>
+            <label className="text-center sell-field" htmlFor="item-price" style={{fontSize:"1.2rem"}}>Item Price:</label>
             <input
+              classname="veg-sell-input"
               type="text"
               id="item-price"
               name="price"
               value={productObj.price}
               required
               onChange={(e) => handleValueChange(e)}
+              onFocus={(e) => {e.target.classList.add('blue-outline');}}
             />
           </div>
 
           <div className="flexb">
-            <label htmlFor="item-quantity">
+            <label className="text-center sell-field" htmlFor="item-quantity" style={{fontSize:"1.2rem"}}>
               Max Quantity You Have*(in kg):
             </label>
             <input
+              classname="veg-sell-input mx-0"
               type="number"
               id="max-item-quantity"
               name="maxQuantity"
               required
               onChange={(e) => handleValueChange(e)}
+              onFocus={(e) => {e.target.classList.add('blue-outline');}}
             />
           </div>
 
           <div className="flexb">
-            <label htmlFor="item-image">Item Image:</label>
+            <label className="text-center sell-field" htmlFor="item-image" style={{fontSize:"1.2rem"}}>Item Image:</label>
             <FileBase
+              className="veg-sell-input mx-0"
               type="file"
               multiple={false}
               onDone={({ base64 }) => setIp(base64)}></FileBase>
           </div>
 
           <div className="flexb">
-            <label htmlFor="item-desc">Item Descricption:</label>
+            <label className="text-center sell-field" htmlFor="item-desc" style={{fontSize:"1.2rem"}}>Item Descricption:</label>
             <input
+              classname="veg-sell-input"
               type="text"
               id="item-desc"
               name="description"
               required
               onChange={(e) => handleValueChange(e)}
+              onFocus={(e) => {e.target.classList.add('blue-outline');}}
             />
           </div>
 
-          <button type="submit" onClick={() => handelSubmit()}>
+          <button className="sell-submit-btn" type="submit" style={{fontSize:"1.3rem"}} onClick={() => handelSubmit()}>
             Submit
           </button>
         </form>

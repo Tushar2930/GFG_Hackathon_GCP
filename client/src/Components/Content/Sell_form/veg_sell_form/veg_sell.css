@@ -4,6 +4,16 @@
     flex-direction: column;
     align-items: center;
     padding: 2rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0.2) 50%, 
+      rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.8) 100%
+      /* rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 32%,
+      rgba(255, 255, 255, 0.1) 32%, rgba(25, 55, 225, 0.5) 68%,
+      rgba(0, 0, 0, 0.5) 68%, rgba(0, 0, 0, 0.5) 100% */
+    ), url("./images/agri_bg.png");
 }
 
 .flexb{
@@ -22,26 +32,65 @@ form {
 
   label {
     display: block;
-    margin: 10px 0;
   }
 
-  input[type="text"] {
+  .veg-sell-input {
     width: 100%;
     padding: 8px;
     margin: 5px 0;
     box-sizing: border-box;
   }
 
-  button {
-    padding: 10px;
-    margin-top: 20px;
+  .blue-outline{
+    outline-color: #42a5f5;
+  }
+
+  .sell-submit-btn {
+    padding: 0.6rem;
+    margin-top: 1.2rem;
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
-    width: 30%;
+    width: 20%;
   }
 
-  button:hover {
+  .sell-submit-btn:hover {
     background-color: #3e8e41;
   }
+
+
+  .sell-field {
+    background-image: linear-gradient(to right, #e96443, #904e95);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+
+
+  .animate-charcter
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 25%,
+    #ff1361 62%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
