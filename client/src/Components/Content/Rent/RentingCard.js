@@ -27,76 +27,6 @@ function Card({ service_asked, id, name, area, price, loc, date, dur_ar, img_url
     }
   }
 
-  const styles = {
-    container: {
-      display: 'flex',
-      flexDirection: 'row',
-      width: '100%',
-      height:"28rem",
-      backgroundColor: '#fff',
-      boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-      borderRadius: '8px',
-      overflow: 'hidden',
-      marginBottom:"3rem",
-      justifyContent: "space-between"
-    },
-    imageContainer: {
-      width: '50%',
-      height:"auto",
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    image: {
-      width: '100%',
-      height: 'auto',
-    },
-    contentContainer: {
-      width: '50%',
-      padding: '20px',
-      display: 'flex',
-      flexDirection: 'column',
-    },
-    name: {
-      fontSize: '3rem',
-      fontWeight: 'bold',
-      margin: '0 0 10px 0',
-      textAlign: 'center',
-      alignSelf: "flex-start",
-    },
-    stars: {
-      fontSize: '16px',
-      margin: '0 0 10px 0',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    star: {
-      color: '#ffd700',
-    },
-    description: {
-      fontSize: '16px',
-      margin: '0 0 10px 0',
-      textAlign: 'justify',
-    },
-    price: {
-      fontSize: '24px',
-      fontWeight: 'bold',
-      margin: '0 10px 0 0',
-    },
-    button: {
-      fontSize: '16px',
-      fontWeight: 'bold',
-      padding: '10px 20px',
-      backgroundColor: '#008CBA',
-      color: '#fff',
-      borderRadius: '4px',
-      border: 'none',
-      cursor: 'pointer',
-      alignSelf: 'flex-end',
-    },
-  };
-
   return (
     // <div class="card my-2">
     //     <div class="row no-gutters">
@@ -137,7 +67,7 @@ function Card({ service_asked, id, name, area, price, loc, date, dur_ar, img_url
         </div>
       </div> */}
 
-<div style={styles.container}>
+      {/* <div style={styles.container}>
       <div style={styles.imageContainer}>
         <img src={img_url} alt="Placeholder" style={styles.image} />
       </div>
@@ -156,7 +86,26 @@ function Card({ service_asked, id, name, area, price, loc, date, dur_ar, img_url
           <button style={styles.button}>Book Service</button>
         </div>
       </div>
-    </div>
+    </div> */}
+
+<div class="rent-card-container my-4" style={{ width: "100%" }}>
+        <div className="left-part" style={{ width: "100%" }}>
+          
+        </div>
+
+        <div className="right-part" style={{ width: "100%" }}>
+          <div className="right-top">
+            <div style={{fontSize:"1.8rem"}}>Name</div>
+            <div style={{fontSize:"1.2rem"}}>5 star</div>
+          </div>
+          <div className="right-center" style={{fontSize:"1rem"}}>description</div>
+          <div className="right-bottom">
+            <div style={{fontSize:"2.4rem"}}>Price</div>
+            <div className="" style={{display:"flex", alignContent:"center", alignItems:"center"}}>button</div>
+          </div>
+        </div>
+      </div>
+
     </>
   )
 }
