@@ -1,6 +1,7 @@
 import { async } from "@firebase/util";
 import React, { useState } from "react";
 import "./modelForm.css"; // CSS file for styling
+import CropPredictionResult from "./cropModelResult";
 
 function PredictionForm() {
     const [nitrogen, setNitrogen] = useState("");
@@ -27,10 +28,13 @@ function PredictionForm() {
             const data = await response.json();
            setPrediction(data.prediction)
            console.log(data.prediction)
+        //   return  <CropPredictionResult prediction={data.prediction} />
        
-    };
+    }; 
 
     return (
+        
+        prediction?<CropPredictionResult prediction={prediction} />:
         <div class="form-style-2"  style={{backgroundColor:"white"}}>
             <div class="form-style-2-heading pb-3">Provide your information</div>
             <form action="" method="post" onSubmit={handleSubmit} style={{width: '100%'}}>

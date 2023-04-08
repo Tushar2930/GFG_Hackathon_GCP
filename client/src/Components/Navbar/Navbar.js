@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 
 import "./navbar.css";
-import logoImg from "./images/agrokart.png";
+import logoImg from "./images/Agrokart logo.png";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
@@ -26,8 +26,8 @@ function Navbar() {
   return (
     <nav className={scroll ? "navbar navbar-scroll" : "navbar"}>
       <motion.div style={{ scaleX }} className="progressBar"></motion.div>
-      <div className="navbar-logo">
-        <img style={{ height: "3rem" }} src={logoImg}></img>
+      <div className="navbar-logo -mx-4 -my-4">
+        <img style={{ height: "5rem" }} src={logoImg}></img>
       </div>
       <ul className="navbar-links">
         <li>

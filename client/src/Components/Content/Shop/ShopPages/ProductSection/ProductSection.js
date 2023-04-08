@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "./search";
 import Card from "../../../Home/BuyingSection/BuyingCard";
 import "./ProductSection.css";
@@ -9,13 +9,12 @@ function ProductSection() {
   const [lth, setLth] = React.useState(false);
   const [htl, setHtl] = React.useState(false);
 
-  const [searchResults, setSearchResults] = useState([]);
-  const handleSearch = (query) => {
-    // call your search API here and update the searchResults state for example:
-  };
-
   var verticalLineStyle = {
     borderLeft: "0.5px solid grey",
+    backgroundColor: "#e8e8e8",
+    minHeight: "100vh",
+    borderRadius: "20px",
+    paddingTop: "3rem",
   };
 
   var horizontalLine = {
@@ -23,46 +22,74 @@ function ProductSection() {
     width: "86%",
   };
 
-  const [data,setData]=React.useState([]);
-    const [allData,setAllData]=React.useState([]);
-    const [index,setIndex]=React.useState(8);
-  useEffect(()=>{
+  const [data, setData] = React.useState([]);
+  const [allData, setAllData] = React.useState([]);
+  const [index, setIndex] = React.useState(8);
+  useEffect(() => {
     fetch("http://localhost:8000/product/get-products")
-    .then((response) => response.json())
-    .then((data) => {
-        setAllData(data.data)
-    setData(data.data)})
-  },[]);
-// console.log(data);
-useEffect(()=>{
-    if(lth===true){
-      var temp=data;
-      let sortedData=temp.sort(
-        (p1, p2) => (p1.price > p2.price) ? 1 : (p1.price < p2.price) ? -1 : 0);
-        console.log(sortedData,"lth");
-        // console.log(data);
-      setData(temp);
-    }
-    else if(htl===true){
-        var temp1=data;
-        let sortedData=temp1.sort(
-          (p1, p2) => (p1.price < p2.price) ? 1 : (p1.price > p2.price) ? -1 : 0);
-          console.log(sortedData,'htl');
-          // console.log(data);
-        setData(temp1);
-    }
-    else{
-      setData(allData);
-    }
-    console.log(lth,htl);
-},[lth,htl])
-
+      .then((response) => response.json())
+      .then((data) => {
+        setAllData(data.data);
+        setData(data.data);
+      });
+  }, []);
+  // console.log(data);
 
   var cardComponentArray = data.map((card) => {
     return (
-      <Card img_url={card?.ip} name={card?.name} description={card?.description} price={card?.price} id={card._id}/>
+      <Card
+        img_url={card?.ip}
+        name={card?.name}
+        description={card?.description}
+        price={card?.price}
+        id={card._id}
+      />
     );
   });
+
+
+  const [searchResults, setSearchResults] = useState("");
+  const handleSearch = (query) => {
+    const results = data.filter((card) => card.name.includes(query));
+    setSearchResults(results);
+    setData(results);
+    
+    console.log(query)
+    if (query === "") {
+      setSearchResults([]);
+      setData(allData);
+    }
+    // console.log(results);
+  };
+
+//   useEffect(()=>{
+//     if(lth===true){
+// //sort data in ascending order according to price
+// var newData=data.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+// setData(newData);
+// console.log(data,lth,htl)
+//     }
+//     else if(htl===true){
+//       var newData=data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+//       setData(newData);
+//       console.log(data,lth,htl)
+//     }
+//   },[lth,htl])
+
+  async function filterSort(e){
+    if(e===1){
+      var newData=data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      setData(newData);
+    }
+    else if(e===0){
+      var newData=data.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      setData(newData);
+    }
+    else{
+      setData(allData)
+    }
+    console.log(data)
+  }
 
   return (
     <div class="fluid-container">
@@ -72,11 +99,13 @@ useEffect(()=>{
             <label className="mx-0 mb-5">
               <span className={{ fontSize: "18px" }}>Sort by:</span>
               <select
+              onChange={e=>filterSort(e.target.options.selectedIndex)}
                 name="price-select"
                 className="ms-4"
                 style={{ width: "180px", height: "26px" }}>
-                <option onClick={(e) => setLth(!lth)}>Low to High</option>
-                <option onClick={(e) => setHtl(!htl)}>High to Low</option>
+                <option >Low to High</option>
+                <option >High to Low</option>
+                <option selected="selected">Recommended </option>
               </select>
             </label>
           </div>

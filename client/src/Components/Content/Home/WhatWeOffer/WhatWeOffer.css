@@ -18,9 +18,11 @@
   padding-top: 3rem;
   -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
   clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
-  margin-top: 6rem;
+  margin-top: -3rem;
   padding-bottom: 300px;
-  background-image: url(../image/bg.jpg);
+  background-image: url("../image/—Pngtree—blowing leaves_3091642.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .offer-heading {
@@ -120,3 +122,4 @@
     transform: translate(0, -0px);
   }
 }
+

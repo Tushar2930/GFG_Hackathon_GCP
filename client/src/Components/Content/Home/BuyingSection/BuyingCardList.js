@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Card from "./BuyingCard";
 import "./BuyingCardList.css";
+import { Slide } from "react-awesome-reveal";
 import MiddleOrange from "../middleOrange/middleOrange";
 
 import { Link } from "react-router-dom";
@@ -16,7 +17,7 @@ function BuyingCardList() {
       });
   }, []);
   var cardComponentArray = data.map((card, k) => {
-    if (k < 4) {
+    if (k < 8) {
       return (
         <Card
           img_url={card?.ip}
@@ -41,14 +42,38 @@ function BuyingCardList() {
           <h3 class="title_font title_text">Featured Products</h3>
         </div>
         <div className="filter_options">
-          <button>Vegetables</button>
-          <button>Fruits</button>
-          <button>Cereals</button>
-          <button>Dry Fruits</button>
+          <button
+            type="button"
+            class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+            Vegetable
+          </button>
+          <button
+            type="button"
+            class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+            Fruits
+          </button>
+          <button
+            type="button"
+            class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+            Cereals
+          </button>
+          <button
+            type="button"
+            class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+            Dry Fruits
+          </button>
         </div>
-        <div className="card-cont">{cardComponentArray}</div>
+        <Slide bottom triggerOnce>
+          <div className="card-cont flex flex-wrap justify-center">
+            {cardComponentArray}
+          </div>
+        </Slide>
         <Link to="/shop">
-          <button class="btn btn-2 btn-2a">View More</button>
+          <button
+            type="button"
+            class="w-40 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm text-center mt-10 mr-2 mb-2">
+            View more
+          </button>
         </Link>
       </div>
     </>

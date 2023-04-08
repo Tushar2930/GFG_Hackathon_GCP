@@ -16,17 +16,17 @@ export default function menu() {
       <nav class="nav">
         <ul class="pt-5">
           <li>
-            <Link to="/">Home</Link>
+            <a href="/">Home</a>
           </li>
           <li>
-            <Link to="/shop">Shop</Link>
+            <a href="/shop">Shop</a>
           </li>
 
           <li>
-            <Link to="/sell">Sell Products</Link>
+            <a href="/sell">Sell Products</a>
           </li>
           <li>
-            <Link to="/login">Logout</Link>
+            <a href="/login">Logout</a>
           </li>
         </ul>
       </nav>

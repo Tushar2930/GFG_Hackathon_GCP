@@ -1,0 +1,15 @@
+.clock section{
+    height: 6rem;
+    width: 6rem;
+    background-color:white;
+    color: black;
+    border: 2px solid orange;
+    padding: 2rem;
+    border-radius: 8rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+}

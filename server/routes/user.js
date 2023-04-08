@@ -7,4 +7,5 @@ router
   .post("/getUser", userController.getUser)
   .patch("/updateUser", userController.updateUser);
 
+router.post('get-user-products',userController.getUserProducts)
 module.exports = router;

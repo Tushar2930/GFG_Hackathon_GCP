@@ -60,11 +60,6 @@ function App() {
             path="/model-form/prediction-crop"
             element={<PredictionForm />}
           />
-          <Route
-            exact
-            path="/model-result/prediction-crop"
-            element={<CropPredictionResult />}
-          />
         </Routes>
         <Footer />
       </div>

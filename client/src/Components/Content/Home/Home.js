@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "./Carousel/Carousel";
 import DealsWeek from "./DealsOfTheWeek/DealsWeek";
@@ -11,7 +11,14 @@ import MainPage from "./MainPage/MainPage";
 import LandingPage from "./landingPage/landingpage";
 
 function Home() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
+
+    
+
     <>
       {/* <Carousel /> */}
       <MainPage />
@@ -20,7 +27,7 @@ function Home() {
       <DealsWeek />
       <RentingCardList />
       <Testimonial />
-      <Link to="/sell">SELL</Link> <Link to="/get-rent-service">RENT</Link>
+      {/* <Link to="/sell">SELL</Link> <Link to="/get-rent-service">RENT</Link> */}
     </>
   );
 }

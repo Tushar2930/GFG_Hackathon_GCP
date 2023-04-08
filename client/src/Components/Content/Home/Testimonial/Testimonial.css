@@ -1,4 +1,5 @@
 /* Slideshow */
+@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Source+Serif+Pro:wght@200&display=swap');
 
 .testimonials {
   padding: 100px;
@@ -29,7 +30,7 @@
 
 .slide {
   display: inline-block;
-  height: 400px;
+  height: 350px;
   width: 100%;
   background-color: aliceblue;
   background-size: cover;
@@ -57,7 +58,7 @@
   position: absolute;
   overflow-x: hidden;
   top: 130px;
-  left: 40px;
+  left: 60px;
   width: 270px;
   height: 270px;
   border-radius: 50%;
@@ -82,4 +83,11 @@
 
 .slideshowDot.active {
   background-color: #000000;
+}
+.headerLOL{
+  font-family:Manjari; 
+  font-size: 60px;
+  font-weight: 900;
+  color: #353436;
+  margin-bottom: 20px;
 }

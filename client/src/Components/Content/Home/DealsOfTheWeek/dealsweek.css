@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Source+Serif+Pro:wght@200&display=swap');
+
 .droot {
   display: flex;
   flex-direction: column;
@@ -70,4 +72,24 @@
   background-color: orange;
   color: white;
   border-radius: 1rem;
+}
+
+.btn-cart{
+  padding: 1rem;
+  height: 4rem;
+  width: 10rem;
+  background-color: orange;
+  color: white;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-flui{
+ border-radius: 1rem;
+}
+
+.heading-sec{
+  font-family:Manjari;
 }

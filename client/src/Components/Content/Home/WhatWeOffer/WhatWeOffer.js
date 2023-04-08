@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
 import "./WhatWeOffer.css";
 import what_we_offer from "../image/what_we_offer.png";
-import bg from "../image/bg.jpg";
+import bg from "../image/—Pngtree—blowing leaves_3091642.png";
 
 const WhatWeOffer = () => {
   return (
@@ -15,9 +15,9 @@ const WhatWeOffer = () => {
             style={{
               width: "100vw",
               boxShadow: "none",
-              backgroundImage: `url(${bg})`,
+              background:"none",
             }}>
-            <div class="flex flex-col text-center w-full mb-20 mt-10">
+            <div class="flex flex-col text-center w-full mb-20 -mt-6">
               <img
                 src={what_we_offer}
                 className="floating w-96 flex self-center m--10px"
@@ -33,7 +33,7 @@ const WhatWeOffer = () => {
                           Fresh Vegetables
                         </Fade>
                         <p>
-                          we offer fresh vegetables from farms all over india{" "}
+                          We offer fresh vegetables from farms all over india{" "}
                         </p>
                         <a
                           href="#"
@@ -95,8 +95,8 @@ const WhatWeOffer = () => {
                           Farming Advisor
                         </Fade>
                         <p>
-                          You can use our multiple ml modles to pridict farming
-                          realate stuff
+                          You can use our multiple ML models to predict farming
+                          related stuffs
                         </p>
                         <a
                           href="#"

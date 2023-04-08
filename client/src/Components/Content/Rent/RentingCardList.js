@@ -75,7 +75,7 @@ useEffect(()=>{
 <>
 <section class="text-gray-600 body-font overflow-hidden" style={{width: "83%"}}>
   <div class="container px-5 py-24 mx-auto" style={{width:"100%"}}>
-    <div class="-my-8 divide-y-2 divide-gray-100">
+    <div class=" divide-y-2 divide-gray-100">
       {cardComponentArray}
     </div>
   </div>

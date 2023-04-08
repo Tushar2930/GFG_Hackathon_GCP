@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import { CircularProgress } from "@mui/material";
 import { AuthContext } from "../context/AuthorizationContext.js";
 import { Link, Navigate } from "react-router-dom";
@@ -34,7 +34,9 @@ export default function SignIn() {
       setIsLoading(false);
     }
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   if (useAuth.currentUser) {
     return <Navigate to={"/userProfile"} />;
   }
