@@ -46,6 +46,8 @@ function PredictionForm() {
                         id="nitrogen"
                         class="input-field"
                         value={nitrogen}
+                        min={0}
+                        max={1000}
                         onChange={(event) => setNitrogen(event.target.value)}
                     />
                 </label>
@@ -57,6 +59,8 @@ function PredictionForm() {
                         id="phosphorus"
                         class="input-field"
                         value={phosphorus}
+                        min={0}
+                        max={1000}
                         onChange={(event) => setPhosphorus(event.target.value)}
                     />
                 </label>
@@ -68,6 +72,8 @@ function PredictionForm() {
                         id="potassium"
                         class="input-field"
                         value={potassium}
+                        min={0}
+                        max={1000}
                         onChange={(event) => setPotassium(event.target.value)}
                     />
                 </label>
@@ -79,6 +85,8 @@ function PredictionForm() {
                         id="rainfall"
                         class="input-field"
                         value={rainfall}
+                        min={0}
+                        max={1000}
                         onChange={(event) => setRainfall(event.target.value)}
                     />
                 </label>
@@ -90,6 +98,8 @@ function PredictionForm() {
                         id="ph"
                         class="input-field"
                         value={ph}
+                        min={0}
+                        max={14}
                         onChange={(event) => setPh(event.target.value)}
                     />
                 </label>
@@ -101,6 +111,7 @@ function PredictionForm() {
                         id="city"
                         class="input-field"
                         value={city}
+                        
                         onChange={(event) => setcity(event.target.value)}
                     />
                 </label>

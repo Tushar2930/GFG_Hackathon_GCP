@@ -110,6 +110,8 @@ module.exports.getUserRent = async function (req, res) {
         name: doc.data().name,
         price: doc.data().price,
         service: doc.data().service,
+        staus: doc.data().staus,
+        service_provider_email: doc.data().service_provider_email,
 
       });
     });

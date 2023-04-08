@@ -123,8 +123,8 @@ const [e,setE]=React.useState(2);
                 name="price-select"
                 className="ms-4"
                 style={{ width: "180px", height: "26px",border:"1px solid black" }}>
-                <option >Low to High</option>
                 <option >High to Low</option>
+                <option >Low to High</option>
                 <option selected="selected">Recommended </option>
               </select>
             </label>
