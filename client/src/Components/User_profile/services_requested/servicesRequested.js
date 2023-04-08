@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../Content/context/AuthorizationContext";
+import Card from "./card";
 
 export default function ServicesRequested() {
   const [data, setdata] = useState([]);
@@ -15,7 +16,7 @@ export default function ServicesRequested() {
           }),
         };
         const res = await fetch(
-          "http://localhost:8000/user/get-user-service_requests",
+          "http://localhost:8000/user/get-user-rent",
           requestOptions
         );
         const data = await res.json();
@@ -27,15 +28,10 @@ export default function ServicesRequested() {
     fetchProducts();
   }, []);
   return (
-    <div>
-      {data.map((item) => {
-        return (
-          <div>
-            <h1>{item.name}</h1>
-            <p>{item.description}</p>
-          </div>
-        );
-      })}
+    <div className="w-full flex  flex-col place-items-center">
+      {data.map((item) => (
+        <Card data={item} />
+      ))}
     </div>
   );
 }
