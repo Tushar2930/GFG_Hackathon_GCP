@@ -11,6 +11,7 @@ module.exports.addFarmer=async function(req,res){
         // add ip to data
         data.ip=ip;
         data.status="pending";
+        data.service_provider_email="";
         // console.log(data);
         const resp=await db.collection('rent').add(data);
         return res.status(200).json({
