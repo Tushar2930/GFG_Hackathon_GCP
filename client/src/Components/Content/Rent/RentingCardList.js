@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import SearchDropdown from "../Sell_form/veg_sell_form/form_comp";
 import rentOptions from "./rentOptions";
 
-function BuyingCardList() {
+function BuyingCardList(props) {
   const [data, setData] = useState([]);
   const [allData, setAllData] = useState([]);
   useEffect(() => {
@@ -52,7 +52,14 @@ useEffect(()=>{
       )
     }
   )  
+  useEffect(() => {
+    const results = allData.filter((card) =>
+      card.service.toLowerCase().includes(props.search.toLowerCase())
+    );
+    setData(results);
+  }, [props.search]);
 
+  // console.log(props.search/);
   return (
 //     <div class="fluid-container main-fluid-container">  
 //       <div className="row div-container">
