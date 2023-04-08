@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./modelForm.css"; // CSS file for styling
+import FertilizerModelResult from "./fertilizerModelResult";
 
 function FertilizerForm() {
     const [cropName, setCropName] = useState("");
@@ -13,7 +14,7 @@ function FertilizerForm() {
             event.preventDefault();
             
         const values=[cropName,nitrogen,phosphorus,potassium];
-        console.log(values)
+        // console.log(values)
         const response = await fetch("http://tushar7.pythonanywhere.com/fertilizer-predict", {
                 method: "POST",
                 headers: {
@@ -25,6 +26,7 @@ function FertilizerForm() {
             });
             const data = await response.json();
             setPrediction(data.recommendation)
+            console.log(data.recommendation)
         
         } catch (error) {
             console.log(error)
@@ -34,6 +36,7 @@ function FertilizerForm() {
     };
  
     return (
+        prediction? <FertilizerModelResult prediction={prediction} />:
         <div class="form-style-2" style={{backgroundColor:"white"}}>
             <div class="form-style-2-heading pb-3">Provide your information</div>
             <form action="" method="post" onSubmit={handleSubmit} style={{width: '100%'}}>
@@ -56,7 +59,7 @@ function FertilizerForm() {
                         id="nitrogen"
                         class="input-field"   
                         onChange={(event) => setNitrogen(event.target.value)}
-                    />
+                    /> 
                 </label>
                 <label for="field3"  style={{width: '100%'}}>
                     <span>Phosphorus<span class="required">*</span></span>
@@ -80,7 +83,6 @@ function FertilizerForm() {
                 </label>
                 <label><span> </span><input type="submit" value="Submit" /></label>
             </form>
-            <div>{prediction}</div>
         </div>
 
     );

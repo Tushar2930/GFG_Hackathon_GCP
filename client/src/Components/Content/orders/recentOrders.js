@@ -4,27 +4,29 @@ import "./recentOrders.css";
 import { AuthContext } from "../context/AuthorizationContext";
 
 function RecentOrdersPage() {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const orders = [
-    {
-      id: 1,
-      time: "2023-03-24 10:30 AM",
-      items: ["Item A", "Item B"],
-      total: 50.0,
-    },
-    {
-      id: 2,
-      time: "2023-03-23 3:45 PM",
-      items: ["Item C", "Item D", "Item E"],
-      total: 75.0,
-    },
-    { id: 3, time: "2023-03-22 9:15 AM", items: ["Item F"], total: 10.0 },
-  ];
+  // const orders = [
+  //   {
+  //     id: 1,
+  //     time: "2023-03-24 10:30 AM",
+  //     items: ["Item A", "Item B"],
+  //     total: 50.0,
+  //   },
+  //   {
+  //     id: 2,
+  //     time: "2023-03-23 3:45 PM",
+  //     items: ["Item C", "Item D", "Item E"],
+  //     total: 75.0,
+  //   },
+  //   { id: 3, time: "2023-03-22 9:15 AM", items: ["Item F"], total: 10.0 },
+  // ];
 
   const useAuth = useContext(AuthContext);
 const [data,setData]=useState([]);
+const [image,setImage]=useState([]);
 useEffect(() => {
   async function fet() {
     
@@ -40,7 +42,20 @@ useEffect(() => {
       // console.log(email);  
       const data1=await resp.json();
       setData(data1.data)
-      // console.log(data1);
+     
+      const data2=await fetch("http://localhost:8000/order/getImage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          orders:data1.data
+        }),
+      });
+
+      const data3=await data2.json();
+      setImage(data3.data);
+       
     }
     if(useAuth.currentUser.email)
     {fet();}
@@ -64,8 +79,9 @@ useEffect(() => {
     <div className="orders-container temp-cont" >
       <h1>Recent Orders</h1>
       <div className="orders ">
-        {data.map((order) => (
+        {data.map((order,index) => (
           <div className="order" key={order.id}>
+            <img src={image[index]} alt="order" />
             <h3>{order.name}</h3>
             <h5>Order id: #{order.id}</h5>
             <h4>Order Date : {order.orderDate}</h4>
@@ -87,3 +103,4 @@ else{
 }
 
 export default RecentOrdersPage;
+ 

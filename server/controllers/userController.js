@@ -57,3 +57,36 @@ module.exports.updateUser = async function (req, res) {
     console.log(error);
   }
 };
+
+module.exports.getUserProducts = async function (req, res) {
+  try {
+    const email = req.body.email;
+    const userCollection = db.collection("users");
+    const userData = await userCollection.where("email", "==", email).get();
+    var id;
+    userData.forEach((doc) => {
+      id = doc.id;
+    });
+    const collection = db.collection("products");
+    const data = await collection.where("userId", "==", id).get();
+    var list = [];
+    data.forEach((doc) => {
+      list.push({
+        _id: doc.id,
+        descricption: doc.data().descricption,
+        ip: doc.data().ip,
+        name: ` ${doc.data().product} ${doc.data().species}`,
+        maxQuantity: doc.data().maxQuantity,
+        minQuantity: doc.data().minQuantity,
+        price: doc.data().price,
+        quantity: doc.data().quantity,
+      });
+    });
+    return res.json({
+      message: "success",
+      data: list,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}

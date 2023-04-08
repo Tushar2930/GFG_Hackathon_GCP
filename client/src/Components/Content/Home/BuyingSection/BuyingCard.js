@@ -7,6 +7,8 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useState, useContext } from "react";
 import img_bg from "../image/shap-small.png";
 import { AuthContext } from "../../context/AuthorizationContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Card({
   img_url,
@@ -22,7 +24,7 @@ function Card({
   const [hovered, setHovered] = useState(true);
   const handleHover = () => {
     setHovered(!hovered);
-    console.log(hovered);
+    // console.log(hovered);
   };
 
   const handleCart = async function () {
@@ -51,6 +53,7 @@ function Card({
       alert("Product Added to cart Succesfully");
     } else if (data.message === "already added") {
       alert("Product Already Added to cart");
+      // toast("Product Already Added to cart")
     } else {
       alert("Error");
     }

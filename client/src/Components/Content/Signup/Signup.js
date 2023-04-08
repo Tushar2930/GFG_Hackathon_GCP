@@ -65,7 +65,9 @@ useEffect(() => {
     return (navigate("/userProfile"));
   }
 }, [useAuth.currentUser]);
-
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
   return (
     // <div className="container">
     //   <form onSubmit={handelSignUp}>

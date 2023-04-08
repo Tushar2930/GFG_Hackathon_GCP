@@ -89,3 +89,26 @@ module.exports.getOrders=async function(req,res){
         console.log(error);
     }
 } 
+
+module.exports.getImage=async function(req,res){
+    try {
+        const orderArray=await req.body.orders;
+        var temp = [];
+        for (let i = 0; i < orderArray.length; i++) {
+            const snapsh = db.collection("products");
+            var ref = await snapsh.where("id", "==", `${orderArray[i].id}`).get();
+            var temp1 = ref.docs[0];
+            var array = await temp1?.data()?.ip;
+            // console.log(array);
+            temp.push(array);
+        }
+        return res.status(200).json({
+            message: 'Orders',
+            data: temp
+        })
+       
+
+    } catch (error) {
+        console.log(error);
+    }
+}
