@@ -46,11 +46,14 @@ useEffect(()=>{
 
   var cardComponentArray = data.map(
     (card) => {
+    //  console.log(card)
+    if(card.status==='pending'){
       return  (
           <Card service_asked={card.service} id={card._id} name={card.name} area={card.area} price={card.price} loc={card.Address
 } date={card.date} dur_ar={card.duration} img_url={card.ip} email={card.email}/> 
       )
     }
+  }
   )  
   useEffect(() => {
     const results = allData.filter((card) =>

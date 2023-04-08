@@ -41,8 +41,12 @@ module.exports.getAllFarmers=async function(req,res){
                 duration:doc.data().duration,
                 service:doc.data().service,
                 ip:doc.data().ip,
-            Address:doc.data().Address,
-        email:doc.data().email});
+                Address:doc.data().Address,
+                email:doc.data().email,
+                status:doc.data().status,
+                service_provider_email:doc.data().service_provider_email
+                
+            });
         });
         return res.status(200).json({
             data:data
@@ -71,6 +75,22 @@ module.exports.addProvider=async function(req,res){
 
             
 
+    }
+    catch(err){
+        console.log('Error',err);
+        return res.status(500).json({
+            message:"Internal Server Error"
+        });
+    }
+}
+
+module.exports.deleteCard=async function(req,res){
+    try{
+        const id=req.body.id;
+        const resp=await db.collection('rent').doc(id).delete();
+        return res.status(200).json({
+            message:"Data deleted successfully"
+        });
     }
     catch(err){
         console.log('Error',err);
