@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #f7f6f2;
+  background-color: #2c957c;
   font-size: 1.1em;
   width: 100vw;
   height: auto;
@@ -122,4 +122,3 @@
     transform: translate(0, -0px);
   }
 }
-
