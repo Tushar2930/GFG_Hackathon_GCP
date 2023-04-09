@@ -134,6 +134,10 @@ function Cart() {
     rzp.open();
   }
 
+    // var total = 0;
+    // var cardComponentArray = data?.cart?.map((card,k) => {
+    //   total = total + parseInt(card?.quantity) * parseInt(card?.price);
+    // // console.log(total);
   const handlePay = async function () {
     const resp = await fetch("http://localhost:8000/order/checkout", {
       method: "POST",
@@ -152,7 +156,7 @@ function Cart() {
   var total = 0;
   var cardComponentArray = data?.cart?.map((card, k) => {
     total = total + parseInt(card?.quantity) * parseInt(card?.price);
-    // console.log(card);
+    console.log(card.quantity, card.price, total);
     return (
       <Card
         img_url={image[k]}

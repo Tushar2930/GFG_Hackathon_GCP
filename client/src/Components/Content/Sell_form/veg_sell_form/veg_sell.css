@@ -45,26 +45,12 @@ form {
     outline-color: #42a5f5;
   }
 
-  .sell-submit-btn {
-    padding: 0.6rem;
-    margin-top: 1.2rem;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 20%;
-  }
-
-  .sell-submit-btn:hover {
-    background-color: #3e8e41;
-  }
-
-
   .sell-field {
-    background-image: linear-gradient(to right, #e96443, #904e95);
+    background-image: linear-gradient(to right,rgb(247, 247, 247), rgb(247,247,247));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: bold;
+    font-weight:lighter;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
 
@@ -88,6 +74,24 @@ form {
   animation: textclip 2s linear infinite;
   display: inline-block;
 }
+button.success {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  max-width: max-content;
+  background-color: #28a745;
+  color: #fff;
+}
+
+button.success:hover {
+  background-color: #148e30;
+  transition: 1.5s linear;
+  border-radius: 5rem;
+  width: auto;
+  cursor:pointer;
+  text-decoration: underline;
+}
+
 
 @keyframes textclip {
   to {
