@@ -155,12 +155,10 @@ function Cart() {
       handleRazorPay(data2.order);
     };
 
-
-
     var total = 0;
-  var cardComponentArray = data?.cart?.map((card,k) => {
-    total = total + parseInt(card?.quantity) * parseInt(card?.price);
-    // console.log(card);
+    var cardComponentArray = data?.cart?.map((card,k) => {
+      total = total + parseInt(card?.quantity) * parseInt(card?.price);
+    // console.log(total);
     return (
       <Card
         img_url={image[k]}

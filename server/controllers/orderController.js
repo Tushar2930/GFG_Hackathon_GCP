@@ -8,7 +8,7 @@ var instance = new RazorPay({
     key_secret: 'YWoIvlPh0VmVlAVAKIE0Xjmk',
   });
  
-//   console.log(req.body.amount);
+  console.log(req.body.amount);
   var options = {
     amount: req.body.amount*100,  // amount in the smallest currency unit
     currency: "INR"

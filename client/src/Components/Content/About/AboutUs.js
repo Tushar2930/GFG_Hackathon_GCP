@@ -1,6 +1,6 @@
 import React,{useEffect} from "react";
 import "./AboutUs.css"
-
+import ContactsOutlinedIcon from '@mui/icons-material/ContactsOutlined';
 
 
 function About(){
@@ -131,20 +131,51 @@ function About(){
 </section>
         </div>
         <div>
+        <div className="text-white text-3xl flex justify-center items-center" style={{backgroundColor:"#00715D",height:"40vh"}}>Let's Create Something Together</div>
+        <div className="flex justify-evenly absolute -bottom-1/2 w-screen z-10">
+          <div className="px-8 py-8 flex flex-col justify-around bg-white" style={{height:"30vh",width:"20%",boxShadow:"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
+            <div><ContactsOutlinedIcon style={{height:"4rem",width:"4rem"}}/></div>
+          <div className="text-xl" style={{fontWeight:"600"}}>Call us</div>
+          <div>
+          <div>+91-9876543210</div>
+          <div>+91-9876543210</div>
+          </div>
+
+          </div>
+          <div className="px-8 py-8 flex flex-col justify-around bg-white" style={{height:"30vh",width:"20%",boxShadow:"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
+            <div><ContactsOutlinedIcon style={{height:"4rem",width:"4rem"}}/></div>
+          <div className="text-xl" style={{fontWeight:"600"}}>Call us</div>
+          <div>
+          <div>+91-9876543210</div>
+          <div>+91-9876543210</div>
+          </div>
+
+          </div>
+          <div className="px-8 py-8 flex flex-col justify-around bg-white" style={{height:"30vh",width:"20%",boxShadow:"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
+            <div><ContactsOutlinedIcon style={{height:"4rem",width:"4rem"}}/></div>
+          <div className="text-xl" style={{fontWeight:"600"}}>Call us</div>
+          <div>
+          <div>+91-9876543210</div>
+          <div>+91-9876543210</div>
+          </div>
+</div>
+          </div>
+
+        </div>
+        <div className="my-56" style={{backgroundColor:"#F9F5E9"}}>
         <section class="text-gray-600 body-font relative">
   <div class="absolute inset-0 bg-gray-300">
     {/* <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed" style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe> */}
   </div>
-  <div class="container px-5 py-24 mx-auto flex" style={{width:"100%"}}>
+  <div class="container px-5 py-24 mx-auto flex" style={{width:"100%",backgroundColor:"#F9F5E9",boxShadow:"none"}}>
   <section class="text-gray-600 body-font relative">
   <div class="container px-5 py-24 mx-0" style={{width:"60%"}}>
-    <div class="flex flex-col text-center w-full mb-12">
+    <div class="flex flex-col text-center w-full">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
     </div>
     <div class="lg:w-full md:w-2/3 mx-auto">
       <div class="flex flex-wrap -m-2">
-        <div class="p-2 w-1/2">
+        <div class="p-2 w-full">
           <div class="relative">
             <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
             <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
@@ -163,7 +194,7 @@ function About(){
           </div>
         </div>
         <div class="p-2 w-full">
-          <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Send</button>
+          <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" style={{backgroundColor:"#3C6A46"}}>Send</button>
         </div>
         <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
           <a class="text-indigo-500">agrokart@gmail.com</a>
