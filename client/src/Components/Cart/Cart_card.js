@@ -1,4 +1,6 @@
 import React from "react";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
 import LoadingImg from "../assets/loading.png";
 
 const HorizontalCard = ({
@@ -12,72 +14,62 @@ const HorizontalCard = ({
   updateFeilds,
 }) => {
   return (
-    <div className="mx-4">
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "70%",
-          padding: "0.4%",
-          border: "1px solid #ccc",
-          borderRadius: "4px",
-          margin: "auto",
-        }}>
-        {/* Image */}
-        <div style={{ width: "30%", padding: "1.8%" }}>
-          <img
-            style={{ width: "100%", height: "auto", borderRadius: "4px" }}
-            src={img_url ? img_url : LoadingImg}
-            alt={name}
-          />
-        </div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "0.4%",
+        border: "1px solid #ccc",
+        borderRadius: "4px",
+        margin: "auto",
+      }}
+      className="flex-col sm:flex-row w-full   md:w-full;
+        ">
+      {/* Image */}
+      <div style={{ padding: "1.8%" }} className="w-full sm:w-1/4">
+        <img
+          style={{ width: "100%", height: "auto", borderRadius: "4px" }}
+          src={img_url ? img_url : LoadingImg}
+          alt={name}
+        />
+      </div>
 
+      <div className="w-full sm:w-3/4 flex sm:flex-wrap h-20  items-center justify-around">
         {/* Content */}
-        <div style={{ width: "30%", paddingLeft: "2%" }}>
-          <h3>{name}</h3>
-        </div>
-
-        {/* Faaltu space */}
-        <div style={{ width: "10%", paddingLeft: "2%" }}></div>
-
+        <div style={{ width: "20%", paddingLeft: "2%" }}>{name}</div>
         {/* Plus-Minus Button */}
-        <div style={{ width: "7%", textAlign: "center" }}>
-          <span>{quantity}</span>
-        </div>
-        <div style={{ width: "8%" }}>
+        <div
+          style={{
+            width: "20%",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}>
           <button
             className="m-0"
-            style={{
-              padding: "5px 8px",
-              color: "black",
-              backgroundColor: "white",
-              width: "fit-content",
-              border: "0.4px solid #B3B3B3",
-            }}
             onClick={() => {
               quantity < maxQuantity && updateFeilds(id, quantity + 1);
             }}>
-            ∧
+            <AddBoxIcon />
           </button>
+          <div style={{ width: "50%", textAlign: "center" }}>
+            <span>{quantity}</span>
+          </div>
           <button
             className="m-0"
             style={{
-              padding: "5px 8px",
               color: "black",
-              backgroundColor: "white",
-              width: "fit-content",
-              border: "0.4px solid #B3B3B3",
+              width: "",
             }}
             onClick={() => {
               quantity > minQuantity && updateFeilds(id, quantity - 1);
             }}>
-            ∨
+            <IndeterminateCheckBoxIcon />
           </button>
         </div>
-
         {/* Price */}
-        <div style={{ width: "15%", textAlign: "center" }}>
+        <div style={{ width: "30%", textAlign: "center" }}>
           <h3>${price}</h3>
         </div>
       </div>
