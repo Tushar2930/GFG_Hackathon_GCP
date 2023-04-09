@@ -170,7 +170,7 @@ function About(){
   <div class="container px-5 py-24 mx-auto flex" style={{width:"100%",backgroundColor:"#F9F5E9",boxShadow:"none"}}>
   <section class="text-gray-600 body-font relative">
   <div class="container px-5 py-24 mx-0" style={{width:"60%"}}>
-    <div class="flex flex-col text-center w-full">
+    <div class="flex flex-col text-center w-full mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
     </div>
     <div class="lg:w-full md:w-2/3 mx-auto">
@@ -194,7 +194,7 @@ function About(){
           </div>
         </div>
         <div class="p-2 w-full">
-          <button class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" style={{backgroundColor:"#3C6A46"}}>Send</button>
+          <button class="flex mx-auto text-white bg-indigo-500\ border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Send</button>
         </div>
         <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
           <a class="text-indigo-500">agrokart@gmail.com</a>
