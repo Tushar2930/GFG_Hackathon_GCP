@@ -134,10 +134,10 @@ function Cart() {
     rzp.open();
   }
 
-    // var total = 0;
-    // var cardComponentArray = data?.cart?.map((card,k) => {
-    //   total = total + parseInt(card?.quantity) * parseInt(card?.price);
-    // // console.log(total);
+  // var total = 0;
+  // var cardComponentArray = data?.cart?.map((card,k) => {
+  //   total = total + parseInt(card?.quantity) * parseInt(card?.price);
+  // // console.log(total);
   const handlePay = async function () {
     const resp = await fetch("http://localhost:8000/order/checkout", {
       method: "POST",
@@ -280,7 +280,7 @@ function Cart() {
           className="mt-4 "
           style={{ display: "flex", justifyContent: "center" }}>
           <button
-            className="continue-shopping-btn h-10 rounded-xl"
+            className="continue-shopping-btn h-10 rounded-xl text-slate-50"
             onClick={handleShop}>
             Continue Shopping
           </button>
