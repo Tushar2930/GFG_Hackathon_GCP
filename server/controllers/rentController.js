@@ -10,6 +10,8 @@ module.exports.addFarmer=async function(req,res){
         // console.log(ip);
         // add ip to data
         data.ip=ip;
+        data.status="pending";
+        data.service_provider_email="";
         // console.log(data);
         const resp=await db.collection('rent').add(data);
         return res.status(200).json({
@@ -39,8 +41,12 @@ module.exports.getAllFarmers=async function(req,res){
                 duration:doc.data().duration,
                 service:doc.data().service,
                 ip:doc.data().ip,
-            Address:doc.data().Address,
-        email:doc.data().email});
+                Address:doc.data().Address,
+                email:doc.data().email,
+                status:doc.data().status,
+                service_provider_email:doc.data().service_provider_email
+                
+            });
         });
         return res.status(200).json({
             data:data
@@ -52,34 +58,39 @@ module.exports.getAllFarmers=async function(req,res){
             message:"Internal Server Error"
         });
     }
-}
+} 
 
 module.exports.addProvider=async function(req,res){
     try{
-        const data=req.body;
-        // get user id from db by email
-        const resp=await db.collection('users').where('email','==',req.body.email).get();
-        const user=resp.docs[0].data();
-        // console.log(user);
-        // create a new array of req.body.id and update in db
-        const resp1=await db.collection('users').where('email','==',req.body.cu_email).get();
-        var id;
-        resp1.forEach((doc)=>{
-            id=doc.id;
+       const id=req.body.id;
+         const email=req.body.email;
+            const cu_email=req.body.cu_email;
+            const resp=await db.collection('rent').doc(id).update({
+                status:"accepted",
+               service_provider_email:cu_email
+            });
+            return res.status(200).json({
+                message:"Data added successfully"
+            });
+
+            
+
+    }
+    catch(err){
+        console.log('Error',err);
+        return res.status(500).json({
+            message:"Internal Server Error"
         });
-        // console.log(req.body.id);
-        var arr=user.services_provided;
-        if(arr==undefined){
-            arr=[];
-        }
-        arr.push({userId:id,rentId:req.body.id});
-        // console.log(req.body)
-        const resp12=await db.collection('users').doc(resp.docs[0].id).update({services_provided:arr});
+    }
+}
+
+module.exports.deleteCard=async function(req,res){
+    try{
+        const id=req.body.id;
+        const resp=await db.collection('rent').doc(id).delete();
         return res.status(200).json({
-            message:"Data added successfully"
+            message:"Data deleted successfully"
         });
-
-
     }
     catch(err){
         console.log('Error',err);

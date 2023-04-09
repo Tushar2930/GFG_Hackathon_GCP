@@ -7,9 +7,10 @@ import tractor_img from "./images/tractor.jpg";
 import harvestor_img from "./images/harvestor.jpg"
 
 
-function Card({ service_asked, id, name, area, price, loc, date, dur_ar, img_url, email }) {
+function Card({ service_asked, id, name, area, price, address, date, duration, img_url, email }) {
   const useAuth = useContext(AuthContext);
   const handleClick = async () => {
+    
     const response = await fetch('http://localhost:8000/rent/add-provider', {
       method: 'POST',
       headers: {
@@ -26,7 +27,6 @@ function Card({ service_asked, id, name, area, price, loc, date, dur_ar, img_url
       alert("Service added successfully");
     }
   }
-
   const styles = {
     container: {
       display: 'flex',
@@ -153,7 +153,7 @@ function Card({ service_asked, id, name, area, price, loc, date, dur_ar, img_url
         <p style={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet mi lacus. Praesent suscipit nulla vel nunc faucibus, ac finibus dolor luctus.</p>
         <div style={{ display: 'flex', alignItems: 'center', alignSelf: "flex-end" }}>
           <span style={styles.price}>${price}</span>
-          <button style={styles.button}>Book Service</button>
+          <button style={styles.button} onClick={handleClick}>Book Service</button>
         </div>
       </div>
     </div>
@@ -162,3 +162,4 @@ function Card({ service_asked, id, name, area, price, loc, date, dur_ar, img_url
 }
 
 export default Card;
+

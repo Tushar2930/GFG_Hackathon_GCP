@@ -22,7 +22,7 @@ function RentingCardList() {
          Convenient, reliable, and hassle-free rentals for a stress-free farming experience.
         </p></Fade></Slide>
         <Zoom>
-        <button type="button" class="flex justify-center content-center h-12 w-48 rounded-3xl" style={{backgroundColor:"#4d8087"}}>
+        <button type="button" class="flex justify-center content-center h-12 w-48 rounded-3xl" style={{backgroundColor:"#4d8087",width:"15%"}}>
           <Link className="view-more-link" to="/rent">
             Know More
             <ArrowForwardIosIcon />
