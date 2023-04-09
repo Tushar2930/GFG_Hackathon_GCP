@@ -71,7 +71,7 @@ function BuyingCardList() {
         <Link to="/shop">
           <button
             type="button"
-            class="w-40 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm text-center mt-10 mr-2 mb-2">
+            class="w-40  bg-yellow-500  hover:bg-emerald-800 hover:text-white font-medium rounded-lg text-sm text-center mt-10 mr-2 mb-2">
             View more
           </button>
         </Link>

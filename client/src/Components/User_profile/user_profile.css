@@ -10,7 +10,7 @@
   align-items: center;
   width: 20%;
   height: 100%;
-  background-color: #25271c94;
+  background-color: #2c957c;
   padding: 10px;
   /* border-right: 1px solid rgba(195, 195, 195, 0.435); */
 }
@@ -30,13 +30,13 @@
 .nav-item {
   padding: 10px;
   border-radius: 5px;
-  color: #aeaeae;
+  color: rgb(169, 169, 169);
   margin-bottom: 10px;
   cursor: pointer;
 }
 
 .nav-item.active {
-  color: #000000;
+  color: #f0f0f0;
 }
 .user_details {
   display: flex;

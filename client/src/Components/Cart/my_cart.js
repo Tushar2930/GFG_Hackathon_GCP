@@ -179,7 +179,6 @@ function Cart() {
           style={{ width: "100%", height: "auto", display: "block" }}
         />
       </div>
-
       <div className="p-5" style={{ width: "100%", backgroundColor: "white" }}>
         <div
           className="mb-5 mt-3"
@@ -280,15 +279,7 @@ function Cart() {
         <div
           className="mt-4 "
           style={{ display: "flex", justifyContent: "center" }}>
-          <button
-            className="continue-shopping-btn"
-            style={{
-              width: "12%",
-              backgroundColor: "#50C878",
-              fontSize: "1.2rem",
-              borderRadius: "20px",
-            }}
-            onClick={handleShop}>
+          <button className="continue-shopping-btn " onClick={handleShop}>
             Continue Shopping
           </button>
         </div>

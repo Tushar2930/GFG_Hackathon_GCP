@@ -76,8 +76,8 @@ export default function User_profile() {
         <div className="nav-container">
           <div className="user_details">
             <img className="user-image" src={data?.ip} alt="User photo"></img>
-            <div className="user-name">{data?.userName}</div>
-            <div className="user-email">{data?.email}</div>
+            <div className="user-name   font-bold">{data?.userName}</div>
+            <div className="user-email font-medium">{data?.email}</div>
           </div>
           <div className="nav-options">
             <div
