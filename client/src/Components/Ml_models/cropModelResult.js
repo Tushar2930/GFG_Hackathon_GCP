@@ -13,7 +13,7 @@ const CropPredictionResult = ({ prediction }) => {
             </div>
             <div className='row text-center my-2'>
                 <div>
-                    The model predicts:{prediction}
+                    The model predicts : {prediction}
                 </div>
             </div>
             {/* <div className='row text-center'>{prediction}</div> */}
