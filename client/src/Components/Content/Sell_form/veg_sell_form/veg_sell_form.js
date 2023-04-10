@@ -47,7 +47,10 @@ function Veg_sell() {
       minQuantity: Math.floor(productObj.maxQuantity / 5),
       userEmail:useAuth.currentUser.email,
     }).then((res) => {
-      console.log(res);
+      if(res.message === "data added successfully"){
+        alert("Product added successfully");
+        window.location.href = "/";
+      }
     });
   };
 
@@ -140,7 +143,7 @@ function Veg_sell() {
             />
           </div>
           { /* onClick={() => handelSubmit() }*/ }
-          <button type="button" className="success" >Submit</button>
+          <button type="button" className="success" onClick={handelSubmit}>Submit</button>
         </form>
       ) : null}
     </div>

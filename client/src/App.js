@@ -49,7 +49,7 @@ function App() {
           <Route exact path="/buyer-form" element={<BuyerForm />} />
           <Route exact path="/recent-orders" element={<Orders />} />
           <Route exact path="/product/:id" element={<SingleProduct />} />
-          <Route exact path="/ml-page" element={<MlPage />} />
+          <Route exact path="/farming-advisor" element={<MlPage />} />
           <Route
             exact
             path="/model-form/fertilizer"

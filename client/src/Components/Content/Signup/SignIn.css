@@ -38,16 +38,16 @@ input[type="number"]::-webkit-outer-spin-button {
   -moz-appearance: none;
   appearance: none;
   margin: 0;
-} */
+} */ 
 .sign-cont .left-side {
   height: 100%;
   width: 50%;
-  background-color: #f4d336;
+  background-color: #78b4a9;
 }
 .sign-cont .right-side {
   height: 100%;
   width: 50%;
-  background-color: #000000;
+  background-color: #00715d;
   color: white;
   opacity: 86%;
   padding-top: 4rem;

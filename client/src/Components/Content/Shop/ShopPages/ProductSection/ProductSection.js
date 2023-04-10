@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useContext} from "react";
 import SearchBar from "./search";
+import { getUser } from "../../../../api/getUser";
+import { AuthContext } from "../../../../Content/context/AuthorizationContext";
 import Card from "../../../Home/BuyingSection/BuyingCard";
 import "./ProductSection.css";
 import { MdArrowBackIosNew } from "react-icons/md";
@@ -8,6 +10,27 @@ import { MdArrowForwardIos } from "react-icons/md";
 function ProductSection() {
   const [lth, setLth] = React.useState(false);
   const [htl, setHtl] = React.useState(false);
+
+  const [userType,setUserType] = React.useState([]);
+  const useAuth = useContext(AuthContext);
+  useEffect(() => {
+    async function fetchData() {
+      if (useAuth.currentUser) {
+        try {
+          await getUser(useAuth?.currentUser?.email).then((result) => {
+            // setUserType(result.data.profiledata)
+            console.log(result)
+          });
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+    }
+    fetchData();
+  }, [useAuth.currentUser]);
+
+console.log(userType)
+
 
   var verticalLineStyle = {
     borderLeft: "0.5px solid grey",

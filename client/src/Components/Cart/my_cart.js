@@ -4,17 +4,34 @@ import "./checkout.css";
 import farm_img from "../assets/farming.jpg";
 import { useNavigate } from "react-router-dom";
 import "./my_cart.css";
+import { getUser } from "../api/getUser";
 import { updateUserCartItem } from "../api/updateCartProduct";
 import { AuthContext } from "../Content/context/AuthorizationContext";
 
 function Cart() {
   const navigate = useNavigate();
-
+  // const [userType,setUserType] = React.useState([]);
   const useAuth = useContext(AuthContext);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     if (useAuth.currentUser) {
+  //       try {
+  //         await getUser(useAuth?.currentUser?.email).then((result) => {
+  //           setUserType(result.data.profiledata)
+  //           // console.log(result.data.profiledata)
+  //         });
+  //       } catch (error) {
+  //         console.log(error.message);
+  //       }
+  //     }
+  //   }
+  //   fetchData();
+  // }, [useAuth.currentUser]);
   useEffect(() => {
     if (useAuth.currentUser === null) {
       alert("Please login to continue");
       navigate("/signin");
+
     }
   }, []);
   const [data, setData] = React.useState({});
@@ -157,7 +174,7 @@ function Cart() {
   var total = 0;
   var cardComponentArray = data?.cart?.map((card, k) => {
     total = total + parseInt(card?.quantity) * parseInt(card?.price);
-    console.log(card.quantity, card.price, total);
+    // console.log(card.quantity, card.price, total);
     return (
       <Card
         img_url={image[k]}
