@@ -31,7 +31,7 @@ function About() {
                     <h2 class="title-font font-medium text-lg text-gray-900">
                       Sumit Ghosh 
                     </h2>
-                    <h3 class="text-gray-500 mb-3">UI Developer</h3>
+                    <h3 class="text-gray-500 mb-3">Frontend Developer</h3>
                     <p class="mb-4">
                       DIY tote bag drinking vinegar cronut adaptogen squid fanny
                       pack vaporware.
