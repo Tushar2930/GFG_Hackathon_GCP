@@ -4,8 +4,8 @@ const db=require('../config/firebase');
 
 module.exports.checkout=async function(req,res){
 var instance = new RazorPay({
-    key_id: 'rzp_test_Ao3jBTNOJ6GS1R',
-    key_secret: 'YWoIvlPh0VmVlAVAKIE0Xjmk',
+    key_id: process.env.KEY_ID,
+    key_secret: process.env.KEY_SECRET,
   });
  
   console.log(req.body.amount);
