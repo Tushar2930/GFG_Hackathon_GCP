@@ -19,6 +19,7 @@
 .flexb{
     min-width: 40%;
     padding: 0;
+    margin:2%;
     /* flex-direction: column; */
 
 }
@@ -88,13 +89,14 @@ form {
   font-size: 1.2rem;
   border-radius: 5px;
   max-width: max-content;
-  background-color: #28a745;
+  background-color: #2c28a7;
   color: #fff;
+  margin:4%;
 }
 
 .success:hover {
-  background-color: #148e30;
-  transition: 1.5s linear;
+  background-color: #65148e;
+  transition: 1.2s linear;
   border-radius: 5rem;
   cursor:pointer;
   text-decoration: underline;
