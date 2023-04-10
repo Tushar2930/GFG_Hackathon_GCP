@@ -70,7 +70,8 @@
   height: 75%;
 }
 .froot {
-  background-color: #fbfcfc;
+  /* background-image: url(../image/bg_pattern.png); */
+  background-color: antiquewhite;
   flex-direction: column;
   text-align: center;
   display: flex;

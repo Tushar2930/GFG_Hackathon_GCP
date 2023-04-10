@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./BuyingCard";
 import "./BuyingCardList.css";
 import { Slide } from "react-awesome-reveal";
@@ -8,16 +8,29 @@ import { Link } from "react-router-dom";
 
 function BuyingCardList() {
   const [data, setData] = React.useState([]);
+  const [showData, setShowData] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:8000/product/get-products")
       .then((response) => response.json())
       .then((data) => {
         setData(data.data);
-        // console.log(data);
+        setShowData(data.data);
       });
   }, []);
-  var cardComponentArray = data.map((card, k) => {
-    if (k < 8) {
+
+  const filter_products = (e) => {
+    var filter = e.target.value;
+    var temp = [];
+    data.map((item) => {
+      if (item.category === filter) {
+        temp.push(item);
+      }
+    });
+    setShowData(temp);
+  };
+  var cardComponentArray = showData?.map((card, k) => {
+    if (k < 4) {
       return (
         <Card
           img_url={card?.ip}
@@ -43,21 +56,37 @@ function BuyingCardList() {
         </div>
         <div className="filter_options">
           <button
+            onClick={(e) => {
+              filter_products(e);
+            }}
+            value={"Vegetables"}
             type="button"
             class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
-            Vegetable
+            Vegetables
           </button>
           <button
+            onClick={(e) => {
+              filter_products(e);
+            }}
+            value={"Fruits"}
             type="button"
             class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
             Fruits
           </button>
           <button
+            onClick={(e) => {
+              filter_products(e);
+            }}
+            value={"Cereals"}
             type="button"
             class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
             Cereals
           </button>
           <button
+            value={"Dry Fruits"}
+            onClick={(e) => {
+              filter_products(e);
+            }}
             type="button"
             class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
             Dry Fruits
@@ -71,7 +100,7 @@ function BuyingCardList() {
         <Link to="/shop">
           <button
             type="button"
-            class="w-40  bg-yellow-500  hover:bg-emerald-800 hover:text-white font-medium rounded-lg text-sm text-center mt-10 mr-2 mb-2">
+            class="w-40  bg-yellow-500  hover:bg-emerald-800 hover:text-white font-medium rounded-lg text-sm text-center mt-10 mr-2 mb-2 h-10">
             View more
           </button>
         </Link>

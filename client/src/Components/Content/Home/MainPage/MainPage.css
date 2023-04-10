@@ -1,9 +1,10 @@
-.land-root{
-    height: 115vh;
-    margin-top: -8rem;
-    width: 100vw;
-    clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("./top-view-fresh-foods-spices-vegetables-cooking-white-table.jpg");
+.land-root {
+  height: 115vh;
+  margin-top: -8rem;
+  width: 100vw;
+  clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("./bg.png");
+  background-size: contain;
 }
