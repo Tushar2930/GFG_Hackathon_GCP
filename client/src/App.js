@@ -14,7 +14,6 @@ import Footer from "./Components/Footer/footer";
 import Renting from "./Components/Content/Rent/ServicesRequiredListing";
 import Veg_Sell from "./Components/Content/Sell_form/veg_sell_form/veg_sell_form";
 import UserProfile from "./Components/User_profile/User_profile";
-import BuyerForm from "./Components/Content/Buyer_Form/BuyerForm";
 import Orders from "./Components/Content/orders/recentOrders";
 import Rent_sell from "./Components/Content/Sell_form/rent_sell_form";
 import SingleProduct from "./Components/Content/Product_desc/Single_product.js";
@@ -46,7 +45,6 @@ function App() {
           <Route exact path="/about-us" element={<About />} />
           <Route exact path="/shop" element={<Shop />} />
           <Route exact path="/get-rent-service" element={<Rent_sell />} />
-          <Route exact path="/buyer-form" element={<BuyerForm />} />
           <Route exact path="/recent-orders" element={<Orders />} />
           <Route exact path="/product/:id" element={<SingleProduct />} />
           <Route exact path="/farming-advisor" element={<MlPage />} />

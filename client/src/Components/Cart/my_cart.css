@@ -9,6 +9,8 @@
   border-radius: "20px";
   transition: transform 0.1s ease-out;
 }
+@media screen and (min-width: 640px) {
+}
 @media screen and (min-width: 768px) {
   .continue-shopping-btn {
     width: 200px;
