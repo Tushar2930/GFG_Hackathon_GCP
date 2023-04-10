@@ -1,12 +1,12 @@
 .sign-container .left-side {
   height: 100%;
   width: 50%;
-  background-color: #f4d336;
+  background-color: #78b4a9;
 }
 .sign-container .right-side {
   height: 100%;
   width: 50%;
-  background-color: #000000;
+  background-color: #00715d;
   color: white;
   opacity: 86%;
 }
@@ -54,6 +54,7 @@
   height: 2.5rem;
   padding: 0rem 1rem;
   width: 60%;
+  border: 0px;
 }
 
 .sign-container .btn-temp {

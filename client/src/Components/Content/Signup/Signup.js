@@ -198,13 +198,13 @@ useEffect(() => {
         <SelectOption handleProfileChanges={handleProfileChanges} style={{marginTop:"7rem"}}/>
         {form.ip ? <img src={form.ip} className="pro-img-main"/>:<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGwSTvN7cBwsaA0izTzKk37pmjMrCU6pcm9Q&usqp=CAU" className="pro-img-main"/>}
         {/* <img src={form.ip} className="pro-img-main"/> */}
-        <label>
-        <FileBase
+        <label >Upload Profile Pic:
+        <FileBase id="file"
             type="image"
             multiple={false}
             onDone={({ base64 }) => setForm({ ...form, ip: base64 })}
-          />
-        </label>
+            style={{display:"none"}}
+          /> </label>
         <button className="submit-btn" disabled={isLoading}
         onClick={() => handleSignInWithGooglePopUp()} style={{backgroundColor:"#23231e",color:"white"}}>Sign in with Google</button>
         </div>
