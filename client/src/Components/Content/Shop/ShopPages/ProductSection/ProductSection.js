@@ -182,7 +182,7 @@ const [e,setE]=React.useState(2);
               </div>
               <div class="col-4">
                 <span className="float-end">{
-                allData.filter((card)=>card.category.toLowerCase().includes("fruits".toLowerCase())).length
+                allData.filter((card)=>card?.category.toLowerCase().includes("fruits".toLowerCase())).length
                 }</span>
               </div>
             </div>
