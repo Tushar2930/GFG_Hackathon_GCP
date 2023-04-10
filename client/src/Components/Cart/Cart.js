@@ -13,7 +13,6 @@ function Cart() {
   const [data, setData] = React.useState({});
   const [image, setImage] = React.useState([]);
 
-
   const updateFields = async (id, quantity) => {
     console.log(id, quantity);
     var tempcart = [];
@@ -64,13 +63,12 @@ function Cart() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            cart:temp.cart
-          })
+            cart: temp.cart,
+          }),
         });
-        const resp1=await data1.json();
+        const resp1 = await data1.json();
         setImage(resp1.image);
         // console.log(resp1.image);
-
       } catch (error) {
         console.log(error.message);
       }
@@ -123,7 +121,7 @@ function Cart() {
     const rzp = window.Razorpay(options);
     rzp.open();
   }
- 
+
   const handlePay = async function () {
     const resp = await fetch("http://localhost:8000/order/checkout", {
       method: "POST",
@@ -140,7 +138,7 @@ function Cart() {
   };
 
   var total = 0;
-  var cardComponentArray = data?.cart?.map((card,k) => {
+  var cardComponentArray = data?.cart?.map((card, k) => {
     total = total + parseInt(card?.quantity) * parseInt(card?.price);
     // console.log(card);
     return (
@@ -172,21 +170,21 @@ function Cart() {
     //   </div>
     // </>
 
-<div class="m-4">
-    <div className="fluid-container">
-      <div class="row">
-        <div className="col-8">
-          {cardComponentArray}
-          <div className="row">
-            <button className="text-center">Continue shopping</button>
+    <div class="m-4">
+      <div className="fluid-container">
+        <div class="row">
+          <div className="col-8">
+            {cardComponentArray}
+            <div className="row">
+              <button className="text-center  md:w-40">
+                Continue shopping
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="col-4">
-          checkout
+          <div className="col-4">checkout</div>
         </div>
       </div>
     </div>
-</div> 
   );
 }
 

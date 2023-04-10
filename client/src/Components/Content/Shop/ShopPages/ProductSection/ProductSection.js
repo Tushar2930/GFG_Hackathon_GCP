@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useContext} from "react";
 import SearchBar from "./search";
+import { getUser } from "../../../../api/getUser";
+import { AuthContext } from "../../../../Content/context/AuthorizationContext";
 import Card from "../../../Home/BuyingSection/BuyingCard";
 import "./ProductSection.css";
 import { MdArrowBackIosNew } from "react-icons/md";
@@ -8,6 +10,27 @@ import { MdArrowForwardIos } from "react-icons/md";
 function ProductSection() {
   const [lth, setLth] = React.useState(false);
   const [htl, setHtl] = React.useState(false);
+
+  const [userType,setUserType] = React.useState([]);
+  const useAuth = useContext(AuthContext);
+  useEffect(() => {
+    async function fetchData() {
+      if (useAuth.currentUser) {
+        try {
+          await getUser(useAuth?.currentUser?.email).then((result) => {
+            // setUserType(result.data.profiledata)
+            console.log(result)
+          });
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+    }
+    fetchData();
+  }, [useAuth.currentUser]);
+
+console.log(userType)
+
 
   var verticalLineStyle = {
     borderLeft: "0.5px solid grey",
@@ -50,11 +73,12 @@ function ProductSection() {
 
   const [searchResults, setSearchResults] = useState("");
   const handleSearch = (query) => {
-    const results = data.filter((card) => card.name.includes(query));
-    setSearchResults(results);
+    const results = allData.filter((card) =>
+      card.name.toLowerCase().includes(query.toLowerCase())
+    );
+    // console.log(results);
     setData(results);
-    
-    console.log(query)
+    // console.log(query)
     if (query === "") {
       setSearchResults([]);
       setData(allData);
@@ -76,7 +100,9 @@ function ProductSection() {
 //     }
 //   },[lth,htl])
 
-  async function filterSort(e){
+const [e,setE]=React.useState(2);
+
+  const filterSort=(e)=>{
     if(e===1){
       var newData=data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
       setData(newData);
@@ -88,8 +114,22 @@ function ProductSection() {
     else{
       setData(allData)
     }
-    console.log(data)
+    // console.log(data)
   }
+
+  useEffect(()=>{
+    filterSort(e);
+  },[e])
+  
+
+  const filterData=(named)=>{
+    // console.log(named)
+    var newData=allData.filter((card)=>card.category.toLowerCase().includes(named.toLowerCase()));
+    setData(newData);
+  
+  }
+
+
 
   return (
     <div class="fluid-container">
@@ -102,12 +142,12 @@ function ProductSection() {
             <label className="mx-0 mb-5">
               <span className={{ fontSize: "18px" }}>Sort by:</span>
               <select
-              onChange={e=>filterSort(e.target.options.selectedIndex)}
+              onChange={(e)=>{setE(e.target.options.selectedIndex);}}
                 name="price-select"
                 className="ms-4"
                 style={{ width: "180px", height: "26px",border:"1px solid black" }}>
-                <option >Low to High</option>
                 <option >High to Low</option>
+                <option >Low to High</option>
                 <option selected="selected">Recommended </option>
               </select>
             </label>
@@ -128,8 +168,10 @@ function ProductSection() {
                   <input
                     class="form-check-input"
                     type="checkbox"
+                    name="fruits"
                     id="form-check-1"
                     style={{ border: "1px solid black", left: "40px" }}
+                    onClick={(e) => {if(e.target.checked===true){filterData(e.target.name)} else{setData(allData)}}}
                   />
                   <label
                     class="form-check-label mt-1 ms-2"
@@ -139,7 +181,9 @@ function ProductSection() {
                 </div>
               </div>
               <div class="col-4">
-                <span className="float-end">23</span>
+                <span className="float-end">{
+                allData.filter((card)=>card.category.toLowerCase().includes("fruits".toLowerCase())).length
+                }</span>
               </div>
             </div>
             <div class="row">
@@ -148,8 +192,10 @@ function ProductSection() {
                   <input
                     class="form-check-input"
                     type="checkbox"
+                    name="vegetables"
                     id="form-check-2"
                     style={{ border: "1px solid black", left: "40px" }}
+                    onClick={(e) => {if(e.target.checked===true){filterData(e.target.name)} else{setData(allData)}}}
                   />
                   <label
                     class="form-check-label mt-1 ms-2"
@@ -159,7 +205,9 @@ function ProductSection() {
                 </div>
               </div>
               <div class="col-4">
-                <span className="float-end">23</span>
+                <span className="float-end">{  
+                allData.filter((card)=>card.category.toLowerCase().includes("vegetables".toLowerCase())).length
+                }</span>
               </div>
             </div>
             <div class="row">
@@ -169,7 +217,9 @@ function ProductSection() {
                     class="form-check-input"
                     type="checkbox"
                     id="form-check-3"
+                    name="juices"
                     style={{ border: "1px solid black", left: "40px" }}
+                    onClick={(e) => {if(e.target.checked===true){filterData(e.target.name)} else{setData(allData)}}}
                   />
                   <label
                     class="form-check-label mt-1 ms-2"
@@ -179,7 +229,8 @@ function ProductSection() {
                 </div>
               </div>
               <div class="col-4">
-                <span className="float-end">23</span>
+                <span className="float-end">{allData.filter((card)=>card.category.toLowerCase().includes("juices".toLowerCase())).length
+                }</span>
               </div>
             </div>
             <div class="row">
@@ -189,7 +240,9 @@ function ProductSection() {
                     class="form-check-input"
                     type="checkbox"
                     id="form-check-4"
+                    name="dryfruits"
                     style={{ border: "1px solid black", left: "40px" }}
+                    onClick={(e) => {if(e.target.checked===true){filterData(e.target.name)} else{setData(allData)}}}
                   />
                   <label
                     class="form-check-label mt-1 ms-2"
@@ -199,7 +252,9 @@ function ProductSection() {
                 </div>
               </div>
               <div class="col-4">
-                <span className="float-end">23</span>
+                <span className="float-end">{
+                  allData.filter((card)=>card.category.toLowerCase().includes("dryfruits".toLowerCase())).length
+                }</span>
               </div>
             </div>
 

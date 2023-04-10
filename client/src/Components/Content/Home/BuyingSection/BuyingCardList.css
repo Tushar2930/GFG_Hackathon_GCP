@@ -17,47 +17,6 @@
 
 .hover_icon {
   display: none;
-  /* position: relative; */
-  /* top: -3rem; */
-  /* width: 50%; */
-  /* display: flex; */
-  /* justify-content: space-evenly; */
-  /* align-items: center; */
-  /* left: 4.5rem; */
-}
-
-.btn-2a {
-  border-radius: 0 0 5px 5px;
-}
-
-.btn-2 {
-  background: #cb4e4e;
-  color: #fff;
-  box-shadow: 0 6px #ab3c3c;
-  -webkit-transition: none;
-  -moz-transition: none;
-  transition: none;
-}
-
-.btn {
-  border: none;
-  font-family: inherit;
-  font-size: inherit;
-  color: white;
-  /* background: none; */
-  cursor: pointer;
-  padding: 25px 80px;
-  display: inline-block;
-  /* margin: 15px 30px; */
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-  outline: none;
-  position: relative;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  margin: 39px 49px;
 }
 
 .card_icon {
@@ -111,7 +70,7 @@
   height: 75%;
 }
 .froot {
-  background-color: #e9e9e9;
+  background-color: #fbfcfc;
   flex-direction: column;
   text-align: center;
   display: flex;
@@ -149,5 +108,5 @@
 }
 .card-root:hover {
   scale: 1.1;
-  box-shadow: 0px 0px 10px rgb(189, 105, 8);
+  box-shadow: 0px 0px 10px #2c957c;
 }

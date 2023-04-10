@@ -9,8 +9,8 @@ const FertilizerModelResult = ({prediction}) => {
                     Prediction Result
                 </div>
             </div>
-            <div className='row text-center my-2'>
-                <div dangerouslySetInnerHTML={{__html: prediction.replace(/\n/g,'<br />')}}/>
+            <div className='row my-2 px-16 py-16'>
+                <div dangerouslySetInnerHTML={{__html: prediction.replace(/\n/,'<br />')}}/>
             </div>
             </div>
   )

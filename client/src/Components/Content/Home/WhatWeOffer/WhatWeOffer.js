@@ -99,7 +99,7 @@ const WhatWeOffer = () => {
                           related stuffs
                         </p>
                         <a
-                          href="/ml-page"
+                          href="/farming-advisor"
                           className="text-green-600 inline-flex items-center md:mb-2 lg:mb-0">
                           Learn More
                           <svg

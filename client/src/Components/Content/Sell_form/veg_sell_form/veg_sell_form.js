@@ -7,6 +7,9 @@ import { createProduct } from "../../../api/createProduct";
 import sellOptions from "./veg_sell_data";
 import {AuthContext} from '../../context/AuthorizationContext';
 
+
+
+
 function Veg_sell() {
   const [productObj, setProductObj] = useState({});
   const [ip, setIp] = useState("");
@@ -44,18 +47,22 @@ function Veg_sell() {
       minQuantity: Math.floor(productObj.maxQuantity / 5),
       userEmail:useAuth.currentUser.email,
     }).then((res) => {
-      console.log(res);
+      if(res.message === "data added successfully"){
+        alert("Product added successfully");
+        window.location.href = "/";
+      }
     });
   };
 
   return (
     <div className="form_root">
-      <div className="animate-charcter mx-auto mb-4" style={{fontSize:"2.8rem"}}>
+      <div className="ab">
+      <div className="animate-charcter mx-auto mb-4" style={{fontSize:"3rem"}}>
         <b>Sell Items</b>
       </div>
 
-      <form className="my-2">
-        <div className="float-start mb-2 sell-field" style={{fontSize:"1.2rem"}}>Category :</div>
+      <form className="my-2 mx-auto" style={{width:'100%'}}>
+        <div className="float-start mb-2 sell-field" style={{fontSize:"1.7rem"}}>Category </div>
         <SearchDropdown
           options={sellOptions}
           onOptionClicked={onCategoryOptionClicked}
@@ -63,8 +70,8 @@ function Veg_sell() {
       </form>
 
       {category ? (
-        <form className="my-2">
-          <div className="mb-2 sell-field" style={{fontSize:"1.2rem"}}>Product :</div>
+        <form className="my-2 mx-auto" style={{width:'100%'}}>
+          <div className="mb-2 sell-field" style={{fontSize:"1.7rem"}}>Product </div>
           <SearchDropdown
             options={category.product}
             onOptionClicked={onProductOptionClicked}
@@ -73,8 +80,8 @@ function Veg_sell() {
       ) : null}
 
       {product ? (
-        <form className="my-2">
-          <div className="mb-2 sell-field" style={{fontSize:"1.2rem"}}>Species :</div>
+        <form className="my-2 mx-auto" style={{width:'100%'}}>
+          <div className="mb-2 sell-field" style={{fontSize:"1.7rem"}}>Species </div>
           <SearchDropdown
             options={product.species}
             onOptionClicked={onSpeciesOptionClicked}
@@ -82,14 +89,16 @@ function Veg_sell() {
         </form>
       ) : null}
 
+</div>
       {species ? (
-        <form className="mx-auto my-5">
-          <div className="text-center pb-3" style={{fontSize:"1.6rem", fontFamily: "'Helvetica Neue', Arial, sans-serif"}}>Item Details</div>
+        <form className="mx-auto my-5" style={{width:'43%'}}>
+          {/* <div className="text-center pb-3 " style={{fontSize:"2.1rem", fontFamily: "'fantasy'"}}>ITEM DETAILS</div> */}
 
-          <div className="flexb">
-            <label className="text-center sell-field" htmlFor="item-price" style={{fontSize:"1.2rem"}}>Item Price:</label>
+          <div className="flexb" style={{width:'41%'}}>
+            <label className="text-center sell-field" htmlFor="item-price" style={{fontSize:"1.6rem"} }>Item Price</label>
             <input
-              classname="veg-sell-input"
+            style={{width:'100%'}}
+              classname="veg-sell-input mx-0"
               type="text"
               id="item-price"
               name="price"
@@ -100,11 +109,12 @@ function Veg_sell() {
             />
           </div>
 
-          <div className="flexb">
-            <label className="text-center sell-field" htmlFor="item-quantity" style={{fontSize:"1.2rem"}}>
-              Max Quantity You Have*(in kg):
+          <div className="flexb" style={{width:'41%'}}>
+            <label className="text-center sell-field" htmlFor="item-quantity" style={{fontSize:"1.6rem"}}>
+              Max Quantity*(in kg)
             </label>
             <input
+             style={{width:'100%'}}
               classname="veg-sell-input mx-0"
               type="number"
               id="max-item-quantity"
@@ -115,18 +125,20 @@ function Veg_sell() {
             />
           </div>
 
-          <div className="flexb">
-            <label className="text-center sell-field" htmlFor="item-image" style={{fontSize:"1.2rem"}}>Item Image:</label>
+          <div className="flexb" style={{width:'41%'}}>
+            <label className="text-center sell-field" htmlFor="item-image" style={{fontSize:"1.6rem"}}>Item Image</label>
             <FileBase
+            style={{width:'100%'}}
               className="veg-sell-input mx-0"
               type="file"
               multiple={false}
               onDone={({ base64 }) => setIp(base64)}></FileBase>
           </div>
 
-          <div className="flexb">
-            <label className="text-center sell-field" htmlFor="item-desc" style={{fontSize:"1.2rem"}}>Item Descricption:</label>
+          <div className="flexb" style={{width:'41%'}}>
+            <label className="text-center sell-field" htmlFor="item-desc" style={{fontSize:"1.6rem"}}>Item Descricption</label>
             <input
+            style={{width:'100%'}}
               classname="veg-sell-input"
               type="text"
               id="item-desc"
@@ -136,10 +148,8 @@ function Veg_sell() {
               onFocus={(e) => {e.target.classList.add('blue-outline');}}
             />
           </div>
-
-          <button className="sell-submit-btn" type="submit" style={{fontSize:"1.3rem"}} onClick={() => handelSubmit()}>
-            Submit
-          </button>
+          { /* onClick={() => handelSubmit() }*/ }
+          <button type="button" className="success" onClick={handelSubmit}>Submit</button>
         </form>
       ) : null}
     </div>

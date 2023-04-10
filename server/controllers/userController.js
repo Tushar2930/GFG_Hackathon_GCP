@@ -60,13 +60,7 @@ module.exports.updateUser = async function (req, res) {
 
 module.exports.getUserProducts = async function (req, res) {
   try {
-    const email = req.body.email;
-    const userCollection = db.collection("users");
-    const userData = await userCollection.where("email", "==", email).get();
-    var id;
-    userData.forEach((doc) => {
-      id = doc.id;
-    });
+    const id = req.body.id;
     const collection = db.collection("products");
     const data = await collection.where("userId", "==", id).get();
     var list = [];
@@ -89,7 +83,7 @@ module.exports.getUserProducts = async function (req, res) {
   } catch (error) {
     console.log(error);
   }
-} 
+};
 
 module.exports.getUserRent = async function (req, res) {
   try {
@@ -106,15 +100,15 @@ module.exports.getUserRent = async function (req, res) {
         date: doc.data().date,
         duration: doc.data().duration,
         email: doc.data().email,
-        ip:doc.data().ip,
+        ip: doc.data().ip,
         name: doc.data().name,
         price: doc.data().price,
         service: doc.data().service,
-
+        status: doc.data().status,
+        service_provider_email: doc.data().service_provider_email,
       });
     });
     // console.log(req.body);
-    
 
     return res.json({
       message: "success",
@@ -123,4 +117,4 @@ module.exports.getUserRent = async function (req, res) {
   } catch (error) {
     console.log(error);
   }
-}
+};
