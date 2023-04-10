@@ -56,11 +56,12 @@ function Veg_sell() {
 
   return (
     <div className="form_root">
+      <div className="ab">
       <div className="animate-charcter mx-auto mb-4" style={{fontSize:"3rem"}}>
         <b>Sell Items</b>
       </div>
 
-      <form className="my-2">
+      <form className="my-2 mx-auto" style={{width:'100%'}}>
         <div className="float-start mb-2 sell-field" style={{fontSize:"1.7rem"}}>Category </div>
         <SearchDropdown
           options={sellOptions}
@@ -69,7 +70,7 @@ function Veg_sell() {
       </form>
 
       {category ? (
-        <form className="my-2">
+        <form className="my-2 mx-auto" style={{width:'100%'}}>
           <div className="mb-2 sell-field" style={{fontSize:"1.7rem"}}>Product </div>
           <SearchDropdown
             options={category.product}
@@ -79,7 +80,7 @@ function Veg_sell() {
       ) : null}
 
       {product ? (
-        <form className="my-2">
+        <form className="my-2 mx-auto" style={{width:'100%'}}>
           <div className="mb-2 sell-field" style={{fontSize:"1.7rem"}}>Species </div>
           <SearchDropdown
             options={product.species}
@@ -88,14 +89,16 @@ function Veg_sell() {
         </form>
       ) : null}
 
+</div>
       {species ? (
-        <form className="mx-auto my-5">
+        <form className="mx-auto my-5" style={{width:'43%'}}>
           {/* <div className="text-center pb-3 " style={{fontSize:"2.1rem", fontFamily: "'fantasy'"}}>ITEM DETAILS</div> */}
 
-          <div className="flexb">
+          <div className="flexb" style={{width:'41%'}}>
             <label className="text-center sell-field" htmlFor="item-price" style={{fontSize:"1.6rem"} }>Item Price</label>
             <input
-              classname="veg-sell-input"
+            style={{width:'100%'}}
+              classname="veg-sell-input mx-0"
               type="text"
               id="item-price"
               name="price"
@@ -106,11 +109,12 @@ function Veg_sell() {
             />
           </div>
 
-          <div className="flexb">
+          <div className="flexb" style={{width:'41%'}}>
             <label className="text-center sell-field" htmlFor="item-quantity" style={{fontSize:"1.6rem"}}>
-              Max Quantity(in kg)
+              Max Quantity*(in kg)
             </label>
             <input
+             style={{width:'100%'}}
               classname="veg-sell-input mx-0"
               type="number"
               id="max-item-quantity"
@@ -121,18 +125,20 @@ function Veg_sell() {
             />
           </div>
 
-          <div className="flexb">
+          <div className="flexb" style={{width:'41%'}}>
             <label className="text-center sell-field" htmlFor="item-image" style={{fontSize:"1.6rem"}}>Item Image</label>
             <FileBase
+            style={{width:'100%'}}
               className="veg-sell-input mx-0"
               type="file"
               multiple={false}
               onDone={({ base64 }) => setIp(base64)}></FileBase>
           </div>
 
-          <div className="flexb">
+          <div className="flexb" style={{width:'41%'}}>
             <label className="text-center sell-field" htmlFor="item-desc" style={{fontSize:"1.6rem"}}>Item Descricption</label>
             <input
+            style={{width:'100%'}}
               classname="veg-sell-input"
               type="text"
               id="item-desc"
