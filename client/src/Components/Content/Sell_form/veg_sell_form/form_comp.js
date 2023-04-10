@@ -6,7 +6,7 @@ import options from "./veg_sell_data"
 const SearchDropdown = ({ options, onOptionClicked }) => {
 
   const dropdownStyles = {
-    minWidth: "40%"
+    minWidth: "100%"
   }
 
   const handleChange = (option) => {

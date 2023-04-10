@@ -13,7 +13,7 @@
       /* rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 32%,
       rgba(255, 255, 255, 0.1) 32%, rgba(25, 55, 225, 0.5) 68%,
       rgba(0, 0, 0, 0.5) 68%, rgba(0, 0, 0, 0.5) 100% */
-    ), url("./images/agri_bg.png");
+    ), url("./images/image.avif");
 }
 
 .flexb{
@@ -46,13 +46,22 @@ form {
   }
 
   .sell-field {
-    background-image: linear-gradient(to right,rgb(247, 247, 247), rgb(247,247,247));
+    background-image: linear-gradient(to right,rgb(0, 0, 0), rgb(6, 6, 6));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight:lighter;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
-
+.ab{
+  background-color: rgb(71, 153, 63,0);
+  background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    align-items: stretch;
+}
 
   .animate-charcter
 {
@@ -74,7 +83,7 @@ form {
   animation: textclip 2s linear infinite;
   display: inline-block;
 }
-button.success {
+.success {
   padding: 10px 20px;
   font-size: 1.2rem;
   border-radius: 5px;
@@ -83,13 +92,13 @@ button.success {
   color: #fff;
 }
 
-button.success:hover {
+.success:hover {
   background-color: #148e30;
   transition: 1.5s linear;
   border-radius: 5rem;
-  width: auto;
   cursor:pointer;
   text-decoration: underline;
+ z-index: 3rem;
 }
 
 
