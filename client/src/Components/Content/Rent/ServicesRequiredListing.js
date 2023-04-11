@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from "react";
 import Products from "./RentingCardList";
 import FilterComponent from "./FilterComponent";
+import "./service.css"
 import SearchBar from "../Shop/ShopPages/ProductSection/search";
 
 
@@ -28,9 +29,10 @@ function ServicesRequiredListing(){
 
     console.log(searchResults);
     return (
-        <div class="fluid-container">  
+        <div class="fluid-container" style={{backgroundColor:"#01B799"}}>  
+        <div className="imgBanner"></div>
         <div className="flex justify-around content-center py-8 px-4">
-        <label className="mx-0 my-0" style={{width:"31%"}}>
+        <label className="mx-0 my-0" style={{width:"31%",display:"none"}}>
               <span className={{ fontSize: "18px" }}>Sort by:</span>
               <select
                 name="price-select"

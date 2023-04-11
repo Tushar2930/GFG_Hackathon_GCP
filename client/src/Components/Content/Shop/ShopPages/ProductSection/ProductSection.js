@@ -71,8 +71,9 @@ function ProductSection() {
 
   const [searchResults, setSearchResults] = useState("");
   const handleSearch = (query) => {
+    console.log(query);
     const results = allData.filter((card) =>
-      card.name.toLowerCase().includes(query.toLowerCase())
+      card.name.split(" ").join("").toLowerCase().includes(query.split(" ").join("").toLowerCase())
     );
     // console.log(results);
     setData(results);

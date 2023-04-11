@@ -1,0 +1,6 @@
+.imgBanner{
+    background-image: url("../../assets/v921-audi-wit-041.jpg");
+    height: 95vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
