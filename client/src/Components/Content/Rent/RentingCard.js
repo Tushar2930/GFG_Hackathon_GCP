@@ -32,8 +32,8 @@ function Card({ service_asked, id, name, area, price, address, date, duration, i
       display: 'flex',
       flexDirection: 'row',
       width: '100%',
-      height:"28rem",
-      backgroundColor: '#fff',
+      height:"20rem",
+      backgroundColor: '#F9F5E9',
       boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
       borderRadius: '8px',
       overflow: 'hidden',
@@ -41,24 +41,30 @@ function Card({ service_asked, id, name, area, price, address, date, duration, i
       justifyContent: "space-between"
     },
     imageContainer: {
-      width: '50%',
-      height:"auto",
+      width: '30%',
+      height:"100%",
       display: 'flex',
-      justifyContent: 'center',
       alignItems: 'center',
     },
     image: {
       width: '100%',
-      height: 'auto',
+      height: '100%',
     },
     contentContainer: {
-      width: '50%',
+      width: '65%',
       padding: '20px',
       display: 'flex',
       flexDirection: 'column',
     },
     name: {
       fontSize: '3rem',
+      fontWeight: 'bold',
+      margin: '0 0 10px 0',
+      textAlign: 'center',
+      alignSelf: "flex-start",
+    },
+    name1: {
+      fontSize: '2rem',
       fontWeight: 'bold',
       margin: '0 0 10px 0',
       textAlign: 'center',
@@ -136,20 +142,21 @@ function Card({ service_asked, id, name, area, price, address, date, duration, i
           </a>
         </div>
       </div> */}
-
+ 
 <div style={styles.container}>
       <div style={styles.imageContainer}>
         <img src={img_url} alt="Placeholder" style={styles.image} />
       </div>
       <div style={styles.contentContainer}>
-        <h2 style={styles.name}>{name}</h2>
-        <div style={styles.stars}>
+        <h1 style={styles.name1}>{name}</h1>
+        <h2 style={styles.name}>{service_asked}</h2>
+        {/* <div style={styles.stars}>
           <span style={styles.star}>★</span>
           <span style={styles.star}>★</span>
           <span style={styles.star}>★</span>
           <span style={styles.star}>★</span>
           <span style={styles.star}>★</span>
-        </div>
+        </div> */}
         <p style={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet mi lacus. Praesent suscipit nulla vel nunc faucibus, ac finibus dolor luctus.</p>
         <div style={{ display: 'flex', alignItems: 'center', alignSelf: "flex-end" }}>
           <span style={styles.price}>${price}</span>
