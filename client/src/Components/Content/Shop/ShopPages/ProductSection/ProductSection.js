@@ -60,6 +60,9 @@ function ProductSection() {
   var cardComponentArray = data.map((card) => {
     return (
       <Card
+        key={card._id}
+        minQuantity={card?.minQuantity}
+        maxQuantity={card?.maxQuantity}
         img_url={card?.ip}
         name={card?.name}
         description={card?.description}
@@ -73,7 +76,11 @@ function ProductSection() {
   const handleSearch = (query) => {
     console.log(query);
     const results = allData.filter((card) =>
-      card.name.split(" ").join("").toLowerCase().includes(query.split(" ").join("").toLowerCase())
+      card.name
+        .split(" ")
+        .join("")
+        .toLowerCase()
+        .includes(query.split(" ").join("").toLowerCase())
     );
     // console.log(results);
     setData(results);
@@ -150,7 +157,7 @@ function ProductSection() {
         <div class="col-2">
           <div className="row" style={{ marginTop: "1.58%" }}>
             <label className="mx-0 mb-5">
-              <span className="  text-white" style={{ fontSize: "18px" }}>
+              <span className="  text-black" style={{ fontSize: "18px" }}>
                 Sort by:
               </span>
               <select
@@ -175,7 +182,7 @@ function ProductSection() {
             {/* Head of Filter component */}
             <div class="row">
               <div
-                class="text-center pb-3  text-white"
+                class="text-center pb-3  text-black"
                 style={{ fontSize: "20px" }}>
                 Categories
               </div>
@@ -379,8 +386,8 @@ function ProductSection() {
             <hr style={{ marginLeft: "-2%", width: "100%" }} />
           </div>
           <div
-            className="row justify-content-around rounded-none flex flex-wrap gap-10"
-            style={{ ...verticalLineStyle, backgroundColor: "#f9f5e9" }}>
+            className="row justify-content-around rounded-none flex flex-wrap gap-6 border-r-10 border-2 border-slate-600 px-5"
+            style={{ ...verticalLineStyle, backgroundColor: "white" }}>
             {cardComponentArray}
           </div>
 

@@ -55,7 +55,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
 
   return (
     <div
-      className="card-root w-60 h-80 flex flex-col items-around justify-around mt-10"
+      className="card-root w-60 h-80 flex flex-col items-around justify-around mt-10 hover:border-2"
       style={{ borderRadius: "10px", backgroundColor: "#ffffff" }}
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}>
@@ -93,7 +93,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
         </div>
       </div>
       <div
-        className="card-info w-full  h-1/3  items-center  "
+        className="card-info w-full  h-1/3  flex flex-col items-center justify-center  "
         style={{
           marginTop: "-25px",
           marginRight: "-20px",
@@ -102,8 +102,8 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
           zIndex: 11,
           padding: "10px",
         }}>
-        <div className="card-name text-sm">{name}</div>
-        <div className="card-price">₹ {price}</div>
+        <div className="card-name text-sm ">{name}</div>
+        <div className="card-price ">₹ {price}</div>
       </div>
     </div>
   );
