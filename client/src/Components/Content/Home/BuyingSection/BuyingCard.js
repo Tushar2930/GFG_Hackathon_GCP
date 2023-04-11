@@ -55,7 +55,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
 
   return (
     <div
-      className="card-root w-1/4 h-80 flex flex-col items-center"
+      className="card-root w-1/5 h-60 flex flex-col items-around justify-around m-2"
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}>
       <div
