@@ -37,7 +37,7 @@ const WhatWeOffer = () => {
                         <Fade direction="down" className="heading">
                           Fresh Vegetables
                         </Fade>
-                        <p>
+                        <p style={{fontFamily:"sans-serif"}}>
                           We offer fresh vegetables from farms all over india{" "}
                         </p>
 
@@ -71,7 +71,7 @@ const WhatWeOffer = () => {
                         <Fade direction="down" className="heading">
                           Rental Services
                         </Fade>
-                        <p>You can opt for various farm related services</p>
+                        <p style={{fontFamily:"sans-serif"}}>You can opt for various farm related services</p>
                         <Link
                           to="/rent"
                           className="text-green-600 inline-flex items-center md:mb-2 lg:mb-0">
@@ -102,7 +102,7 @@ const WhatWeOffer = () => {
                         <Fade direction="down" className="heading">
                           Farming Advisor
                         </Fade>
-                        <p>
+                        <p style={{fontFamily:"sans-serif"}}>
                           You can use our multiple ML models to predict farming
                           related stuffs
                         </p>

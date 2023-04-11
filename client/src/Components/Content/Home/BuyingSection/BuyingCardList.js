@@ -21,7 +21,7 @@ function BuyingCardList() {
           setisLoading(false);
           setData(data.data);
           setShowData(data.data);
-        });
+        }); 
     } catch (error) {
       setisLoading(false);
       console.log(error.message);

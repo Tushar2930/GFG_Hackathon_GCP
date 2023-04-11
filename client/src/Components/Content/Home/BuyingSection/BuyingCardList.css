@@ -1,3 +1,4 @@
+@import "@fontsource/nunito";
 .hover_icon {
   display: none;
 }
@@ -22,7 +23,7 @@
   color: orange;
   font-size: 1.25rem;
   font-weight: 600;
-  font-family: monospace;
+  font-family: Nunito;
 }
 
 .title_text {

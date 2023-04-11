@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ml_page.css';
 import { motion } from "framer-motion";
 import crop_predict_img from "./images/crop.jpg"
@@ -13,6 +13,11 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const MlPage = () => {
  
+useEffect(() => {
+  window.scrollTo(0, 0)
+}, [])
+
+
   return (
   <>
     <div>

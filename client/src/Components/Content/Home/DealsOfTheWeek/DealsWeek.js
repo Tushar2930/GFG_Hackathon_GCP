@@ -63,13 +63,13 @@ function DealsWeek() {
                   <h2 class="text-orange-500 text-xl title-font font-medium mb-3 text-left">
                     _________
                   </h2>
-                  <h2 className="text-5xl text-left text-gray-900 py-4 hover:text-orange-600">
+                  <h2 className="item-name text-5xl text-left text-gray-900 py-4 hover:text-orange-600">
                     Quisqiue Voluptas
                   </h2>
                   <h2 className="text-left">
                     <span className="text-2xl text-left text-orange-600">₹ 999</span>
                   </h2>
-                  <p class="leading-relaxed text-base w-3/4 py-4 text-left">
+                  <p class="leading-relaxed text-base w-3/4 py-4 text-left" style={{fontFamily:"sans-serif"}}>
                     Blue bottle crucifix vinyl post-ironic four dollar toast
                     vegan taxidermy. Gastropub indxgo juice poutine.
                   </p>

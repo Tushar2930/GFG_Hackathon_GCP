@@ -33,7 +33,7 @@ export default function UserProducts() {
   }, []);
 
   return (
-    <div className="userProducts">
+    <div className="userProducts w-full justify-around flex">
       {userProducts?.map((product) => (
         <Card
           key={product._id}

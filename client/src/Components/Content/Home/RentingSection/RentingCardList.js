@@ -17,7 +17,7 @@ function RentingCardList() {
           <b className="text-7xl h-1/4 font-temp pt-16 pb-0 flex" style={{color:"#F4D336"}}><p className="text-black px-4">Rental </p> Services</b></Slide>
         </div>
         
-      <Fade direction="up"><p className="w-1/2 text-white flex my-12 text-lg mx-8" style={{fontFamily:"cursive"}}>
+      <Fade direction="up"><p className="w-1/2 text-white flex my-12 text-lg mx-8" style={{fontFamily:"sans-serif"}}>
         Find quality farm equipment for your operation with our rental service.<br/>
          From tractors to tillers, we offer a variety of options to fit your needs. 
          Convenient, reliable, and hassle-free rentals for a stress-free farming experience.

@@ -52,7 +52,7 @@ export default function Testimonial() {
     <div
       className="testimonials"
       style={{ flexDirection: "column", alignItems: "center" }}>
-      <h1 className="headerLOL">Testimonial</h1>
+      <h1 className="headerLOL">Testimonials</h1>
       <div className="slideshow">
         <div
           className="slideshowSlider"
@@ -69,8 +69,8 @@ export default function Testimonial() {
                 <div className="image_circle" />
                 <img src={slide.img} className="testimonial_image mt-28" />
                 <div className="py-24" style={{width:"55%"}}>
-                <h1 className="text-white text-3xl">"The Best in Town"</h1>
-                <p className="testimonial_desc text-white">{slide.desc}</p></div>
+                <h1 className="text-white text-3xl testHead">"The Best in Town"</h1>
+                <p className="testimonial_desc text-white" style={{fontFamily:"sans-serif"}}>{slide.desc}</p></div>
               </div>
             </div>
           ))}

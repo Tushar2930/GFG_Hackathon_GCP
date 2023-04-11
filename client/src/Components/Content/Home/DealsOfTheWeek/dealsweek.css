@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Source+Serif+Pro:wght@200&display=swap");
-
+@import "@fontsource/nunito";
 .droot {
   display: flex;
   flex-direction: column;
@@ -91,5 +90,9 @@
 }
 
 .heading-sec {
-  font-family: Manjari;
+  font-family: Nunito;
+}
+
+.item-name{
+  font-family: Nunito;
 }

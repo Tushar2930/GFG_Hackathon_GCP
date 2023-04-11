@@ -20,7 +20,7 @@ const UserCard = ({ data }) => {
       <div className="userImagelol">
         <img className=" rounded-full" src={data.ip}/>
       </div>
-      <div className="user-card " style={{height:"65vh",width:"70vw"}}>
+      <div className="user-card " style={{height:"65vh",width:"70vw",backgroundColor:"#f9f5e9"}}>
         <div className="user-card_presonaldetails flex justify-center flex-col " style={{height:"50vh"}}>
           <div className="text-5xl" style={{fontWeight:"700"}}>Personal Details</div>
           <div className="flex justify-evenly flex-col" style={{height:"40vh"}}>
