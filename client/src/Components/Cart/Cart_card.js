@@ -2,6 +2,7 @@ import React from "react";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
 import LoadingImg from "../assets/loading.png";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const HorizontalCard = ({
   img_url,
@@ -14,6 +15,7 @@ const HorizontalCard = ({
   updateFeilds,
 }) => {
   return (
+    
     <div
       style={{
         display: "flex",
@@ -71,6 +73,9 @@ const HorizontalCard = ({
         {/* Price */}
         <div style={{ width: "30%", textAlign: "center" }}>
           <h3>${price}</h3>
+        </div>
+        <div className=" px-3 py-3 hover:bg-black hover:text-white rounded-full" onClick={() => updateFeilds(id, 0)}>
+          <DeleteIcon/>
         </div>
       </div>
     </div>
