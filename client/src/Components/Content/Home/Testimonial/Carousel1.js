@@ -9,7 +9,7 @@ function DemoCarousel() {
     <Carousel
       interval={3000}
       infiniteLoop={true}
-      autoPlay={true}
+      // autoPlay={true}
       width="60%"
       height="50%"
       showIndicators={false}
