@@ -7,7 +7,7 @@ function Shop() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "#2C957C " }}>
+    <div style={{ backgroundColor: "rgb(249, 245, 233) " }}>
       <ProductSection />
     </div>
   );

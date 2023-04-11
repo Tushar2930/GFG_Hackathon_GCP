@@ -55,12 +55,18 @@ console.log(maxQuantity, minQuantity, name, price, id)
 
   return (
     <div
-      className="card-root w-80 h-60 flex flex-col items-around justify-around mt-10"
+      className="card-root w-60 h-80 flex flex-col items-around justify-around mt-10 hover:border-2"
+      style={{ borderRadius: "10px", backgroundColor: "#ffffff" }}
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}>
       <div
         className={`imgWrapper w-full h-full ${hovered ? "zoom" : "nozoom"}`}
-        style={{ backgroundImage: `url(${img_url})` }}>
+        style={{
+          backgroundImage: `url(${img_url})`,
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}>
         <div className={hovered ? "hover_icon" : "card_icon"}>
           <ShoppingCartOutlinedIcon
             style={{
@@ -87,16 +93,17 @@ console.log(maxQuantity, minQuantity, name, price, id)
         </div>
       </div>
       <div
-        className="card-info w-3/5  h-1/3  items-center  self-end"
+        className="card-info w-full  h-1/3  flex flex-col items-center justify-center  "
         style={{
           marginTop: "-25px",
           marginRight: "-20px",
-          backgroundColor: "#F8B63C ",
+          backgroundColor: "White ",
+          borderRadius: "10px",
           zIndex: 11,
           padding: "10px",
         }}>
-        <div className="card-name text-sm">{name}</div>
-        <div className="card-price">₹ {price}</div>
+        <div className="card-name text-sm ">{name}</div>
+        <div className="card-price ">₹ {price}</div>
       </div>
     </div>
   );

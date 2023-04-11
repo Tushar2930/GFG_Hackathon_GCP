@@ -2,21 +2,30 @@ import React, { useEffect, useState } from "react";
 import Card from "./BuyingCard";
 import "./BuyingCardList.css";
 import { Slide } from "react-awesome-reveal";
+import Illustration from "./illussion.js";
 import MiddleOrange from "../middleOrange/middleOrange";
 
 import { Link } from "react-router-dom";
 
 function BuyingCardList() {
   const [data, setData] = React.useState([]);
+  const [isLoading, setisLoading] = useState(false);
   const [showData, setShowData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/product/get-products")
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data.data);
-        setShowData(data.data);
-      });
+    setisLoading(true);
+    try {
+      fetch("http://localhost:8000/product/get-products")
+        .then((response) => response.json())
+        .then((data) => {
+          setisLoading(false);
+          setData(data.data);
+          setShowData(data.data);
+        });
+    } catch (error) {
+      setisLoading(false);
+      console.log(error.message);
+    }
   }, []);
 
   const filter_products = (e) => {
@@ -30,7 +39,7 @@ function BuyingCardList() {
     setShowData(temp);
   };
   var cardComponentArray = showData?.map((card, k) => {
-    if (k < 6) {
+    if (k < 4) {
       return (
         <Card
           img_url={card?.ip}
@@ -94,7 +103,7 @@ function BuyingCardList() {
         </div>
         <Slide bottom triggerOnce>
           <div className="card-cont flex flex-wrap justify-center  w-screen h-auto gap-20 ">
-            {cardComponentArray}
+            {isLoading ? <Illustration /> : cardComponentArray}
           </div>
         </Slide>
         <Link to="/shop">
