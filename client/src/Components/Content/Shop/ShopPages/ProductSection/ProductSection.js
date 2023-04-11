@@ -121,7 +121,7 @@ const [e,setE]=React.useState(2);
     filterSort(e);
   },[e])
   
-
+// console.log(allData)
   const filterData=(named)=>{
     // console.log(named)
     var newData=allData.filter((card)=>card.category.toLowerCase().includes(named.toLowerCase()));
@@ -217,19 +217,42 @@ const [e,setE]=React.useState(2);
                     class="form-check-input"
                     type="checkbox"
                     id="form-check-3"
-                    name="juices"
+                    name="pulses"
                     style={{ border: "1px solid black", left: "40px" }}
                     onClick={(e) => {if(e.target.checked===true){filterData(e.target.name)} else{setData(allData)}}}
                   />
                   <label
                     class="form-check-label mt-1 ms-2"
                     for="flexCheckDefault">
-                    Fresh Juices
+                    Pulses
                   </label>
                 </div>
               </div>
               <div class="col-4">
-                <span className="float-end">{allData.filter((card)=>card.category.toLowerCase().includes("juices".toLowerCase())).length
+                <span className="float-end">{allData.filter((card)=>card.category.toLowerCase().includes("pulses".toLowerCase())).length
+                }</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="form-check-3"
+                    name="grains"
+                    style={{ border: "1px solid black", left: "40px" }}
+                    onClick={(e) => {if(e.target.checked===true){filterData(e.target.name)} else{setData(allData)}}}
+                  />
+                  <label
+                    class="form-check-label mt-1 ms-2"
+                    for="flexCheckDefault">
+                    Grains
+                  </label>
+                </div>
+              </div>
+              <div class="col-4">
+                <span className="float-end">{allData.filter((card)=>card.category.toLowerCase().includes("grain".toLowerCase())).length
                 }</span>
               </div>
             </div>
@@ -240,7 +263,7 @@ const [e,setE]=React.useState(2);
                     class="form-check-input"
                     type="checkbox"
                     id="form-check-4"
-                    name="dryfruits"
+                    name="dry fruits"
                     style={{ border: "1px solid black", left: "40px" }}
                     onClick={(e) => {if(e.target.checked===true){filterData(e.target.name)} else{setData(allData)}}}
                   />
@@ -253,7 +276,7 @@ const [e,setE]=React.useState(2);
               </div>
               <div class="col-4">
                 <span className="float-end">{
-                  allData.filter((card)=>card.category.toLowerCase().includes("dryfruits".toLowerCase())).length
+                  allData.filter((card)=>card.category.toLowerCase().includes("dry fruits".toLowerCase())).length
                 }</span>
               </div>
             </div>
