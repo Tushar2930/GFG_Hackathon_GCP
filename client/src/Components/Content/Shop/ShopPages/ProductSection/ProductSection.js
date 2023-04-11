@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import SearchBar from "./search";
 import { getUser } from "../../../../api/getUser";
 import { AuthContext } from "../../../../Content/context/AuthorizationContext";
+import Illstration from "../../../Home/BuyingSection/illussion";
 import Card from "../../../Home/BuyingSection/BuyingCard";
 import "./ProductSection.css";
 import { MdArrowBackIosNew } from "react-icons/md";
@@ -12,7 +13,9 @@ function ProductSection() {
   const [htl, setHtl] = React.useState(false);
 
   const [userType, setUserType] = React.useState([]);
+  const [isLoading, setisLoading] = useState(false);
   const useAuth = useContext(AuthContext);
+
   useEffect(() => {
     async function fetchData() {
       if (useAuth.currentUser) {
@@ -48,12 +51,19 @@ function ProductSection() {
   const [allData, setAllData] = React.useState([]);
   const [index, setIndex] = React.useState(8);
   useEffect(() => {
-    fetch("http://localhost:8000/product/get-products")
-      .then((response) => response.json())
-      .then((data) => {
-        setAllData(data.data);
-        setData(data.data);
-      });
+    try {
+      setisLoading(true);
+      fetch("http://localhost:8000/product/get-products")
+        .then((response) => response.json())
+        .then((data) => {
+          setisLoading(false);
+          setAllData(data.data);
+          setData(data.data);
+        });
+    } catch (error) {
+      console.log(error.message);
+      setisLoading(false);
+    }
   }, []);
   // console.log(data);
 
@@ -389,7 +399,7 @@ function ProductSection() {
           <div
             className="row justify-content-around rounded-none flex flex-wrap gap-6 border-r-10 border-2 border-slate-600 px-5"
             style={{ ...verticalLineStyle, backgroundColor: "white" }}>
-            {cardComponentArray}
+            {isLoading ? <Illstration /> : cardComponentArray}
           </div>
 
           <div class="full-width mt-4 mb-5">
