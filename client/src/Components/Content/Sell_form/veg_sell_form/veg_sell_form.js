@@ -91,14 +91,14 @@ function Veg_sell() {
 
 </div>
       {species ? (
-        <form className="mx-auto my-5" style={{width:'43%'}}>
+        <form  style={{width:'43%'}}>
           {/* <div className="text-center pb-3 " style={{fontSize:"2.1rem", fontFamily: "'fantasy'"}}>ITEM DETAILS</div> */}
 
           <div className="flexb" style={{width:'41%'}}>
-            <label className="text-center sell-field" htmlFor="item-price" style={{fontSize:"1.6rem"} }>Item Price</label>
-            <input
+            <label className="text-center sell-field" htmlFor="item-price" style={{fontSize:"1.3rem"} }>Item Price</label>
+            <textarea
             style={{width:'100%'}}
-              classname="veg-sell-input mx-0"
+              classname="veg-sell-input"
               type="text"
               id="item-price"
               name="price"
@@ -106,14 +106,15 @@ function Veg_sell() {
               required
               onChange={(e) => handleValueChange(e)}
               onFocus={(e) => {e.target.classList.add('blue-outline');}}
+              
             />
           </div>
 
           <div className="flexb" style={{width:'41%'}}>
-            <label className="text-center sell-field" htmlFor="item-quantity" style={{fontSize:"1.6rem"}}>
+            <label className="text-center sell-field" htmlFor="item-quantity" style={{fontSize:"1.3rem"}}>
               Max Quantity*(in kg)
             </label>
-            <input
+            <textarea
              style={{width:'100%'}}
               classname="veg-sell-input mx-0"
               type="number"
@@ -126,18 +127,18 @@ function Veg_sell() {
           </div>
 
           <div className="flexb" style={{width:'41%'}}>
-            <label className="text-center sell-field" htmlFor="item-image" style={{fontSize:"1.6rem"}}>Item Image</label>
-            <FileBase
+            <label className="text-center sell-field" htmlFor="item-image" style={{fontSize:"1.3rem"}}>Item Image</label>
+            <FileBase 
             style={{width:'100%'}}
-              className="veg-sell-input mx-0"
+              className="veg-sell-input mx-0 centre"
               type="file"
               multiple={false}
               onDone={({ base64 }) => setIp(base64)}></FileBase>
           </div>
 
           <div className="flexb" style={{width:'41%'}}>
-            <label className="text-center sell-field" htmlFor="item-desc" style={{fontSize:"1.6rem"}}>Item Descricption</label>
-            <input
+            <label className="text-center sell-field" htmlFor="item-desc" style={{fontSize:"1.3rem"}}>Item Descricption</label>
+            <textarea
             style={{width:'100%'}}
               classname="veg-sell-input"
               type="text"
