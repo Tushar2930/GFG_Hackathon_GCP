@@ -14,17 +14,17 @@ const UserCard = ({ data }) => {
     numOrdersReceived,
     email,
   } = data;
+  // console.log(data.ip);
   return (
-    <div className="profileContainer">
-      <div className="backgroundImage"></div>
-      <div className="userImagelol"></div>
-      <div className="user-card">
-        <div className="user-card_presonaldetails">
-          <strong> personal details</strong>
-          <h2>Name:{userName}</h2>
-          <p>{profileData}</p>
-        </div>
-        <div className="user-card__addressdetails">
+    <div className="profileContainer" style={{height:"150vh"}}>
+      <div className="userImagelol">
+        <img className=" rounded-full" src={data.ip}/>
+      </div>
+      <div className="user-card " style={{height:"65vh",width:"70vw"}}>
+        <div className="user-card_presonaldetails flex justify-center flex-col " style={{height:"50vh"}}>
+          <div className="text-5xl" style={{fontWeight:"700"}}>Personal Details</div>
+          <div className="flex justify-evenly flex-col" style={{height:"40vh"}}>
+          <h2><strong>Name : </strong>{userName}</h2>
           <p>
             <strong>Address:</strong> {address}
           </p>
@@ -43,6 +43,7 @@ const UserCard = ({ data }) => {
           <p>
             <strong>Email:</strong> {email}
           </p>
+          </div>
         </div>
       </div>
       {latlng && <Map latlng={latlng} />}

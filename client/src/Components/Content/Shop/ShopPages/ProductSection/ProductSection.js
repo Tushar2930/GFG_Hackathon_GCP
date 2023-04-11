@@ -58,6 +58,7 @@ function ProductSection() {
   // console.log(data);
 
   var cardComponentArray = data.map((card) => {
+    console.log(card);
     return (
       <Card
         img_url={card?.ip}

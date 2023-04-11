@@ -15,7 +15,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
     setHovered(!hovered);
     // console.log(hovered);
   };
-
+console.log(maxQuantity, minQuantity, name, price, id)
   const handleCart = async function () {
     if (!useAuth.currentUser) {
       alert("Please Login First");
