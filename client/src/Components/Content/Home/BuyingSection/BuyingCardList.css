@@ -1,27 +1,10 @@
-.card-cont {
-  display: flex;
-  width: 100vw;
-  height: 60%;
-}
-
-.card-name {
-  font-size: x-large;
-  font-weight: 600;
-}
-
-.card-price {
-  color: orange;
-  font-size: larger;
-  margin: 0.25rem 0rem;
-}
-
 .hover_icon {
   display: none;
 }
 
 .card_icon {
-  position: relative;
-  top: -3rem;
+  position: absolute;
+  bottom: 4.5rem;
   width: 50%;
   display: flex;
   justify-content: space-evenly;
@@ -31,17 +14,7 @@
   justify-content: space-around;
 }
 
-.card-info {
-  margin: 0rem 0rem;
-}
-
 .card-root {
-  margin: 1rem;
-  background-color: #ffffff;
-  padding: 0.5rem;
-  border-radius: 1rem;
-  width: 250px;
-  height: 350px;
   transition: scale 0.2s ease-in-out;
 }
 
@@ -63,15 +36,8 @@
   transform: "scale(1.25)";
 }
 
-.imgWrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  height: 75%;
-}
 .froot {
-  /* background-image: url(../image/bg_pattern.png); */
-  background-color: antiquewhite;
+  background-image: url(../image/bg_pattern2.png);
   flex-direction: column;
   text-align: center;
   display: flex;
@@ -104,10 +70,7 @@
   height: 40px;
   background-color: #f4d336;
   border-radius: 20px;
-  /* align-content: center;
-  justify-content: center;  */
 }
 .card-root:hover {
   scale: 1.1;
-  box-shadow: 0px 0px 10px #2c957c;
 }

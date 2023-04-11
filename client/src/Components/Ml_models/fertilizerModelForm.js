@@ -57,7 +57,9 @@ function FertilizerForm() {
                         type="number"
                         name="field2"
                         id="nitrogen"
-                        class="input-field"   
+                        class="input-field"  
+                        min={0}
+                        max={100} 
                         onChange={(event) => setNitrogen(event.target.value)}
                     /> 
                 </label>
@@ -68,6 +70,8 @@ function FertilizerForm() {
                         name="field3"
                         id="phosphorus"
                         class="input-field"
+                        min={0}
+                        max={100}
                         onChange={(event) => setPhosphorus(event.target.value)}
                     />
                 </label>
@@ -78,6 +82,8 @@ function FertilizerForm() {
                         name="field4"
                         id="potassium"
                         class="input-field"
+                        min={0}
+                        max={100}
                         onChange={(event) => setPotassium(event.target.value)}
                     />
                 </label>

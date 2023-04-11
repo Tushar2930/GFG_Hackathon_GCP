@@ -1,24 +1,13 @@
 import React from "react";
 import "./BuyingCard.css";
 import "./BuyingCardList.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useState, useContext } from "react";
-import img_bg from "../image/shap-small.png";
 import { AuthContext } from "../../context/AuthorizationContext";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-function Card({
-  img_url,
-  maxQuantity,
-  minQuantity,
-  name,
-  description,
-  price,
-  id,
-}) {
+function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
   const [quantity, setinputValue] = useState(minQuantity);
   const useAuth = useContext(AuthContext);
   const [hovered, setHovered] = useState(true);
@@ -65,60 +54,57 @@ function Card({
   };
 
   return (
-    <>
+    <div
+      className="card-root w-1/4 h-80 flex flex-col items-center"
+      onMouseEnter={handleHover}
+      onMouseLeave={handleHover}>
       <div
-        className="card-root"
-        onMouseEnter={handleHover}
-        onMouseLeave={handleHover}>
-        <div className="imgWrapper">
-          <img
-            src={img_url}
-            alt="error"
-            className={hovered ? "zoom" : "nozoom"}
-            style={{ height: "80%", width: "100%", borderRadius: "1rem" }}
-          />
-          <img
-            src={img_bg}
-            alt="error"
-            className={hovered ? "zoom" : "nozoom"}
+        className={`imgWrapper w-full h-full ${hovered ? "zoom" : "nozoom"}`}
+        style={{ backgroundImage: `url(${img_url})` }}>
+        {/* <img
+          src={img_url}
+          alt="error"
+          className={hovered ? "zoom" : "nozoom"}
+          style={{ height: "100%", width: "100%" }}
+        /> */}
+
+        <div className={hovered ? "hover_icon" : "card_icon"}>
+          <ShoppingCartOutlinedIcon
             style={{
-              position: "absolute",
-              bottom: 0,
-              height: "30%",
-              width: "100%",
+              width: "2rem",
+              height: "2rem",
+              padding: "0.5rem",
+              borderRadius: "2rem",
+              backgroundColor: "#dcdcdcba",
+              margin: "-0.5rem",
             }}
+            onClick={handleCart}
           />
-          <div className={hovered ? "hover_icon" : "card_icon"}>
-            <ShoppingCartOutlinedIcon
-              style={{
-                width: "2rem",
-                height: "2rem",
-                padding: "0.5rem",
-                borderRadius: "2rem",
-                backgroundColor: "#dcdcdcba",
-                margin: "-0.5rem",
-              }}
-              onClick={handleCart}
-            />
-            <SearchIcon
-              style={{
-                width: "2rem",
-                height: "2rem",
-                padding: "0.5rem",
-                borderRadius: "2rem",
-                backgroundColor: "#dcdcdcba",
-                margin: "-0.5rem",
-              }}
-              onClick={() => handleClick()}
-            />
-          </div>
-        </div>
-        <div className="card-info">
-          <div className="card-name">{name}</div>
-          <div className="card-price">₹ {price}</div>
+          <SearchIcon
+            style={{
+              width: "2rem",
+              height: "2rem",
+              padding: "0.5rem",
+              borderRadius: "2rem",
+              backgroundColor: "#dcdcdcba",
+              margin: "-0.5rem",
+            }}
+            onClick={() => handleClick()}
+          />
         </div>
       </div>
-    </>
+      <div
+        className="card-info w-3/4  h-1/5 flex-col items-center "
+        style={{
+          marginTop: "-25px",
+          backgroundColor: "yellow",
+          zIndex: 11,
+          padding: "10px",
+        }}>
+        <div className="card-name text-sm">{name}</div>
+        <div className="card-price">₹ {price}</div>
+      </div>
+    </div>
   );
 }
 

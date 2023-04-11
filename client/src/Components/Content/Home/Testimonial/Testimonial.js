@@ -45,7 +45,7 @@ export default function Testimonial() {
     return () => {
       resetTimeout();
     };
-  }, [index]);
+  }, []);
 
   return (
     <div

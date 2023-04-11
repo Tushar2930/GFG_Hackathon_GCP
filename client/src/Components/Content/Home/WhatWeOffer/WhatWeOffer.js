@@ -107,7 +107,7 @@ const WhatWeOffer = () => {
                           related stuffs
                         </p>
                         <Link
-                          to="/ml-page"
+                          to="/farming-advisor"
                           className="text-green-600 inline-flex items-center md:mb-2 lg:mb-0">
                           {" "}
                           Learn More

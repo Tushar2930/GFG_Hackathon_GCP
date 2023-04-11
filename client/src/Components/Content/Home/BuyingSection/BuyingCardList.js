@@ -30,7 +30,7 @@ function BuyingCardList() {
     setShowData(temp);
   };
   var cardComponentArray = showData?.map((card, k) => {
-    if (k < 4) {
+    if (k < 6) {
       return (
         <Card
           img_url={card?.ip}
@@ -93,7 +93,7 @@ function BuyingCardList() {
           </button>
         </div>
         <Slide bottom triggerOnce>
-          <div className="card-cont flex flex-wrap justify-center">
+          <div className="card-cont flex flex-wrap justify-center  w-screen h-auto gap-20">
             {cardComponentArray}
           </div>
         </Slide>
