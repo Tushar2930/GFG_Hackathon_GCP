@@ -2,11 +2,12 @@ import React from "react";
 import img from "../image/farmer.png";
 import img1 from "../image/farmer1.png";
 import "./Testimonial.css";
+import ladki from "../../../assets/1.png";
 
 const slide = [
   {
     id: 1,
-    img,
+    img:ladki,
     desc: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is availabl",
   },
   {
