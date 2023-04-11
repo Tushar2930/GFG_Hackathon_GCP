@@ -30,7 +30,7 @@ function BuyingCardList() {
     setShowData(temp);
   };
   var cardComponentArray = showData?.map((card, k) => {
-    if (k < 6) {
+    if (k < 4) {
       return (
         <Card
           img_url={card?.ip}

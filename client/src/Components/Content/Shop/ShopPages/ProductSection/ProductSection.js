@@ -378,7 +378,7 @@ function ProductSection() {
             <hr style={{ marginLeft: "-2%", width: "100%" }} />
           </div>
           <div
-            className="row justify-content-around rounded-none "
+            className="row justify-content-around rounded-none flex flex-wrap gap-10"
             style={{ ...verticalLineStyle, backgroundColor: "#f9f5e9" }}>
             {cardComponentArray}
           </div>
