@@ -93,7 +93,7 @@ function BuyingCardList() {
           </button>
         </div>
         <Slide bottom triggerOnce>
-          <div className="card-cont flex flex-wrap justify-center  w-screen h-auto gap-20">
+          <div className="card-cont flex flex-wrap justify-center  w-screen h-auto gap-20 ">
             {cardComponentArray}
           </div>
         </Slide>

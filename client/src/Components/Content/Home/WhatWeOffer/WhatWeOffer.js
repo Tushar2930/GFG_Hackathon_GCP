@@ -27,11 +27,11 @@ const WhatWeOffer = () => {
                 src={page_seprater}
                 className=" w-96 flex  self-center -m-24 pb-10"
               />
-              <div className="flex flex-wrap w-full justify-around m--3">
+              <div className="flex flex-wrap w-full justify-around m--3 pl-10 pr-10">
                 <div class="flex flex-wrap  w-1/3  rounded-2xl ">
                   <div class=" p-4 w-full">
                     <motion.div
-                      whileHover={{ scale: 1.2 }}
+                      whileHover={{ scale: 1.1 }}
                       class="what_offer_container fresh_veges flex rounded-lg h-80 p-8 flex-col">
                       <div className="know_more">
                         <Fade direction="down" className="heading">
@@ -65,7 +65,7 @@ const WhatWeOffer = () => {
                 <div class="flex flex-wrap  w-1/3">
                   <div class=" p-4 w-full">
                     <motion.div
-                      whileHover={{ scale: 1.2 }}
+                      whileHover={{ scale: 1.1 }}
                       class="what_offer_container rental_services flex rounded-lg h-80 p-8 flex-col">
                       <div className="know_more">
                         <Fade direction="down" className="heading">
@@ -96,7 +96,7 @@ const WhatWeOffer = () => {
                 <div class="flex flex-wrap  w-1/3">
                   <div class=" p-4 w-full">
                     <motion.div
-                      whileHover={{ scale: 1.2 }}
+                      whileHover={{ scale: 1.1 }}
                       class="what_offer_container farming_advicer flex rounded-lg h-80 p-8 flex-col">
                       <div className="know_more">
                         <Fade direction="down" className="heading">

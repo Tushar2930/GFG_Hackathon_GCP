@@ -55,19 +55,12 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
 
   return (
     <div
-      className="card-root w-80 h-60 flex flex-col items-around justify-around m-2"
+      className="card-root w-80 h-60 flex flex-col items-around justify-around mt-10"
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}>
       <div
         className={`imgWrapper w-full h-full ${hovered ? "zoom" : "nozoom"}`}
         style={{ backgroundImage: `url(${img_url})` }}>
-        {/* <img
-          src={img_url}
-          alt="error"
-          className={hovered ? "zoom" : "nozoom"}
-          style={{ height: "100%", width: "100%" }}
-        /> */}
-
         <div className={hovered ? "hover_icon" : "card_icon"}>
           <ShoppingCartOutlinedIcon
             style={{
@@ -94,10 +87,11 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
         </div>
       </div>
       <div
-        className="card-info w-3/4  h-1/5 flex-col items-center "
+        className="card-info w-3/5  h-1/3  items-center  self-end"
         style={{
           marginTop: "-25px",
-          backgroundColor: "yellow",
+          marginRight: "-20px",
+          backgroundColor: "#F8B63C ",
           zIndex: 11,
           padding: "10px",
         }}>

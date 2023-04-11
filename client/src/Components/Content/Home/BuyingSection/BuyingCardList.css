@@ -4,7 +4,7 @@
 
 .card_icon {
   position: absolute;
-  bottom: 4.5rem;
+  bottom: 6rem;
   width: 50%;
   display: flex;
   justify-content: space-evenly;
@@ -38,6 +38,7 @@
 
 .froot {
   background-image: url(../image/bg_pattern2.png);
+  background-size: cover;
   flex-direction: column;
   text-align: center;
   display: flex;
