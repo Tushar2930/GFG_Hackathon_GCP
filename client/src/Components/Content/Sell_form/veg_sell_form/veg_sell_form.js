@@ -49,7 +49,7 @@ function Veg_sell() {
     }).then((res) => {
       if(res.message === "data added successfully"){
         alert("Product added successfully");
-        window.location.href = "/";
+        window.location.href = "/sell";
       }
     });
   };
