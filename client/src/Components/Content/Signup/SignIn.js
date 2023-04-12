@@ -39,7 +39,7 @@ export default function SignIn() {
   }, []);
   if (useAuth.currentUser) {
     return <Navigate to={"/userProfile"} />;
-  }
+  } 
 
   return (
     // <div className="container">
