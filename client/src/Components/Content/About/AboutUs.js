@@ -10,10 +10,10 @@ function About() {
         <section class="text-gray-600 body-font">
           <div class="container px-5 py-24 mx-auto" style={{ width: "100%",boxShadow:"none" }}>
             <div class="flex flex-col text-center mb-20 text-white -mx-12 py-8 w-screen" style={{backgroundColor:"rgb(0, 113, 93)"}}>
-              <h1 class="text-2xl font-medium title-font mb-4 text-white">
+              <h1 class="text-2xl font-medium title-font mb-4 text-white nuni">
                 OUR TEAM
               </h1>
-              <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+              <p class="lg:w-2/3 mx-auto leading-relaxed text-base sans">
                 Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
                 gentrify, subway tile poke farm-to-table. Franzen you probably
                 haven't heard of them.
@@ -28,11 +28,11 @@ function About() {
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST6r6t_jveCSCBbhGTNZr3YJmbWpsh8CntVw&usqp=CAU"
                   />
                   <div class="w-full">
-                    <h2 class="title-font font-medium text-lg text-gray-900">
+                    <h2 class="title-font font-medium text-lg text-gray-900 nuni">
                       Sumit Ghosh 
                     </h2>
-                    <h3 class="text-gray-500 mb-3">Frontend Developer</h3>
-                    <p class="mb-4">
+                    <h3 class="text-gray-500 mb-3 sans">Frontend Developer</h3>
+                    <p class="mb-4 sans">
                       DIY tote bag drinking vinegar cronut adaptogen squid fanny
                       pack vaporware.
                     </p>
@@ -85,11 +85,11 @@ function About() {
                     src="https://static.vecteezy.com/system/resources/previews/004/865/921/original/programmer-people-concept-use-laptop-and-programming-code-program-icon-spreading-with-modern-flat-style-free-vector.jpg"
                   />
                   <div class="w-full">
-                    <h2 class="title-font font-medium text-lg text-gray-900">
+                    <h2 class="title-font font-medium text-lg text-gray-900 nuni">
                       Tanmay Shukla
                     </h2>
-                    <h3 class="text-gray-500 mb-3">Backend Developer</h3>
-                    <p class="mb-4">
+                    <h3 class="text-gray-500 mb-3 sans">Backend Developer</h3>
+                    <p class="mb-4 sans">
                       DIY tote bag drinking vinegar cronut adaptogen squid fanny
                       pack vaporware.
                     </p>
@@ -142,11 +142,11 @@ function About() {
                     src="https://static.vecteezy.com/system/resources/thumbnails/016/915/122/small_2x/man-programmer-is-working-on-his-laptop-coding-and-programming-vector.jpg"
                   />
                   <div class="w-full">
-                    <h2 class="title-font font-medium text-lg text-gray-900">
+                    <h2 class="title-font font-medium text-lg text-gray-900 nuni">
                       Tushar Shingane
                     </h2>
-                    <h3 class="text-gray-500 mb-3">Backend Developer</h3>
-                    <p class="mb-4">
+                    <h3 class="text-gray-500 mb-3 sans">Backend Developer</h3>
+                    <p class="mb-4 sans">
                       DIY tote bag drinking vinegar cronut adaptogen squid fanny
                       pack vaporware.
                     </p>
@@ -199,11 +199,11 @@ function About() {
                     src="https://thumbs.dreamstime.com/b/programmer-sitting-table-working-coding-chatting-laptop-online-backend-frontend-developer-man-home-office-guy-202147846.jpg"
                   />
                   <div class="w-full">
-                    <h2 class="title-font font-medium text-lg text-gray-900">
+                    <h2 class="title-font font-medium text-lg text-gray-900 nuni">
                       Aryan Bhargava
                     </h2>
-                    <h3 class="text-gray-500 mb-3">UI Developer</h3>
-                    <p class="mb-4">
+                    <h3 class="text-gray-500 mb-3 sans">UI Developer</h3>
+                    <p class="mb-4 sans">
                       DIY tote bag drinking vinegar cronut adaptogen squid fanny
                       pack vaporware.
                     </p>
@@ -254,7 +254,7 @@ function About() {
       </div>
       <div>
         <div
-          className="text-white text-3xl flex justify-center items-center"
+          className="text-white text-3xl flex justify-center items-center nuni"
           style={{ backgroundColor: "#00715D", height: "40vh" }}>
           Let's Create Something Together
         </div>
@@ -275,8 +275,8 @@ function About() {
               Call us
             </div>
             <div>
-              <div>+91-9876543210</div>
-              <div>+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
             </div>
           </div>
           <div
@@ -293,8 +293,8 @@ function About() {
               Call us
             </div>
             <div>
-              <div>+91-9876543210</div>
-              <div>+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
             </div>
           </div>
           <div
@@ -311,8 +311,8 @@ function About() {
               Call us
             </div>
             <div>
-              <div>+91-9876543210</div>
-              <div>+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
             </div>
           </div>
         </div>
@@ -338,7 +338,7 @@ function About() {
                   boxShadow: "none",
                 }}>
                 <div class="flex flex-col text-center w-full">
-                  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+                  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 nuni">
                     Contact Us
                   </h1>
                 </div>

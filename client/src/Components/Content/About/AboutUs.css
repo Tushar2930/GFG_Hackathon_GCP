@@ -112,3 +112,11 @@
       object-fit: cover;
     }
   }
+
+  .nuni{
+    font-family: 'Nunito';
+  }
+
+  .sans{
+    font-family: 'sans-serif';
+  }
