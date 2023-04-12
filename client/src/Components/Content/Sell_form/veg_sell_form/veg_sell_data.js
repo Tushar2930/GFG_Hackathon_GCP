@@ -1,21 +1,21 @@
 // ----------------------------------------------- All Items -----------------------------------------------
 // 1) Vegetables
 const potatoVeg = [
-    {id:"1", value: "Russet", label: "Russet"},
-    {id:"2", value: "Red", label: "Red"},
-    {id:"3", value: "Yukon Gold", label: "Yukon Gold"},
-    {id:"4", value: "Fingerling", label: "Fingerling"},
-    {id:"5", value: "Purple", label: "Purple"},
+    {id:"1", value: "Jhalak", label: "Jhalak"},
+    {id:"2", value: "Kufri Chandramukhi", label: "Kufri Chandramukhi"},
+    {id:"3", value: "Kufri Sindhuri", label: "Kufri Sindhuri"},
+    {id:"4", value: "Kufri Jyoti", label: "Kufri Jyoti"},
+    {id:"5", value: "Lalima", label: "Lalima"},
 
 ]
 const tomatoVeg = [
-    {id:"1", value: "Beefsteak", label: "Beefsteak"},
-    {id:"2", value: "cherry", label: "cherry"},
-    {id:"3", value: "Heirloom", label: "Heirloom"},
+    {id:"1", value: "Bangalore Tomato", label: "Bangalore Tomato"},
+    {id:"2", value: "Mridula", label: "Mridula"},
+    {id:"3", value: "Rashmi", label: "Rashmi"},
 ]
 const brinjalVeg =[
-    {id:"1", value: "Round", label: "Round"},
-    {id:"2", value: "Long", label: "Long"},
+    {id:"1", value: "Round Purple", label: "Round Purple"},
+    {id:"2", value: "Long Purple:", label: "Long Purple"},
     {id:"3", value: "White", label: "White"},
 ]
 const ladyfingerVeg =[
@@ -24,9 +24,9 @@ const ladyfingerVeg =[
     {id:"3", value: "Spineless", label: "Spineless"},
 ]
 const brocolliVeg =[
-    {id:"1", value: "Calabrese", label: "Calabrese"},
-    {id:"2", value: "Romanesco", label: "Romanesco"},
-    {id:"3", value: "Broccolini", label: "Broccolini"},
+    {id:"1", value: "Baingan Gobhi ", label: "Baingan Gobhi "},
+    {id:"2", value: "Mini Gobhi", label: "Mini Gobhi"},
+    {id:"3", value: "Broccoli Ka Phool", label: "Broccoli Ka Phool"},
 ]
 const spinachVeg=[
     {id:"1", value:"Spinach" ,label:"Spinach"},
@@ -91,14 +91,14 @@ const vegetables = [
 
 // 2) Fruits
 const appleFruit = [
-    {id:"1", value: "Red delicious", label: "Red Delicious"},
-    {id:"1", value: "Granny Smith", label: "Granny Smith"},
-    {id:"1", value: "Gala", label: "Gala"},
+    {id:"1", value: " Kashmiri Seb", label: " Kashmiri Seb"},
+    {id:"1", value: "Himachal Seb", label: "Himachal Seb"},
+    {id:"1", value: "Chakundar Seb", label: "Chakundar Seb"},
 ]
 const orangeFruit = [
-    {id:"1", value: "Valencia", label: "Valencia"},
-    {id:"2", value: "Blood", label: "Blood"},
-    {id:"3", value: "Navel", label: "Navel"},
+    {id:"1", value: "Nagpur Orange", label: "Nagpur Orange "},
+    {id:"2", value: "Kinnow", label: "Kinnow"},
+    {id:"3", value: "Lal Santra", label: "Lal Santra"},
 ]
 const mangoFruit = [
     {id:"1", value: "Alphonso", label: "Alphonso"},
@@ -111,14 +111,14 @@ const mangoFruit = [
    
 ]
 const bananaFruit = [
-    {id:"1", value: "Cavendish", label: "Cavendish"},
-    {id:"2", value: "Red", label: "Red"},
-    {id:"3", value: "Burro", label: "Burro"},
+    {id:"1", value: "Anjali", label: "Anjali"},
+    {id:"2", value: "Kerala Nendran", label: "Kerala Nendran"},
+    {id:"3", value: "Gopalan", label: "Gopalan"},
     ]
 const grapeFruit = [
-        {id:"1", value: "Red", label: "Red"},
-        {id:"2", value: "Glack", label: "Glack"},
-        {id:"3", value: "Black", label: "Black"},
+        {id:"1", value: "Sharad Seedless", label: "Sharad Seedless"},
+        {id:"2", value: "Blue Bengal", label: "Blue Bengal"},
+        {id:"3", value: "Sharad Black", label: "Sharad Black"},
         ]
 const lycheeFruit = [
             {id:"1", value: "Lychee", label: "Lychee"},
