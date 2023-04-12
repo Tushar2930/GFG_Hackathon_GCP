@@ -102,8 +102,8 @@ console.log(maxQuantity, minQuantity, name, price, id)
           zIndex: 11,
           padding: "10px",
         }}>
-        <div className="card-name text-sm ">{name}</div>
-        <div className="card-price ">₹ {price}</div>
+        <div className="card-name text-xl placeholder:" style={{fontWeight:"500"}}>{name}</div>
+        <div className="card-price " style={{color:"#01b000"}}>₹ {price}</div>
       </div>
     </div>
   );

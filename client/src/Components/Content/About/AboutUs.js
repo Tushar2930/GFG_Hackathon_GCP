@@ -254,15 +254,32 @@ function About() {
       </div>
       <div>
         <div
-          className="text-white text-3xl flex justify-center items-center nuni"
-          style={{ backgroundColor: "#00715D", height: "40vh" }}>
+          className="text-white sm:text-3xl sm:flex sm:justify-center sm:items-center nuni banner">
           Let's Create Something Together
         </div>
         <div
-          className="flex justify-evenly absolute -bottom-1/2 z-10"
+          className="flex justify-evenly items-center -mt-12  z-10"
           style={{ width: "98vw" }}>
           <div
-            className="px-8 py-8 flex flex-col justify-around bg-white"
+            className="px-8 py-8 flex flex-col justify-around w-1/5 bg-white display-card"
+            style={{
+              height: "30vh",
+             
+              boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+            }}>
+            <div>
+              <ContactsOutlinedIcon style={{ height: "4rem", width: "4rem" }} />
+            </div>
+            <div className="text-xl" style={{ fontWeight: "600" }}>
+              Call us
+            </div>
+            <div>
+              <div className="sans">+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
+            </div>
+          </div>
+          <div
+            className="px-8 py-8 flex flex-col justify-around bg-white contact-card"
             style={{
               height: "30vh",
               width: "20%",
@@ -280,25 +297,7 @@ function About() {
             </div>
           </div>
           <div
-            className="px-8 py-8 flex flex-col justify-around bg-white"
-            style={{
-              height: "30vh",
-              width: "20%",
-              boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
-            }}>
-            <div>
-              <ContactsOutlinedIcon style={{ height: "4rem", width: "4rem" }} />
-            </div>
-            <div className="text-xl" style={{ fontWeight: "600" }}>
-              Call us
-            </div>
-            <div>
-              <div className="sans">+91-9876543210</div>
-              <div className="sans">+91-9876543210</div>
-            </div>
-          </div>
-          <div
-            className="px-8 py-8 flex flex-col justify-around bg-white"
+            className="px-8 py-8 flex flex-col justify-around bg-white contact-card"
             style={{
               height: "30vh",
               width: "20%",
@@ -317,7 +316,7 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="mt-56" style={{ backgroundColor: "#F9F5E9" }}>
+      <div className="sm:mt-56 mt-32" style={{ backgroundColor: "#F9F5E9" }}>
         <section class="text-gray-600 body-font relative">
           <div class="absolute inset-0" style={{ backgroundColor: "#F9F5E9" }}>
             {/* <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed" style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe> */}
@@ -329,11 +328,10 @@ function About() {
               backgroundColor: "#F9F5E9",
               boxShadow: "none",
             }}>
-            <section class="text-gray-600 body-font relative flex flex-row w-full">
+            <section class="text-gray-600 body-font relative flex sm:flex-row flex-col w-full justify-evenly">
               <div
-                class="container px-5 py-24 mx-0"
+                class="container px-5 py-24 sm:w-1/2 w-full mx-0"
                 style={{
-                  width: "50%",
                   backgroundColor: "#F9F5E9",
                   boxShadow: "none",
                 }}>
@@ -459,7 +457,7 @@ function About() {
                   </div>
                 </div>
               </div>
-              <div className="w-1/2  mt-20  h-2/3  rounded-3xl border-2 border-slate-300">
+              <div className="sm:w-1/2  mt-20 sm:h-2/3 h-1/2 w-full rounded-3xl border-2 border-slate-300 mapbox" >
                 <Map
                   latlng={[82.984146, 25.264544]}
                   marker={[82.984146, 25.264544]}

@@ -120,3 +120,30 @@
   .sans{
     font-family: 'sans-serif';
   }
+
+  .banner{
+    
+    
+    background-color: rgb(0, 113, 93);
+    height: 40vh;
+     height: "40vh";
+  }
+
+  @media screen and (max-width: 600px) {
+    .banner{
+      height: 15vh;
+      font-size: 1.25rem;
+      text-align: center;
+      padding-top: 1rem;
+    }
+    .mapbox{
+      height:25vh
+    }
+    .contact-card{
+      display: none;
+    }
+    .display-card{
+      width: 65%;
+    }
+  }
+
