@@ -94,3 +94,52 @@
 .testHead {
   font-family: Nunito;
 }
+
+.mobile-Test{
+  display: none;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+.test-root{
+  width:80%;
+  margin: 0 auto;
+}
+
+
+@media screen and (max-width: 1190px) {
+.mobile-Test{
+  display: block;
+}
+.testimonials{
+  display: none;
+}
+.headmobile{
+  font-size: 40px;
+  font-family: Nunito;
+  text-align: center;
+  padding: 1rem 0rem;
+  font-weight: 500;
+}
+}
