@@ -13,31 +13,31 @@ const WhatWeOffer = () => {
         <div className="bg_circle2" />
         <section class="text-gray-600 body-font ">
           <div
-            class="container px-5 py-24 mx-auto  "
+            class="container sm:px-5 sm:py-24 sm:mx-auto  "
             style={{
               width: "100vw",
               boxShadow: "none",
               background: "none",
             }}>
             <div class="flex flex-col text-center w-full mb-20 -mt-6">
-              <div className="what_are_our_services text-5xl text-white pt-10">
-                What Are Our Services
+              <div className="what_are_our_services text-2xl sm:text-5xl text-white py-10">
+                Our Services
               </div>
               <img
                 src={page_seprater}
-                className=" w-96 flex  self-center -m-24 pb-10"
+                className="w-48 sm:w-96 flex  self-center -m-16 sm:-m-24 pb-10"
               />
-              <div className="flex flex-wrap w-full justify-around m--3 pl-10 pr-10">
-                <div class="flex flex-wrap  w-1/3  rounded-2xl ">
+              <div className="flex flex-wrap w-screen  justify-center  sm:justify-around sm:m--3 sm:pl-10 sm:pr-10">
+                <div class="flex flex-wrap w-full h-24 sm:h-48 sm:w-1/3  ">
                   <div class=" p-4 w-full">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      class="what_offer_container fresh_veges flex rounded-lg h-80 p-8 flex-col">
+                      class="what_offer_container fresh_veges flex rounded-lg sm:h-80 p-8 flex-col">
                       <div className="know_more">
                         <Fade direction="down" className="heading">
                           Fresh Vegetables
                         </Fade>
-                        <p style={{fontFamily:"sans-serif"}}>
+                        <p style={{ fontFamily: "sans-serif" }}>
                           We offer fresh vegetables from farms all over india{" "}
                         </p>
 
@@ -62,16 +62,18 @@ const WhatWeOffer = () => {
                     </motion.div>
                   </div>
                 </div>
-                <div class="flex flex-wrap  w-1/3">
+                <div class="flex flex-wrap w-full   h-24 sm:h-48  sm:w-1/3">
                   <div class=" p-4 w-full">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      class="what_offer_container rental_services flex rounded-lg h-80 p-8 flex-col">
+                      class="what_offer_container rental_services flex rounded-lg sm:h-80 p-8 flex-col">
                       <div className="know_more">
                         <Fade direction="down" className="heading">
                           Rental Services
                         </Fade>
-                        <p style={{fontFamily:"sans-serif"}}>You can opt for various farm related services</p>
+                        <p style={{ fontFamily: "sans-serif" }}>
+                          You can opt for various farm related services
+                        </p>
                         <Link
                           to="/rent"
                           className="text-green-600 inline-flex items-center md:mb-2 lg:mb-0">
@@ -93,16 +95,16 @@ const WhatWeOffer = () => {
                     </motion.div>
                   </div>
                 </div>
-                <div class="flex flex-wrap  w-1/3">
+                <div class="flex flex-wrap w-full sm:h-48 sm:w-1/3">
                   <div class=" p-4 w-full">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      class="what_offer_container farming_advicer flex rounded-lg h-80 p-8 flex-col">
+                      class="what_offer_container farming_advicer flex rounded-lg sm:h-80 p-8 flex-col">
                       <div className="know_more">
                         <Fade direction="down" className="heading">
                           Farming Advisor
                         </Fade>
-                        <p style={{fontFamily:"sans-serif"}}>
+                        <p style={{ fontFamily: "sans-serif" }}>
                           You can use our multiple ML models to predict farming
                           related stuffs
                         </p>

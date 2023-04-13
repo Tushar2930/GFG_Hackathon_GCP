@@ -21,16 +21,14 @@
 
 .title_font {
   color: orange;
-  font-size: 1.25rem;
   font-weight: 600;
   font-family: Nunito;
 }
 
 .title_text {
-  font-size: xxx-large;
   color: black;
   font-family: math;
-  margin: 1rem 0rem;
+  margin: 2rem 0rem;
 }
 
 .zoom {
@@ -67,7 +65,7 @@
   height: 10%;
   margin: 1rem 0rem;
 }
-.filter_options button {
+.filter_options_buttons {
   width: 100px;
   height: 40px;
   background-color: #f4d336;
@@ -75,4 +73,36 @@
 }
 .card-root:hover {
   scale: 1.1;
+}
+
+@media screen and (max-width: 640px) {
+  .froot {
+    padding: 0rem;
+    height: auto;
+    padding-top: 4rem;
+    margin-top: -1rem;
+  }
+
+  .card-root:hover {
+    scale: 1;
+  }
+
+  .filter_options_buttons {
+    width: 65px;
+    height: 30px;
+    background-color: #f4d336;
+    border-radius: 20px;
+  }
+  .filter_options {
+    display: flex;
+    gap: 10px;
+    /* justify-content: space-between; */
+    align-items: center;
+    width: 100%;
+    height: 10%;
+  }
+  .card-cont {
+    width: 100%;
+    height: 100%;
+  }
 }

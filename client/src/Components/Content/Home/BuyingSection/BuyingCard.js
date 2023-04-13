@@ -1,5 +1,4 @@
 import React from "react";
-import "./BuyingCard.css";
 import "./BuyingCardList.css";
 import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
@@ -15,7 +14,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
     setHovered(!hovered);
     // console.log(hovered);
   };
-console.log(maxQuantity, minQuantity, name, price, id)
+  console.log(maxQuantity, minQuantity, name, price, id);
   const handleCart = async function () {
     if (!useAuth.currentUser) {
       alert("Please Login First");
@@ -55,7 +54,7 @@ console.log(maxQuantity, minQuantity, name, price, id)
 
   return (
     <div
-      className="card-root w-60 h-80 flex flex-col items-around justify-around mt-10 hover:border-2"
+      className="card-root w-25 h-40 sm:w-60 sm:h-80 flex flex-col items-around justify-around mt-10   focus:border-2  sm:hover:border-2"
       style={{ borderRadius: "10px", backgroundColor: "#ffffff" }}
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}>
@@ -102,8 +101,8 @@ console.log(maxQuantity, minQuantity, name, price, id)
           zIndex: 11,
           padding: "10px",
         }}>
-        <div className="card-name text-sm ">{name}</div>
-        <div className="card-price ">₹ {price}</div>
+        <div className="card-name text-xs sm:text-sm ">{name}</div>
+        <div className="card-price text-sm">₹ {price}</div>
       </div>
     </div>
   );

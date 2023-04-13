@@ -87,8 +87,8 @@
   top: 10px;
   right: 10px;
   display: block;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   padding: 0;
   margin: 0;
   z-index: 9;
@@ -260,4 +260,19 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+
+@media screen and (max-width: 640px) {
+  .pt-5 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    line-height: 1.7;
+    color: #ececee;
+    background-color: #000300;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 4%;
+  }
 }

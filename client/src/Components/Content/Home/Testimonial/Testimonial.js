@@ -7,7 +7,7 @@ import ladki from "../../../assets/1.png";
 const slide = [
   {
     id: 1,
-    img:ladki,
+    img: ladki,
     desc: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is availabl",
   },
   {
@@ -21,7 +21,7 @@ const slide = [
   //   desc: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is availabl",
   // },
 ];
-const delay = 3500;
+const delay = 2500;
 
 export default function Testimonial() {
   const [index, setIndex] = React.useState(0);
@@ -56,8 +56,7 @@ export default function Testimonial() {
       <div className="slideshow">
         <div
           className="slideshowSlider"
-          style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-          > 
+          style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}>
           {slide.map((slide, index) => (
             <div className="slide" key={index}>
               <div
@@ -68,9 +67,16 @@ export default function Testimonial() {
                 }}>
                 <div className="image_circle" />
                 <img src={slide.img} className="testimonial_image mt-28" />
-                <div className="py-24" style={{width:"55%"}}>
-                <h1 className="text-white text-3xl testHead">"The Best in Town"</h1>
-                <p className="testimonial_desc text-white" style={{fontFamily:"sans-serif"}}>{slide.desc}</p></div>
+                <div className="py-24" style={{ width: "55%" }}>
+                  <h1 className="text-white text-3xl testHead">
+                    "The Best in Town"
+                  </h1>
+                  <p
+                    className="testimonial_desc text-white"
+                    style={{ fontFamily: "sans-serif" }}>
+                    {slide.desc}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
