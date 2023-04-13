@@ -108,3 +108,17 @@ input[type="number"]::-webkit-outer-spin-button {
   color: black;
   font-size: 1rem;
 }
+
+@media screen and (max-width: 800px) {
+  .left-side{
+    display: none;
+  }
+  .sign-cont .right-side{
+    width: 100%;
+  }
+  .sign-cont .input-root {
+    margin: 0rem 0%;
+    width: 100%;
+  }
+}
+  

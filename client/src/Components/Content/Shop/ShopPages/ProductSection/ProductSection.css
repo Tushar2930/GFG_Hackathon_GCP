@@ -16,3 +16,13 @@
     margin: 0 10px;
     font-size: 18px;
 }
+
+@media screen and (max-width: 900px) {
+   .filter-col{
+    display: none;
+   }
+   .products-col{
+    width: 100%;
+   }
+}
+    

@@ -101,8 +101,14 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
           zIndex: 11,
           padding: "10px",
         }}>
-        <div className="card-name text-xs sm:text-sm ">{name}</div>
-        <div className="card-price text-sm">₹ {price}</div>
+        <div
+          className="card-name text-xs sm:text-xl placeholder:"
+          style={{ fontWeight: "500" }}>
+          {name}
+        </div>
+        <div className="card-price sm:text-sm" style={{ color: "#01b000" }}>
+          ₹ {price}
+        </div>
       </div>
     </div>
   );

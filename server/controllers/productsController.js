@@ -35,17 +35,36 @@ module.exports.getAllProducts = async function (req, res) {
     const data = await collection.get();
     var list = [];
     data.forEach((doc) => {
-      list.push({
-        _id: doc.id,
-        descricption: doc.data().descricption,
-        ip: doc.data().ip,
-        category: doc.data().category,
-        name: `${doc.data().species}  ${doc.data().product}`,
-        maxQuantity: doc.data().maxQuantity,
-        minQuantity: doc.data().minQuantity,
-        price: doc.data().price,
-        quantity: doc.data().quantity,
-      });
+      if(doc.data().species===doc.data().product){
+
+        list.push({
+          _id: doc.id,
+          descricption: doc.data().descricption,
+          ip: doc.data().ip,
+          category: doc.data().category,
+          //code for species is equal to product then show only product
+          name: `${doc.data().species}`,
+          maxQuantity: doc.data().maxQuantity,
+          minQuantity: doc.data().minQuantity,
+          price: doc.data().price,
+          quantity: doc.data().quantity,
+        });
+      }
+      else{
+        list.push({
+          _id: doc.id,
+          descricption: doc.data().descricption,
+          ip: doc.data().ip,
+          category: doc.data().category,
+          //code for species is equal to product then show only product
+          name: `${doc.data().species}  ${doc.data().product}`,
+          maxQuantity: doc.data().maxQuantity,
+          minQuantity: doc.data().minQuantity,
+          price: doc.data().price,
+          quantity: doc.data().quantity,
+        });
+      }
+      
       // console.log(list)
     });
     return res.json({

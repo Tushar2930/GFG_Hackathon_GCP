@@ -212,6 +212,9 @@ useEffect(() => {
         <div className="right-side">
           <div className="right-head">Create Account</div>
           <div className="input-root">
+          <div className="mobile-usertype">
+        <SelectOption handleProfileChanges={handleProfileChanges} style={{marginTop:"7rem",width:"85%"}}/>
+            </div>
             <div className="input-con">
               <label>Name</label>
               <input type="text" name="userName" required value={form.userName}
@@ -250,6 +253,15 @@ useEffect(() => {
               <input type="text" name="address" required value={form.address}
             minLength="12"
             onChange={(e) => handleEntryChanges(e)}/>
+            </div>
+            <div className="mobile-profile">
+            <label >Upload Profile Pic:
+        <FileBase id="file"
+            type="image"
+            multiple={false}
+            onDone={({ base64 }) => setForm({ ...form, ip: base64 })}
+            style={{display:"none"}}
+          /> </label>
             </div>
             <div className="radio-btn" style={{height:"5%"}}>
               <div>Gender</div>

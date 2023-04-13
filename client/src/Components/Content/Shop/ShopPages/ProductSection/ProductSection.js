@@ -153,7 +153,7 @@ function ProductSection() {
     <div class="fluid-container">
       <div>
         <img src="https://demo.7iquid.com/agrisoil/wp-content/uploads/2022/07/page-title-bg-1.jpg"></img>
-        <div
+        {/* <div
           className="absolute text-white"
           style={{
             fontFamily: "monospace",
@@ -162,10 +162,10 @@ function ProductSection() {
             fontSize: "xxx-large",
           }}>
           SHOP
-        </div>
+        </div> */}
       </div>
       <div className="row" style={{ padding: "18px" }}>
-        <div class="col-2">
+        <div class="col-2 ">
           <div className="row" style={{ marginTop: "1.58%" }}>
             <label className="mx-0 mb-5">
               <span className="  text-black" style={{ fontSize: "18px" }}>
@@ -189,7 +189,7 @@ function ProductSection() {
             </label>
           </div>
 
-          <div class="row">
+          <div class="row filter-col">
             {/* Head of Filter component */}
             <div class="row">
               <div
@@ -388,7 +388,7 @@ function ProductSection() {
           </div>
         </div>
 
-        <div class="col-10">
+        <div class="col-10 products-col">
           {/* <Products checklth={lth} checkhtl={htl} /> */}
           <SearchBar onSearch={handleSearch} />
           <div

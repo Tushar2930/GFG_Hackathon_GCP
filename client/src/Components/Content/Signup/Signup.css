@@ -55,7 +55,7 @@
   padding: 0rem 1rem;
   width: 60%;
   border: 0px;
-}
+} 
 
 .sign-container .btn-temp {
   flex-direction: row;
@@ -101,4 +101,62 @@
 }
 .sign-container .input-root label {
   color: white;
+}
+
+.mobile-usertype{
+  display: none;
+}
+
+.mobile-profile{
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .sign-container {
+    height: 110vh;
+  }
+  .sign-container .right-side{
+    width: 100%;
+  }
+  .sign-container .input-con{
+    flex-direction: column;
+    width: 95%;
+    height: 10%;
+  }
+  .sign-container input {
+    width: 85%;
+  }
+  .sign-container .radio-btn{
+    width: 85%;
+  }
+  .sign-container .input-root{
+    width: 100%;
+    height: 85%;
+    /* height: fit-content; */ 
+  }
+  .sign-container .submit-btn{
+    height: 3rem;
+    width: 85%;
+    align-self: start;
+  }
+  .mobile-usertype{
+    display:block;
+    color: rgb(0, 0, 0);
+    display: flex;
+    width: 95%;
+    height: 8%;
+    justify-content: start;
+  }
+  .mobile-usertype label{
+    width: 85%;
+  }
+  .mobile-profile{
+    display: block;
+    color: rgb(0, 0, 0);
+    display: flex;
+    width: 95%;
+    height: 8%;
+    justify-content: start;
+  }
+
 }
