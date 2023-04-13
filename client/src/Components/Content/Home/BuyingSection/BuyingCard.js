@@ -20,7 +20,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
       alert("Please Login First");
       window.location.href = "/signin";
     }
-    const resp = await fetch("http://localhost:8000/cart/add-product", {
+    const resp = await fetch(`http://${process.env.REACT_APP_IP}:8000/cart/add-product`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -11,7 +11,7 @@ function RecentOrdersPage() {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     async function fet() {
-      const resp = await fetch("http://localhost:8000/order/getOrders", {
+      const resp = await fetch(`http://${process.env.REACT_APP_IP}:8000/order/getOrders`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,7 +24,7 @@ function RecentOrdersPage() {
       setData(data1.data);
 
       setIsLoading(true);
-      const res = await fetch("http://localhost:8000/order/getImage", {
+      const res = await fetch(`http://${process.env.REACT_APP_IP}:8000/order/getImage`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

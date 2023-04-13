@@ -19,7 +19,7 @@ function SingleProduct(){
 
     useEffect(() => {
         async function fet(){
-            const resp=await fetch(`http://localhost:8000/product/get-product/${id}`, {
+            const resp=await fetch(`http://${process.env.REACT_APP_IP}:8000/product/get-product/${id}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

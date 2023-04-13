@@ -27,7 +27,7 @@ function Rent(){
       email:useAuth.currentUser.email
     }
     // console.log(data);
-    const resp=await fetch("http://localhost:8000/rent/add-farmer",{
+    const resp=await fetch(`http://${process.env.REACT_APP_IP}:8000/rent/add-farmer`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

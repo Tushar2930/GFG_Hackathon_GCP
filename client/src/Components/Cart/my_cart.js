@@ -73,7 +73,7 @@ function Cart() {
   async function feth() {
     if (useAuth.currentUser) {
       try {
-        const resp = await fetch("http://localhost:8000/cart/get-products", {
+        const resp = await fetch(`http://${process.env.REACT_APP_IP}:8000/cart/get-products`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -86,7 +86,7 @@ function Cart() {
         const temp = await resp.json();
         setData(temp);
 
-        const data1 = await fetch("http://localhost:8000/cart/get-image", {
+        const data1 = await fetch(`http://${process.env.REACT_APP_IP}:8000/cart/get-image`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -120,7 +120,7 @@ function Cart() {
       order_id: orderData.id,
       handler: async function (response) {
         console.log(response);
-        const data1 = await fetch("http://localhost:8000/order/verify", {
+        const data1 = await fetch(`http://${process.env.REACT_APP_IP}:8000/order/verify`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -131,7 +131,7 @@ function Cart() {
         });
         const resp = await data1.json();
         if (resp.message === "Sign Valid") {
-          const data2 = await fetch("http://localhost:8000/order/place", {
+          const data2 = await fetch(`http://${process.env.REACT_APP_IP}:8000/order/place`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -155,7 +155,7 @@ function Cart() {
   //   total = total + parseInt(card?.quantity) * parseInt(card?.price);
   // // console.log(total);
   const handlePay = async function () {
-    const resp = await fetch("http://localhost:8000/order/checkout", {
+    const resp = await fetch(`http://${process.env.REACT_APP_IP}:8000/order/checkout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
