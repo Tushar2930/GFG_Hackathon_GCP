@@ -26,7 +26,7 @@ export default function Menu() {
             <a href="/">Home</a>
           </li>
           <li>
-            {window.screen.availWidth < 640 ||
+            {window?.screen?.availWidth < 640 ||
               (!useAuth?.currentUserDetails?.data && (
                 <a href="/about-us">About Us</a>
               ))}

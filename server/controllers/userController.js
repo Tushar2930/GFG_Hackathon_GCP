@@ -1,22 +1,38 @@
 const db = require("../config/firebase");
+const axios = require("axios");
 
 module.exports.create = async function (req, res) {
   var data = req.body.postData;
   var latlng = [];
-  await fetch(
-    `https://api.mapbox.com/geocoding/v5/mapbox.places/${data.address}.json?access_token=pk.eyJ1IjoibWFwLWJvaTY5IiwiYSI6ImNsYzF5OWhiNTNxZzEzcGtlZ2g4OTAxM3MifQ.CqZQLqoP6bO5UkLZoTzQhQ`,
-    {
-      method: "GET",
-    }
-  )
-    .then((res) => res.json())
-    .then((res) => {
-      data = { ...data, latlng: res.features[0].center };
+  // await fetch(
+  //   `https://api.mapbox.com/geocoding/v5/mapbox.places/${data?.address}.json?access_token=pk.eyJ1IjoibWFwLWJvaTY5IiwiYSI6ImNsZ2dodTgzdTBidnAzZXBobmd6OXVjZjIifQ.t2Smx2a7t-j1wP_VMI1G3A`,
+  //   {
+  //     method: "GET",
+  //   }
+  // )
+  //   .then((res) => res.json())
+  //   .then((res) => {
+  //     data = { ...data, latlng: res.features[0].center };
 
+  //     db.collection("users").add(data);
+  //     res.json({
+  //       message: "success",
+  //     });
+  //   })
+
+  //   .catch((error) => {
+  //     console.log(error.message);
+  //   });
+  axios
+    .get(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${data?.address}.json?access_token=pk.eyJ1IjoibWFwLWJvaTY5IiwiYSI6ImNsZ2dodTgzdTBidnAzZXBobmd6OXVjZjIifQ.t2Smx2a7t-j1wP_VMI1G3A`
+    )
+    .then((response) => {
+      const res = response.data;
+      console.log(res);
+      data = { ...data, latlng: res.features[0].center };
       db.collection("users").add(data);
-      res.json({
-        message: "success",
-      });
+      return res;
     })
 
     .catch((error) => {
