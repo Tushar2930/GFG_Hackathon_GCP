@@ -211,7 +211,7 @@ function Signup() {
             <label>
               Upload Profile Pic:
               <FileBase
-                id="file"
+                id="file"   
                 type="image"
                 multiple={false}
                 onDone={({ base64 }) => setForm({ ...form, ip: base64 })}
@@ -323,7 +323,7 @@ function Signup() {
               </label>
             </div>
             <div className="radio-btn" style={{ height: "5%" }}>
-              <div>Gender</div>
+              <div id="gender">Gender</div>
               <div className="radio-btn">
                 <div className="rdbtn-temp">
                   {" "}
