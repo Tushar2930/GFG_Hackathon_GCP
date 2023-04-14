@@ -28,12 +28,12 @@ export default function Menu() {
             <a href="/sell">Sell Crops</a>
           </li>
           <li>
-            {useAuth?.currentUserDetails.data?.profiledata?.find((ele) => {
+            {useAuth?.currentUserDetails?.data?.profiledata?.find((ele) => {
               return ele === "farmer";
             }) && <a href="/get-rent-service">Get Service </a>}
           </li>
           <li>
-            {useAuth?.currentUserDetails.data?.profiledata?.find((ele) => {
+            {useAuth?.currentUserDetails?.data?.profiledata?.find((ele) => {
               return ele === "rentel-service";
             }) && <a href="/rent">Rent a Service </a>}
           </li>
