@@ -10,10 +10,25 @@
   background-size: cover;
 }
 
+.nameTemp{
+  font-size: 1.35rem;
+  width: 50%;
+  margin: -10rem 0rem;
+  padding: 0rem 2rem;
+  font-family: monospace;
+}
+
 @media screen and (max-width: 768px) {
   .land-root {
     height: 50vh;
     font-size: small;
     /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
+  }
+  .nameTemp{
+    font-size: 1.2rem;
+    /* width: 100%; */
+    margin:3rem 0rem;
+    padding: 0rem 0.5rem;
+    font-family: monospace;
   }
 }
