@@ -211,7 +211,7 @@ function Signup() {
             <label>
               Upload Profile Pic:
               <FileBase
-                id="file"
+                id="file"   
                 type="image"
                 multiple={false}
                 onDone={({ base64 }) => setForm({ ...form, ip: base64 })}
@@ -219,7 +219,7 @@ function Signup() {
               />{" "}
             </label>
             <button
-              className="submit-btn"
+              className="submit-btn arya"
               disabled={isLoading}
               onClick={() => handleSignInWithGooglePopUp()}
               style={{ backgroundColor: "#23231e", color: "white" }}>
@@ -323,7 +323,7 @@ function Signup() {
               </label>
             </div>
             <div className="radio-btn" style={{ height: "5%" }}>
-              <div>Gender</div>
+              <div id="gender">Gender</div>
               <div className="radio-btn">
                 <div className="rdbtn-temp">
                   {" "}
@@ -355,7 +355,7 @@ function Signup() {
               Sign In
             </button>
             <Link to="/signin">
-              <div>Already have an Account? Sign In</div>
+              <div class="Great">Already have an Account? Sign In</div>
             </Link>
           </div>
         </div>

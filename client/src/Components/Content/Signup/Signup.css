@@ -160,3 +160,16 @@
   }
 
 }
+.Great:hover{
+ font-weight: bolder;
+ color: #000000;
+ text-decoration: none;
+}
+.arya{
+  margin-top: 10rem;
+  padding:-100rem;
+}
+#gender{
+  margin-left:-6.5rem;
+  font-size: larger;
+}
