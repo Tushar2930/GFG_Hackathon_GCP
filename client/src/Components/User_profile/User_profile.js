@@ -15,6 +15,7 @@ import Orders from "../Content/orders/recentOrders";
 import Cart from "../Cart/my_cart";
 import UserProducts from "./userproducts/userProducts";
 import ServicesRequested from "./services_requested/servicesRequested";
+import ProfileLoading from "../assets/lotti/profileLoading";
 //api
 import { getUser } from "../api/getUser";
 import "./user_profile.css";
@@ -45,7 +46,7 @@ export default function User_profile() {
     fetchData();
   }, [useAuth.currentUser]);
   if (isLoading) {
-    return <CircularProgress />;
+    return <ProfileLoading />;
   }
   if (!useAuth.currentUser) {
     return <Navigate to={"/signin"} />;
