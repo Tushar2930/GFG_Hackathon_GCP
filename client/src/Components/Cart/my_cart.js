@@ -204,13 +204,10 @@ function Cart() {
           Welcome to your cart
         </div>
         {/* card */}
+        {cardComponentArray?.length > 0 ? (
         <div className="flex flex-col sm:flex-row w-full justify-center ms:items-center gap-10 ">
           <div className="w-full sm:w-2/3">
-            {cardComponentArray?.length === 0 ? (
-              <h1>No items in the Cart</h1>
-            ) : (
-              cardComponentArray
-            )}
+            {cardComponentArray}
           </div>
           <div
             className="ms-0  pt-3 items-center justify-center h-50"
@@ -297,6 +294,9 @@ function Cart() {
             </div>
           </div>
         </div>
+        ) : (
+          <h1 className="xyztemp">No Items in Cart</h1>
+        )}
         <div
           className="mt-4 "
           style={{ display: "flex", justifyContent: "center" }}>

@@ -76,7 +76,7 @@ function RecentOrdersPage() {
   } else {
     return (
       <div className="orders-container">
-        <h1>No Orders Placed</h1>
+        <h1 className="text-3xl">No Orders Placed</h1>
       </div>
     );
   }

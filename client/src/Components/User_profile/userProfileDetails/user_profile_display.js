@@ -16,7 +16,7 @@ const UserCard = ({ data }) => {
   return (
     <div className="profileContainer" style={{ height: "150vh" }}>
       <div className="userImagelol">
-        <img className=" rounded-full" style={{border:"7px solid black"}} src={data.ip} />
+        <img className=" rounded-full" style={{border:"7px solid #fed65c"}} src={data.ip} />
       </div>
       <div
         className="user-card ">
