@@ -162,3 +162,16 @@
   font-family:cursive;
   font-size: x-large;
 }
+.cc{
+  font-size: larger;
+  color:rgb(99, 125, 39) ;
+  font-family: cursive;
+}
+#aa{
+  font-weight: bolder;
+  font-size: xx-large;
+}
+#GFG{
+  font-weight: bolder;
+  font-size:3rem;
+}

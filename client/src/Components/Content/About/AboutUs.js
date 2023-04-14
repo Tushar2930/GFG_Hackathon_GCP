@@ -10,9 +10,9 @@ function About() {
         <section class="text-gray-600 body-font">
           <div class="container px-5 py-24 mx-auto" style={{ width: "100%",boxShadow:"none" }}>
             <div class="flex flex-col text-center mb-20 text-white -mx-12 py-8 w-screen" style={{backgroundColor:"rgb(0, 113, 93)"}}>
-              <h1 class="text-2xl font-medium title-font mb-4 text-white nuni">
+              <p class="text-2xl font-medium title-font mb-4 text-white nuni" id="GFG" >
                 OUR TEAM
-              </h1>
+              </p>
               <p class="lg:w-2/3 mx-auto leading-relaxed text-base sans">
                 Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
                 gentrify, subway tile poke farm-to-table. Franzen you probably
@@ -336,7 +336,7 @@ function About() {
                   boxShadow: "none",
                 }}>
                 <div class="flex flex-col text-center w-full">
-                  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 nuni">
+                  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 nuni" id="aa">
                     Contact Us
                   </h1>
                 </div>
@@ -346,7 +346,7 @@ function About() {
                       <div class="relative">
                         <label
                           for="name"
-                          class="leading-7 text-sm text-gray-600">
+                          class="leading-7 text-sm text-gray-600 cc">
                           Name
                         </label>
                         <input
@@ -361,7 +361,7 @@ function About() {
                       <div class="relative">
                         <label
                           for="email"
-                          class="leading-7 text-sm text-gray-600">
+                          class="leading-7 text-sm text-gray-600 cc">
                           Email
                         </label>
                         <input
@@ -376,7 +376,7 @@ function About() {
                       <div class="relative">
                         <label
                           for="message"
-                          class="leading-7 text-sm text-gray-600">
+                          class="leading-7 text-sm text-gray-600 cc">
                           Message
                         </label>
                         <textarea
@@ -389,7 +389,7 @@ function About() {
                       <button
                         class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
                         style={{ backgroundColor: "#3D6B47" }}>
-                        Send
+                        Let's Connect
                       </button>
                     </div>
                     <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
