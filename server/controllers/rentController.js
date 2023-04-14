@@ -14,6 +14,8 @@ module.exports.addFarmer=async function(req,res){
         data.service_provider_email="";
         // console.log(data);
         const resp=await db.collection('rent').add(data);
+        data.id=resp.id;
+        const resp1=await db.collection('rent').doc(resp.id).update(data);
         return res.status(200).json({
             message:"Data added successfully"
         });
@@ -69,6 +71,19 @@ module.exports.addProvider=async function(req,res){
                 status:"accepted",
                service_provider_email:cu_email
             });
+            //get services_given from cu_email and add id,email to it
+            const user=await db.collection('users').where('email','==',cu_email).get();
+            var services_given=user.docs[0].data().services_given;
+            if(services_given==undefined){
+            services_given=[];
+            }
+            services_given.push({rent_card_id:id,service_given_to:email});
+            //update services_given
+            const resp1=await db.collection('users').doc(user.docs[0].id).update({
+                services_given:services_given
+            });
+            //get services_requested from email and add id,cu_email to it
+
             return res.status(200).json({
                 message:"Data added successfully"
             });

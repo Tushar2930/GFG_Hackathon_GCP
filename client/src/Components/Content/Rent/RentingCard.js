@@ -21,10 +21,11 @@ function Card({ service_asked, id, name, area, price, address, date, duration, i
         email,
         cu_email: useAuth.currentUser.email
       })
-    })
+    })  
     const res = await response.json()
     if (res.message == "Data added successfully") {
       alert("Service added successfully");
+      window.location.reload();
     }
   }
   const styles = {

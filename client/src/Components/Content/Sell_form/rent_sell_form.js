@@ -1,5 +1,6 @@
 import React ,{useContext}from "react";
 import FileBase from "react-file-base64";
+import { useNavigate } from "react-router";
 import "./veg_sell_form/veg_sell.css";
 import { AuthContext } from "../context/AuthorizationContext";
 
@@ -13,6 +14,7 @@ function Rent(){
   const [price,setPrice]=React.useState("");
 
   const useAuth = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit=async (e)=>{
     e.preventDefault();
@@ -37,7 +39,7 @@ function Rent(){
     const res=await resp.json();
     if(res.message==="Data added successfully"){
       alert("Data added successfully");
-      window.location.href="/";
+      navigate("/rent");
     }
   }
 

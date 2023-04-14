@@ -118,3 +118,35 @@ module.exports.getUserRent = async function (req, res) {
     console.log(error);
   }
 };
+ 
+module.exports.getServicesProvided = async function (req, res) {
+  try {
+    const email = req.body.email;
+    //search in rent collection for user email equal to email and get the whole data
+    const collection = db.collection("rent");
+    const data = await collection.where("service_provider_email", "==", email).get();
+    var list = [];
+    data.forEach((doc) => {
+      list.push({
+        _id: doc.id,
+        address: doc.data().Address,
+        area: doc.data().area,
+        date: doc.data().date,
+        duration: doc.data().duration,
+        email: doc.data().email,
+        ip: doc.data().ip,
+        name: doc.data().name,
+        price: doc.data().price,
+        service: doc.data().service,
+      });
+    });
+    // console.log(req.body);
+
+    return res.json({
+      message: "success",
+      data: list,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
