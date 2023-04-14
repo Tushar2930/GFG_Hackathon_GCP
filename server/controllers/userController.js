@@ -11,7 +11,6 @@ module.exports.create = async function (req, res) {
     )
     .then((response) => {
       const res = response.data;
-      console.log(res);
       data = { ...data, latlng: res.features[0].center };
       db.collection("users").add(data);
       return res;

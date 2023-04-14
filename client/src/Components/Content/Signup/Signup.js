@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import FileBase from "react-file-base64";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 import { createUser } from "../../api/createUser";
 import { CircularProgress } from "@mui/material";
@@ -59,7 +59,7 @@ function Signup() {
               pauseOnHover: true,
               draggable: true,
               progress: undefined,
-              });
+            });
           })
         : toast.error("Password and confirm password does not match", {
             position: "bottom-right",
@@ -69,8 +69,7 @@ function Signup() {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            });
-
+          });
     } catch (err) {
       console.log(err.message);
       toast.error(err.message, {
@@ -81,7 +80,7 @@ function Signup() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
+      });
       setIsLoading(false);
     }
     setIsLoading(false);
@@ -90,7 +89,8 @@ function Signup() {
   const navigate = useNavigate();
   useEffect(() => {
     if (useAuth.currentUser) {
-      return navigate("/userProfile");
+      return (window.location.href = "/userProfile");
+      // return navigate("/userProfile");
     }
   }, [useAuth.currentUser]);
   useEffect(() => {
@@ -239,7 +239,7 @@ function Signup() {
             <label>
               Upload Profile Pic:
               <FileBase
-                id="file"   
+                id="file"
                 type="image"
                 multiple={false}
                 onDone={({ base64 }) => setForm({ ...form, ip: base64 })}
@@ -250,8 +250,11 @@ function Signup() {
               className="submit-btn arya"
               disabled={isLoading}
               onClick={() => handleSignInWithGooglePopUp()}
-              style={{ backgroundColor: "#23231e", color: "white" ,display
-              :"none"}}>
+              style={{
+                backgroundColor: "#23231e",
+                color: "white",
+                display: "none",
+              }}>
               Sign in with Google
             </button>
           </div>
