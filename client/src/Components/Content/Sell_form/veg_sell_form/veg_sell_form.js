@@ -98,6 +98,7 @@ function Veg_sell() {
             <label className="text-center sell-field" htmlFor="item-price" style={{fontSize:"1.3rem"} }>Item Price</label>
             <textarea
             style={{width:'100%'}}
+              rows="1"
               classname="veg-sell-input"
               type="text"
               id="item-price"
@@ -115,6 +116,7 @@ function Veg_sell() {
               Max Quantity*(in kg)
             </label>
             <textarea
+             rows="1"
              style={{width:'100%'}}
               classname="veg-sell-input mx-0"
               type="number"
@@ -139,6 +141,7 @@ function Veg_sell() {
           <div className="flexb" style={{width:'41%'}}>
             <label className="text-center sell-field" htmlFor="item-desc" style={{fontSize:"1.3rem"}}>Item Descricption</label>
             <textarea
+            rows="1"
             style={{width:'100%'}}
               classname="veg-sell-input"
               type="text"

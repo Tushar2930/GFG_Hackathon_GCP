@@ -2,7 +2,7 @@ import React from "react";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
 import LoadingImg from "../assets/loading.png";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const HorizontalCard = ({
   img_url,
@@ -15,7 +15,6 @@ const HorizontalCard = ({
   updateFeilds,
 }) => {
   return (
-    
     <div
       style={{
         display: "flex",
@@ -39,7 +38,7 @@ const HorizontalCard = ({
 
       <div className="w-full sm:w-3/4 flex sm:flex-wrap h-20  items-center justify-around">
         {/* Content */}
-        <div style={{ width: "20%", paddingLeft: "2%" }}>{name}</div>
+        <div style={{ width: "30%", paddingLeft: "2%" }}>{name}</div>
         {/* Plus-Minus Button */}
         <div
           style={{
@@ -71,11 +70,13 @@ const HorizontalCard = ({
           </button>
         </div>
         {/* Price */}
-        <div style={{ width: "30%", textAlign: "center" }}>
-          <h3>${price}</h3>
+        <div style={{ width: "15%", textAlign: "center" }}>
+          <h3>${price * quantity}</h3>
         </div>
-        <div className=" px-3 py-3 hover:bg-black hover:text-white rounded-full" onClick={() => updateFeilds(id, 0)}>
-          <DeleteIcon/>
+        <div
+          className=" px-3 py-3 hover:bg-black hover:text-white rounded-full"
+          onClick={() => updateFeilds(id, 0)}>
+          <DeleteIcon />
         </div>
       </div>
     </div>

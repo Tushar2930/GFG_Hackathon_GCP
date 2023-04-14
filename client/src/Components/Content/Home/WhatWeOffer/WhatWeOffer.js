@@ -11,15 +11,15 @@ const WhatWeOffer = () => {
       <div className="offer-root">
         <div className="bg_circle1" />
         <div className="bg_circle2" />
-        <section class="text-gray-600 body-font ">
+        <section className="text-gray-600 body-font ">
           <div
-            class="container sm:px-5 sm:py-24 sm:mx-auto  "
+            className="container sm:px-5 sm:py-24 sm:mx-auto  "
             style={{
               width: "100vw",
               boxShadow: "none",
               background: "none",
             }}>
-            <div class="flex flex-col text-center w-full mb-20 -mt-6">
+            <div className="flex flex-col text-center w-full mb-20 -mt-6">
               <div className="what_are_our_services text-2xl sm:text-5xl text-white py-10">
                 Our Services
               </div>
@@ -28,11 +28,11 @@ const WhatWeOffer = () => {
                 className="w-48 sm:w-96 flex  self-center -m-16 sm:-m-24 pb-10"
               />
               <div className="flex flex-wrap w-screen  justify-center  sm:justify-around sm:m--3 sm:pl-10 sm:pr-10">
-                <div class="flex flex-wrap w-full h-24 sm:h-48 sm:w-1/3  ">
-                  <div class=" p-4 w-full">
+                <div className="flex flex-wrap w-full h-24 sm:h-48 sm:w-1/3  ">
+                  <div className=" p-4 w-full">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      class="what_offer_container fresh_veges flex rounded-lg sm:h-80 p-8 flex-col">
+                      className="what_offer_container fresh_veges flex rounded-lg sm:h-80 p-8 flex-col">
                       <div className="know_more">
                         <Fade direction="down" className="heading">
                           Fresh Vegetables
@@ -47,7 +47,7 @@ const WhatWeOffer = () => {
                           {" "}
                           Learn More
                           <svg
-                            class="w-4 h-4 ml-2"
+                            className="w-4 h-4 ml-2"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                             stroke-width="2"
@@ -62,11 +62,11 @@ const WhatWeOffer = () => {
                     </motion.div>
                   </div>
                 </div>
-                <div class="flex flex-wrap w-full   h-24 sm:h-48  sm:w-1/3">
-                  <div class=" p-4 w-full">
+                <div className="flex flex-wrap w-full   h-24 sm:h-48  sm:w-1/3">
+                  <div className=" p-4 w-full">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      class="what_offer_container rental_services flex rounded-lg sm:h-80 p-8 flex-col">
+                      className="what_offer_container rental_services flex rounded-lg sm:h-80 p-8 flex-col">
                       <div className="know_more">
                         <Fade direction="down" className="heading">
                           Rental Services
@@ -80,13 +80,13 @@ const WhatWeOffer = () => {
                           {" "}
                           Learn More
                           <svg
-                            class="w-4 h-4 ml-2"
+                            className="w-4 h-4 ml-2"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
-                            stroke-width="2"
+                            strokeWidth="2"
                             fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round">
+                            strokeLinecap="round"
+                            strokeLinejoin="round">
                             <path d="M5 12h14"></path>
                             <path d="M12 5l7 7-7 7"></path>
                           </svg>
@@ -95,11 +95,11 @@ const WhatWeOffer = () => {
                     </motion.div>
                   </div>
                 </div>
-                <div class="flex flex-wrap w-full sm:h-48 sm:w-1/3">
-                  <div class=" p-4 w-full">
+                <div className="flex flex-wrap w-full sm:h-48 sm:w-1/3">
+                  <div className=" p-4 w-full">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      class="what_offer_container farming_advicer flex rounded-lg sm:h-80 p-8 flex-col">
+                      className="what_offer_container farming_advicer flex rounded-lg sm:h-80 p-8 flex-col">
                       <div className="know_more">
                         <Fade direction="down" className="heading">
                           Farming Advisor
@@ -114,7 +114,7 @@ const WhatWeOffer = () => {
                           {" "}
                           Learn More
                           <svg
-                            class="w-4 h-4 ml-2"
+                            className="w-4 h-4 ml-2"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                             stroke-width="2"

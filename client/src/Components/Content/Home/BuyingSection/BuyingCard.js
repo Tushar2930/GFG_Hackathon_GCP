@@ -7,14 +7,12 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthorizationContext";
 
 function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
-  const [quantity, setinputValue] = useState(minQuantity);
   const useAuth = useContext(AuthContext);
-  const [hovered, setHovered] = useState(true);
+  const [hovered, setHovered] = useState(false);
   const handleHover = () => {
-    setHovered(!hovered);
-    // console.log(hovered);
+    window.screen.availWidth >= 640 && setHovered(!hovered);
   };
-  console.log(maxQuantity, minQuantity, name, price, id);
+  console.log(window.screen.availWidth);
   const handleCart = async function () {
     if (!useAuth.currentUser) {
       alert("Please Login First");
@@ -32,7 +30,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
         email: useAuth.currentUser.email,
         minQuantity,
         maxQuantity,
-        quantity,
+        quantity: minQuantity,
       }),
     });
     const data = await resp.json();
@@ -46,7 +44,6 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
       alert("Error");
     }
   };
-
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`/product/${id}`);
@@ -54,8 +51,9 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
 
   return (
     <div
-      className="card-root w-25 h-40 sm:w-60 sm:h-80 flex flex-col items-around justify-around mt-10   focus:border-2  sm:hover:border-2"
+      className="card-root  h-40 w-24 sm:w-60 sm:h-80 flex flex-col items-around justify-around mt-10   focus:border-2  sm:hover:border-2"
       style={{ borderRadius: "10px", backgroundColor: "#ffffff" }}
+      onClick={() => window?.screen?.availWidth <= 640 && handleClick()}
       onMouseEnter={handleHover}
       onMouseLeave={handleHover}>
       <div
@@ -66,15 +64,14 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}>
-        <div className={hovered ? "hover_icon" : "card_icon"}>
+        <div
+          className={`w-8 h-8 p-2 rounded-4xl -m-2 ${
+            hovered ? "card_icon" : "card_icon_hidden"
+          } `}>
           <ShoppingCartOutlinedIcon
             style={{
-              width: "2rem",
-              height: "2rem",
-              padding: "0.5rem",
-              borderRadius: "2rem",
+              borderRadius: "20px",
               backgroundColor: "#dcdcdcba",
-              margin: "-0.5rem",
             }}
             onClick={handleCart}
           />
@@ -98,7 +95,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
           marginRight: "-20px",
           backgroundColor: "White ",
           borderRadius: "10px",
-          zIndex: 11,
+          zIndex: 2,
           padding: "10px",
         }}>
         <div
@@ -106,7 +103,9 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
           style={{ fontWeight: "500" }}>
           {name}
         </div>
-        <div className="card-price sm:text-sm" style={{ color: "#01b000" }}>
+        <div
+          className="card-price text-sm sm:text-2xl"
+          style={{ color: "#01b000" }}>
           ₹ {price}
         </div>
       </div>

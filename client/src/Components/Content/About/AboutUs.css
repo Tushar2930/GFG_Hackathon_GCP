@@ -147,3 +147,18 @@
     }
   }
 
+.aryan{
+  cursor:pointer;
+}
+.bb{
+   text-decoration: none;
+   text-shadow:2%;
+   font-size: larger;
+}
+.ss{
+  margin-top: 1%;
+  margin-bottom:2%;
+  font-weight: bold;
+  font-family:cursive;
+  font-size: x-large;
+}

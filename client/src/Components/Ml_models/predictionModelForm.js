@@ -39,7 +39,7 @@ function PredictionForm() {
             <div class="form-style-2-heading pb-3">Provide your information</div>
             <form action="" method="post" onSubmit={handleSubmit} style={{width: '100%'}}>
                 <label for="field1" style={{width: '100%'}}>
-                    <span>Nitrogen<span class="required">*</span></span>
+                    <span class="">Nitrogen<span class="required">*</span></span>
                     <input
                         type="number"
                         name="field1"
@@ -52,12 +52,13 @@ function PredictionForm() {
                     />
                 </label>
                 <label for="field2"  style={{width: '100%'}}>
-                    <span>Phosphorus<span class="required">*</span></span>
+                    <span style={{width: '50%'}}>Phosphorus<span class="required">*</span></span>
                     <input
                         type="number"
                         name="field2"
                         id="phosphorus"
                         class="input-field"
+                        style={{width: '50%'}}
                         value={phosphorus}
                         min={0}
                         max={1000}

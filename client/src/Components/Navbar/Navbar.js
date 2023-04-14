@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
+import { AuthContext } from "../Content/context/AuthorizationContext";
 
 import "./navbar.css";
 import logoImg from "./images/Agrokart logo.png";
@@ -8,6 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const useAuth = React.useContext(AuthContext);
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -48,7 +50,7 @@ function Navbar() {
         </li>
         <li>
           <Link to="/signup" className={scroll ? "hover-a" : "navbar-links-a"}>
-            Log In
+            {useAuth?.currentUserDetails?.data ? "Profile" : " Log In"}
           </Link>
         </li>
         <li>
@@ -56,7 +58,7 @@ function Navbar() {
             <ShoppingCartIcon />
           </Link>
         </li>
-        <li className={scroll ? "hover-a" : "navbar-links-a"}>
+        <li className={`text-white ${scroll ? "hover-a" : "navbar-links-a"}`}>
           <MenuIcon />
         </li>
       </ul>
