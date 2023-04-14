@@ -6,7 +6,7 @@ const UserCard = ({ data }) => {
   const { userName, profiledata, address, accountNo, mobileNo, latlng, email } =
     data;
 
-  const [profileOpted, setprofileOpted] = React.useState("Farmer");
+  const [profileOpted, setprofileOpted] = React.useState("");
   React.useEffect(() => {
     profiledata?.map((item) => {
       setprofileOpted(`${profileOpted} ${item}`);
