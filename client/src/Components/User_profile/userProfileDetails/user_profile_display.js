@@ -1,7 +1,7 @@
 import React from "react";
 import Map from "./map/map.js";
 import "./UserCard.css";
-
+ 
 const UserCard = ({ data }) => {
   const { userName, profiledata, address, accountNo, mobileNo, latlng, email } =
     data;
@@ -16,15 +16,14 @@ const UserCard = ({ data }) => {
   return (
     <div className="profileContainer" style={{ height: "150vh" }}>
       <div className="userImagelol">
-        <img className=" rounded-full" src={data.ip} />
+        <img className=" rounded-full" style={{border:"7px solid #fed65c"}} src={data.ip} />
       </div>
       <div
-        className="user-card "
-        style={{ height: "65vh", width: "70vw", backgroundColor: "#f9f5e9" }}>
+        className="user-card ">
         <div
           className="user-card_presonaldetails flex justify-center flex-col "
           style={{ height: "50vh" }}>
-          <div className="text-5xl nuni" style={{ fontWeight: "700" }}>
+          <div className="sm:text-5xl text-4xl nuni" style={{ fontWeight: "700" }}>
             Personal Details
           </div>
           <div

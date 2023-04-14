@@ -17,17 +17,20 @@
   top: 60px;
 }
 .user-card {
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   min-width: 200px;
   /* margin: 0 auto; */
   margin: 0rem 1rem;
   padding-top: 5rem;
+  height: 65vh;
+  width: 70vw;
+  background-color: rgb(249, 245, 233);
 }
 
 .user-card_personaldetails {
@@ -63,3 +66,14 @@
 .user-card__details p strong {
   font-weight: bold;
 }
+
+@media screen and (max-width: 600px) {
+  .profileContainer {
+    width: 100%;
+    border-radius: 0%;
+  }
+  .user-card{
+    width: 91%;
+  }
+}
+  

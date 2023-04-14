@@ -31,7 +31,7 @@ export default function UserProducts() {
     };
     fetchProducts();
   }, []);
-
+ 
   return (
     <div className="userProducts w-full justify-around flex">
       {userProducts?.map((product) => (

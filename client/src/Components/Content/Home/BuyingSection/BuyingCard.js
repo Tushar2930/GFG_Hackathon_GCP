@@ -53,7 +53,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
 
   return (
     <div
-      className="card-root  h-40 w-24 sm:w-60 sm:h-80 flex flex-col items-around justify-around mt-10   focus:border-2  sm:hover:border-2"
+      className="card-root  h-40 w-24 sm:w-60 sm:h-80 flex flex-col items-around justify-around my-10   focus:border-2  sm:hover:border-2"
       style={{ borderRadius: "10px", backgroundColor: "#ffffff" }}
       onClick={() => window?.screen?.availWidth <= 640 && handleClick()}
       onMouseEnter={handleHover}
