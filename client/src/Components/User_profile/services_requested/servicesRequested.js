@@ -16,7 +16,7 @@ export default function ServicesRequested() {
           }),
         };
         const res = await fetch(
-          "http://localhost:8000/user/get-user-rent",
+          `http://${process.env.REACT_APP_IP}:8000/user/get-user-rent`,
           requestOptions
         );
         const data = await res.json();

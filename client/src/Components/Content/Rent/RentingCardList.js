@@ -10,7 +10,7 @@ function BuyingCardList(props) {
   const [allData, setAllData] = useState([]);
   useEffect(() => {
     async function fetchData() {
-    const data=await fetch("http://localhost:8000/rent/getAllFarmers",{
+    const data=await fetch(`http://${process.env.REACT_APP_IP}:8000/rent/getAllFarmers`,{
       method:"GET",
       headers:{
         "Content-Type":"application/json"

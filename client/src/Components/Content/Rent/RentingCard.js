@@ -11,7 +11,7 @@ function Card({ service_asked, id, name, area, price, address, date, duration, i
   const useAuth = useContext(AuthContext);
   const handleClick = async () => {
     
-    const response = await fetch('http://localhost:8000/rent/add-provider', {
+    const response = await fetch(`http://${process.env.REACT_APP_IP}:8000/rent/add-provider`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
