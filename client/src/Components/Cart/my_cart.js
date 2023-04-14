@@ -31,7 +31,6 @@ function Cart() {
     if (useAuth.currentUser === null) {
       alert("Please login to continue");
       navigate("/signin");
-
     }
   }, []);
   const [data, setData] = React.useState({});
@@ -74,7 +73,7 @@ function Cart() {
   async function feth() {
     if (useAuth.currentUser) {
       try {
-        const resp = await fetch("http://localhost:8000/cart/get-products", {
+        const resp = await fetch(`http://${process.env.REACT_APP_IP}:8000/cart/get-products`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -87,7 +86,7 @@ function Cart() {
         const temp = await resp.json();
         setData(temp);
 
-        const data1 = await fetch("http://localhost:8000/cart/get-image", {
+        const data1 = await fetch(`http://${process.env.REACT_APP_IP}:8000/cart/get-image`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -121,7 +120,7 @@ function Cart() {
       order_id: orderData.id,
       handler: async function (response) {
         console.log(response);
-        const data1 = await fetch("http://localhost:8000/order/verify", {
+        const data1 = await fetch(`http://${process.env.REACT_APP_IP}:8000/order/verify`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -132,7 +131,7 @@ function Cart() {
         });
         const resp = await data1.json();
         if (resp.message === "Sign Valid") {
-          const data2 = await fetch("http://localhost:8000/order/place", {
+          const data2 = await fetch(`http://${process.env.REACT_APP_IP}:8000/order/place`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -156,7 +155,7 @@ function Cart() {
   //   total = total + parseInt(card?.quantity) * parseInt(card?.price);
   // // console.log(total);
   const handlePay = async function () {
-    const resp = await fetch("http://localhost:8000/order/checkout", {
+    const resp = await fetch(`http://${process.env.REACT_APP_IP}:8000/order/checkout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -187,7 +186,6 @@ function Cart() {
       />
     );
   });
-
   return (
     <div className="flex flex-col ">
       {/* top image */}
@@ -207,7 +205,13 @@ function Cart() {
         </div>
         {/* card */}
         <div className="flex flex-col sm:flex-row w-full justify-center ms:items-center gap-10 ">
-          <div className="w-full sm:w-2/3">{cardComponentArray}</div>
+          <div className="w-full sm:w-2/3">
+            {cardComponentArray?.length === 0 ? (
+              <h1>No items in the Cart</h1>
+            ) : (
+              cardComponentArray
+            )}
+          </div>
           <div
             className="ms-0  pt-3 items-center justify-center h-50"
             style={{ border: "1px solid #ccc" }}>

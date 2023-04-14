@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Source+Serif+Pro:wght@200&display=swap');
-@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
-
 .main_fluid-container {
   width: 100vw;
   height: 100vh;
-  background-image: url(../image/tactor.jpg);
+  background-image: url("../../../assets/Tractor copy.jpg");
   background-size: cover;
   display: flex;
   position: relative;
@@ -34,6 +31,16 @@
   color: rgb(0, 0, 0);
 }
 
-.font-temp{
-  font-family:Manjari; 
+.font-temp {
+  font-family: Nunito;
+}
+
+@media screen and (max-width: 640px) {
+  .main_fluid-container {
+    height: 60vh;
+    background-image: url("../../../assets/tractorsmall.avif");
+    -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+    clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+    margin-top: -4rem;
+  }
 }

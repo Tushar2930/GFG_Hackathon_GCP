@@ -1,25 +1,52 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./BuyingCard";
 import "./BuyingCardList.css";
 import { Slide } from "react-awesome-reveal";
+import Illustration from "./illussion.js";
 import MiddleOrange from "../middleOrange/middleOrange";
 
 import { Link } from "react-router-dom";
 
 function BuyingCardList() {
   const [data, setData] = React.useState([]);
+  const [screenWidth, setScreenWidth] = useState(0);
+  const [isLoading, setisLoading] = useState(false);
+  const [showData, setShowData] = useState([]);
+
   useEffect(() => {
-    fetch("http://localhost:8000/product/get-products")
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data.data);
-        // console.log(data);
-      });
+    setisLoading(true);
+    try {
+      fetch(`http://${process.env.REACT_APP_IP}:8000/product/get-products`)
+        .then((response) => response.json())
+        .then((data) => {
+          setisLoading(false);
+          setData(data.data);
+          setShowData(data.data);
+        });
+    } catch (error) {
+      setisLoading(false);
+      console.log(error.message);
+    }
   }, []);
-  var cardComponentArray = data.map((card, k) => {
-    if (k < 8) {
+  useEffect(() => {
+    window?.screen.width >= 640 ? setScreenWidth(4) : setScreenWidth(6);
+  }, [window.screen.width]);
+
+  const filter_products = (e) => {
+    var filter = e.target.value;
+    var temp = [];
+    data.map((item) => {
+      if (item.category === filter) {
+        temp.push(item);
+      }
+    });
+    setShowData(temp);
+  };
+  var cardComponentArray = showData?.map((card, k) => {
+    if (k < screenWidth) {
       return (
         <Card
+          key={k}
           img_url={card?.ip}
           maxQuantity={card?.maxQuantity}
           minQuantity={card?.minQuantity}
@@ -35,43 +62,61 @@ function BuyingCardList() {
     <>
       <div className="froot">
         <div className="placeImage" />
-        <p class="title_font" style={{ marginTop: "1rem" }}>
+        <p class="title_font text-xs sm:text-2xl sm:mt-4">
           Fresh From our farm
         </p>
         <div>
-          <h3 class="title_font title_text">Featured Products</h3>
+          <h3 class="title_font title_text text-2xl sm:text-6xl">
+            Featured Products
+          </h3>
         </div>
         <div className="filter_options">
           <button
+            onClick={(e) => {
+              filter_products(e);
+            }}
+            value={"Vegetables"}
             type="button"
-            class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
-            Vegetable
+            class="filter_options_buttons p-0  text-white bg-yellow-400 sm:hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-xs sm:text-sm  text-center sm:mr-2 sm:mb-2 dark:focus:ring-yellow-900">
+            Vegetables
           </button>
           <button
+            onClick={(e) => {
+              filter_products(e);
+            }}
+            value={"Fruits"}
             type="button"
-            class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+            class="p-0 filter_options_buttons text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-xs sm:text-sm  text-center sm:mr-2 sm:mb-2 dark:focus:ring-yellow-900">
             Fruits
           </button>
           <button
+            onClick={(e) => {
+              filter_products(e);
+            }}
+            value={"Cereals"}
             type="button"
-            class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+            class="p-0 filter_options_buttons text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-xs sm:text-sm  text-center sm:mr-2 sm:mb-2 dark:focus:ring-yellow-900">
             Cereals
           </button>
           <button
+            value={"Dry Fruits"}
+            onClick={(e) => {
+              filter_products(e);
+            }}
             type="button"
-            class="p-0 w-10 text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm  text-center mr-2 mb-2 dark:focus:ring-yellow-900">
+            class="p-0 filter_options_buttons text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full  text-xs sm:text-sm  text-center sm:mr-2 sm:mb-2 dark:focus:ring-yellow-900">
             Dry Fruits
           </button>
         </div>
         <Slide bottom triggerOnce>
-          <div className="card-cont flex flex-wrap justify-center">
-            {cardComponentArray}
+          <div className=" flex flex-wrap justify-center  w-screen h-auto gap-3 sm:gap-20 ">
+            {isLoading ? <Illustration /> : cardComponentArray}
           </div>
         </Slide>
         <Link to="/shop">
           <button
             type="button"
-            class="w-40  bg-yellow-500  hover:bg-emerald-800 hover:text-white font-medium rounded-lg text-sm text-center mt-10 mr-2 mb-2">
+            class="w-40  bg-yellow-500  hover:bg-emerald-800 hover:text-white font-medium rounded-lg text-sm text-center mt-10 mr-2 mb-5 sm:mb-2 h-10">
             View more
           </button>
         </Link>

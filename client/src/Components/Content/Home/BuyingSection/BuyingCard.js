@@ -1,38 +1,24 @@
 import React from "react";
-import "./BuyingCard.css";
 import "./BuyingCardList.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useState, useContext } from "react";
-import img_bg from "../image/shap-small.png";
 import { AuthContext } from "../../context/AuthorizationContext";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-function Card({
-  img_url,
-  maxQuantity,
-  minQuantity,
-  name,
-  description,
-  price,
-  id,
-}) {
-  const [quantity, setinputValue] = useState(minQuantity);
+function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
   const useAuth = useContext(AuthContext);
-  const [hovered, setHovered] = useState(true);
+  const [hovered, setHovered] = useState(false);
   const handleHover = () => {
-    setHovered(!hovered);
-    // console.log(hovered);
+    window.screen.availWidth >= 640 && setHovered(!hovered);
   };
-
+  console.log(window.screen.availWidth);
   const handleCart = async function () {
     if (!useAuth.currentUser) {
       alert("Please Login First");
       window.location.href = "/signin";
     }
-    const resp = await fetch("http://localhost:8000/cart/add-product", {
+    const resp = await fetch(`http://${process.env.REACT_APP_IP}:8000/cart/add-product`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +30,7 @@ function Card({
         email: useAuth.currentUser.email,
         minQuantity,
         maxQuantity,
-        quantity,
+        quantity: minQuantity,
       }),
     });
     const data = await resp.json();
@@ -58,67 +44,72 @@ function Card({
       alert("Error");
     }
   };
-
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`/product/${id}`);
   };
 
   return (
-    <>
+    <div
+      className="card-root  h-40 w-24 sm:w-60 sm:h-80 flex flex-col items-around justify-around mt-10   focus:border-2  sm:hover:border-2"
+      style={{ borderRadius: "10px", backgroundColor: "#ffffff" }}
+      onClick={() => window?.screen?.availWidth <= 640 && handleClick()}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleHover}>
       <div
-        className="card-root"
-        onMouseEnter={handleHover}
-        onMouseLeave={handleHover}>
-        <div className="imgWrapper">
-          <img
-            src={img_url}
-            alt="error"
-            className={hovered ? "zoom" : "nozoom"}
-            style={{ height: "80%", width: "100%", borderRadius: "1rem" }}
-          />
-          <img
-            src={img_bg}
-            alt="error"
-            className={hovered ? "zoom" : "nozoom"}
+        className={`imgWrapper w-full h-full ${hovered ? "zoom" : "nozoom"}`}
+        style={{
+          backgroundImage: `url(${img_url})`,
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}>
+        <div
+          className={`w-8 h-8 p-2 rounded-4xl -m-2 ${
+            hovered ? "card_icon" : "card_icon_hidden"
+          } `}>
+          <ShoppingCartOutlinedIcon
             style={{
-              position: "absolute",
-              bottom: 0,
-              height: "30%",
-              width: "100%",
+              borderRadius: "20px",
+              backgroundColor: "#dcdcdcba",
             }}
+            onClick={handleCart}
           />
-          <div className={hovered ? "hover_icon" : "card_icon"}>
-            <ShoppingCartOutlinedIcon
-              style={{
-                width: "2rem",
-                height: "2rem",
-                padding: "0.5rem",
-                borderRadius: "2rem",
-                backgroundColor: "#dcdcdcba",
-                margin: "-0.5rem",
-              }}
-              onClick={handleCart}
-            />
-            <SearchIcon
-              style={{
-                width: "2rem",
-                height: "2rem",
-                padding: "0.5rem",
-                borderRadius: "2rem",
-                backgroundColor: "#dcdcdcba",
-                margin: "-0.5rem",
-              }}
-              onClick={() => handleClick()}
-            />
-          </div>
-        </div>
-        <div className="card-info">
-          <div className="card-name">{name}</div>
-          <div className="card-price">₹ {price}</div>
+          <SearchIcon
+            style={{
+              width: "2rem",
+              height: "2rem",
+              padding: "0.5rem",
+              borderRadius: "2rem",
+              backgroundColor: "#dcdcdcba",
+              margin: "-0.5rem",
+            }}
+            onClick={() => handleClick()}
+          />
         </div>
       </div>
-    </>
+      <div
+        className="card-info w-full  h-1/3  flex flex-col items-center justify-center  "
+        style={{
+          marginTop: "-25px",
+          marginRight: "-20px",
+          backgroundColor: "White ",
+          borderRadius: "10px",
+          zIndex: 2,
+          padding: "10px",
+        }}>
+        <div
+          className="card-name text-xs sm:text-xl placeholder:"
+          style={{ fontWeight: "500" }}>
+          {name}
+        </div>
+        <div
+          className="card-price text-sm sm:text-2xl"
+          style={{ color: "#01b000" }}>
+          ₹ {price}
+        </div>
+      </div>
+    </div>
   );
 }
 

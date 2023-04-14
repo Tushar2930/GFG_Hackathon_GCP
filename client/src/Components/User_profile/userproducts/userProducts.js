@@ -17,7 +17,7 @@ export default function UserProducts() {
             }),
           };
           const data = await fetch(
-            "http://localhost:8000/user/get-user-products",
+            `http://${process.env.REACT_APP_IP}:8000/user/get-user-products`,
             requestOptions
           )
             .then((res) => res.json())
@@ -33,7 +33,7 @@ export default function UserProducts() {
   }, []);
 
   return (
-    <div className="userProducts">
+    <div className="userProducts w-full justify-around flex">
       {userProducts?.map((product) => (
         <Card
           key={product._id}

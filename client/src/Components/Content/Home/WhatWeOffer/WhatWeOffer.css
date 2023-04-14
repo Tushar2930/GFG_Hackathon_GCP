@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap"); */
+@import "@fontsource/nunito";
 
 .offer-root {
   text-align: center;
@@ -20,7 +21,6 @@
   clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
   margin-top: -3rem;
   padding-bottom: 300px;
-  background-image: url("../image/—Pngtree—blowing leaves_3091642.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -68,6 +68,7 @@
   width: 100%;
   height: 40%;
   left: 0;
+  font-family: Nunito;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -102,23 +103,76 @@
   font-size: 1rem;
   display: flex;
 }
-.floating {
-  animation-name: floating;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  margin-left: 30px;
-  margin-top: 5px;
+
+.what_are_our_services {
+  font-family: Nunito;
+}
+.bg_circle1 {
+  background-image: url(../image/Circle.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  top: -250px;
+  left: -250px;
+  z-index: -1;
+  opacity: 0.4;
 }
 
-@keyframes floating {
-  0% {
-    transform: translate(0, 0px);
+.bg_circle2 {
+  background-image: url(../image/Circle.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+@media screen and (max-width: 768px) {
+  .offer-root {
+    padding: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+    clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+    margin-top: -1rem;
+    padding-bottom: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
-  50% {
-    transform: translate(0, 15px);
+}
+
+@media screen and (max-width: 768px) {
+  .offer-heading {
+    margin-top: 0;
+    color: #25271c;
+    font-family: Noto Serif;
+    font-weight: 400;
+    font-size: 48px;
   }
-  100% {
-    transform: translate(0, -0px);
+
+  .off-cont {
+    display: flex;
+    justify-content: space-evenly;
+    width: 85vw;
+    height: 100%;
+    background: none;
+    box-shadow: none;
+    margin-left: 3rem;
+  }
+  .fresh_veges,
+  .rental_services,
+  .farming_advicer {
+    position: relative;
+    background-size: cover;
+    border-radius: 0px 20px 0px 40px;
+    overflow: hidden;
   }
 }

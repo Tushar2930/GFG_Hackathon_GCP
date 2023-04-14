@@ -1,8 +1,6 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./dealsweek.css";
 import Clock from "./Clock";
-
-
 
 function DealsWeek() {
   const [timerDays, setTimerDays] = useState();
@@ -42,15 +40,21 @@ function DealsWeek() {
 
   useEffect(() => {
     startTimer();
-  },[]);
+  }, []);
 
   return (
     <>
       <div className="droot">
-      <h1 className="text-6xl pt-12 heading-sec" style={{fontWeight:'800'}}>Deals of The Week</h1>
+        <h1
+          className="text-2xl sm:text-6xl pt-4 sm:pt-12 heading-sec"
+          style={{ fontWeight: "800" }}>
+          Deals of The Week
+        </h1>
         <section class="text-gray-600 body-font w-screen">
-          <div class=" px-5 py-24 mx-auto flex flex-wrap  w-screen">
-            <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden bg-white flex justify-center content-center" style={{alignItems:"center"}}>
+          <div class=" px-2 sm:px-5 py-12 sm:py-24 mx-auto flex flex-wrap  w-screen">
+            <div
+              class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden bg-white flex justify-center content-center"
+              style={{ alignItems: "center" }}>
               <img
                 alt="feature"
                 className="object-cover object-center h-5/6 w-5/6 img-flui"
@@ -63,21 +67,25 @@ function DealsWeek() {
                   <h2 class="text-orange-500 text-xl title-font font-medium mb-3 text-left">
                     _________
                   </h2>
-                  <h2 className="text-5xl text-left text-gray-900 py-4 hover:text-orange-600">
+                  <h2 className="item-name text-xl sm:text-5xl text-left text-gray-900 py-4 hover:text-orange-600">
                     Quisqiue Voluptas
                   </h2>
                   <h2 className="text-left">
-                    <span className="text-2xl text-left text-orange-600">₹ 999</span>
+                    <span className="text-l text-left text-orange-600">
+                      ₹ 999
+                    </span>
                   </h2>
-                  <p class="leading-relaxed text-base w-3/4 py-4 text-left">
+                  <p
+                    class="leading-relaxed text-xs sm:text-base w-3/4 py-4 text-left"
+                    style={{ fontFamily: "sans-serif" }}>
                     Blue bottle crucifix vinyl post-ironic four dollar toast
                     vegan taxidermy. Gastropub indxgo juice poutine.
                   </p>
                   <Clock
-                  timerDays={timerDays}
-                  timerHours={timerHours}
-                  timerMinutes={timerMinutes}
-                  timerSeconds={timerSeconds}
+                    timerDays={timerDays}
+                    timerHours={timerHours}
+                    timerMinutes={timerMinutes}
+                    timerSeconds={timerSeconds}
                   />
                   <a class="mt-3 text-indigo-500 inline-flex items-center btn-cart">
                     Add to Cart

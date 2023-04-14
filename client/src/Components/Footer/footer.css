@@ -106,3 +106,9 @@
     color: #999;
     margin: 0.16rem;
 }
+
+@media screen and (max-width: 750px) {
+    .footer-head{
+        display: none;
+    }
+}

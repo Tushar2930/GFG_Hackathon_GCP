@@ -41,7 +41,7 @@
 }
 
 .navbar-links li a:hover {
-  color: #000;
+  color: #636363;
 }
 
 .navbar-menu-icon {
@@ -93,4 +93,22 @@
   transform-origin: 0%;
   z-index: 1000;
   border-radius: 10rem;
+}
+@media screen and (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+  .navbar {
+    height: 7vh;
+    background-color: none;
+  }
+  .navbar-scroll {
+    background-color: transparent;
+    box-shadow: none;
+    position: fixed;
+    width: 100vw;
+    height: 7vh;
+    align-items: flex-start;
+    -webkit-transition: all 0.24s ease-in-out 0.24s;
+  }
 }

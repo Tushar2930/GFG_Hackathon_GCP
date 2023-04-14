@@ -8,12 +8,12 @@ function About() {
     <>
       <div>
         <section class="text-gray-600 body-font">
-          <div class="container px-5 py-24 mx-auto" style={{ width: "100%" }}>
-            <div class="flex flex-col text-center w-full mb-20">
-              <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">
+          <div class="container px-5 py-24 mx-auto" style={{ width: "100%",boxShadow:"none" }}>
+            <div class="flex flex-col text-center mb-20 text-white -mx-12 py-8 w-screen" style={{backgroundColor:"rgb(0, 113, 93)"}}>
+              <h1 class="text-2xl font-medium title-font mb-4 text-white nuni">
                 OUR TEAM
               </h1>
-              <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+              <p class="lg:w-2/3 mx-auto leading-relaxed text-base sans">
                 Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
                 gentrify, subway tile poke farm-to-table. Franzen you probably
                 haven't heard of them.
@@ -25,14 +25,14 @@ function About() {
                   <img
                     alt="team"
                     class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                    src="https://dummyimage.com/200x200"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST6r6t_jveCSCBbhGTNZr3YJmbWpsh8CntVw&usqp=CAU"
                   />
                   <div class="w-full">
-                    <h2 class="title-font font-medium text-lg text-gray-900">
-                      Sumit Ghosh
+                    <h2 class="title-font font-medium text-lg text-gray-900 nuni">
+                      Sumit Ghosh 
                     </h2>
-                    <h3 class="text-gray-500 mb-3">Frontend Developer</h3>
-                    <p class="mb-4">
+                    <h3 class="text-gray-500 mb-3 sans">Frontend Developer</h3>
+                    <p class="mb-4 sans">
                       DIY tote bag drinking vinegar cronut adaptogen squid fanny
                       pack vaporware.
                     </p>
@@ -82,14 +82,14 @@ function About() {
                   <img
                     alt="team"
                     class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                    src="https://dummyimage.com/201x201"
+                    src="https://static.vecteezy.com/system/resources/previews/004/865/921/original/programmer-people-concept-use-laptop-and-programming-code-program-icon-spreading-with-modern-flat-style-free-vector.jpg"
                   />
                   <div class="w-full">
-                    <h2 class="title-font font-medium text-lg text-gray-900">
+                    <h2 class="title-font font-medium text-lg text-gray-900 nuni">
                       Tanmay Shukla
                     </h2>
-                    <h3 class="text-gray-500 mb-3">Backend Developer</h3>
-                    <p class="mb-4">
+                    <h3 class="text-gray-500 mb-3 sans">Backend Developer</h3>
+                    <p class="mb-4 sans">
                       DIY tote bag drinking vinegar cronut adaptogen squid fanny
                       pack vaporware.
                     </p>
@@ -139,14 +139,14 @@ function About() {
                   <img
                     alt="team"
                     class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                    src="https://dummyimage.com/202x202"
+                    src="https://static.vecteezy.com/system/resources/thumbnails/016/915/122/small_2x/man-programmer-is-working-on-his-laptop-coding-and-programming-vector.jpg"
                   />
                   <div class="w-full">
-                    <h2 class="title-font font-medium text-lg text-gray-900">
+                    <h2 class="title-font font-medium text-lg text-gray-900 nuni">
                       Tushar Shingane
                     </h2>
-                    <h3 class="text-gray-500 mb-3">Backend Developer</h3>
-                    <p class="mb-4">
+                    <h3 class="text-gray-500 mb-3 sans">Backend Developer</h3>
+                    <p class="mb-4 sans">
                       DIY tote bag drinking vinegar cronut adaptogen squid fanny
                       pack vaporware.
                     </p>
@@ -163,7 +163,7 @@ function About() {
                           <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                         </svg>
                       </a>
-                      <a class="ml-2 text-gray-500">
+                      <a class="ml-2 text-gray-500"> 
                         <svg
                           fill="none"
                           stroke="currentColor"
@@ -196,14 +196,14 @@ function About() {
                   <img
                     alt="team"
                     class="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
-                    src="https://dummyimage.com/203x203"
+                    src="https://thumbs.dreamstime.com/b/programmer-sitting-table-working-coding-chatting-laptop-online-backend-frontend-developer-man-home-office-guy-202147846.jpg"
                   />
                   <div class="w-full">
-                    <h2 class="title-font font-medium text-lg text-gray-900">
+                    <h2 class="title-font font-medium text-lg text-gray-900 nuni">
                       Aryan Bhargava
                     </h2>
-                    <h3 class="text-gray-500 mb-3">UI Developer</h3>
-                    <p class="mb-4">
+                    <h3 class="text-gray-500 mb-3 sans">UI Developer</h3>
+                    <p class="mb-4 sans">
                       DIY tote bag drinking vinegar cronut adaptogen squid fanny
                       pack vaporware.
                     </p>
@@ -254,18 +254,17 @@ function About() {
       </div>
       <div>
         <div
-          className="text-white text-3xl flex justify-center items-center"
-          style={{ backgroundColor: "#00715D", height: "40vh" }}>
+          className="text-white sm:text-3xl sm:flex sm:justify-center sm:items-center nuni banner">
           Let's Create Something Together
         </div>
         <div
-          className="flex justify-evenly absolute -bottom-1/2 z-10"
+          className="flex justify-evenly items-center -mt-12  z-10"
           style={{ width: "98vw" }}>
           <div
-            className="px-8 py-8 flex flex-col justify-around bg-white"
+            className="px-8 py-8 flex flex-col justify-around w-1/5 bg-white display-card"
             style={{
               height: "30vh",
-              width: "20%",
+             
               boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
             }}>
             <div>
@@ -275,12 +274,12 @@ function About() {
               Call us
             </div>
             <div>
-              <div>+91-9876543210</div>
-              <div>+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
             </div>
           </div>
           <div
-            className="px-8 py-8 flex flex-col justify-around bg-white"
+            className="px-8 py-8 flex flex-col justify-around bg-white contact-card"
             style={{
               height: "30vh",
               width: "20%",
@@ -293,12 +292,12 @@ function About() {
               Call us
             </div>
             <div>
-              <div>+91-9876543210</div>
-              <div>+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
             </div>
           </div>
           <div
-            className="px-8 py-8 flex flex-col justify-around bg-white"
+            className="px-8 py-8 flex flex-col justify-around bg-white contact-card"
             style={{
               height: "30vh",
               width: "20%",
@@ -311,13 +310,13 @@ function About() {
               Call us
             </div>
             <div>
-              <div>+91-9876543210</div>
-              <div>+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
+              <div className="sans">+91-9876543210</div>
             </div>
           </div>
         </div>
       </div>
-      <div className="mt-56" style={{ backgroundColor: "#F9F5E9" }}>
+      <div className="sm:mt-56 mt-32" style={{ backgroundColor: "#F9F5E9" }}>
         <section class="text-gray-600 body-font relative">
           <div class="absolute inset-0" style={{ backgroundColor: "#F9F5E9" }}>
             {/* <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed" style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe> */}
@@ -329,16 +328,15 @@ function About() {
               backgroundColor: "#F9F5E9",
               boxShadow: "none",
             }}>
-            <section class="text-gray-600 body-font relative flex flex-row w-full">
+            <section class="text-gray-600 body-font relative flex sm:flex-row flex-col w-full justify-evenly">
               <div
-                class="container px-5 py-24 mx-0"
+                class="container px-5 py-24 sm:w-1/2 w-full mx-0"
                 style={{
-                  width: "50%",
                   backgroundColor: "#F9F5E9",
                   boxShadow: "none",
                 }}>
                 <div class="flex flex-col text-center w-full">
-                  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+                  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 nuni">
                     Contact Us
                   </h1>
                 </div>
@@ -459,7 +457,7 @@ function About() {
                   </div>
                 </div>
               </div>
-              <div className="w-1/2  mt-20  h-2/3  rounded-3xl border-2 border-slate-300">
+              <div className="sm:w-1/2  mt-20 sm:h-2/3 h-1/2 w-full rounded-3xl border-2 border-slate-300 mapbox" >
                 <Map
                   latlng={[82.984146, 25.264544]}
                   marker={[82.984146, 25.264544]}

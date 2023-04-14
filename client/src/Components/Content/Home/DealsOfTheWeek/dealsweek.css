@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&family=Source+Serif+Pro:wght@200&display=swap");
-
+@import "@fontsource/nunito";
 .droot {
   display: flex;
   flex-direction: column;
@@ -12,7 +11,7 @@
   left: 0;
   position: relative;
   max-width: 100vw;
-  padding: 2rem;
+  /* padding: 2rem; */
   padding-bottom: 4.25rem;
   padding-top: 3rem;
   -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
@@ -91,5 +90,27 @@
 }
 
 .heading-sec {
-  font-family: Manjari;
+  font-family: Nunito;
+}
+
+.item-name {
+  font-family: Nunito;
+}
+
+@media screen and (max-width: 640px) {
+  .droot {
+    margin-top: -1rem;
+  }
+  .btn-cart {
+    padding: 1rem;
+    font-size: x-small;
+    height: 1rem;
+    width: 7rem;
+    background-color: orange;
+    color: white;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

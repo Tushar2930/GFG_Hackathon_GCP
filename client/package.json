@@ -6,6 +6,7 @@
     "@coreui/react": "^4.7.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@fontsource/nunito": "^4.5.12",
     "@mapbox/mapbox-gl-geocoder": "github:mapbox/mapbox-gl-geocoder",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.12",
@@ -17,6 +18,7 @@
     "firebase": "^9.17.2",
     "firebase-admin": "^11.5.0",
     "framer-motion": "^10.10.0",
+    "lottie-web": "^5.11.0",
     "mapbox-gl": "^2.13.0",
     "react": "^18.2.0",
     "react-awesome-reveal": "^4.2.3",
@@ -33,6 +35,7 @@
     "react-toastify": "^9.1.2",
     "scss": "^0.2.4",
     "stringify": "^5.2.0",
+    "swiper": "^9.2.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
