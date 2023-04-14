@@ -219,7 +219,7 @@ function Signup() {
               />{" "}
             </label>
             <button
-              className="submit-btn"
+              className="submit-btn arya"
               disabled={isLoading}
               onClick={() => handleSignInWithGooglePopUp()}
               style={{ backgroundColor: "#23231e", color: "white" }}>
@@ -355,7 +355,7 @@ function Signup() {
               Sign In
             </button>
             <Link to="/signin">
-              <div>Already have an Account? Sign In</div>
+              <div class="Great">Already have an Account? Sign In</div>
             </Link>
           </div>
         </div>
