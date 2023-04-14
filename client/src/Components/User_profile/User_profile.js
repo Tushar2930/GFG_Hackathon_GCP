@@ -2,6 +2,8 @@ import { useState, useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../Content/context/AuthorizationContext";
 //icons
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { CircularProgress } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
@@ -57,6 +59,15 @@ export default function User_profile() {
       setIsLoading(true);
       await useAuth.SignOut().then((result) => {
         setIsLoading(false);
+        toast.success("Signed out successfully", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
     } catch (error) {
       console.log(error.message);

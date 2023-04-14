@@ -2,6 +2,8 @@ import React, { useContext, useState,useEffect } from "react";
 import { CircularProgress } from "@mui/material";
 import { AuthContext } from "../context/AuthorizationContext.js";
 import { Link, Navigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./SignIn.css";
 
 export default function SignIn() {
@@ -15,11 +17,30 @@ export default function SignIn() {
     try {
       setIsLoading(true);
       await useAuth.login(email, password).then((result) => {
+        toast.success("Login Successfull", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
         setIsLoading(false);
       });
     } catch (error) {
       setIsLoading(false);
       console.log(error.message);
+      toast.error(error.message, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
@@ -104,7 +125,7 @@ export default function SignIn() {
               <div><Link to="/signin/resetpassword">Forgot Password ?</Link></div>
             </div>
             <button className="submit-btn" disabled={isLoading} onClick={() => handleSignIn()}>{!isLoading ? "Login" : <CircularProgress />}</button>
-            <button className="submit-btn" disabled={isLoading}
+            <button className="submit-btn hidden" disabled={isLoading}
         onClick={() => handleSignInWithGooglePopUp()}>Sign in with Google</button>
             <Link to='/signup'>
               <div>Don't have an Account? Sign Up</div>

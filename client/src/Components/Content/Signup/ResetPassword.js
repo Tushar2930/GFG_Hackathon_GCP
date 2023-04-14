@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthorizationContext.js";
 import "./resetPassword.css";
 import img from "./rpp.png";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ResetPassword() {
   const useAuth = useContext(AuthContext);
@@ -18,7 +20,15 @@ export default function ResetPassword() {
       setIsLoading(true);
       await useAuth.ForgotPassword(email).then((result) => {
         setIsLoading(false);
-        console.log(result);
+        toast.success("Password Reset Link Send in Mail",{
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
       setIsResetPasswordSuccessful(true);
     } catch (err) {

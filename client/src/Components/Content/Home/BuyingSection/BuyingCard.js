@@ -1,5 +1,7 @@
 import React from "react";
 import "./BuyingCardList.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 
@@ -9,6 +11,8 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthorizationContext";
 
 function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
+    
+  
   const useAuth = useContext(AuthContext);
   const [hovered, setHovered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +21,16 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
   };
   const handleCart = async function () {
     if (!useAuth.currentUser) {
-      alert("Please Login First");
+      toast.warn("Please Login to add product to cart", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      
       window.location.href = "/signin";
     }
 
@@ -43,9 +56,27 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
     const data = await resp.json();
     setIsLoading(false);
     if (data.message === "success") {
-      alert("Product Added to cart Succesfully");
+      // alert("Product Added to cart Succesfully");
+      toast.success("Product Added to cart Succesfully", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      // console.log("Product Added to cart Succesfully");
     } else if (data.message === "already added") {
-      alert("Product Already Added to cart");
+      toast.warn("Product Already Added to cart", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       // toast("Product Already Added to cart");
     } else {
       alert("Error");

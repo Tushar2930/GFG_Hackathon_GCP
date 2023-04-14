@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import "./RentingCard.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../context/AuthorizationContext.js";
 import tractor_img from "./images/tractor.jpg";
 import harvestor_img from "./images/harvestor.jpg";
@@ -36,7 +38,16 @@ function Card({
     );
     const res = await response.json();
     if (res.message == "Data added successfully") {
-      alert("Service added successfully");
+      toast.success("Provider added successfully", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+
       window.location.reload();
     }
   };

@@ -3,6 +3,8 @@ import FileBase from "react-file-base64";
 import { useNavigate } from "react-router";
 import "./veg_sell_form/veg_sell.css";
 import { AuthContext } from "../context/AuthorizationContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Rent(){
   const [name,setName]=React.useState("");
@@ -38,7 +40,16 @@ function Rent(){
     });
     const res=await resp.json();
     if(res.message==="Data added successfully"){
-      alert("Data added successfully");
+      toast.success("Data added successfully",{
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+
+      });
       navigate("/rent");
     }
   }
