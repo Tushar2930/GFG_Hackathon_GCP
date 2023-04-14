@@ -12,27 +12,29 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
   const handleHover = () => {
     window.screen.availWidth >= 640 && setHovered(!hovered);
   };
-  console.log(window.screen.availWidth);
   const handleCart = async function () {
     if (!useAuth.currentUser) {
       alert("Please Login First");
       window.location.href = "/signin";
     }
-    const resp = await fetch(`http://${process.env.REACT_APP_IP}:8000/cart/add-product`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id,
-        name,
-        price,
-        email: useAuth.currentUser.email,
-        minQuantity,
-        maxQuantity,
-        quantity: minQuantity,
-      }),
-    });
+    const resp = await fetch(
+      `http://${process.env.REACT_APP_IP}:8000/cart/add-product`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id,
+          name,
+          price,
+          email: useAuth.currentUser.email,
+          minQuantity,
+          maxQuantity,
+          quantity: minQuantity,
+        }),
+      }
+    );
     const data = await resp.json();
     console.log(data.message);
     if (data.message === "success") {

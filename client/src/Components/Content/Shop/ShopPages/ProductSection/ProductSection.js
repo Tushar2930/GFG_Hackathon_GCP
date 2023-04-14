@@ -7,6 +7,7 @@ import Card from "../../../Home/BuyingSection/BuyingCard";
 import "./ProductSection.css";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
+import banner from "../../../../assets/Shop white text.png";
 
 function ProductSection() {
   const [lth, setLth] = React.useState(false);
@@ -16,13 +17,13 @@ function ProductSection() {
   const [isLoading, setisLoading] = useState(false);
   const useAuth = useContext(AuthContext);
 
+  const displayCard = window?.screen?.availWidth < 640 ? 15 : 20;
+
   useEffect(() => {
     async function fetchData() {
       if (useAuth.currentUser) {
         try {
-          await getUser(useAuth?.currentUser?.email).then((result) => {
-            console.log(result);
-          });
+          await getUser(useAuth?.currentUser?.email).then((result) => {});
         } catch (error) {
           console.log(error.message);
         }
@@ -44,7 +45,7 @@ function ProductSection() {
 
   const [data, setData] = React.useState([]);
   const [allData, setAllData] = React.useState([]);
-  const [index, setIndex] = React.useState(8);
+  const [page, setPage] = React.useState(8);
   useEffect(() => {
     try {
       setisLoading(true);
@@ -61,19 +62,29 @@ function ProductSection() {
     }
   }, []);
 
-  var cardComponentArray = data.map((card) => {
-    return (
-      <Card
-        key={card._id}
-        minQuantity={card?.minQuantity}
-        maxQuantity={card?.maxQuantity}
-        img_url={card?.ip}
-        name={card?.name}
-        description={card?.description}
-        price={card?.price}
-        id={card._id}
-      />
-    );
+  const pagination = (e = 0) => {
+    var temp = [];
+    for (let i = 0; i < allData.length - (e - 1) * 15; i++) {
+      temp[i] = allData[i + (e - 1) * 15];
+    }
+    setData(temp);
+  };
+
+  var cardComponentArray = data.map((card, i) => {
+    if (i < displayCard) {
+      return (
+        <Card
+          key={i}
+          minQuantity={card?.minQuantity}
+          maxQuantity={card?.maxQuantity}
+          img_url={card?.ip}
+          name={card?.name}
+          description={card?.description}
+          price={card?.price}
+          id={card?._id}
+        />
+      );
+    }
   });
 
   const [searchResults, setSearchResults] = useState("");
@@ -125,10 +136,10 @@ function ProductSection() {
   return (
     <div className="fluid-container">
       <div>
-        <img src="https://demo.7iquid.com/agrisoil/wp-content/uploads/2022/07/page-title-bg-1.jpg"></img>
+        <img src={banner}></img>
       </div>
       <div className="row" style={{ padding: "18px" }}>
-        <div className="col-2 w-screen ">
+        <div className="col-2 w-1/6">
           <div className="row w-full" style={{ marginTop: "1.58%" }}>
             <label className="mx-0 mb-5 w-full flex">
               <div className="  text-black  text-sm sm:text-l">Sort by:</div>
@@ -367,9 +378,30 @@ function ProductSection() {
             <div className="">
               <MdArrowBackIosNew />
             </div>
-            <div className="view-more-circle">1</div>
-            <div className="view-more-circle">2</div>
-            <div className="view-more-circle">3</div>
+            <div
+              className="view-more-circle"
+              id={1}
+              onClick={(e) => {
+                pagination(e.target.id);
+              }}>
+              1
+            </div>
+            <div
+              className="view-more-circle"
+              id={2}
+              onClick={(e) => {
+                pagination(e.target.id);
+              }}>
+              2
+            </div>
+            <div
+              className="view-more-circle"
+              id={3}
+              onClick={(e) => {
+                pagination(e.target.id);
+              }}>
+              3
+            </div>
             <div className="">
               <MdArrowForwardIos />
             </div>

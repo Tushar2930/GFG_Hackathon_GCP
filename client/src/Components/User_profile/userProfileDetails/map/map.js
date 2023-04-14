@@ -2,8 +2,7 @@ import Map, { Marker } from "react-map-gl";
 import img from "../../../Content/Home/image/map-marker.png";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-const accessToken =
-  "pk.eyJ1IjoibWFwLWJvaTY5IiwiYSI6ImNsYzF5OWhiNTNxZzEzcGtlZ2g4OTAxM3MifQ.CqZQLqoP6bO5UkLZoTzQhQ";
+const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
 const Maap = ({ latlng, zoom, marker }) => {
   const markerStyle = {
