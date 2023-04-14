@@ -7,6 +7,7 @@ import Card from "../../../Home/BuyingSection/BuyingCard";
 import "./ProductSection.css";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
+import banner from "../../../../assets/Shop white text.png";
 
 function ProductSection() {
   const [lth, setLth] = React.useState(false);
@@ -135,10 +136,10 @@ function ProductSection() {
   return (
     <div className="fluid-container">
       <div>
-        <img src="https://demo.7iquid.com/agrisoil/wp-content/uploads/2022/07/page-title-bg-1.jpg"></img>
+        <img src={banner}></img>
       </div>
       <div className="row" style={{ padding: "18px" }}>
-        <div className="col-2 w-screen ">
+        <div className="col-2 w-1/6">
           <div className="row w-full" style={{ marginTop: "1.58%" }}>
             <label className="mx-0 mb-5 w-full flex">
               <div className="  text-black  text-sm sm:text-l">Sort by:</div>

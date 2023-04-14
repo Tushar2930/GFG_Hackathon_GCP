@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './ml_page.css';
 import { motion } from "framer-motion";
 import crop_predict_img from "./images/crop.jpg"
@@ -13,15 +13,10 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const MlPage = () => {
  
-useEffect(() => {
-  window.scrollTo(0, 0)
-}, [])
-
-
   return (
   <>
     <div>
-      <div className="px-12 py-12 text-center text-white text-6xl nuni" style={{backgroundColor:"#00715d"}}>Farming Advices</div>
+      <div className="px-12 py-12 text-center text-white text-6xl" style={{backgroundColor:"#00715d"}}>Farming Advices</div>
 
       <div className="px-12 py-12" style={{backgroundColor:"#f9f5e9"}}>
         <div className='firstImgStart flex justify-center items-center px-12 py-12'>
@@ -32,9 +27,9 @@ useEffect(() => {
     height: "2rem"}}/> </div></Link>
         </div>
         <div className='firstImgText w-1/2'>
-        <h2 className="text-3xl mb-12 nuni" style={{fontWeight:"900"}}>Crop Recommendation</h2>
-          <p className='sans'>
-          A crop recommendation model is a machine learning model that recommends the best crop to grow based on factors such as soil composition , pH level, rainfall, and geographical location. This model is designed to help farmers make informed decisions about their farming strategies and maximize their crop yields. The model can be built using various techniques such as ensembling, recurrent neural networks with Long Short-Term Memory (LSTM) neuron models , or improved distribution based chicken swarm optimization (IDCSO) with weight-based LSTM 
+        <h2 className="text-3xl mb-12" style={{fontWeight:"500"}}>Crop Recommendation</h2>
+          <p>
+          There are several fertilizer prediction models available that can help determine the optimal amount and type of fertilizer to add to soil. These models use data such as soil type, weather conditions, crop history, and other factors to calculate the amount of nutrients and other additives needed to maintain or improve soil health and crop yield. By analyzing this data, the models can provide recommendations on which specific fertilizers to use and how much to apply.
           </p>
         </div>
       {/* end */}
@@ -47,8 +42,8 @@ useEffect(() => {
     height: "2rem"}}/> </div></Link> 
         </div>
         <div className='firstImgText w-1/2'>
-        <h2 className="text-3xl mb-12 nuni" style={{fontWeight:"900"}}>Fertilizer Recommendation</h2>
-          <p className='sans'>
+        <h2 className="text-3xl mb-12" style={{fontWeight:"500"}}>Fertilizer Recommendation</h2>
+          <p>
           There are several fertilizer prediction models available that can help determine the optimal amount and type of fertilizer to add to soil. These models use data such as soil type, weather conditions, crop history, and other factors to calculate the amount of nutrients and other additives needed to maintain or improve soil health and crop yield. By analyzing this data, the models can provide recommendations on which specific fertilizers to use and how much to apply.
           </p>
         </div>
