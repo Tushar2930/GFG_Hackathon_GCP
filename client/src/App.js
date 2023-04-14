@@ -22,11 +22,14 @@ import FertilizerForm from "./Components/Ml_models/fertilizerModelForm";
 import PredictionForm from "./Components/Ml_models/predictionModelForm.js";
 import CropPredictionResult from "./Components/Ml_models/cropModelResult.js";
 import Menu from "./Components/menu/menu";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function App() {
   return (
     <AuthProvider>
       <div className="App">
+      <ToastContainer />
         <Menu />
         <Navbar />
         <Routes>

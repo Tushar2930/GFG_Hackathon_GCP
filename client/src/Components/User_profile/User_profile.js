@@ -2,6 +2,8 @@ import { useState, useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../Content/context/AuthorizationContext";
 //icons
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { CircularProgress } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
@@ -56,6 +58,15 @@ export default function User_profile() {
       setIsLoading(true);
       await useAuth.SignOut().then((result) => {
         setIsLoading(false);
+        toast.success("Signed out successfully", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
     } catch (error) {
       console.log(error.message);
@@ -74,13 +85,13 @@ export default function User_profile() {
   return (
     <div className="proot">
       <div className="dashboard-container w-screen flex flex-col sm:flex-row">
-        <div className="nav-container w-screen h-1/8 sm:h-full sm:w-1/5  flex-row sm:flex-col">
-          <div className="user_details hidden sm:w-full sm:h-2/5 sm:flex sm:flex-col ">
+        <div className="pro-root nav-container w-screen sm:h-full sm:w-1/5  flex-row sm:flex-col">
+          <div className="user_details hidden sm:w-full min-h-fit sm:flex sm:flex-col ">
             <img className="user-image" src={data?.ip} alt="User photo"></img>
             <div className="user-name   font-bold">{data?.userName}</div>
             <div className="user-email font-medium">{data?.email}</div>
           </div>
-          <div className=" flex sm:flex-col">
+          <div className=" flex sm:flex-col min-h-fit sm:px-4 sm:py-4 items-center sm:items-start">
             <div
               className="nav-item text-xs active"
               id="1"
@@ -114,7 +125,7 @@ export default function User_profile() {
             <button
               disabled={isLoading}
               onClick={() => handleSignOut()}
-              className="logout_button">
+              className="logout_button sm:w-full w-1/2 sm:mt-5 -mt-4">
               {!isLoading ? `Log out ` : <CircularProgress />}
               <LogoutIcon />
             </button>

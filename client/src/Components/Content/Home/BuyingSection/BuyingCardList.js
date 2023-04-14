@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./BuyingCard";
 import "./BuyingCardList.css";
 import { Slide } from "react-awesome-reveal";
-import Illustration from "./illussion.js";
+import Illustration from "../../../assets/lotti/illussion";
 import MiddleOrange from "../middleOrange/middleOrange";
 
 import { Link } from "react-router-dom";

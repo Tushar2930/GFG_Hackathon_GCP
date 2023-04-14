@@ -3,6 +3,8 @@ import Card from "./Cart_card";
 import "./checkout.css";
 import farm_img from "../assets/farming.jpg";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./my_cart.css";
 import { getUser } from "../api/getUser";
 import { updateUserCartItem } from "../api/updateCartProduct";
@@ -29,7 +31,15 @@ function Cart() {
   // }, [useAuth.currentUser]);
   useEffect(() => {
     if (useAuth.currentUser === null) {
-      alert("Please login to continue");
+      toast.warn("Please Login First", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       navigate("/signin");
     }
   }, []);
@@ -141,8 +151,17 @@ function Cart() {
               data,
             }),
           });
-          alert("Order Placed Successfully");
-          navigate("/");
+          toast.success("Order Placed Successfully", {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+
+          navigate("/userProfile");
         }
       },
     };
@@ -204,13 +223,10 @@ function Cart() {
           Welcome to your cart
         </div>
         {/* card */}
+        {cardComponentArray?.length > 0 ? (
         <div className="flex flex-col sm:flex-row w-full justify-center ms:items-center gap-10 ">
           <div className="w-full sm:w-2/3">
-            {cardComponentArray?.length === 0 ? (
-              <h1>No items in the Cart</h1>
-            ) : (
-              cardComponentArray
-            )}
+            {cardComponentArray}
           </div>
           <div
             className="ms-0  pt-3 items-center justify-center h-50"
@@ -297,6 +313,9 @@ function Cart() {
             </div>
           </div>
         </div>
+        ) : (
+          <h1 className="xyztemp">No Items in Cart</h1>
+        )}
         <div
           className="mt-4 "
           style={{ display: "flex", justifyContent: "center" }}>

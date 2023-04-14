@@ -2,6 +2,8 @@ import Map, { Marker } from "react-map-gl";
 import img from "../../../Content/Home/image/map-marker.png";
 import "mapbox-gl/dist/mapbox-gl.css";
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+
 const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
 const Maap = ({ latlng, zoom, marker }) => {
@@ -19,7 +21,9 @@ const Maap = ({ latlng, zoom, marker }) => {
       mapboxAccessToken={accessToken}
       interactive={true}
       style={{
-        width: "100%",
+        width: "95%",
+        alignSelf: "center",
+        margin:"1rem 0rem",
         height: "100%",
         borderRadius: "12px",
       }}

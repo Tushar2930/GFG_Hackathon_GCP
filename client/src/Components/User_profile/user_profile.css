@@ -19,6 +19,7 @@
 .nav-item {
   padding: 10px;
   border-radius: 5px;
+  font-size: 1.5rem;
   color: rgb(169, 169, 169);
   margin-bottom: 10px;
   cursor: pointer;
@@ -37,17 +38,28 @@
 }
 .logout_button {
   justify-self: flex-end;
-  width: 100%;
-  margin-top: 20px;
+  /* width: 100%; */
+  /* margin-top: 20px; */
   padding: 10px;
   border-radius: 5px;
   background-color: #ddd;
   cursor: pointer;
+}
+
+.pro-root{
+  height: 150vh;
 }
 @media screen and (max-width: 640px) {
   logout_button {
     width: 100%;
     height: 50%;
     font-size: smaller;
+  }
+  .pro-root{
+    height: 10vh;
+  }
+  .nav-item {
+    font-size: 0.75rem;
+
   }
 }

@@ -1,22 +1,40 @@
 import React from "react";
 import "./BuyingCardList.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
+
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthorizationContext";
 
 function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
+    
+  
   const useAuth = useContext(AuthContext);
   const [hovered, setHovered] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const handleHover = () => {
     window.screen.availWidth >= 640 && setHovered(!hovered);
   };
   const handleCart = async function () {
     if (!useAuth.currentUser) {
-      alert("Please Login First");
+      toast.warn("Please Login to add product to cart", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      
       window.location.href = "/signin";
     }
+
+    setIsLoading(true);
     const resp = await fetch(
       `http://${process.env.REACT_APP_IP}:8000/cart/add-product`,
       {
@@ -36,11 +54,29 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
       }
     );
     const data = await resp.json();
-    console.log(data.message);
+    setIsLoading(false);
     if (data.message === "success") {
-      alert("Product Added to cart Succesfully");
+      // alert("Product Added to cart Succesfully");
+      toast.success("Product Added to cart Succesfully", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      // console.log("Product Added to cart Succesfully");
     } else if (data.message === "already added") {
-      alert("Product Already Added to cart");
+      toast.warn("Product Already Added to cart", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       // toast("Product Already Added to cart");
     } else {
       alert("Error");
@@ -53,7 +89,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
 
   return (
     <div
-      className="card-root  h-40 w-24 sm:w-60 sm:h-80 flex flex-col items-around justify-around mt-10   focus:border-2  sm:hover:border-2"
+      className="card-root  h-40 w-24 sm:w-60 sm:h-80 flex flex-col items-around justify-around my-10   focus:border-2  sm:hover:border-2"
       style={{ borderRadius: "10px", backgroundColor: "#ffffff" }}
       onClick={() => window?.screen?.availWidth <= 640 && handleClick()}
       onMouseEnter={handleHover}
@@ -100,16 +136,22 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
           zIndex: 2,
           padding: "10px",
         }}>
-        <div
-          className="card-name text-xs sm:text-xl placeholder:"
-          style={{ fontWeight: "500" }}>
-          {name}
-        </div>
-        <div
-          className="card-price text-sm sm:text-2xl"
-          style={{ color: "#01b000" }}>
-          ₹ {price}
-        </div>
+        {isLoading ? (
+          <CircularProgress />
+        ) : (
+          <>
+            <div
+              className="card-name text-xs sm:text-xl placeholder:"
+              style={{ fontWeight: "500" }}>
+              {name}
+            </div>
+            <div
+              className="card-price text-sm sm:text-2xl"
+              style={{ color: "#01b000" }}>
+              ₹ {price}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import FileBase from "react-file-base64";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from "react-router-dom";
 import { createUser } from "../../api/createUser";
 import { CircularProgress } from "@mui/material";
@@ -50,10 +51,37 @@ function Signup() {
         ? await useAuth.Signup(form.email, form.password).then((result) => {
             createUser(form);
             setIsLoading(false);
+            toast.success("User created successfully", {
+              position: "bottom-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              });
           })
-        : alert("Password and confirm password does not matched");
+        : toast.error("Password and confirm password does not match", {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+
     } catch (err) {
       console.log(err.message);
+      toast.error(err.message, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
       setIsLoading(false);
     }
     setIsLoading(false);
@@ -222,7 +250,8 @@ function Signup() {
               className="submit-btn arya"
               disabled={isLoading}
               onClick={() => handleSignInWithGooglePopUp()}
-              style={{ backgroundColor: "#23231e", color: "white" }}>
+              style={{ backgroundColor: "#23231e", color: "white" ,display
+              :"none"}}>
               Sign in with Google
             </button>
           </div>

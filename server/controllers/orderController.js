@@ -94,6 +94,13 @@ module.exports.getImage=async function(req,res){
     try {
         const orderArray=await req.body.orders;
         var temp = [];
+        if(orderArray==undefined){
+            return res.status(200).json({
+                message:'No Orders',
+                data:temp
+            })
+        }
+
         for (let i = 0; i < orderArray.length; i++) {
             const snapsh = db.collection("products");
             var ref = await snapsh.where("id", "==", `${orderArray[i].id}`).get();
