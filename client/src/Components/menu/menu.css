@@ -168,21 +168,27 @@
   transition: all 250ms linear;
 }
 .menu .nav ul li:nth-child(1) {
-  transition-delay: 300ms;
+  transition-delay: 400ms;
 }
 .menu .nav ul li:nth-child(2) {
-  transition-delay: 250ms;
+  transition-delay: 350ms;
 }
 .menu .nav ul li:nth-child(3) {
-  transition-delay: 200ms;
+  transition-delay: 300ms;
 }
 .menu .nav ul li:nth-child(4) {
-  transition-delay: 150ms;
+  transition-delay: 250ms;
 }
 .menu .nav ul li:nth-child(5) {
-  transition-delay: 100ms;
+  transition-delay: 200ms;
 }
 .menu .nav ul li:nth-child(6) {
+  transition-delay: 150ms;
+}
+.menu .nav ul li:nth-child(7) {
+  transition-delay: 100ms;
+}
+.menu .nav ul li:nth-child(8) {
   transition-delay: 50ms;
 }
 .menu .nav ul li a {
@@ -241,8 +247,14 @@
 .menu .menu-icon:checked ~ .nav ul li:nth-child(6) {
   transition-delay: 1840ms;
 }
+.menu .menu-icon:checked ~ .nav ul li:nth-child(7) {
+  transition-delay: 1940ms;
+}
+.menu .menu-icon:checked ~ .nav ul li:nth-child(8) {
+  transition-delay: 2040ms;
+}
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 640px) {
   .menu-icon:checked + label,
   .menu-icon:not(:checked) + label {
     right: 55px;
@@ -252,21 +264,18 @@
   }
 
   .menu .nav ul li a {
-    font-size: 4vh;
+    font-size: 3vh;
   }
-}
 
-.pt-5 {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
+  .pt-5 {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
 
-@media screen and (max-width: 640px) {
   .pt-5 {
     font-family: "Montserrat", sans-serif;
-    font-weight: 200;
-    font-size: 10px;
+    font-weight: 300;
     line-height: 1.7;
     color: #ececee;
     background-color: #000300;
