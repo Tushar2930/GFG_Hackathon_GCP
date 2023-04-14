@@ -42,7 +42,7 @@ function BuyingCardList(props) {
   const onCategoryOptionClicked = (option) => {
     if (option.value !== "None") setService(option);
     else setData(allData);
-  };
+  }; 
 
   var cardComponentArray = data.map((card) => {
     //  console.log(card)
@@ -74,9 +74,9 @@ function BuyingCardList(props) {
     <>
       <section
         class="text-gray-600 body-font overflow-hidden"
-        style={{ width: "83%" }}>
+        style={{ width: "100%" }}>
         <div
-          class="container px-5 py-24 mx-auto"
+          class="container sm:px-5 py-24 mx-auto"
           style={{ width: "100%", background: "none" }}>
           <div class=" divide-y-2 divide-gray-100">{cardComponentArray}</div>
         </div>
