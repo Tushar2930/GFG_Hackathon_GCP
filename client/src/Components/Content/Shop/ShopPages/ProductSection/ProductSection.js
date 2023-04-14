@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import SearchBar from "./search";
 import { getUser } from "../../../../api/getUser";
 import { AuthContext } from "../../../../Content/context/AuthorizationContext";
-import Illstration from "../../../Home/BuyingSection/illussion";
+import Illstration from "../../../../assets/lotti/illussion";
 import Card from "../../../Home/BuyingSection/BuyingCard";
 import "./ProductSection.css";
 import { MdArrowBackIosNew } from "react-icons/md";

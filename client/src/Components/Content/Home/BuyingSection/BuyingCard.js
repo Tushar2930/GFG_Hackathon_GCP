@@ -1,6 +1,8 @@
 import React from "react";
 import "./BuyingCardList.css";
 import { useNavigate } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
+
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useState, useContext } from "react";
@@ -9,6 +11,7 @@ import { AuthContext } from "../../context/AuthorizationContext";
 function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
   const useAuth = useContext(AuthContext);
   const [hovered, setHovered] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const handleHover = () => {
     window.screen.availWidth >= 640 && setHovered(!hovered);
   };
@@ -17,6 +20,8 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
       alert("Please Login First");
       window.location.href = "/signin";
     }
+
+    setIsLoading(true);
     const resp = await fetch(
       `http://${process.env.REACT_APP_IP}:8000/cart/add-product`,
       {
@@ -36,7 +41,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
       }
     );
     const data = await resp.json();
-    console.log(data.message);
+    setIsLoading(false);
     if (data.message === "success") {
       alert("Product Added to cart Succesfully");
     } else if (data.message === "already added") {
@@ -100,16 +105,22 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
           zIndex: 2,
           padding: "10px",
         }}>
-        <div
-          className="card-name text-xs sm:text-xl placeholder:"
-          style={{ fontWeight: "500" }}>
-          {name}
-        </div>
-        <div
-          className="card-price text-sm sm:text-2xl"
-          style={{ color: "#01b000" }}>
-          ₹ {price}
-        </div>
+        {isLoading ? (
+          <CircularProgress />
+        ) : (
+          <>
+            <div
+              className="card-name text-xs sm:text-xl placeholder:"
+              style={{ fontWeight: "500" }}>
+              {name}
+            </div>
+            <div
+              className="card-price text-sm sm:text-2xl"
+              style={{ color: "#01b000" }}>
+              ₹ {price}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
