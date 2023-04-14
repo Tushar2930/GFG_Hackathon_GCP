@@ -33,7 +33,7 @@ export default function User_profile() {
           setIsLoading(true);
           await getUser(useAuth?.currentUser?.email).then((result) => {
             setData({ ...result.data });
-            console.log(result)
+            console.log(result);
             setIsLoading(false);
           });
         } catch (error) {
@@ -73,30 +73,42 @@ export default function User_profile() {
 
   return (
     <div className="proot">
-      <div className="dashboard-container">
-        <div className="nav-container">
-          <div className="user_details">
+      <div className="dashboard-container w-screen flex flex-col sm:flex-row">
+        <div className="nav-container w-screen h-1/8 sm:h-full sm:w-1/5  flex-row sm:flex-col">
+          <div className="user_details hidden sm:w-full sm:h-2/5 sm:flex sm:flex-col ">
             <img className="user-image" src={data?.ip} alt="User photo"></img>
             <div className="user-name   font-bold">{data?.userName}</div>
             <div className="user-email font-medium">{data?.email}</div>
           </div>
-          <div className="nav-options">
+          <div className=" flex sm:flex-col">
             <div
-              className="nav-item active"
+              className="nav-item text-xs active"
               id="1"
               onClick={(e) => setActive(e)}>
               <ManageAccountsIcon /> User Profile
             </div>
-            <div className="nav-item " id="2" onClick={(e) => setActive(e)}>
+            <div
+              className="nav-item text-xs "
+              id="2"
+              onClick={(e) => setActive(e)}>
               <ShoppingCartIcon /> Cart
             </div>
-            <div className="nav-item" id="3" onClick={(e) => setActive(e)}>
+            <div
+              className="nav-item text-xs"
+              id="3"
+              onClick={(e) => setActive(e)}>
               <LocalMallIcon /> Orders
             </div>
-            <div className="nav-item" id="4" onClick={(e) => setActive(e)}>
+            <div
+              className="nav-item text-xs"
+              id="4"
+              onClick={(e) => setActive(e)}>
               <Inventory2Icon /> Inventory
             </div>
-            <div className="nav-item" id="5" onClick={(e) => setActive(e)}>
+            <div
+              className="nav-item text-xs"
+              id="5"
+              onClick={(e) => setActive(e)}>
               <AgricultureIcon /> Service Requests
             </div>
             <button
@@ -108,7 +120,7 @@ export default function User_profile() {
             </button>
           </div>
         </div>
-        <div className="content-container">
+        <div className="content-container flex w-full sm:w-4/5 ">
           {activeComponent == 1 && <UserProfileDisplay data={data} />}
           {activeComponent == 2 && <Cart />}
           {activeComponent == 3 && <Orders />}

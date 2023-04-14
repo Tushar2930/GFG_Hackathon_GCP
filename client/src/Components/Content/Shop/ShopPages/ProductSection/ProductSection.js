@@ -21,7 +21,6 @@ function ProductSection() {
       if (useAuth.currentUser) {
         try {
           await getUser(useAuth?.currentUser?.email).then((result) => {
-            // setUserType(result.data.profiledata)
             console.log(result);
           });
         } catch (error) {
@@ -32,10 +31,7 @@ function ProductSection() {
     fetchData();
   }, [useAuth.currentUser]);
 
-  console.log(userType);
-
   var verticalLineStyle = {
-    // borderLeft: "0.5px solid grey",
     backgroundColor: "white",
     minHeight: "100vh",
     borderRadius: "0px",
@@ -43,7 +39,6 @@ function ProductSection() {
   };
 
   var horizontalLine = {
-    // border: "0.7px solid grey",
     width: "86%",
   };
 
@@ -65,10 +60,8 @@ function ProductSection() {
       setisLoading(false);
     }
   }, []);
-  // console.log(data);
 
   var cardComponentArray = data.map((card) => {
-    console.log(card);
     return (
       <Card
         key={card._id}
@@ -93,29 +86,12 @@ function ProductSection() {
         .toLowerCase()
         .includes(query.split(" ").join("").toLowerCase())
     );
-    // console.log(results);
     setData(results);
-    // console.log(query)
     if (query === "") {
       setSearchResults([]);
       setData(allData);
     }
-    // console.log(results);
   };
-
-  //   useEffect(()=>{
-  //     if(lth===true){
-  // //sort data in ascending order according to price
-  // var newData=data.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-  // setData(newData);
-  // console.log(data,lth,htl)
-  //     }
-  //     else if(htl===true){
-  //       var newData=data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-  //       setData(newData);
-  //       console.log(data,lth,htl)
-  //     }
-  //   },[lth,htl])
 
   const [e, setE] = React.useState(2);
 
@@ -133,16 +109,13 @@ function ProductSection() {
     } else {
       setData(allData);
     }
-    // console.log(data)
   };
 
   useEffect(() => {
     filterSort(e);
   }, [e]);
 
-  // console.log(allData)
   const filterData = (named) => {
-    // console.log(named)
     var newData = allData.filter((card) =>
       card.category.toLowerCase().includes(named.toLowerCase())
     );
@@ -150,61 +123,49 @@ function ProductSection() {
   };
 
   return (
-    <div class="fluid-container">
+    <div className="fluid-container">
       <div>
         <img src="https://demo.7iquid.com/agrisoil/wp-content/uploads/2022/07/page-title-bg-1.jpg"></img>
-        {/* <div
-          className="absolute text-white"
-          style={{
-            fontFamily: "monospace",
-            top: "30%",
-            left: "5%",
-            fontSize: "xxx-large",
-          }}>
-          SHOP
-        </div> */}
       </div>
       <div className="row" style={{ padding: "18px" }}>
-        <div class="col-2 ">
-          <div className="row" style={{ marginTop: "1.58%" }}>
-            <label className="mx-0 mb-5">
-              <span className="  text-black" style={{ fontSize: "18px" }}>
-                Sort by:
-              </span>
+        <div className="col-2 w-screen ">
+          <div className="row w-full" style={{ marginTop: "1.58%" }}>
+            <label className="mx-0 mb-5 w-full flex">
+              <div className="  text-black  text-sm sm:text-l">Sort by:</div>
               <select
                 onChange={(e) => {
                   setE(e.target.options.selectedIndex);
                 }}
                 name="price-select"
-                className="ms-4"
-                style={{
-                  width: "180px",
-                  height: "26px",
-                  border: "1px solid black",
-                }}>
+                className="ms-4  h-7 rounded-md border 1px solid border-slate-400"
+                style={
+                  {
+                    // border: "1px solid black",
+                  }
+                }>
                 <option>High to Low</option>
                 <option>Low to High</option>
-                <option selected="selected">Recommended </option>
+                <option selected={true}>Recommended </option>
               </select>
             </label>
           </div>
 
-          <div class="row filter-col">
+          <div className="row filter-col">
             {/* Head of Filter component */}
-            <div class="row">
+            <div className="row">
               <div
-                class="text-center pb-3  text-black"
+                className="text-center pb-3  text-black"
                 style={{ fontSize: "20px" }}>
                 Categories
               </div>
             </div>
 
             {/* Main body of filter component */}
-            <div class="row">
-              <div class="col-8">
-                <div class="form-check">
+            <div className="row">
+              <div className="col-8">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     name="fruits"
                     id="form-check-1"
@@ -218,13 +179,13 @@ function ProductSection() {
                     }}
                   />
                   <label
-                    class="form-check-label mt-1 ms-2"
+                    className="form-check-label mt-1 ms-2"
                     for="flexCheckDefault">
                     Fresh Fruits
                   </label>
                 </div>
               </div>
-              <div class="col-4">
+              <div className="col-4">
                 <span className="float-end">
                   {
                     allData.filter((card) =>
@@ -236,11 +197,11 @@ function ProductSection() {
                 </span>
               </div>
             </div>
-            <div class="row">
-              <div class="col-8">
-                <div class="form-check">
+            <div className="row">
+              <div className="col-8">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     name="vegetables"
                     id="form-check-2"
@@ -254,13 +215,13 @@ function ProductSection() {
                     }}
                   />
                   <label
-                    class="form-check-label mt-1 ms-2"
+                    className="form-check-label mt-1 ms-2"
                     for="flexCheckDefault">
                     Fresh Vegetables
                   </label>
                 </div>
               </div>
-              <div class="col-4">
+              <div className="col-4">
                 <span className="float-end">
                   {
                     allData.filter((card) =>
@@ -272,11 +233,11 @@ function ProductSection() {
                 </span>
               </div>
             </div>
-            <div class="row">
-              <div class="col-8">
-                <div class="form-check">
+            <div className="row">
+              <div className="col-8">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     id="form-check-3"
                     name="pulses"
@@ -290,13 +251,13 @@ function ProductSection() {
                     }}
                   />
                   <label
-                    class="form-check-label mt-1 ms-2"
+                    className="form-check-label mt-1 ms-2"
                     for="flexCheckDefault">
                     Pulses
                   </label>
                 </div>
               </div>
-              <div class="col-4">
+              <div className="col-4">
                 <span className="float-end">
                   {
                     allData.filter((card) =>
@@ -308,11 +269,11 @@ function ProductSection() {
                 </span>
               </div>
             </div>
-            <div class="row">
-              <div class="col-8">
-                <div class="form-check">
+            <div className="row">
+              <div className="col-8">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     id="form-check-3"
                     name="grains"
@@ -326,13 +287,13 @@ function ProductSection() {
                     }}
                   />
                   <label
-                    class="form-check-label mt-1 ms-2"
+                    className="form-check-label mt-1 ms-2"
                     for="flexCheckDefault">
                     Grains
                   </label>
                 </div>
               </div>
-              <div class="col-4">
+              <div className="col-4">
                 <span className="float-end">
                   {
                     allData.filter((card) =>
@@ -344,11 +305,11 @@ function ProductSection() {
                 </span>
               </div>
             </div>
-            <div class="row">
-              <div class="col-8">
-                <div class="form-check">
+            <div className="row">
+              <div className="col-8">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     id="form-check-4"
                     name="dry fruits"
@@ -362,13 +323,13 @@ function ProductSection() {
                     }}
                   />
                   <label
-                    class="form-check-label mt-1 ms-2"
+                    className="form-check-label mt-1 ms-2"
                     for="flexCheckDefault">
                     Dry Fruits
                   </label>
                 </div>
               </div>
-              <div class="col-4">
+              <div className="col-4">
                 <span className="float-end">
                   {
                     allData.filter((card) =>
@@ -388,7 +349,7 @@ function ProductSection() {
           </div>
         </div>
 
-        <div class="col-10 products-col">
+        <div className="col-10 products-col">
           {/* <Products checklth={lth} checkhtl={htl} /> */}
           <SearchBar onSearch={handleSearch} />
           <div
@@ -397,18 +358,18 @@ function ProductSection() {
             <hr style={{ marginLeft: "-2%", width: "100%" }} />
           </div>
           <div
-            className="row justify-content-around rounded-none flex flex-wrap gap-6 border-r-10 border-2 border-slate-600 px-5"
+            className="row justify-content-around rounded-none flex flex-wrap gap-3 sm:gap-6 border-r-10 border-2 border-slate-600 px-3 sm:px-5"
             style={{ ...verticalLineStyle, backgroundColor: "white" }}>
             {isLoading ? <Illstration /> : cardComponentArray}
           </div>
 
-          <div class="full-width mt-4 mb-5">
+          <div className="full-width mt-4 mb-5">
             <div className="">
               <MdArrowBackIosNew />
             </div>
-            <div class="view-more-circle">1</div>
-            <div class="view-more-circle">2</div>
-            <div class="view-more-circle">3</div>
+            <div className="view-more-circle">1</div>
+            <div className="view-more-circle">2</div>
+            <div className="view-more-circle">3</div>
             <div className="">
               <MdArrowForwardIos />
             </div>

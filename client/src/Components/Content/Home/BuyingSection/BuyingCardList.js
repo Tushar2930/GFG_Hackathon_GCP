@@ -46,6 +46,7 @@ function BuyingCardList() {
     if (k < screenWidth) {
       return (
         <Card
+          key={k}
           img_url={card?.ip}
           maxQuantity={card?.maxQuantity}
           minQuantity={card?.minQuantity}
@@ -108,7 +109,7 @@ function BuyingCardList() {
           </button>
         </div>
         <Slide bottom triggerOnce>
-          <div className="card-cont flex flex-wrap justify-center  w-screen h-auto gap-3 sm:gap-20 ">
+          <div className=" flex flex-wrap justify-center  w-screen h-auto gap-3 sm:gap-20 ">
             {isLoading ? <Illustration /> : cardComponentArray}
           </div>
         </Slide>
