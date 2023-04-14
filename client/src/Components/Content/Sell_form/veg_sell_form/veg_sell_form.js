@@ -6,6 +6,8 @@ import SearchDropdown from "./form_comp";
 import { createProduct } from "../../../api/createProduct";
 import sellOptions from "./veg_sell_data";
 import {AuthContext} from '../../context/AuthorizationContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -48,7 +50,16 @@ function Veg_sell() {
       userEmail:useAuth.currentUser.email,
     }).then((res) => {
       if(res.message === "data added successfully"){
-        alert("Product added successfully");
+        toast.success("Data added successfully",{
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        
         window.location.href = "/sell";
       }
     });

@@ -3,6 +3,8 @@ import Card from "./Cart_card";
 import "./checkout.css";
 import farm_img from "../assets/farming.jpg";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./my_cart.css";
 import { getUser } from "../api/getUser";
 import { updateUserCartItem } from "../api/updateCartProduct";
@@ -29,7 +31,15 @@ function Cart() {
   // }, [useAuth.currentUser]);
   useEffect(() => {
     if (useAuth.currentUser === null) {
-      alert("Please login to continue");
+      toast.warn("Please Login First", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       navigate("/signin");
     }
   }, []);
@@ -141,8 +151,17 @@ function Cart() {
               data,
             }),
           });
-          alert("Order Placed Successfully");
-          navigate("/");
+          toast.success("Order Placed Successfully", {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+
+          navigate("/userProfile");
         }
       },
     };

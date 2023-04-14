@@ -4,6 +4,8 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import { AuthContext } from "../context/AuthorizationContext";
 import "./single_product.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SingleProduct() {
   const { id } = useParams();
@@ -12,14 +14,28 @@ function SingleProduct() {
   const [temp, setTemp] = useState(1);
   const useAuth = React.useContext(AuthContext);
 
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
     async function fet() {
+      if (!useAuth.currentUser) {
+        toast.warn("Please Login to add product to cart", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        
+        window.location.href = "/signin";
+      }
       const resp = await fetch(
-        `http://localhost:8000/product/get-product/${id}`,
+        `http://${process.env.REACT_APP_IP}:8000/product/get-product/${id}`,
         {
           method: "GET",
           headers: {
@@ -52,10 +68,26 @@ function SingleProduct() {
     });
     const data2 = await resp.json();
     if (data2.message === "success") {
-      alert("Product added to cart");
+      toast.success("Product Added to cart Succesfully", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       navigate("/cart");
     } else if (data2.message === "already added") {
-      alert("Product already present in cart");
+      toast.warn("Product already present in cart", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       navigate("/cart");
     }
   };
