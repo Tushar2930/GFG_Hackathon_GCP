@@ -20,7 +20,6 @@
   overflow: hidden;
   flex-direction: row;
   gap: 5px;
-  width: 100%;
   height: 200px;
   margin: 10px;
   padding: 20px;
@@ -49,4 +48,17 @@
   font-weight: bold;
   color: #3f3f3f;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .orders-container{
+    padding: 0rem;
+  }
+  .orders{
+    padding:1rem;
+  }
+  .order-card{
+    padding: 10px;
+  }
+  
 }

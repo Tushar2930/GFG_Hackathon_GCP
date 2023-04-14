@@ -33,7 +33,7 @@ function RecentOrdersPage() {
           orders: data1.data,
         }),
       });
-      setIsLoading(false);
+      setIsLoading(false); 
       const data3 = await res.json();
       setImage(data3.data);
     }
@@ -52,7 +52,7 @@ function RecentOrdersPage() {
   }, []);
 
   // console.log(data);
-  if (data.length > 0) {
+  if (data?.length > 0) {
     return (
       <div className="orders-container temp-cont">
         <h1 className="recentHeading">Recent Orders</h1>
