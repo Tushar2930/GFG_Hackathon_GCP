@@ -135,17 +135,16 @@
   opacity: 0.4;
 }
 
+.mobile-visible {
+  display: none;
+}
+
 @media screen and (max-width: 640px) {
-  .offer-root {
-    padding: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-    -webkit-clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
-    clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
-    margin-top: -1rem;
-    padding-bottom: 0;
-    background-repeat: no-repeat;
-    background-size: contain;
+  .mobile-hidden {
+    display: none;
+  }
+  .mobile-visible {
+    display: block;
   }
 
   .offer-heading {
