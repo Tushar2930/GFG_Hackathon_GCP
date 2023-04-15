@@ -2,8 +2,8 @@ import { useState, useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../Content/context/AuthorizationContext";
 //icons
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { CircularProgress } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
@@ -28,25 +28,30 @@ export default function User_profile() {
   const [isLoading, setIsLoading] = useState(false);
 
   const useAuth = useContext(AuthContext);
-
-  useEffect(() => {
-    async function fetchData() {
-      if (useAuth.currentUser) {
-        try {
-          setIsLoading(true);
-          await getUser(useAuth?.currentUser?.email).then((result) => {
-            setData({ ...result?.data });
-            console.log(result);
-            setIsLoading(false);
-          });
-        } catch (error) {
+  async function fetchData() {
+    if (useAuth.currentUser) {
+      try {
+        setIsLoading(true);
+        await getUser(useAuth?.currentUser?.email).then((result) => {
+          setData({ ...result?.data });
+          console.log(result);
           setIsLoading(false);
-          console.log(error.message);
-        }
+        });
+      } catch (error) {
+        setIsLoading(false);
+        console.log(error.message);
       }
     }
+  }
+
+  useEffect(() => {
     fetchData();
   }, [useAuth.currentUser]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   if (isLoading) {
     return <ProfileLoading />;
   }

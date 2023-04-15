@@ -11,7 +11,7 @@ function ServicesRequiredListing() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+ 
   var categoryElementArray1 = [
     { type: "<= 10sqkm", total: "100" },
     { type: "(10-100)sqkm", total: "50" },
@@ -50,7 +50,7 @@ function ServicesRequiredListing() {
           <SearchBar onSearch={setSearchResults} />
         </div>
       </div>
-      <div className="row" style={{ padding: "18px" }}>
+      <div className="row sm:px-4 sm:py-4">
         <div className="flex justify-center">
           <Products search={searchResults} />
         </div>

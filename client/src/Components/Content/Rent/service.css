@@ -4,3 +4,10 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 768px) {
+    .imgBanner{
+        height: 25vh;
+    }
+    
+}
