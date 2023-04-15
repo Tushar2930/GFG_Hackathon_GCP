@@ -59,7 +59,7 @@ export default function Testimonial() {
     <>
     <div
       className="testimonials"
-      style={{ flexDirection: "column", alignItems: "center" }}>
+      style={{ flexDirection: "column", alignItems: "center",height:"auto" }}>
       <h1 className="headerLOL">Testimonials</h1>
       <div className="slideshow">
         <div
