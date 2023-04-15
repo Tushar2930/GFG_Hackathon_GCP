@@ -52,13 +52,13 @@ function PredictionForm() {
                     />
                 </label>
                 <label for="field2"  style={{width: '100%'}}>
-                    <span style={{width: '50%'}}>Phosphorus<span class="required">*</span></span>
+                    <span style={{}}>Phosphorus<span class="required">*</span></span>
                     <input
                         type="number"
                         name="field2"
                         id="phosphorus"
                         class="input-field"
-                        style={{width: '50%'}}
+                        
                         value={phosphorus}
                         min={0}
                         max={1000}

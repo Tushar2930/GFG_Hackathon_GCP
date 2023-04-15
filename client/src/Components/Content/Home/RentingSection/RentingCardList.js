@@ -23,7 +23,7 @@ function RentingCardList() {
 
           <Fade direction="up">
             <p
-              className=" w-full sm:w-1/2  text-orange flex sm:my-12  text-xs sm:text-lg mx-8"
+              className=" w-full sm:w-1/2  text-white flex sm:my-12  text-xs sm:text-lg mx-8"
               style={{ fontFamily: "sans-serif" }}>
               Find quality farm equipment for your operation with our rental
               service.

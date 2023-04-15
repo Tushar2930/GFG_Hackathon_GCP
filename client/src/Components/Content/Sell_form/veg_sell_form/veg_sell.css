@@ -6,17 +6,17 @@
   padding: 2rem;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: linear-gradient(
+  background-image: /*linear-gradient(
       to right,
       rgba(0, 0, 0, 0.8) 0%,
-      rgba(255, 255, 255, 0.2) 50%,
-      rgba(255, 255, 255, 0.2) 50%,
+      rgba(0, 0, 0, 0.8) 50%,
+      rgba(43, 43, 43, 0.8) 50%,
       rgba(0, 0, 0, 0.8) 100%
         /* rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 32%,
       rgba(255, 255, 255, 0.1) 32%, rgba(25, 55, 225, 0.5) 68%,
-      rgba(0, 0, 0, 0.5) 68%, rgba(0, 0, 0, 0.5) 100% */
-    ),
-    url("./images/final.jpg");
+      rgba(0, 0, 0, 0.5) 68%, rgba(0, 0, 0, 0.5) 100% 
+    ),*/
+    url("./images/finale.jpg");
 }
 
 .flexb {
