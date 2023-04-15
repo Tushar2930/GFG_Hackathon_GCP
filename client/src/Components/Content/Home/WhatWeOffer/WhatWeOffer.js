@@ -143,7 +143,7 @@ const WhatWeOffer = () => {
             class="container px-5 py-24 mx-auto"
             style={{ background: "none", boxShadow: "none" }}>
             <div class="flex flex-wrap -m-4">
-              <div class="p-4 md:w-1/3 " style={{ height: "45vh" }}>
+              <div class="p-4 md:w-1/3 " style={{ height: "fit-content" }}>
                 <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                   <img
                     class="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -159,7 +159,7 @@ const WhatWeOffer = () => {
                       We offer fresh vegetables from farms all over india
                     </p>
                     <div class="flex items-center flex-wrap justify-center">
-                      <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 ">
+                      <Link to='/shop' class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 ">
                         Learn More
                         <svg
                           class="w-4 h-4 ml-2"
@@ -172,7 +172,7 @@ const WhatWeOffer = () => {
                           <path d="M5 12h14"></path>
                           <path d="M12 5l7 7-7 7"></path>
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -185,7 +185,7 @@ const WhatWeOffer = () => {
             class="container px-5 py-24 mx-auto"
             style={{ background: "none", boxShadow: "none" }}>
             <div class="flex flex-wrap -m-4">
-              <div class="p-4 md:w-1/3" style={{ height: "45vh" }}>
+              <div class="p-4 md:w-1/3" style={{ height: "fit-content"  }}>
                 <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                   <img
                     class="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -201,7 +201,7 @@ const WhatWeOffer = () => {
                       You can opt for various farm related services
                     </p>
                     <div class="flex items-center flex-wrap justify-center">
-                      <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 ">
+                      <Link to="/rent" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 ">
                         Learn More
                         <svg
                           class="w-4 h-4 ml-2"
@@ -214,7 +214,7 @@ const WhatWeOffer = () => {
                           <path d="M5 12h14"></path>
                           <path d="M12 5l7 7-7 7"></path>
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -227,7 +227,7 @@ const WhatWeOffer = () => {
             class="container px-5 py-24 mx-auto"
             style={{ background: "none", boxShadow: "none" }}>
             <div class="flex flex-wrap -m-4">
-              <div class="p-4 md:w-1/3 " style={{ height: "45vh" }}>
+              <div class="p-4 md:w-1/3 " style={{ height: "fit-content" }}>
                 <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                   <img
                     class="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -244,7 +244,7 @@ const WhatWeOffer = () => {
                       related stuffs
                     </p>
                     <div class="flex items-center flex-wrap justify-center">
-                      <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 ">
+                      <Link to='/farming-advisor' class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 ">
                         Learn More
                         <svg
                           class="w-4 h-4 ml-2"
@@ -257,7 +257,7 @@ const WhatWeOffer = () => {
                           <path d="M5 12h14"></path>
                           <path d="M12 5l7 7-7 7"></path>
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

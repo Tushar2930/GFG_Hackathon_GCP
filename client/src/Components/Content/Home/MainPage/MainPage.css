@@ -53,7 +53,7 @@
 
 @media screen and (max-width: 768px) {
   .land-root {
-    height: 50vh;
+    height: fit-content;
     font-size: small;
     /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
   }
