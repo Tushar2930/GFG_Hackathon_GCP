@@ -10,7 +10,7 @@ export default function AnimatedMulti({ handleProfileChanges }) {
     { value: "farmer", label: "Farmer" },
     { value: "rentel-service", label: "Rental Service" },
     { value: "corperate", label: "Corperate" },
-    { value: "seller", label: "Khad Seller" },
+    // { value: "seller", label: "Khad Seller" },
   ];
   return (
     <label style={{ width: "300px", height: "40px" ,marginBottom:'4rem'}}>
