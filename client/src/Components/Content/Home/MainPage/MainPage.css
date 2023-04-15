@@ -5,17 +5,59 @@
   clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("./bg.png");
+  background-image: url("./bg.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .nameTemp{
-  font-size: 1.35rem;
+  font-size: 3rem;
   width: 50%;
   margin: -10rem 0rem;
   padding: 0rem 2rem;
-  font-family: monospace;
+  font-family: cursive;
+  color: #e29c28;
+}
+
+.data-root{
+  width: 56%;
+  padding: 0rem 1rem;
+  position: relative;
+  bottom: 12rem;
+  left: 1rem;
+}
+
+.data-head{
+  
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 7rem;
+
+}
+
+.data-moredata{
+  width: 65%;
+  font-size: 1.25rem;
+  padding: 2rem 0rem;
+  color: gray;
+}
+
+.butn{
+  background-color: #34603d;
+    width: 30%;
+    padding: 1.5rem;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 1rem;
+    margin: 1rem 0rem;
+}
+
+.bsdk{
+  color: #1EAC02;
+  font-size: 6rem;
+  margin-top: -1.5rem;
 }
 
 @media screen and (max-width: 768px) {
