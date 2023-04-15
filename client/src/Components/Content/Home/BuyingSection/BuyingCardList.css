@@ -1,4 +1,6 @@
 @import "@fontsource/nunito";
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&display=swap");
 .card_icon_hidden {
   display: none;
 }
@@ -22,7 +24,7 @@
 .title_font {
   color: orange;
   font-weight: 600;
-  font-family: Nunito;
+  font-family: Dancing Script;
 }
 
 .title_text {
@@ -73,6 +75,15 @@
 }
 .card-root:hover {
   scale: 1.1;
+}
+.card-name {
+  font-family: Alkatre;
+  color: rgb(47, 28, 28);
+  font-weight: 800;
+}
+.card-price {
+  font-family: Archivo;
+  font-weight: 900;
 }
 
 @media screen and (max-width: 640px) {

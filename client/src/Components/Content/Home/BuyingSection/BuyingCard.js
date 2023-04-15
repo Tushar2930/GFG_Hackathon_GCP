@@ -1,7 +1,7 @@
 import React from "react";
 import "./BuyingCardList.css";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 
@@ -11,8 +11,6 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthorizationContext";
 
 function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
-    
-  
   const useAuth = useContext(AuthContext);
   const [hovered, setHovered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +28,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
         draggable: true,
         progress: undefined,
       });
-      
+
       window.location.href = "/signin";
     }
 
@@ -140,9 +138,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
           <CircularProgress />
         ) : (
           <>
-            <div
-              className="card-name text-xs sm:text-xl placeholder:"
-              style={{ fontWeight: "500" }}>
+            <div className="card-name text-xs sm:text-xl placeholder:Loading...">
               {name}
             </div>
             <div
