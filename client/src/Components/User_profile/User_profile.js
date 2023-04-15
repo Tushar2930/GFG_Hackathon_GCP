@@ -99,31 +99,31 @@ export default function User_profile() {
           </div>
           <div className=" flex sm:flex-col min-h-fit sm:px-4 sm:py-4 items-center sm:items-start">
             <div
-              className="nav-item text-xs active"
+              className="nav-item  sm:w-48  text-l active"
               id="1"
               onClick={(e) => setActive(e)}>
               <ManageAccountsIcon /> User Profile
             </div>
             <div
-              className="nav-item text-xs "
+              className="nav-item  sm:w-48  text-l "
               id="2"
               onClick={(e) => setActive(e)}>
               <ShoppingCartIcon /> Cart
             </div>
             <div
-              className="nav-item text-xs"
+              className="nav-item sm:w-48   text-l"
               id="3"
               onClick={(e) => setActive(e)}>
               <LocalMallIcon /> Orders
             </div>
             <div
-              className="nav-item text-xs"
+              className="nav-item  sm:w-48  text-l"
               id="4"
               onClick={(e) => setActive(e)}>
               <Inventory2Icon /> Inventory
             </div>
             <div
-              className="nav-item text-xs"
+              className="nav-item  sm:w-48  text-l"
               id="5"
               onClick={(e) => setActive(e)}>
               <AgricultureIcon /> Service Requests

@@ -62,7 +62,7 @@ function BuyingCardList() {
     <>
       <div className="froot">
         <div className="placeImage" />
-        <p class="title_font text-xs sm:text-2xl sm:mt-4">
+        <p class="title_font text-xs sm:text-3xl sm:mt-4">
           Fresh From our farm
         </p>
         <div>
