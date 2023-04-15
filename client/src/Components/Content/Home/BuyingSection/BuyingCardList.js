@@ -3,7 +3,6 @@ import Card from "./BuyingCard";
 import "./BuyingCardList.css";
 import { Slide } from "react-awesome-reveal";
 import Illustration from "../../../assets/lotti/illussion";
-import MiddleOrange from "../middleOrange/middleOrange";
 
 import { Link } from "react-router-dom";
 
