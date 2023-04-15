@@ -2,6 +2,7 @@ import React from "react";
 import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
 import { Slide } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 import "./MainPage.css";
 
 const MainPage = () => {
@@ -30,7 +31,7 @@ const MainPage = () => {
             }}
           />
         </div>
-        <div className="butn hidden sm:flex">Connect with us</div>
+        <div className="butn hidden sm:flex text-2xl"><Link style={{color:"white"}} to="/about-us">Connect with us</Link></div>
       </div>
     </motion.div>
   );
