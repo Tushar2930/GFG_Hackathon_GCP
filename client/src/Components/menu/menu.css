@@ -14,7 +14,7 @@
 [type="checkbox"]:checked,
 [type="checkbox"]:not(:checked) {
   position: absolute;
-  left: -9999px;
+  /* left: -9999px; */
 }
 .menu .menu-icon:checked + label,
 .menu .menu-icon:not(:checked) + label {

@@ -5,8 +5,8 @@ import { CircularProgress } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { AuthContext } from "../context/AuthorizationContext";
 import "./single_product.css";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function SingleProduct() {
   const { id } = useParams();
@@ -15,7 +15,6 @@ function SingleProduct() {
   const [temp, setTemp] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const useAuth = React.useContext(AuthContext);
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,7 +32,7 @@ function SingleProduct() {
           draggable: true,
           progress: undefined,
         });
-        
+
         window.location.href = "/signin";
       }
       const resp = await fetch(
@@ -54,21 +53,24 @@ function SingleProduct() {
 
   const addToCart = async () => {
     setIsLoading(true);
-    const resp = await fetch("http://localhost:8000/cart/add-product", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id,
-        name: `${data.category} ${data.product} ${data.species}`,
-        price: data.price,
-        email: useAuth.currentUser.email,
-        minQuantity: data.minQuantity,
-        maxQuantity: data.maxQuantity,
-        quantity: temp,
-      }),
-    });
+    const resp = await fetch(
+      `http://${process.env.REACT_APP_IP}:8000/cart/add-product`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id,
+          name: `${data.category} ${data.product} ${data.species}`,
+          price: data.price,
+          email: useAuth.currentUser.email,
+          minQuantity: data.minQuantity,
+          maxQuantity: data.maxQuantity,
+          quantity: temp,
+        }),
+      }
+    );
     const data2 = await resp.json();
     setIsLoading(false);
 
