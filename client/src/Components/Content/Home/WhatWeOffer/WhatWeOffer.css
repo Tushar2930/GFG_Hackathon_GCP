@@ -47,6 +47,7 @@
 .farming_advicer {
   position: relative;
   background-size: cover;
+  background-position: center;
   border-radius: 0px 20px 0px 40px;
   overflow: hidden;
 }
@@ -99,7 +100,6 @@
 .what_offer_container:hover p,
 .what_offer_container:hover a {
   margin-top: 15px;
-
   font-size: 1rem;
   display: flex;
 }
@@ -135,7 +135,7 @@
   opacity: 0.4;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 640px) {
   .offer-root {
     padding: 0;
     padding-bottom: 0;
@@ -147,9 +147,7 @@
     background-repeat: no-repeat;
     background-size: contain;
   }
-}
 
-@media screen and (max-width: 768px) {
   .offer-heading {
     margin-top: 0;
     color: #25271c;
@@ -174,5 +172,29 @@
     background-size: cover;
     border-radius: 0px 20px 0px 40px;
     overflow: hidden;
+  }
+  .know_more {
+    /* display: none; */
+  }
+  .fresh_veges,
+  .rental_services,
+  .farming_advicer {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px 10px 0px 10px;
+    overflow: hidden;
+  }
+  .know_more {
+    width: 50%;
+    height: 40%;
+    left: 0;
+    font-family: Nunito;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.592);
+    transition: height 0.4s;
+    border: 3px solid rgb(0, 0, 0);
   }
 }
