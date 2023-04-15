@@ -27,17 +27,19 @@ const WhatWeOffer = () => {
                 src={page_seprater}
                 className="w-48 sm:w-96 flex  self-center -m-16 sm:-m-24 pb-10"
               />
-              <div className="flex flex-wrap w-screen  justify-center  sm:justify-around sm:m--3 sm:pl-10 sm:pr-10">
-                <div className="flex flex-wrap w-full h-24 sm:h-48 sm:w-1/3  ">
-                  <div className=" p-4 w-full">
+              <div className="flex flex-wrap w-full  justify-center  sm:justify-around sm:m--3 sm:pl-10 sm:pr-10">
+                <div className="flex flex-wrap w-full h-36 sm:h-48 sm:w-1/3  ">
+                  <div className=" p-4 w-full h-full">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      className="what_offer_container fresh_veges flex rounded-lg sm:h-80 p-8 flex-col">
+                      className="what_offer_container fresh_veges flex rounded-l sm:rounded-lg h-full  sm:h-80 p-8 flex-col">
                       <div className="know_more">
                         <Fade direction="down" className="heading">
-                          Fresh Vegetables
+                         Marketplace
                         </Fade>
-                        <p style={{ fontFamily: "sans-serif" }}>
+                        <p
+                          style={{ fontFamily: "sans-serif" }}
+                          className="none">
                           We offer fresh vegetables from farms all over india{" "}
                         </p>
 
@@ -62,7 +64,7 @@ const WhatWeOffer = () => {
                     </motion.div>
                   </div>
                 </div>
-                <div className="flex flex-wrap w-full   h-24 sm:h-48  sm:w-1/3">
+                <div className="flex flex-wrap w-full h-36 sm:h-48  sm:w-1/3">
                   <div className=" p-4 w-full">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
@@ -95,7 +97,7 @@ const WhatWeOffer = () => {
                     </motion.div>
                   </div>
                 </div>
-                <div className="flex flex-wrap w-full sm:h-48 sm:w-1/3">
+                <div className="flex flex-wrap w-full  h-36 sm:h-48 sm:w-1/3">
                   <div className=" p-4 w-full">
                     <motion.div
                       whileHover={{ scale: 1.1 }}

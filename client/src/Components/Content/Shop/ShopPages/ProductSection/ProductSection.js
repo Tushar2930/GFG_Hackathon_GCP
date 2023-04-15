@@ -10,10 +10,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 import banner from "../../../../assets/Shop white text.png";
 
 function ProductSection() {
-  const [lth, setLth] = React.useState(false);
-  const [htl, setHtl] = React.useState(false);
-
-  const [userType, setUserType] = React.useState([]);
+  const [currentPage, setcurrentPage] = useState(1);
   const [isLoading, setisLoading] = useState(false);
   const useAuth = useContext(AuthContext);
 
@@ -62,12 +59,14 @@ function ProductSection() {
     }
   }, []);
 
-  const pagination = (e = 0) => {
+  const pagination = (e = 1) => {
+    setcurrentPage(Number(e));
     var temp = [];
     for (let i = 0; i < allData.length - (e - 1) * 15; i++) {
       temp[i] = allData[i + (e - 1) * 15];
     }
     setData(temp);
+    window.scrollTo(0, 0);
   };
 
   var cardComponentArray = data.map((card, i) => {
@@ -379,7 +378,9 @@ function ProductSection() {
               <MdArrowBackIosNew />
             </div>
             <div
-              className="view-more-circle"
+              className={`view-more-circle cursor-pointer  ${
+                currentPage === 1 ? "active" : ""
+              }`}
               id={1}
               onClick={(e) => {
                 pagination(e.target.id);
@@ -387,15 +388,20 @@ function ProductSection() {
               1
             </div>
             <div
-              className="view-more-circle"
+              className={`view-more-circle cursor-pointer  ${
+                currentPage === 2 ? "active" : ""
+              }`}
               id={2}
               onClick={(e) => {
+                setcurrentPage(2);
                 pagination(e.target.id);
               }}>
               2
             </div>
             <div
-              className="view-more-circle"
+              className={`view-more-circle cursor-pointer ${
+                currentPage === 3 ? "active" : ""
+              }`}
               id={3}
               onClick={(e) => {
                 pagination(e.target.id);

@@ -69,21 +69,21 @@ const mushroomVeg= [
 
 const vegetables = [
     {id:"1", value: "Potato", label: "Potato", species: potatoVeg},
-    {id:"2", value: "Tomato", label: "tomato", species: tomatoVeg},
-    {id:"3", value: "Brinjal", label: "brinjal", species: brinjalVeg},
-    {id:"4", value: "Ladyfinger", label: "ladyfinger", species: ladyfingerVeg},
-    {id:"5", value: "Broccoli", label: "broccoli", species: brocolliVeg},
-    {id:"6", value: "Spinach", label: "spinach", species:spinachVeg },
-    {id:"7", value: "Sweetpotatoes", label: "sweetpotatoes", species:sweetpotatoesVeg },
-    {id:"8", value: "Carrot", label: "carrot", species:carrotVeg },
-    {id:"9", value: "garlic", label: "garlic", species:garlicVeg },
-    {id:"10", value: "onion", label: "onion", species:onionVeg },
-    {id:"11", value: "cauliflower", label: "cauliflower", species:cauliflowerVeg },
-    {id:"12", value: "ginger", label: "ginger", species:gingerVeg },
-    {id:"13", value: "pumpkin", label: "pumpkin", species:pumpkinVeg },
-    {id:"14", value: "chilli", label: "chilli", species:chilliVeg },
-    {id:"15", value: "cucumber", label: "cucumber", species:cucumberVeg},
-    {id:"16", value: "mushroom", label: "mushroom", species:mushroomVeg },
+    {id:"2", value: "Tomato", label: "Tomato", species: tomatoVeg},
+    {id:"3", value: "Brinjal", label: "Brinjal", species: brinjalVeg},
+    {id:"4", value: "Ladyfinger", label: "Ladyfinger", species: ladyfingerVeg},
+    {id:"5", value: "Broccoli", label: "Broccoli", species: brocolliVeg},
+    {id:"6", value: "Spinach", label: "Spinach", species:spinachVeg },
+    {id:"7", value: "Sweetpotatoes", label: "Sweetpotatoes", species:sweetpotatoesVeg },
+    {id:"8", value: "Carrot", label: "Carrot", species:carrotVeg },
+    {id:"9", value: "garlic", label: "Garlic", species:garlicVeg },
+    {id:"10", value: "onion", label: "Onion", species:onionVeg },
+    {id:"11", value: "cauliflower", label: "Cauliflower", species:cauliflowerVeg },
+    {id:"12", value: "ginger", label: "Ginger", species:gingerVeg },
+    {id:"13", value: "pumpkin", label: "Pumpkin", species:pumpkinVeg },
+    {id:"14", value: "chilli", label: "Chilli", species:chilliVeg },
+    {id:"15", value: "cucumber", label: "Cucumber", species:cucumberVeg},
+    {id:"16", value: "mushroom", label: "Mushroom", species:mushroomVeg },
     {id:"17", valu:"Peas", label:"Peas", species:peasVeg},
 ]
 
@@ -145,15 +145,15 @@ const blackberryFruit = [
 
 
 const fruits = [
-    {id:"1", value: "Apple", label: "apple", species: appleFruit},
-    {id:"2", value: "Orange", label: "orange", species: orangeFruit},
-    {id:"3", value: "Mango", label: "mango", species: mangoFruit},
-    {id:"4", value: "Banana", label: "banana", species: bananaFruit},
-    {id:"5", value: "Grape", label: "grape", species: grapeFruit},
-    {id:"6", value: "lychee", label: "lychee", species: lycheeFruit},
-    {id:"7", value: "pear", label: "pear", species: pearFruit},
-    {id:"8", value: "pineapple", label: "pineapple", species: pineappleFruit},
-    {id:"9", value: "watermelon", label: "watermelon", species: watermelonFruit},
+    {id:"1", value: "Apple", label: "Apple", species: appleFruit},
+    {id:"2", value: "Orange", label: "Orange", species: orangeFruit},
+    {id:"3", value: "Mango", label: "Mango", species: mangoFruit},
+    {id:"4", value: "Banana", label: "Banana", species: bananaFruit},
+    {id:"5", value: "Grape", label: "Grape", species: grapeFruit},
+    {id:"6", value: "lychee", label: "Lychee", species: lycheeFruit},
+    {id:"7", value: "Pear", label: "Pear", species: pearFruit},
+    {id:"8", value: "Pineapple", label: "Pineapple", species: pineappleFruit},
+    {id:"9", value: "Watermelon", label: "Watermelon", species: watermelonFruit},
     {id:"10", value: "papaya", label: "papaya", species: papayaFruit},
     {id:"11", value: "strawberry", label: "strawberry", species: strawberryFruit},
     {id:"12", value: "blackberry", label: "blackberry", species: blackberryFruit},
@@ -193,8 +193,8 @@ const redgramPulses = [
 ]
 
 const pulses = [
-    {id:"1", value: "Moong", label: "moong", species: moongPulses},
-    {id:"2", value: "Chane", label: "chane", species: chanePulses},
+    {id:"1", value: "Moong", label: "Moong", species: moongPulses},
+    {id:"2", value: "Chane", label: "Chane", species: chanePulses},
     {id:"3", value: "kideneybean", label: "kidneybean", species: kidneybeanPulses},
     {id:"4", value: "bengalgram", label: "bengalgram", species: bengalgramPulses},
     {id:"5", value: "blackgram", label: "blackgram", species: blackgramPulses},
@@ -241,7 +241,7 @@ const kamutGrains = [
 
 
 const grains = [
-    {id:"1", value: "Wheat", label: "wheat", species: wheatGrains},
+    {id:"1", value: "Wheat", label: "Wheat", species: wheatGrains},
     {id:"2", value: "corn", label: "corn", species: cornGrains},
     {id:"3", value: "barley", label: "barley", species: barleyGrains},
     {id:"4", value: "rye", label: "rye", species: ryeGrains},
@@ -292,9 +292,9 @@ const figsDf = [
 
 const dry_fruits = [
     
-    {id:"1", value: "Kishmish", label: "kishmish", species: kishmishDf},
-    {id:"2", value: "Kaaju", label: "kaaju", species: kaajuDf},
-    {id:"3", value: "Almonds", label: "almonds", species: almondsDf},
+    {id:"1", value: "Kishmish", label: "Kishmish", species: kishmishDf},
+    {id:"2", value: "Kaaju", label: "Kaaju", species: kaajuDf},
+    {id:"3", value: "Almonds", label: "Almonds", species: almondsDf},
     {id:"4", value: "apricot", label: "apricot", species: apricotDf},
     {id:"5", value: "walnut", label: "walnut", species: walnutDf},
     {id:"6", value: "groundnut", label: "groundnut", species: groundnutDf},

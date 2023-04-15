@@ -93,10 +93,10 @@ function BuyingCardList() {
             onClick={(e) => {
               filter_products(e);
             }}
-            value={"Cereals"}
+            value={"Pulses"}
             type="button"
             class="p-0 filter_options_buttons text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-xs sm:text-sm  text-center sm:mr-2 sm:mb-2 dark:focus:ring-yellow-900">
-            Cereals
+            Pulses
           </button>
           <button
             value={"Dry Fruits"}

@@ -19,14 +19,6 @@ const MainPage = () => {
       .start();
   }}
   />
-  {/* <Typewriter
-  options={{
-    strings: ['We are certified Agro-service company . This is one of the best platform for farmers to sell their products and for buyers to buy products directly from farmers.'],
-    autoStart: true,
-    // loop: true,
-    delay: 50,
-  }}
-/> */}
     </div>
     <div className="butn">Connect with us</div>
   </div>
