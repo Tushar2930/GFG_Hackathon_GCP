@@ -35,7 +35,7 @@ const WhatWeOffer = () => {
                       className="what_offer_container fresh_veges flex rounded-l sm:rounded-lg h-full  sm:h-80 p-8 flex-col">
                       <div className="know_more">
                         <Fade direction="down" className="heading">
-                          Fresh Vegetables
+                          AgroKart Marketplace
                         </Fade>
                         <p
                           style={{ fontFamily: "sans-serif" }}

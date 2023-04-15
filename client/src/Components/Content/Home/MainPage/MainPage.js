@@ -6,7 +6,8 @@ import "./MainPage.css";
 const MainPage = () => {
   return <motion.div className="land-root py-20 sm:py-96 ">
   <Slide>
-    <div className="nameTemp">AgroKart is a B2B agricultural e-Commerce marketplace in India<div className="sm:block hidden" >Farmers can buy Agromachinery and tools which are widely used in Indian Culture</div></div></Slide>
+    {/* <div className="nameTemp">AgroKart is a B2B agricultural e-Commerce marketplace in India<div className="sm:block hidden" >Farmers can buy Agromachinery and tools which are widely used in Indian Culture</div></div> */}
+  </Slide>
   </motion.div>;
 };
 
