@@ -10,7 +10,7 @@
   background-size: cover;
 }
 
-.nameTemp{
+.nameTemp {
   font-size: 3rem;
   width: 50%;
   margin: -10rem 0rem;
@@ -19,45 +19,36 @@
   color: #e29c28;
 }
 
-.data-root{
+.data-root {
   width: 56%;
   padding: 0rem 1rem;
   position: relative;
-  bottom: 12rem;
   left: 1rem;
 }
 
-.data-head{
-  
-  font-size: 3.75rem;
+.data-head {
   font-weight: 700;
-  line-height: 7rem;
-
+  /* line-height: 7rem; */
 }
 
-.data-moredata{
+.data-moredata {
   width: 65%;
-  font-size: 1.25rem;
   padding: 2rem 0rem;
   color: gray;
 }
 
-.butn{
+.butn {
   background-color: #34603d;
-    width: 30%;
-    padding: 1.5rem;
-    color: white;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    border-radius: 1rem;
-    margin: 1rem 0rem;
+  width: 30%;
+  padding: 1.5rem;
+  color: white;
+  text-align: center;
+  border-radius: 1rem;
+  margin: 1rem 0rem;
 }
 
-.bsdk{
-  color: #1EAC02;
-  font-size: 6rem;
-  margin-top: -1.5rem;
+.bsdk {
+  color: #1eac02;
 }
 
 @media screen and (max-width: 768px) {
@@ -66,10 +57,10 @@
     font-size: small;
     /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
   }
-  .nameTemp{
+  .nameTemp {
     font-size: 1.2rem;
     /* width: 100%; */
-    margin:3rem 0rem;
+    margin: 3rem 0rem;
     padding: 0rem 0.5rem;
     font-family: monospace;
   }
