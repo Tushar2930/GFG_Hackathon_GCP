@@ -56,7 +56,7 @@ function Card({
       display: "flex",
       flexDirection: "row",
       width: "100%",
-      height: "20rem",
+      height: "fit-content",
       backgroundColor: "#F9F5E9",
       boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
       borderRadius: "8px",
@@ -125,12 +125,13 @@ function Card({
       cursor: "pointer",
       alignSelf: "flex-end",
     },
+
   };
 
   return (
     <>
       <div style={styles.container}>
-        <div style={styles.imageContainer}>
+        <div style={styles.imageContainer} className="hidden sm:block">
           <img src={img_url} alt="Placeholder" style={styles.image} />
         </div>
         <div style={styles.contentContainer}>
