@@ -196,4 +196,10 @@
     transition: height 0.4s;
     border: 3px solid rgb(0, 0, 0);
   }
+  .offer-root{
+    padding-bottom: 0px;
+  }
+  .bg_circle2{
+    display: none;
+  }
 }

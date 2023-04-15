@@ -59,7 +59,7 @@ function RecentOrdersPage() {
         <div className="orders ">
           {data.map((order, index) => (
             <div className="order-card" key={order.id}>
-              <img src={isLoading ? loading : image[index]} alt="order" />
+              <img src={isLoading ? loading : image[index]} alt="order" style={{width:'50%'}} />
               <div style={{ borderRight: "1px solid #d2d2d2", width: "45%" }}>
                 <strong>{order.name}</strong>
                 <h4 className="order-time">Order Date : {order.orderDate}</h4>

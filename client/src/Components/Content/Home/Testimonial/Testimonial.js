@@ -73,6 +73,7 @@ export default function Testimonial() {
                   position: "relative",
                   display: "flex",
                   justifyContent: "space-around",
+                  minHeight:"33rem"
                 }}>
                 <div className="image_circle" />
                 <img src={slide.img} className="testimonial_image mt-28" />

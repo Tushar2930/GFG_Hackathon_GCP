@@ -89,7 +89,7 @@ export default function User_profile() {
   }
 
   return (
-    <div className="proot">
+    <div className="proot" style={{minHeight:"100vh"}}>
       <div className="dashboard-container w-screen flex flex-col sm:flex-row">
         <div className="pro-root nav-container w-screen sm:h-full sm:w-1/5  flex-row sm:flex-col">
           <div className="user_details hidden sm:w-full min-h-fit sm:flex sm:flex-col ">
