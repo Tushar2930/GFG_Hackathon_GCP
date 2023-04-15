@@ -9,12 +9,17 @@ const Card = ({ data }) => {
       <div className="details">
         <div className="name">{name}</div>
         <div className="date">required: {date}</div>
-        <div className="area">area to work on: {area}</div>
+        <div className="area">area to work on (*acre): {area}</div>
 
         <div className="time">{duration} days</div>
         <div className="price">${price}</div>
         <div className="service">{service}</div>
-        <div className="status">{status}</div>
+        <div
+          className={`status ${
+            status === "accepted" ? "text-green-600" : "text-amber-400"
+          }`}>
+          {status}
+        </div>
       </div>
     </div>
   );

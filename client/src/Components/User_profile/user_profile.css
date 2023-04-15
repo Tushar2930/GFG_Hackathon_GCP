@@ -19,14 +19,13 @@
 .nav-item {
   padding: 10px;
   border-radius: 5px;
-  font-size: 1.5rem;
-  color: rgb(169, 169, 169);
+  color: rgb(229, 229, 229);
   margin-bottom: 10px;
   cursor: pointer;
 }
 
 .nav-item.active {
-  color: #f0f0f0;
+  color: #161616;
 }
 .user_details {
   align-items: center;
@@ -46,7 +45,7 @@
   cursor: pointer;
 }
 
-.pro-root{
+.pro-root {
   height: 150vh;
 }
 @media screen and (max-width: 640px) {
@@ -55,11 +54,10 @@
     height: 50%;
     font-size: smaller;
   }
-  .pro-root{
+  .pro-root {
     height: 10vh;
   }
   .nav-item {
     font-size: 0.75rem;
-
   }
 }
