@@ -48,6 +48,9 @@ export default function Menu() {
             )}
           </li>
           <li>
+            <a href="/farming-advisor">Farmer Advisor </a>
+          </li>
+          <li>
             {useAuth?.currentUserDetails?.data?.profiledata?.find((ele) => {
               return ele === "farmer";
             }) && <a href="/get-rent-service">Get Service </a>}
