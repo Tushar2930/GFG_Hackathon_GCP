@@ -1,3 +1,7 @@
+
+![logo](https://github.com/Tushar2930/GFG_Hackathon_GCP/blob/main/client/src/Components/Navbar/images/Agrokart%20logo.png)
+
+
 AgroKart
 
 
