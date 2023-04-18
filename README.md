@@ -1,4 +1,6 @@
 
+![Logo](https://github.com/Tushar2930/GFG_Hackathon_GCP/blob/main/client/src/Components/Navbar/images/Agrokart%20logo.png)
+
 # AgroKart
 
 Agrokart is an online platform that connects farmers, corporate buyers, and rental service providers.
