@@ -8,14 +8,13 @@ Agrokart is an online platform that connects farmers, corporate buyers, and rent
 Farmers can sell their agricultural products and also access rental services. Corporate buyers can purchase agricultural goods directly from the farmers of their choice. Service providers can offer their rental services to farmers through our website.
 
 ## Features
-
--Crop prediction based on weather conditions, and soil type(ml-model)
--Fertiliser prediction(ml-model)
--Crop disease detection(ml-model)
--Market place farmer and coorporate
--Rental service for farmer increase in production
--Interactive chat bot Bhoomi
--User-friendly interface.
+Crop prediction based on weather conditions, and soil type(ml-model)
+Fertiliser prediction(ml-model)
+Crop disease detection(ml-model)
+Market place farmer and coorporate
+Rental service for farmer increase in production
+Interactive chat bot Bhoomi
+User-friendly interface.
 
 
 
