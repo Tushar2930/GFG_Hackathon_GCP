@@ -57,7 +57,7 @@ Start the server
 ```bash
   npm run dev
 ```
-===================================
+********************************************************
 
 ```bash
   cd client 
@@ -74,10 +74,11 @@ Start the server
 ```bash
   npm start
   ```
-  **********************************
+  ************************************************
   Can use this email to Login and explore     
 ```bash
   ex1@gmail.com
+  ```
 ## Environment Variables
 
 To run this project, you will need to add the  environment variables to your .env file
