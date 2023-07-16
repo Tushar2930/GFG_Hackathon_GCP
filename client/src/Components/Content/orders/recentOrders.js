@@ -11,29 +11,35 @@ function RecentOrdersPage() {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     async function fet() {
-      const resp = await fetch(`http://${process.env.REACT_APP_IP}:8000/order/getOrders`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: useAuth.currentUser.email,
-        }),
-      });
+      const resp = await fetch(
+        `https://${process.env.REACT_APP_IP}/order/getOrders`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: useAuth.currentUser.email,
+          }),
+        }
+      );
       const data1 = await resp.json();
       setData(data1.data);
 
       setIsLoading(true);
-      const res = await fetch(`http://${process.env.REACT_APP_IP}:8000/order/getImage`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          orders: data1.data,
-        }),
-      });
-      setIsLoading(false); 
+      const res = await fetch(
+        `https://${process.env.REACT_APP_IP}/order/getImage`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            orders: data1.data,
+          }),
+        }
+      );
+      setIsLoading(false);
       const data3 = await res.json();
       setImage(data3.data);
     }
@@ -59,7 +65,11 @@ function RecentOrdersPage() {
         <div className="orders ">
           {data.map((order, index) => (
             <div className="order-card" key={order.id}>
-              <img src={isLoading ? loading : image[index]} alt="order" style={{width:'50%'}} />
+              <img
+                src={isLoading ? loading : image[index]}
+                alt="order"
+                style={{ width: "50%" }}
+              />
               <div style={{ borderRight: "1px solid #d2d2d2", width: "45%" }}>
                 <strong>{order.name}</strong>
                 <h4 className="order-time">Order Date : {order.orderDate}</h4>

@@ -73,7 +73,7 @@ function Cart() {
       try {
         setisLoading(true);
         const resp = await fetch(
-          `http://${process.env.REACT_APP_IP}:8000/cart/get-products`,
+          `https://${process.env.REACT_APP_IP}/cart/get-products`,
           {
             method: "POST",
             headers: {
@@ -89,7 +89,7 @@ function Cart() {
         setData(temp);
 
         const data1 = await fetch(
-          `http://${process.env.REACT_APP_IP}:8000/cart/get-image`,
+          `https://${process.env.REACT_APP_IP}/cart/get-image`,
           {
             method: "POST",
             headers: {
@@ -128,7 +128,7 @@ function Cart() {
       handler: async function (response) {
         console.log(response);
         const data1 = await fetch(
-          `http://${process.env.REACT_APP_IP}:8000/order/verify`,
+          `https://${process.env.REACT_APP_IP}/order/verify`,
           {
             method: "POST",
             headers: {
@@ -142,7 +142,7 @@ function Cart() {
         const resp = await data1.json();
         if (resp.message === "Sign Valid") {
           const data2 = await fetch(
-            `http://${process.env.REACT_APP_IP}:8000/order/place`,
+            `https://${process.env.REACT_APP_IP}/order/place`,
             {
               method: "POST",
               headers: {
@@ -174,7 +174,7 @@ function Cart() {
 
   const handlePay = async function () {
     const resp = await fetch(
-      `http://${process.env.REACT_APP_IP}:8000/order/checkout`,
+      `https://${process.env.REACT_APP_IP}/order/checkout`,
       {
         method: "POST",
         headers: {

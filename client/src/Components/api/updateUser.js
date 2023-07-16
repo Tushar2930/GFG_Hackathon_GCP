@@ -9,7 +9,7 @@ export const updateUser = async (postData) => {
       }),
     };
     const data = await fetch(
-      `http://${process.env.REACT_APP_IP}:8000/user/updateUser`,
+      `https://${process.env.REACT_APP_IP}/user/updateUser`,
       requestOptions
     ).then((res) => res.json());
     return data;

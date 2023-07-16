@@ -9,7 +9,7 @@ export const updateUserCartItem = async (postData) => {
       }),
     };
     const data = await fetch(
-      `http://${process.env.REACT_APP_IP}:8000/cart/update-user-cart-item`,
+      `https://${process.env.REACT_APP_IP}/cart/update-user-cart-item`,
       requestOptions
     ).then((res) => res.json());
     return data;

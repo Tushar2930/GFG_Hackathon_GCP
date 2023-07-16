@@ -11,7 +11,7 @@ export const getUser = async (email) => {
       }),
     };
     const data = await fetch(
-      `http://${process.env.REACT_APP_IP}:8000/user/getUser`,
+      `https://${process.env.REACT_APP_IP}/user/getUser`,
       requestOptions
     ).then((res) => res.json());
     return data.list[0];

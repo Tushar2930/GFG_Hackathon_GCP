@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import "./RentingCard.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../context/AuthorizationContext.js";
 import tractor_img from "./images/tractor.jpg";
 import harvestor_img from "./images/harvestor.jpg";
@@ -23,7 +23,7 @@ function Card({
   const useAuth = useContext(AuthContext);
   const handleClick = async () => {
     const response = await fetch(
-      `http://${process.env.REACT_APP_IP}:8000/rent/add-provider`,
+      `https://${process.env.REACT_APP_IP}/rent/add-provider`,
       {
         method: "POST",
         headers: {
@@ -46,7 +46,7 @@ function Card({
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
+      });
 
       window.location.reload();
     }
@@ -125,7 +125,6 @@ function Card({
       cursor: "pointer",
       alignSelf: "flex-end",
     },
-
   };
 
   return (

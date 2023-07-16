@@ -9,7 +9,7 @@ export const createProduct = async (postData) => {
       }),
     };
     const data = await fetch(
-      `http://${process.env.REACT_APP_IP}:8000/product/sell-add`,
+      `https://${process.env.REACT_APP_IP}/product/sell-add`,
       requestOptions
     ).then((res) => res.json());
     return data;

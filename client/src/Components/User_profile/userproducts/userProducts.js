@@ -17,7 +17,7 @@ export default function UserProducts() {
             }),
           };
           const data = await fetch(
-            `http://${process.env.REACT_APP_IP}:8000/user/get-user-products`,
+            `https://${process.env.REACT_APP_IP}/user/get-user-products`,
             requestOptions
           )
             .then((res) => res.json())
@@ -31,7 +31,7 @@ export default function UserProducts() {
     };
     fetchProducts();
   }, []);
- 
+
   return (
     <div className="userProducts w-full justify-around flex">
       {userProducts?.map((product) => (

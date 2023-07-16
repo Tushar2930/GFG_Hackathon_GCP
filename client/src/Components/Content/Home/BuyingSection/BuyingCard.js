@@ -34,7 +34,7 @@ function Card({ img_url, maxQuantity, minQuantity, name, price, id }) {
 
     setIsLoading(true);
     const resp = await fetch(
-      `http://${process.env.REACT_APP_IP}:8000/cart/add-product`,
+      `https://${process.env.REACT_APP_IP}/cart/add-product`,
       {
         method: "POST",
         headers: {

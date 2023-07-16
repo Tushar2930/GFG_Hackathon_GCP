@@ -15,7 +15,7 @@ function BuyingCardList() {
   useEffect(() => {
     setisLoading(true);
     try {
-      fetch(`http://${process.env.REACT_APP_IP}:8000/product/get-products`)
+      fetch(`https://${process.env.REACT_APP_IP}/product/get-products`)
         .then((response) => response.json())
         .then((data) => {
           setisLoading(false);
