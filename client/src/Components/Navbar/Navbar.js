@@ -30,7 +30,7 @@ function Navbar() {
       <div className="navbar-logo -mx-4 -my-4">
         <img className=" h-10 sm:h-20" src={logoImg}></img>
       </div>
-      <ul className="navbar-links">
+      <ul className="navbar-links font-semibold">
         <li>
           <Link to="/" className={scroll ? "hover-a" : "navbar-links-a"}>
             Home
@@ -59,7 +59,7 @@ function Navbar() {
           </Link>
         </li>
         <li className={`text-white ${scroll ? "hover-a" : "navbar-links-a"}`}>
-          <MenuIcon />
+          <MenuIcon className="opacity-0" />
         </li>
       </ul>
     </nav>

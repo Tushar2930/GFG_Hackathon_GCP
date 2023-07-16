@@ -264,7 +264,7 @@ function Signup() {
               Sign In
             </button>
             <Link to="/signin">
-              <div class="Great">Already have an Account? Sign In</div>
+              <div class=" Great">Already have an Account? Sign In</div>
             </Link>
           </div>
         </div>

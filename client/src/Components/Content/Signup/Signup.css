@@ -55,7 +55,7 @@
   padding: 0rem 1rem;
   width: 60%;
   border: 0px;
-} 
+}
 
 .sign-container .btn-temp {
   flex-direction: row;
@@ -69,6 +69,7 @@
   border-radius: 2rem;
   background-color: #f4d336;
   color: black;
+  font-weight: bold;
   font-size: 1rem;
 }
 
@@ -103,11 +104,11 @@
   color: white;
 }
 
-.mobile-usertype{
+.mobile-usertype {
   display: none;
 }
 
-.mobile-profile{
+.mobile-profile {
   display: none;
 }
 
@@ -115,10 +116,10 @@
   .sign-container {
     height: 110vh;
   }
-  .sign-container .right-side{
+  .sign-container .right-side {
     width: 100%;
   }
-  .sign-container .input-con{
+  .sign-container .input-con {
     flex-direction: column;
     width: 95%;
     height: 10%;
@@ -126,31 +127,20 @@
   .sign-container input {
     width: 85%;
   }
-  .sign-container .radio-btn{
+  .sign-container .radio-btn {
     width: 85%;
   }
-  .sign-container .input-root{
+  .sign-container .input-root {
     width: 100%;
     height: 85%;
-    /* height: fit-content; */ 
+    /* height: fit-content; */
   }
-  .sign-container .submit-btn{
+  .sign-container .submit-btn {
     height: 3rem;
     width: 85%;
     align-self: start;
   }
-  .mobile-usertype{
-    display:block;
-    color: rgb(0, 0, 0);
-    display: flex;
-    width: 95%;
-    height: 8%;
-    justify-content: start;
-  }
-  .mobile-usertype label{
-    width: 85%;
-  }
-  .mobile-profile{
+  .mobile-usertype {
     display: block;
     color: rgb(0, 0, 0);
     display: flex;
@@ -158,21 +148,31 @@
     height: 8%;
     justify-content: start;
   }
-
+  .mobile-usertype label {
+    width: 85%;
+  }
+  .mobile-profile {
+    display: block;
+    color: rgb(0, 0, 0);
+    display: flex;
+    width: 95%;
+    height: 8%;
+    justify-content: start;
+  }
 }
-.Great:hover{
- font-weight: bolder;
- color: #000000;
- text-decoration: none;
+.Great:hover {
+  font-weight: bold;
+  color: #0000b3;
+  text-decoration: none;
 }
-.arya{
+.arya {
   margin-top: 10rem;
-  padding:-100rem;
+  padding: -100rem;
 }
-#gender{
-  margin-left:-6.5rem;
+#gender {
+  margin-left: -6.5rem;
   font-size: larger;
 }
-.gg{
+.gg {
   margin-left: 10px;
 }
