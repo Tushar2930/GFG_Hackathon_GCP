@@ -112,7 +112,9 @@ export default function SignIn() {
               Sign in with Google
             </button>
             <Link to="/signup">
-              <div>Don't have an Account? Sign Up</div>
+              <div className="hover:text-[#0000b3] hover:font-bold">
+                Don't have an Account? Sign Up
+              </div>
             </Link>
           </div>
         </div>

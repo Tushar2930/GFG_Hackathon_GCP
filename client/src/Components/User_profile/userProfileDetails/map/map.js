@@ -21,11 +21,10 @@ const Maap = ({ latlng, zoom, marker }) => {
       mapboxAccessToken={accessToken}
       interactive={true}
       style={{
-        width: "95%",
+        width: "100%",
         alignSelf: "center",
-        margin:"1rem 0rem",
         height: "100%",
-        borderRadius: "12px",
+        borderRadius: "20px",
       }}
       maxZoom={17}
       minZoom={1.2}
