@@ -9,7 +9,7 @@ export const createUser = async (postData) => {
       }),
     };
     const data = await fetch(
-      `http://${process.env.REACT_APP_IP}:8000/user/create`,
+      `https://${process.env.REACT_APP_IP}/user/create`,
       requestOptions
     ).then((res) => res.json());
     return data.data;

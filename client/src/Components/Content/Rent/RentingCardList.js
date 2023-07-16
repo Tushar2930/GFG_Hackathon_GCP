@@ -11,7 +11,7 @@ function BuyingCardList(props) {
   useEffect(() => {
     async function fetchData() {
       const data = await fetch(
-        `http://${process.env.REACT_APP_IP}:8000/rent/getAllFarmers`,
+        `https://${process.env.REACT_APP_IP}/rent/getAllFarmers`,
         {
           method: "GET",
           headers: {
@@ -42,7 +42,7 @@ function BuyingCardList(props) {
   const onCategoryOptionClicked = (option) => {
     if (option.value !== "None") setService(option);
     else setData(allData);
-  }; 
+  };
 
   var cardComponentArray = data.map((card) => {
     //  console.log(card)

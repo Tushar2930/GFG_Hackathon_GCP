@@ -36,7 +36,7 @@ function SingleProduct() {
         window.location.href = "/signin";
       }
       const resp = await fetch(
-        `http://${process.env.REACT_APP_IP}:8000/product/get-product/${id}`,
+        `https://${process.env.REACT_APP_IP}/product/get-product/${id}`,
         {
           method: "GET",
           headers: {
@@ -54,7 +54,7 @@ function SingleProduct() {
   const addToCart = async () => {
     setIsLoading(true);
     const resp = await fetch(
-      `http://${process.env.REACT_APP_IP}:8000/cart/add-product`,
+      `https://${process.env.REACT_APP_IP}/cart/add-product`,
       {
         method: "POST",
         headers: {

@@ -46,7 +46,7 @@ function ProductSection() {
   useEffect(() => {
     try {
       setisLoading(true);
-      fetch(`http://${process.env.REACT_APP_IP}:8000/product/get-products`)
+      fetch(`https://${process.env.REACT_APP_IP}/product/get-products`)
         .then((response) => response.json())
         .then((data) => {
           setisLoading(false);
@@ -133,287 +133,295 @@ function ProductSection() {
   };
 
   return (
-    <div className="fluid-container">
-      <div>
-        <img src={banner}></img>
-      </div>
-      <div className="row" style={{ padding: "18px" }}>
-        <div className="col-2 w-1/6">
-          <div className="row w-full" style={{ marginTop: "1.58%" }}>
-            <label className="mx-0 mb-5 w-full flex">
-              <div className="  text-black  text-sm sm:text-l">Sort by:</div>
-              <select
-                onChange={(e) => {
-                  setE(e.target.options.selectedIndex);
-                }}
-                name="price-select"
-                className="ms-4  h-7 rounded-md border 1px solid border-slate-400"
-                style={
-                  {
-                    // border: "1px solid black",
-                  }
-                }>
-                <option>High to Low</option>
-                <option>Low to High</option>
-                <option selected={true}>Recommended </option>
-              </select>
-            </label>
+    <div className="flex justify-center">
+      {isLoading ? (
+        <Illstration />
+      ) : (
+        <div className="fluid-container ">
+          <div>
+            <img src={banner} alt="err" />
           </div>
+          <div className="row" style={{ padding: "18px" }}>
+            <div className="col-2 w-1/6">
+              <div className="row w-full" style={{ marginTop: "1.58%" }}>
+                <label className="mx-0 mb-5 w-full flex">
+                  <div className="  text-black  text-sm sm:text-l">
+                    Sort by:
+                  </div>
+                  <select
+                    onChange={(e) => {
+                      setE(e.target.options.selectedIndex);
+                    }}
+                    name="price-select"
+                    className="ms-4  h-7 rounded-md border 1px solid border-slate-400"
+                    style={
+                      {
+                        // border: "1px solid black",
+                      }
+                    }>
+                    <option>High to Low</option>
+                    <option>Low to High</option>
+                    <option selected={true}>Recommended </option>
+                  </select>
+                </label>
+              </div>
 
-          <div className="row filter-col">
-            {/* Head of Filter component */}
-            <div className="row">
+              <div className="row filter-col">
+                {/* Head of Filter component */}
+                <div className="row">
+                  <div
+                    className="text-center pb-3  text-black"
+                    style={{ fontSize: "20px" }}>
+                    Categories
+                  </div>
+                </div>
+
+                {/* Main body of filter component */}
+                <div className="row">
+                  <div className="col-8">
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        name="fruits"
+                        id="form-check-1"
+                        style={{ border: "1px solid black", left: "40px" }}
+                        onClick={(e) => {
+                          if (e.target.checked === true) {
+                            filterData(e.target.name);
+                          } else {
+                            setData(allData);
+                          }
+                        }}
+                      />
+                      <label
+                        className="form-check-label mt-1 ms-2"
+                        for="flexCheckDefault">
+                        Fresh Fruits
+                      </label>
+                    </div>
+                  </div>
+                  <div className="col-4">
+                    <span className="float-end">
+                      {
+                        allData.filter((card) =>
+                          card?.category
+                            .toLowerCase()
+                            .includes("fruits".toLowerCase())
+                        ).length
+                      }
+                    </span>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-8">
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        name="vegetables"
+                        id="form-check-2"
+                        style={{ border: "1px solid black", left: "40px" }}
+                        onClick={(e) => {
+                          if (e.target.checked === true) {
+                            filterData(e.target.name);
+                          } else {
+                            setData(allData);
+                          }
+                        }}
+                      />
+                      <label
+                        className="form-check-label mt-1 ms-2"
+                        for="flexCheckDefault">
+                        Fresh Vegetables
+                      </label>
+                    </div>
+                  </div>
+                  <div className="col-4">
+                    <span className="float-end">
+                      {
+                        allData.filter((card) =>
+                          card.category
+                            .toLowerCase()
+                            .includes("vegetables".toLowerCase())
+                        ).length
+                      }
+                    </span>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-8">
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id="form-check-3"
+                        name="pulses"
+                        style={{ border: "1px solid black", left: "40px" }}
+                        onClick={(e) => {
+                          if (e.target.checked === true) {
+                            filterData(e.target.name);
+                          } else {
+                            setData(allData);
+                          }
+                        }}
+                      />
+                      <label
+                        className="form-check-label mt-1 ms-2"
+                        for="flexCheckDefault">
+                        Pulses
+                      </label>
+                    </div>
+                  </div>
+                  <div className="col-4">
+                    <span className="float-end">
+                      {
+                        allData.filter((card) =>
+                          card.category
+                            .toLowerCase()
+                            .includes("pulses".toLowerCase())
+                        ).length
+                      }
+                    </span>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-8">
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id="form-check-3"
+                        name="grains"
+                        style={{ border: "1px solid black", left: "40px" }}
+                        onClick={(e) => {
+                          if (e.target.checked === true) {
+                            filterData(e.target.name);
+                          } else {
+                            setData(allData);
+                          }
+                        }}
+                      />
+                      <label
+                        className="form-check-label mt-1 ms-2"
+                        for="flexCheckDefault">
+                        Grains
+                      </label>
+                    </div>
+                  </div>
+                  <div className="col-4">
+                    <span className="float-end">
+                      {
+                        allData.filter((card) =>
+                          card.category
+                            .toLowerCase()
+                            .includes("grain".toLowerCase())
+                        ).length
+                      }
+                    </span>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-8">
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id="form-check-4"
+                        name="dry fruits"
+                        style={{ border: "1px solid black", left: "40px" }}
+                        onClick={(e) => {
+                          if (e.target.checked === true) {
+                            filterData(e.target.name);
+                          } else {
+                            setData(allData);
+                          }
+                        }}
+                      />
+                      <label
+                        className="form-check-label mt-1 ms-2"
+                        for="flexCheckDefault">
+                        Dry Fruits
+                      </label>
+                    </div>
+                  </div>
+                  <div className="col-4">
+                    <span className="float-end">
+                      {
+                        allData.filter((card) =>
+                          card.category
+                            .toLowerCase()
+                            .includes("dry fruits".toLowerCase())
+                        ).length
+                      }
+                    </span>
+                  </div>
+                </div>
+
+                {/* Bottom part of Filter component */}
+
+                {/* Horizontal line */}
+                <div className="mt-3 mx-auto" style={horizontalLine}></div>
+              </div>
+            </div>
+
+            <div className="col-10 products-col">
+              {/* <Products checklth={lth} checkhtl={htl} /> */}
+              <SearchBar onSearch={handleSearch} />
               <div
-                className="text-center pb-3  text-black"
-                style={{ fontSize: "20px" }}>
-                Categories
+                className="flex justify-center mb-0"
+                style={{ margin: "60px 0 60px 0" }}>
+                <hr style={{ marginLeft: "-2%", width: "100%" }} />
               </div>
-            </div>
+              <div
+                className="row justify-content-around rounded-none flex flex-wrap gap-3 sm:gap-6 border-r-10 border-2 border-slate-600 px-3 sm:px-5"
+                style={{ ...verticalLineStyle, backgroundColor: "white" }}>
+                {cardComponentArray}
+              </div>
 
-            {/* Main body of filter component */}
-            <div className="row">
-              <div className="col-8">
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    name="fruits"
-                    id="form-check-1"
-                    style={{ border: "1px solid black", left: "40px" }}
-                    onClick={(e) => {
-                      if (e.target.checked === true) {
-                        filterData(e.target.name);
-                      } else {
-                        setData(allData);
-                      }
-                    }}
-                  />
-                  <label
-                    className="form-check-label mt-1 ms-2"
-                    for="flexCheckDefault">
-                    Fresh Fruits
-                  </label>
+              <div className="full-width mt-4 mb-5">
+                <div className="">
+                  <MdArrowBackIosNew />
+                </div>
+                <div
+                  className={`view-more-circle cursor-pointer  ${
+                    currentPage === 1 ? "active" : ""
+                  }`}
+                  id={1}
+                  onClick={(e) => {
+                    pagination(e.target.id);
+                  }}>
+                  1
+                </div>
+                <div
+                  className={`view-more-circle cursor-pointer  ${
+                    currentPage === 2 ? "active" : ""
+                  }`}
+                  id={2}
+                  onClick={(e) => {
+                    setcurrentPage(2);
+                    pagination(e.target.id);
+                  }}>
+                  2
+                </div>
+                <div
+                  className={`view-more-circle cursor-pointer ${
+                    currentPage === 3 ? "active" : ""
+                  }`}
+                  id={3}
+                  onClick={(e) => {
+                    pagination(e.target.id);
+                  }}>
+                  3
+                </div>
+                <div className="">
+                  <MdArrowForwardIos />
                 </div>
               </div>
-              <div className="col-4">
-                <span className="float-end">
-                  {
-                    allData.filter((card) =>
-                      card?.category
-                        .toLowerCase()
-                        .includes("fruits".toLowerCase())
-                    ).length
-                  }
-                </span>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-8">
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    name="vegetables"
-                    id="form-check-2"
-                    style={{ border: "1px solid black", left: "40px" }}
-                    onClick={(e) => {
-                      if (e.target.checked === true) {
-                        filterData(e.target.name);
-                      } else {
-                        setData(allData);
-                      }
-                    }}
-                  />
-                  <label
-                    className="form-check-label mt-1 ms-2"
-                    for="flexCheckDefault">
-                    Fresh Vegetables
-                  </label>
-                </div>
-              </div>
-              <div className="col-4">
-                <span className="float-end">
-                  {
-                    allData.filter((card) =>
-                      card.category
-                        .toLowerCase()
-                        .includes("vegetables".toLowerCase())
-                    ).length
-                  }
-                </span>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-8">
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="form-check-3"
-                    name="pulses"
-                    style={{ border: "1px solid black", left: "40px" }}
-                    onClick={(e) => {
-                      if (e.target.checked === true) {
-                        filterData(e.target.name);
-                      } else {
-                        setData(allData);
-                      }
-                    }}
-                  />
-                  <label
-                    className="form-check-label mt-1 ms-2"
-                    for="flexCheckDefault">
-                    Pulses
-                  </label>
-                </div>
-              </div>
-              <div className="col-4">
-                <span className="float-end">
-                  {
-                    allData.filter((card) =>
-                      card.category
-                        .toLowerCase()
-                        .includes("pulses".toLowerCase())
-                    ).length
-                  }
-                </span>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-8">
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="form-check-3"
-                    name="grains"
-                    style={{ border: "1px solid black", left: "40px" }}
-                    onClick={(e) => {
-                      if (e.target.checked === true) {
-                        filterData(e.target.name);
-                      } else {
-                        setData(allData);
-                      }
-                    }}
-                  />
-                  <label
-                    className="form-check-label mt-1 ms-2"
-                    for="flexCheckDefault">
-                    Grains
-                  </label>
-                </div>
-              </div>
-              <div className="col-4">
-                <span className="float-end">
-                  {
-                    allData.filter((card) =>
-                      card.category
-                        .toLowerCase()
-                        .includes("grain".toLowerCase())
-                    ).length
-                  }
-                </span>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-8">
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="form-check-4"
-                    name="dry fruits"
-                    style={{ border: "1px solid black", left: "40px" }}
-                    onClick={(e) => {
-                      if (e.target.checked === true) {
-                        filterData(e.target.name);
-                      } else {
-                        setData(allData);
-                      }
-                    }}
-                  />
-                  <label
-                    className="form-check-label mt-1 ms-2"
-                    for="flexCheckDefault">
-                    Dry Fruits
-                  </label>
-                </div>
-              </div>
-              <div className="col-4">
-                <span className="float-end">
-                  {
-                    allData.filter((card) =>
-                      card.category
-                        .toLowerCase()
-                        .includes("dry fruits".toLowerCase())
-                    ).length
-                  }
-                </span>
-              </div>
-            </div>
-
-            {/* Bottom part of Filter component */}
-
-            {/* Horizontal line */}
-            <div className="mt-3 mx-auto" style={horizontalLine}></div>
-          </div>
-        </div>
-
-        <div className="col-10 products-col">
-          {/* <Products checklth={lth} checkhtl={htl} /> */}
-          <SearchBar onSearch={handleSearch} />
-          <div
-            className="flex justify-center mb-0"
-            style={{ margin: "60px 0 60px 0" }}>
-            <hr style={{ marginLeft: "-2%", width: "100%" }} />
-          </div>
-          <div
-            className="row justify-content-around rounded-none flex flex-wrap gap-3 sm:gap-6 border-r-10 border-2 border-slate-600 px-3 sm:px-5"
-            style={{ ...verticalLineStyle, backgroundColor: "white" }}>
-            {isLoading ? <Illstration /> : cardComponentArray}
-          </div>
-
-          <div className="full-width mt-4 mb-5">
-            <div className="">
-              <MdArrowBackIosNew />
-            </div>
-            <div
-              className={`view-more-circle cursor-pointer  ${
-                currentPage === 1 ? "active" : ""
-              }`}
-              id={1}
-              onClick={(e) => {
-                pagination(e.target.id);
-              }}>
-              1
-            </div>
-            <div
-              className={`view-more-circle cursor-pointer  ${
-                currentPage === 2 ? "active" : ""
-              }`}
-              id={2}
-              onClick={(e) => {
-                setcurrentPage(2);
-                pagination(e.target.id);
-              }}>
-              2
-            </div>
-            <div
-              className={`view-more-circle cursor-pointer ${
-                currentPage === 3 ? "active" : ""
-              }`}
-              id={3}
-              onClick={(e) => {
-                pagination(e.target.id);
-              }}>
-              3
-            </div>
-            <div className="">
-              <MdArrowForwardIos />
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
