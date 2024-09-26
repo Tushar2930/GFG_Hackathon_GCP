@@ -8,8 +8,3 @@ router.use('/order',require('./order'));
 router.use('/rent',require('./rent'));
 
 module.exports = router;
-
-// const express=require('express');
-// const router=express.Router();
-
-// module.exports=router;

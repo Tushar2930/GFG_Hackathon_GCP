@@ -118,13 +118,14 @@ function Cart() {
     feth();
   }, []);
   function handleRazorPay(orderData) {
+    console.log(orderData);
     const options = {
       key: "rzp_test_Ao3jBTNOJ6GS1R",
-      amount: Number(orderData.amount),
-      currency: orderData.currency,
+      amount: Number(orderData?.amount),
+      currency: orderData?.currency,
       name: "AGROKART",
       description: "test",
-      order_id: orderData.id,
+      order_id: orderData?.id,
       handler: async function (response) {
         console.log(response);
         const data1 = await fetch(
@@ -181,7 +182,7 @@ function Cart() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          amount: total,
+          amount: total + 2 + 1,
         }),
       }
     );

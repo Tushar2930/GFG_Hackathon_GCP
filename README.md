@@ -77,7 +77,8 @@ Start the server
   ************************************************
   Can use this email to Login and explore     
 ```bash
-  ex1@gmail.com
+  email-ex1@gmail.com
+  password-1234567890
   ```
 ## Environment Variables
 

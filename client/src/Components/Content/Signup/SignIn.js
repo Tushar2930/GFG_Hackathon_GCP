@@ -7,8 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "./SignIn.css";
 
 export default function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("ex1@gmail.com");
+  const [password, setPassword] = useState("1234567890");
   const [isLoading, setIsLoading] = useState(false);
 
   const useAuth = useContext(AuthContext);
