@@ -68,7 +68,7 @@ function RecentOrdersPage() {
               <img
                 src={isLoading ? loading : image[index]}
                 alt="order"
-                style={{ width: "50%" }}
+                style={{ width: "25%" }}
               />
               <div style={{ borderRight: "1px solid #d2d2d2", width: "45%" }}>
                 <strong>{order.name}</strong>

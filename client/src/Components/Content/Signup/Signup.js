@@ -261,10 +261,10 @@ function Signup() {
               </div>
             </div>
             <button className="submit-btn" onClick={handelSignUp}>
-              Sign In
+              Register
             </button>
             <Link to="/signin">
-              <div class=" Great">Already have an Account? Sign In</div>
+              <div class=" Great">Already have an Account? Log In</div>
             </Link>
           </div>
         </div>

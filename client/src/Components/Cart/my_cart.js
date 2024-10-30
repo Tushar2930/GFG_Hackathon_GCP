@@ -120,7 +120,7 @@ function Cart() {
   function handleRazorPay(orderData) {
     console.log(orderData);
     const options = {
-      key: "rzp_test_Ao3jBTNOJ6GS1R",
+      key: process.env.REACT_APP_RAZORPAY_KEY,
       amount: Number(orderData?.amount),
       currency: orderData?.currency,
       name: "AGROKART",

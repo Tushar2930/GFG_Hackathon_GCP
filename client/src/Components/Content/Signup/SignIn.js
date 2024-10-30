@@ -67,7 +67,7 @@ export default function SignIn() {
       <div className="sign-cont">
         <div className="left-side"></div>
         <div className="right-side">
-          <div className="right-head">Create Account</div>
+          <div className="right-head">Log In</div>
           <div className="input-root">
             <div className="input-cont">
               <label>Email address</label>
@@ -103,7 +103,7 @@ export default function SignIn() {
               className="submit-btn"
               disabled={isLoading}
               onClick={() => handleSignIn()}>
-              {!isLoading ? "Login" : <CircularProgress />}
+              {!isLoading ? "Log in" : <CircularProgress />}
             </button>
             <button
               className="submit-btn hidden"
@@ -113,7 +113,7 @@ export default function SignIn() {
             </button>
             <Link to="/signup">
               <div className="hover:text-[#0000b3] hover:font-bold">
-                Don't have an Account? Sign Up
+                Don't have an Account? Register
               </div>
             </Link>
           </div>
